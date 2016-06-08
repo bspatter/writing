@@ -1,0 +1,184 @@
+\section{Future Work} \label{sec:usbe_lung_future}%
+Finally, we address some of the limitations of this study and propose
+future work to address some of these issues. To further evaluate the
+relevance of the proposed damage mechanisms and presented results to
+\ac{DUS}-induced lung hemorrhage, viscous and elastic effects should
+be considered, as both of these have the potential to reduce observed
+deformation, and mitigate hemorrhage. Additionally, more realistic
+geometries that more accurately represent physical networks of alveoli
+within the lungs will be useful to understand the propagation of
+ultrasound waves and hemorrhage deeper into the lungs, beyond the
+first tissue, air interface. To do this accurately, it may be
+necessary to include a model for interface rupture. Many of these
+future tasks will require not only additional numerical efforts, but
+also experimental studies to appropriately characterize the lung
+tissue and validate the suggested models. Additionally, to increase
+our understanding of the relevant fluid dynamics, it will be important
+it would be useful to be able predict the circulation and interface
+dynamics based on the wave properties and initial conditions.
+
+To address some of these issues and complete the proposed dissertation
+research we plan to perform several tasks:
+
+\begin{itemize}
+\item To further the relevance of this research to the problem of
+  \ac{DUS} of the lung we will:
+  \begin{enumerate}
+  \item Calculate stresses and strains at the interface compare to
+    known properties of the lung. A passive viscous stress tensor will
+    be computed from the velocity field and volume fraction fields,
+    assuming constant viscosity for pure water and air. Lagrange
+    particles will be placed upon the interface and tracked in time to
+    calculate the pathlength of the interface as a function of time
+    $S_{Intf}(t)$. This will be used to compute the engineering strain,
+    $\varepsilon$, as though the interface were a solid sheet of
+    tissue where, where
+    $\varepsilon=[S_{Intf}(t=0)-S_{Intf}(t)]/S_{Intf}(t=0)$.
+    % 
+  \item Investigate the effects of alveolar side wall structures. To
+    model this, a thin layer of tissue (modeled as water) will be
+    placed at the edges of the alveolus (modeled as air) and periodic
+    boundary conditions will be used.
+    %
+  \item Investigate the propagation of ultrasound waves and hemorrhage
+    into the lungs. To model this we will modify the current geometry
+    to such that a thin sinusoidal strip of water, parallel to the
+    initial interface, will be be placed every $\lambda$ deep into the
+    alveoli. This will be used with then be used with the alveolar
+    walls described above to simulate a diagnostic ultrasound pulse
+    propagating into a uniformly distributed alveolar network.
+    %
+  \end{enumerate}
+  % 
+\item To further our understanding of fluid mechanics
+  associated with acoustically perturbed fluid interfaces we will:
+  \begin{enumerate}
+  \item Perform longer simulations to validate $a(t)\sim\sqrt{\Gamma t}$ scaling.
+    % 
+  \item Develop a model to predict the circulation deposited on a
+    slightly perturbed interface by a simple compression or expansion
+    wave. To do this, we will assume the interface is static during
+    the interaction with the wave. Then, estimate the baroclinic term
+    of the vorticity equation based on known interface and wave
+    properties and linear acoustic relationships between state
+    variables.
+    %
+  \item Develop a model to predict the interface phase-reversal time
+    for a simple compression wave. This model will be based on the
+    expected compression of the interface due to the rising pressure
+    during the interaction with the wave, and the subsequent
+    circulation driven deformation described by scaling law
+    \eqref{eq:intf_circ_scaling}.
+    %
+  \item Design acoustic waveforms that utilize time dependent features
+    and interface deformation to generate minimal circulation and
+    interface growth. To do this, we will will aim to create waves
+    that deposit vorticity of opposite sign and approximately equal
+    magnitude before and after the interface phase change. One example
+    of a wave that will be considered is a single period sinusoidal
+    pressure wave that changes from the compression to expansion as
+    the phase of the interface inverts.
+    %
+  \item Investigate the cause of late time circulation growth observed
+    in some simulations. As can be seen from the circulation history
+    for the $10$ MPa trapezoidal wave in Figure
+    \ref{fig:trapz_circ_interface_loglog}, circulation continues to
+    grow after all waves have left the domain. We plan to first
+    determine if this effect is physical or numerical. If this effect
+    is physical, we aim to determine the mechanism.
+    %
+  \item Investigate the dependence of circulation on the type of
+    Riemann solver used. Though this document has not provided results
+    to this effect, we have noticed that the amount of circulation
+    produced by a given problem setup is roughly twice as large when
+    the Rusanov solver is implemented as opposed to Roe solver. We
+    will investigate the cause of this in order to determine which is
+    more appropriate for our work.
+  \end{enumerate}
+\end{itemize}
+
+
+
+
+
+
+
+% \begin{comment} Move this stuff to introduction There has been a
+%   significant amount of prior research into ultrasound-induced
+%   pulmonary hemorrhage, but in spite of this there are still many
+%   questions left unanswered.  Presently the underlying damage
+%   mechanism causing the hemorrhage is not currently known.  Research
+%   has shown that the underlying mechanism of US-induced pulmonary
+%   hemorrhage is non-thermal. \citet{Zachary2006a}, for instance,
+%   compared lesions generated with DUS to those generated via laser
+%   and found multiple differences in the injured tissue. Other
+%   studies have shown that inertial cavitation, the intially
+%   suspected mechanism, is also unlikely to be responsible for the
+%   US-induced PH. \citet{Raeman1997} injected the UCA Albunex, which
+%   is expected to nucleate cavitation when exposed to US, into mice
+%   before performing pulmonarry US and showed that the hemorrhage was
+%   similar to that observed in control mice injected with saline.  In
+%   a later study \citet{Obrien2000} placed mice under increased
+%   hydrostatic pressure, to suppress the occurence of inertial
+%   cavitation, before exposure to pulmonarry US, and found that
+%   hemorrohage was enhanced by the increased pressure. While it is
+%   widely suspected that the cause of the hemorrhage is mechanical,
+%   the precise underlying mechanism by which acoustic energy is
+%   tranduced into mechanical stress and strain in the capillary has
+%   remained elusive.
+
+%   We hypothesize that sharp pressure gradients in the US wave
+%   interact with the strong density gradients at the blood-air
+%   barriers in the lungs, in turn generating baroclinic vorticity at
+%   the interface between the alveoli and the adjacent capillary
+%   sheets.  Furthermore, we propose that this vorticity drives the
+%   growth of this interface, causing strain, stress, and ultimately
+%   failure.
+% \end{comment}
+
+
+% The future work investigating ultrasound-induced pulmonarry
+% hemorrhage will be divided into two tasks.  First, further numerical
+% simulations of liquid-gas interfaces with pressure waves will be
+% performed in order to investigate US-generated baroclinic vorticity
+% in the lung as a possible mechanism for hemorrhage. Second a
+% simplified model of ultrasound propagation into the lung will be
+% created.
+
+% \section{Numerical investigation of ultrasound-lung interaction}
+% To investigate the behavior of tissue-air interfaces with DUS waves,
+% the lung will be modeled as a compressible fluid system.  As in the
+% prior work, the alveoli will be modeled as air. The surrounding
+% tissue will be treated as a Newtonian fluid with the density and
+% viscosity of blood and all other relevant properties will be set to
+% those of water. The liquid-gas interface will be modeled as a
+% sinusoid of wavelength $\lambda=200\mu$m, as is consistent with
+% typical alvelolar diameter (ADD CITATION). A series of simulations
+% will be performed in which this liquid-gas interface will be
+% subjected to a pressure waveforms of increasing complexity.
+
+% \section{Baroclinic vorticity generation at the alveolar-capillary sheet interface blood-air barrier}
+% \subsection{Estimations of vorticity generation}
+% \subsection{Expected interface growth from vorticity at the
+% interface }
+
+% \section{Simulations of acoustic wave interactions with a sinusoidal blood-air interface}
+% \begin{itemize}
+% \item Proposed experiment 1: Interaction of a sinusoidal blood-air interface with a planar acoustic wave with linearly-increasing amplitude
+% \item Proposed experiment 2: Interaction of a sinusoidal blood-air interface with a sinudoidal pressure pulse
+% \item Proposed experiment 3: Interaction of a sinusoidal blood-air interface with a single DUS pulse
+% \item Proposed experiment 4: Interaction of a sinusoidal blood-air interface with multiple DUS pulses
+% Space pulses based on accepted experimental procedure and see how the secondary pulses effect the interaface growth.
+% \end{itemize}
+
+% \section{Modeling US propagation into the lung}
+% I aim to model the propagation of ultrasound waves into the lungs.  Much of the lung is composed of tiny air-filled sacs called alveoli. Due to the large impedance mismatch between these alveoli and their surrounding tissue, the lung is highy acoustically reflective.
+
+% \subsection{Propogation of acoustic energy into the lung}
+% Use linear acoustics to predict the transmitted and reflected acoustic pressure amplitudes for air pockets separated by thin water (blood) membranes.  (1a) Model adjacent alveoli as first as normal planar slabs of air with thickness equal to alveolar diameter ($200\mu$m), seperated by slabs of water (blood) of alveolar membrane diameter ($1\mu$m).  (1b) Then model packed regular triangles, (1c) squares (faces oriented at π/4 relative to incoming plane wave.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
