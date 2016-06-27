@@ -1,0 +1,131 @@
+\chapter{Introduction} \label{ch:usbe_intro}%
+The purpose of this chapter is two fold. First, we aim to provide a
+general physical context for the work presented in this part of the
+thesis proposal. Second, we will provide a brief overview of the work
+to be presented and its significance. For a more detailed overview of
+the relevant literature, the reader is referred to later parts of this
+document, and to this authors published works.
+
+\section{Physical context} \label{sec:usbe_intro_physical_context}%
+Diagnostic \ac{US} has proven to be among the safest and most powerful
+medical imaging tools currently available. Its use has become
+ubiquitous throughout modern medicine. The basic physical principle
+underlying this technology is the scattering of sound at material
+interfaces. In practice, high-frequency, typically MHz range, acoustic
+waves and pulses are created at the surface of the body using a
+piezoelectric \ac{US} transducer. These vibrations propagate via an
+acoustic coupling medium from the transducer into the tissue and
+scatter at changes in the material properties of the medium. More
+simply, some of the sound echoes whenever it moves from one tissue to
+another, or hits a cavity in the body. These echoes are then picked up
+by a receiver and recorded. This echo signal is processed to obtain
+real-time images of the scattering surface.
+
+While clinical \ac{US} is typically safe there are specific instances
+during which \ac{US} can interact with tissue in such a way that the
+tissue is physically altered. These effects to the body are referred
+to as \ac{US} bioeffects. Understanding these \ac{US}-tissue
+interactions is important for the development of safe, effective
+\ac{US} techniques \citep{Dalecki2004}. While the entire field of
+therapeutic \ac{US} is focused on intentionally causing bioeffects in
+a way that is beneficial to the patient, diagnostic \ac{US} is a
+different story. Bioeffects that occur during diagnostic \ac{US}
+typically take the form of unintended hemorrhage, tissue damage, or
+cell death. Depending on the physical damage mechanism responsible,
+these bioeffects are broadly classified into two groups, thermal and
+non-thermal \citep{OBrien2007}. The first group, thermal bioeffects
+are characterized by deposition of acoustic energy into tissue as
+heat. At the cellular and molecular scales, this can lead to the
+release of highly reactive free radicals, protein denaturation, and
+ultimately tissue damage and death. Little else will be said about
+thermal bioeffects, as the the bioeffects problems of interest to this
+work are a result of non-thermal mechanisms. 
+
+The bulk of known non-thermal bioeffects are attributed to
+acoustically-induced cavitation. Acoustic cavitation is the phenomenon
+by which gas nano and microbubbles, called cavitation nuclei, are
+cyclically grown by low pressures within the \ac{US} field and then
+collapsed high pressures within the field. Cavitation can be divided
+into two categories, stable cavitation, also called gas body
+activation, and \ac{IC}, formerly referred to as transient
+cavitation. Stable cavitation typically occurs for low \ac{US}
+intensity an is characterized by bubbles periodically oscillating
+around an equilibrium radius for multiple acoustic cycles. \ac{IC}
+typically occurs for higher ultrasound intensities. During \ac{IC} the
+bubble dynamics during collapse are dominated by the inertia of the
+surrounding fluid. The bubble collapses violently to a tiny fraction
+of its original size and then explosively rebounds back. There are
+variety of physical phenomena associated with \ac{IC} that may be
+responsible for observed \ac{US} bioeffects. Upon collapse, the
+pressure and temperature within the bubbles spike, often reaching
+billions of pascals and thousands of Kelvin respectively. Due to the
+pressure difference between the vapor/gas mixture within the bubble at
+collapse and the surrounding media, the collapsed bubble can emit a
+powerful shock wave. When cavitation is triggered near a rigid
+surface, the bubble can collapse in a radially asymmetric fashion
+causing a high speed ``re-entrant'' jet of liquid to impinge upon the
+surface, effectively striking the surface with a liquid hammer. If
+cavitation occurs at an appropriate distance from a non-rigid surface,
+such as soft tissue boundaries and blood vessel walls, the jet can
+impinge away from the surface, potentially invaginating the surface
+\citep{Brujan2011}. One type of \ac{DUS} for which cavitation is of
+particular concern is \ac{CEUS}, which uses contrast-agent
+microbubbles injected into patients bloodstream to act as additional
+scattering surfaces. These microbubbles can also serve as cavitation
+nuclei and have been associated with a variety of \ac{US} bioeffects. 
+
+Another non-thermal \ac{US} bioeffect of interest is \ac{DUS}-induced
+\ac{LH}, which is the only known bioeffect of non-contrast \ac{DUS}
+known to occur in mammals. Despite the fact that this phenomenon was
+first observed in mice over twenty years ago \citep{Child1990}, the
+underlying physical damage mechanisms remain unknown. Research has
+shown that thermal damage mechanisms are unlikely as \ac{DUS}-induced
+lung lesions do not appear similar to those induced by heat
+\citep{Zachary2006}. Furthermore, cavitation mechanisms do not appear
+to be responsible, as the severity of \ac{DUS}-induced \ac{LH} in mice
+increased under raised hydrostatic pressure \citep{OBrien2000} and was
+unaffected by the introduction of \ac{US} contrast agents into
+subjects. Both of these results are inconsistent with what is expected
+of \ac{IC}-induced bioeffects. Works by \cite{Tjan2007,Tjan2008} model
+the evolution of an inviscid, free surface subjected to a Gaussian
+velocity potential and find that this can lead to the ejection of
+liquid droplets. They go on to say that \ac{DUS} of the lung may
+similarly lead to the ejected of droplets capable of puncturing the
+air-filled sacs within the lung. This problem is central to the our
+present and future work, and makes up the bulk of this proposal. As
+such, a far more in-depth literature review will be provided in
+Chapter \ref{ch:usbe_lung}.
+
+\section{An overview of our work studying \ac{US}
+  bioeffects} \label{sec:usbe_intro_overview}%
+For the proposed dissertation, we will discuss our work studying two
+ultrasound bioeffects problems. 
+
+First, in Chapter \ref{ch:usbe_bubble} we present past work in which
+we simulate ultrasonically induced cavitation of contrast agent
+microbubbles in soft tissue \citep{Patterson2012}. We use
+experimentally measured $1.5-7.5$ MHz \ac{US} waves, previously used
+by \cite{Miller2008b} to determine kidney capillary hemorrhage
+threshold amplitudes in rats, as input to the simulation. The
+calculated cavitation dynamics and theoretical inertial cavitation
+thresholds \citep{Flynn1982,Apfel1982} are compared with known
+thresholds for kidney hemorrhage to investigate their dependence on
+US, gas, and tissue properties. At the time of its publication, this
+work was unique in its combination of experimental results and
+numerical modeling to approach this problem.
+
+Second, in Chapter \ref{ch:usbe_lung} we present current work
+investigating a previously unconsidered potential mechanism for
+\ac{DUS}-induced \ac{LH}. We develop a of \ac{DUS}-alveolus
+interaction as an acoustically accelerated interface between two
+compressible fluids and perform numerical simulations to show that
+acoustically generated baroclinic torque at tissue-air interfaces
+within the lungs may be capable of deforming the fragile alveolar
+walls within the lungs, possibly to the point of hemorrhage. We
+generalize our discussion to acoustically-accelerated, perturbed,
+liquid-gas interfaces. Finally we propose future work to be completed
+for this dissertation.
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../prelim"
+%%% End:
