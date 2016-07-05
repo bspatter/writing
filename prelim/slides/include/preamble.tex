@@ -1,0 +1,126 @@
+\documentclass[11pt]{beamer} %Add 'handout' in the options for printing
+
+\usepackage{beamercolorthemewolverine}
+\usetheme{AnnArbor}
+
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{commath}
+\usepackage{amssymb,amscd,amsfonts,amsbsy}
+\usepackage{enumerate}
+\usepackage{epsfig}
+\usepackage{pgfpages}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{layouts}
+\usepackage[center]{caption}
+\usepackage{natbib}
+\usepackage{movie15}
+\usepackage{etex}
+\usepackage{embedfile}
+\usepackage{caption}
+\usepackage{soul,xcolor}
+%\usepackage{multimedia}
+%\usepackage{media9}
+
+
+
+
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\setbeamertemplate{footline}[frame number]{}%gets rid of bottom navigation bars
+
+
+\graphicspath{ {../../../Figures/} }
+
+
+% Figures within a column...
+\makeatletter
+\newenvironment{tablehere}
+{\def\@captype{table}}
+{}
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
+\makeatother
+
+\newcommand{\beginbackup}{
+   \newcounter{framenumbervorappendix}
+   \setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumbervorappendix}} 
+}
+
+%---------------------------------------------------------------------------
+\setbeamercolor{alerted text}{fg=red} 
+\setbeamertemplate{frametitle}
+{\vskip-5pt 
+  \leavevmode
+  \begin{center}
+    \vspace*{-0.5cm}
+  \hbox{%
+  % \begin{beamercolorbox}[wd=\paperwidth,ht=0.4cm,dp=1.35ex]{frametitle}%
+  %   \raggedright\hspace*{2em}\vspace*{-.25cm}\insertframetitle %\small{\insertframetitle}
+  % \end{beamercolorbox}
+   \hspace*{1em}\insertframetitle %\small{\insertframetitle}
+  }%
+  \end{center}
+  \vspace*{-1.25cm}
+}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+
+\setbeamertemplate{headline}{}
+
+\setbeamercovered{dynamic}
+
+
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bp}{\noindent {\it Proof}.\,\,\,}
+\newcommand{\ep}{\hfill$\Box$ \vskip 0.08in}
+\newcommand{\dint}{\int\!\!\!\int}
+\newcommand{\vs}{\vskip 0.5cm}
+\newcommand{\po}{{\partial\Omega}}
+\newcommand{\meanint}{{\int{\mkern-19mu}-}}
+\def\ring{\mathaccent"0017 }
+
+\definecolor{AliceBlue}{RGB}{240,248,255}
+
+
+%\definecolor{lightblue}{rgb}{1,0,0}
+%\sethlcolor{lightblue}
+\renewcommand<>{\hl}[1]{\only#2{\beameroriginal{\hl}}{#1}}
+
+% http://tex.stackexchange.com/questions/41683/why-is-it-that-coloring-in-soul-in-beamer-is-not-visible
+\makeatletter
+\newcommand\SoulColor{%
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color}
+\makeatother
+\SoulColor
+
+
+
+%\usepackage{media9}%
+%\newcommand{\includemovies}[3]{%
+%\includemedia[%
+%width=#1,height=#2,%
+%activate=pagevisible,%
+%deactivate=pageclose,%
+%addresource=#3,%
+%flashvars={%
+%src=#3 % same path as in addresource!
+%&autoPlay=true % default: false; if =true, automatically starts playback after activation (see option ‘activation)’
+%&loop=true % if loop=true, media is played in a loop
+%&controlBarAutoHideTimeout=0 %  time span before auto-hide
+%}%
+%]{}{StrobeMediaPlayback.swf}%
+%}
+
+

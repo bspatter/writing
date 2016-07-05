@@ -1,0 +1,200 @@
+\input{include/preamble.tex}
+\embedfile{\jobname}
+\embedfile{include/preamble.tex}
+%
+
+% My commands
+\newcommand{\orderof}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
+
+\begin{document}
+\input{include/TitleSlide.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slides %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \centering
+  \begin{center}
+    \LARGE Part I: Introduction
+  \end{center}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Introduction}
+
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Past Project: Efficient estimation of the Probability Density Function of transmission loss in uncertain ocean environments}
+
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Past Project: Theoretical microbubble dynamics in a viscoelastic medium at capillary breaching thresholds}
+
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Background on diagnostic ultrasound}
+  \begin{itemize}
+    \item Diagnostic Ultrasound (DUS) is ubiquitous and generally very safe
+    \item Lung Hemorrhage (LH) is the only known bioeffect of non-contrast diagnostic ultrasound
+  \end{itemize}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Background on wave-interface interaction}
+
+\end{frame}
+%%
+%%
+\begin{frame}
+  \centering
+  \begin{center}
+    {\LARGE Part II: Current Project}\\
+    Diagnostic ultrasound-induced lung hemorrhage and acoustic wave
+    interactions with liquid-gas interfaces
+  \end{center}
+\end{frame}
+%%
+%%
+%%
+%%
+\begin{frame} \frametitle{Diagnostic ultrasound-induced lung hemorrhage is not a new problem}
+  \begin{itemize}
+  \item Discovered in mice during lithotripsy experiment by \cite{Child1990}.
+  \item Since has been shown to occur in a variety of mammals \SoulColor{\hl{ADD CITATION}}
+  \end{itemize}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Mechanical wave fluid-fluid interface interactions}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+%%
+%%
+\begin{frame}
+We aim to study acoustic wave interactions with perturbed liquid-gas interfaces
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Problem setup}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Methods}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Results: Behavior of the interface}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Results: Evolution of the interface}
+  \begin{itemize}
+  \item Plot of interface amplitude vs time
+  \item Scaling law
+  \end{itemize}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Results: Vorticity dynamics}
+  \begin{itemize}
+  \item Surface plots of vorticity throughout the interaction
+  \item Two questions: What kinds of vorticity, can we predict where it is generated
+  \end{itemize}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Analysis of vorticity dynamics}%
+  \begin{itemize}%
+  \item Analysis of vorticity dynamics
+  \end{itemize}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Results: Vorticity dynamics}
+  \begin{itemize}
+  \item Surface plot of vorticity during the compression wave interaction
+  \item Plot of vorticity vs time (during wave interaction)
+  \item Vorticity distribution plots
+  \end{itemize}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Implications for DUS}
+  \begin{itemize}
+  \item 
+  \end{itemize}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{Conclusions thus far}
+
+\end{frame}
+%%
+%%
+
+\begin{frame} \frametitle{Vorticity generation vs $y_0$ across interface}
+%See circ_calcs.m (attached)
+{\scriptsize
+  \begin{align}%
+    \label{eq:baroclinic_air_water}%
+    \frac{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{air\quad}}{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{water}}%
+    =&\orderof{\abs{\boldsymbol{T}}\left(\frac{\abs{\rho^-}}{\abs{\rho^+}}\right)^2}%
+    \approx 357
+  \end{align}
+  \vspace*{-.5cm}
+  %
+  \begin{figure}
+    \hfill
+    \includegraphics[width=.45\textwidth]{./figs/vorticity_vs_y0} \hfill
+    \includegraphics[width=.45\textwidth]{./figs/circ_y0_dist}
+    \hfill
+  \end{figure}
+  %
+  \vspace*{-.5cm}
+  \begin{itemize}
+    \item 97\% of circulation appears in fluid with $y_0<0.5$
+    \item Computed circulation ratio from air($y_0<0.1$) to water($y_0>0.9$) is $\approx 27$
+  \end{itemize}
+}
+\end{frame}
+%%
+%%
+\begin{frame}
+  \centering
+  \begin{center}
+    \LARGE Part III: Future work
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\section{Citations}
+\bibliographystyle{../tex/myauthordate2}
+% Give this command the relative path to the .bib file.
+\bibliography{../../../literature/library}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% \begin{frame} \vspace{\fill} \begin{center} \Huge 
+%     Thanks a lot!\\ \vspace{\fill} Questions? 
+%   \end{center} \vspace{\fill} \end{frame} 
+
+
+\end{document}
+
+
+
+
+
+
+% Template Created by Brandon Patterson - awesome@umich.edu
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
