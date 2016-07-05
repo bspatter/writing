@@ -1,0 +1,24 @@
+Dynamics of an acoustically-driven liquid-gas interface
+
+Interactions between acoustic waves and liquid-gas interfaces occur in
+a variety of applications, including diagnostic ultrasound of the
+lung. We hypothesize that, because of the sharp density gradient at
+the fluid discontinuity, acoustic waves may generate sufficient
+baroclinic vorticity to appreciably deform liquid-gas interfaces. This
+nonlinear effect has been studied for shock-accelerated interfaces and
+as the Rictmyer-Meshkov instability, however it is not describable
+through traditional, linear acoustic methods and is not well studied
+for acoustic waves. To investigate our hypothesis, we simulate an
+inviscid, compressible fluid system with acoustic waves impinging from
+water into air. We find that acoustic waves capable of deforming the
+interface during wave-interaction period will deposit lasting
+baroclinic vorticity along the interface, capable of driving
+deformation that continues long after the passage of the wave. We use
+dimensional analysis to describe the dependence of the late-time
+interface growth on the deposited vorticity. Lastly, we show results
+to demonstrate that for acoustic waves with properties relevant to
+diagnostic ultrasound encountering a water-air interface, nearly all
+of the vorticity is generated in gas-dominated fluid. We explain this
+using an order of magnitude analysis.
+
+
