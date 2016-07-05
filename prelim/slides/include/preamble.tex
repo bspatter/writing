@@ -21,6 +21,7 @@
 \usepackage{embedfile}
 \usepackage{caption}
 \usepackage{soul,xcolor}
+\usepackage{import}
 %\usepackage{multimedia}
 %\usepackage{media9}
 
@@ -32,7 +33,7 @@
 \setbeamertemplate{footline}[frame number]{}%gets rid of bottom navigation bars
 
 
-\graphicspath{ {../../../Figures/} }
+\graphicspath{ {../figs/lung_figs/} }
 
 
 % Figures within a column...
@@ -65,7 +66,7 @@
   % \begin{beamercolorbox}[wd=\paperwidth,ht=0.4cm,dp=1.35ex]{frametitle}%
   %   \raggedright\hspace*{2em}\vspace*{-.25cm}\insertframetitle %\small{\insertframetitle}
   % \end{beamercolorbox}
-   \hspace*{1em}\insertframetitle %\small{\insertframetitle}
+   \hspace*{1em}{\normalsize \insertframetitle} %\small{\insertframetitle}
   }%
   \end{center}
   \vspace*{-1.25cm}
