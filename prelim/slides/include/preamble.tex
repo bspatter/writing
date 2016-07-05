@@ -56,17 +56,19 @@
 }
 
 %---------------------------------------------------------------------------
+%\setbeamercolor{mycolor}{fg=White,bg=White}
 \setbeamercolor{alerted text}{fg=red} 
 \setbeamertemplate{frametitle}
-{\vskip-5pt 
+{
+  \vskip-5pt 
   \leavevmode
   \begin{center}
     \vspace*{-0.5cm}
   \hbox{%
-  % \begin{beamercolorbox}[wd=\paperwidth,ht=0.4cm,dp=1.35ex]{frametitle}%
-  %   \raggedright\hspace*{2em}\vspace*{-.25cm}\insertframetitle %\small{\insertframetitle}
-  % \end{beamercolorbox}
-   \hspace*{1em}{\normalsize \insertframetitle} %\small{\insertframetitle}
+  \begin{beamercolorbox}[wd=0.85\paperwidth,ht=0.4cm,dp=1.35ex]{White}%
+    \raggedright\vspace*{-.25cm}{\normalsize \insertframetitle} %\small{\insertframetitle}
+  \end{beamercolorbox}
+  % \hspace*{1em}{\normalsize \insertframetitle} %\small{\insertframetitle}
   }%
   \end{center}
   \vspace*{-1.25cm}
