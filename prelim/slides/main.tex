@@ -1,10 +1,23 @@
 \input{include/preamble.tex}
 \embedfile{\jobname}
 \embedfile{include/preamble.tex}
-%
+% 
 
 % My commands
 \newcommand{\orderof}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
+\newcommand{\plus}{\raisebox{.2\height}{\scalebox{.8}{+}}}
+\newcommand{\minus}{\raisebox{.2\height}{\scalebox{.8}{-}}}
+\newcommand{\timesx}{\raisebox{.2\height}{\scalebox{.8}{\times}}}
+\newcommand{\equals}{\raisebox{.25\height}{\scalebox{0.9}{=}}}
+\renewcommand{\CancelColor}{\color{red}} %change cancel color to red
+
+\makeatletter
+\let\my@cancelto\cancelto %copy over the original cancelto command
+\newcommand<>{\cancelto}[2]{\alt#3{\my@cancelto{#1}{#2}}{\mathrlap{#2}\phantom{\my@cancelto{#1}{#2}}}}
+% redefine the cancelto command, using \phantom to assure that the
+% result doesn't wiggle up and down with and without the arrow
+\makeatother
+
 
 \begin{document}
 \input{include/TitleSlide.tex}
@@ -13,15 +26,24 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slides %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \centering
-  \begin{center}
-    \hl{Sponsors slide}
-  \end{center}
+  \vfill
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.25\textheight]{./include/figs/CoE-ME-vert} \hfill
+    \includegraphics[height=0.25\textheight]{./include/figs/mcubed_logo} \hfill
+    \includegraphics[height=0.25\textheight]{./include/figs/NIH_logo_white}\hfill
+  \end{figure}
+  \vfill
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.25\textheight]{./include/figs/grfp_logo} \hfill
+    \includegraphics[height=0.25\textheight]{./include/figs/onr_logo} 
+  \end{figure}
+  \vfill
 \end{frame}
-%%
-%%
-
-\begin{frame} \frametitle{My work has focused on two very different problem areas within acoustics.}
+%% 
+%% 
+\begin{frame} \frametitle{My work focuses on two very different problem areas of acoustics.}
   \begin{minipage}{0.48\textwidth}
     \begin{figure}
       Acoustic uncertainty in the ocean \vspace*{4pt}\\
@@ -38,23 +60,23 @@
     \end{figure}
   \end{minipage}
 \end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame} \frametitle{\textit{Past work}: Efficient estimation of the probability density function of transmission loss in uncertain ocean environments}
-{\small
-\vspace*{0.25cm}
-Transmission Loss, $TL=20log_{10}\left(\frac{p_{source}}{p_{receiver}}\right)$, is useful for naval applications.
-\vspace*{0.25cm}
-\begin{figure}
-  \centering
-  \includegraphics[width=0.6\textwidth]{./figs/ocean_0}
-\end{figure}
-TL uncertainty is important for those making decisions based on TL,
-but traditional methods are slow and expensive.  \hl{Add features to
-  ocean} }
+  {\small
+    \vspace*{0.25cm}
+    Transmission Loss, $TL=20log_{10}\left(\frac{p_{source}}{p_{receiver}}\right)$, is useful for naval applications.
+    \vspace*{0.25cm}
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.6\textwidth]{./figs/ocean_0}
+    \end{figure}
+    TL uncertainty is important for those making decisions based on TL,
+    but traditional methods are slow and expensive.  \hl{Add features to
+      ocean} }
 \end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame} \frametitle{\textit{Past work}: We developed a computationally efficient way of computing TL in uncertain environments}
   \begin{figure}\hfill
     \includegraphics[height=0.3\textheight]{./figs/as_ocean_schematic}\hfill
@@ -70,41 +92,72 @@ but traditional methods are slow and expensive.  \hl{Add features to
   \vspace{-0.5cm}
   {\footnotesize
     \visible<7->{
+      \begin{itemize}
+      \item Engineering level accurate $\left(L_1\text{-error}<0.5\right)$ in 93\% of test cases in bottom reflecting environments. \vspace*{-4pt}
+      \item $\approx \orderof{10^{-6}}$ the cost of 1000-sample Monte Carlo Methods.
+      \end{itemize}
+    }
+  }
+\end{frame}
+%% 
+%% 
+\begin{frame}%
+  \frametitle{\vspace*{0.5cm}Background on medical ultrasound}
+  \begin{minipage}{0.45\textwidth}%
+    \begin{figure}%
+      \centering%
+      Diagnostic\\%
+      \includegraphics[width=0.8\textwidth]{./figs/ultrasound_example}%
+    \end{figure}%
+  \end{minipage}%
+  \begin{minipage}{0.45\textwidth}%
+    \visible<1>{
+      \begin{figure}%
+        \centering%
+        Therapeutic\\%
+        \begin{tikzpicture}%
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.8\textwidth]{./figs/lithotripsy}};%
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+            \node[font=\tiny,right] at (0.55,0.05) {\textcolor{white}{biology-forums.com}};%
+          \end{scope}%  
+        \end{tikzpicture}%
+      \end{figure}% 
+    }
+  \end{minipage}%
+
+  % \vfill%
+  {\small%
+    \begin{itemize}%
+    \item High frequency (MHz) sound waves travel into the body and scatter at material interfaces.%
+    \item Acoustic energy is dissipated as heat or through mechanical means.%
+    \end{itemize}%
+    \vspace*{4pt}%
+    \begin{center}%
+      \visible<2->{I focus on Diagnostic Ultrasound (DUS) bioeffects and relevant physics.}%
+    \end{center}%
+  }%
+\end{frame}
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm}Background on DUS bioeffects}
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.25\textheight]{./figs/CEUS}\hfill
+    \includegraphics[height=0.25\textheight]{./figs/Kidney_Bleed3}\hfill
+    \includegraphics[height=0.25\textheight]{./figs/cavitation_hemorrhage}
+  \end{figure}
+  {\small
     \begin{itemize}
-    \item Engineering level accurate $\left(L_1\text{-error}<0.5\right)$ in 93\% of test cases in bottom reflecting environments. \vspace*{-4pt}
-    \item $\approx \orderof{10^{-6}}$ the cost of 1000-sample Monte Carlo Methods.
+    \item Diagnostic Ultrasound (DUS) is ubiquitous and generally very safe.
+    \item CEUS uses echogenic microbubbles for contrast, but these may act as cavitation nuclei and can lead to hemorrhage.
+    \item Lung Hemorrhage (LH) is the only known bioeffect of non-contrast diagnostic ultrasound.
     \end{itemize}
   }
-  }
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Background on medical ultrasound}
-  \begin{itemize}
-    \item High frequency sound waves travel into the body and scatter at material interfaces.
-    \item Much of the acoustic energy is dissipated as heat.
-  \end{itemize}
-\end{frame}
-%%
-%%
-\begin{frame} \frametitle{Background on diagnostic ultrasound}
-  \begin{itemize}
-    \item Diagnostic Ultrasound (DUS) is ubiquitous and generally very safe
-    \item Lung Hemorrhage (LH) is the only known bioeffect of non-contrast diagnostic ultrasound
-  \end{itemize}
-\end{frame}
-%%
-%%
-\begin{frame} \frametitle{Background on ultrasound-bioeffects}
-  \begin{itemize}
-    \item Diagnostic Ultrasound (DUS) is ubiquitous and generally very safe
-    \item Lung Hemorrhage (LH) is the only known bioeffect of non-contrast diagnostic ultrasound
-  \end{itemize}
-\end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame} \frametitle{\textit{Past work}: Theoretical microbubble dynamics in a viscoelastic medium at capillary breaching thresholds}
-\vspace*{\fill}
+  \vspace*{\fill}
   \begin{minipage}{\textwidth}
     \begin{minipage}{0.3\textwidth}
       \begin{figure}
@@ -113,23 +166,23 @@ but traditional methods are slow and expensive.  \hl{Add features to
       \end{figure}
     \end{minipage}
     \begin{minipage}{0.68\linewidth}
-    {\tiny
-      \scalebox{0.9}{$
-        \left(1-\frac{\dot{R}}{C}\right) R \ddot{R} + \frac{3}{2}\left(1-\frac{\dot{R}}{3 C}\right) \dot{R}^2 = \left(1+\frac{\dot{R}}{C}\right) \left[p_B- 1 -p_a -
-          \frac{R}{C}\frac{dp_a}{dt}\right] +\frac{R}{C} \dot{p}_B,$\\}%
-      \vspace*{2pt}
-      \scalebox{0.9}{$p_B = \left(1+\frac{2}{We}\right)\frac{1}{R^{3\gamma}}-\frac{2}{WeR} + \tau_R,$\\}
+      {\tiny
+        \scalebox{0.9}{$
+          \left(1-\frac{\dot{R}}{C}\right) R \ddot{R} + \frac{3}{2}\left(1-\frac{\dot{R}}{3 C}\right) \dot{R}^2 = \left(1+\frac{\dot{R}}{C}\right) \left[p_B- 1 -p_a -
+            \frac{R}{C}\frac{dp_a}{dt}\right] +\frac{R}{C} \dot{p}_B,$\\}%
+        \vspace*{2pt}
+        \scalebox{0.9}{$p_B = \left(1+\frac{2}{We}\right)\frac{1}{R^{3\gamma}}-\frac{2}{WeR} + \tau_R,$\\}
 
-      \vspace*{0.5cm}
-      \begin{tabular}{l l c l}
-        Parameter & Dimensional value & & Dimensionless number \\ \hline
-        Viscosity & $\mu=0.015$ (Pa s) & $\mapsto$ & $Re=\rho u R_o / \mu = 2/3$ \\
-        Elasticity & $G=10^5$ (Pa) & $\mapsto$ & $Ca= \rho u^2 / G = 1.0$ 	\\
-        Surface tension & $S=0.056$ (N/m) & $\mapsto$ & $We=\rho u^2 R_o / S$ = 2 \\
-        Sound speed & $c=1570$ (m/s) & $\mapsto$ & $C = c/u=157$ \\  
-        % Relaxation time & $\lambda = 0.5$ ($\mu$ s) & $\mapsto$ &	$De=\lambda u / R_o =0$ \\
-      \end{tabular} 
-    }
+        \vspace*{0.5cm}
+        \begin{tabular}{l l c l}
+          Parameter & Dimensional value & & Dimensionless number \\ \hline
+          Viscosity & $\mu=0.015$ (Pa s) & $\mapsto$ & $Re=\rho u R_o / \mu = 2/3$ \\
+          Elasticity & $G=10^5$ (Pa) & $\mapsto$ & $Ca= \rho u^2 / G = 1.0$ 	\\
+          Surface tension & $S=0.056$ (N/m) & $\mapsto$ & $We=\rho u^2 R_o / S$ = 2 \\
+          Sound speed & $c=1570$ (m/s) & $\mapsto$ & $C = c/u=157$ \\  
+          % Relaxation time & $\lambda = 0.5$ ($\mu$ s) & $\mapsto$ &	$De=\lambda u / R_o =0$ \\
+        \end{tabular} 
+      }
     \end{minipage}
   \end{minipage}
 
@@ -139,9 +192,13 @@ but traditional methods are slow and expensive.  \hl{Add features to
     \includegraphics[width=0.6\textwidth]{../figs/bubble_figs/rt_nonlinear}\hfill
     \includegraphics[width=0.33\textwidth]{../figs/bubble_figs/rstarmax_f}  
   \end{minipage}
+  \vfill
+  \scalebox{0.7}{
+    {\tiny Patterson, B., Miller, D. L., \& Johnsen, E. (2012). Theoretical microbubble dynamics in a viscoelastic medium at capillary breaching thresholds. JASA, 132(6), 3770.}
+  }
 \end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame}
   \centering
   \begin{center}
@@ -151,136 +208,263 @@ but traditional methods are slow and expensive.  \hl{Add features to
     interactions with liquid-gas interfaces
   \end{center}
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Background on wave-interface interaction}
-
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm}DUS-induced lung hemorrhage is not a new problem}
+  {\small%
+    \begin{itemize}%
+    \item Lung Hemorrhage (LH) is the only known bioeffect of non-contrast DUS%
+    \item Has been shown to occur in mice, rats, pigs, rabbits, monkeys \citep{Child1990,OBrien1997a,Tarantal1994a}.%
+    \item DUS-induced LH does not appear to be a result of cavitation or heating.%
+    \item The underlying physical damage mechanism is not understood.%
+    \end{itemize}%
+    % 
+    \begin{figure}%
+      \centering%
+      \includegraphics[width=0.5\textwidth]{LungBleed2} \nocite{Miller2012}%
+    \end{figure}%
+    % 
+    \visible<2>{To gain insight into DUS-induced LH, we aim to use computational modeling to study acoustically driven gas-liquid interfaces.}%
+    % 
+  }
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Diagnostic ultrasound-induced lung hemorrhage is not a new problem}
-{\small
-  \begin{itemize}
-  \item Lung Hemorrhage (LH) is the only known bioeffect of non-contrast Diagnostic UltraSound (DUS).
-  \item Has been shown to occur in mice, rats, pigs, rabbits, monkeys \citep{Child1990,OBrien1997a,OBrien2001,Tarantal1994a}.
-  \end{itemize}
-}
-\vspace{-0.5cm}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{LungBleed2} \nocite{Miller2012}
-  \end{figure}
-\vspace{-0.35cm}
-The underlying physical damage mechanism is still unknown.
-%
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm} Shock-driven fluid-fluid interfaces have been studied extensively}
+  {\small
+    \hfill%
+    \begin{figure}
+      \centering
+      \begin{tikzpicture}%
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {
+          \includegraphics[height=0.5\textheight]{../figs/lung_figs/baroclinic_schematic_vertical}%
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.05,-0.05) {\textcolor{black}{Adapted from \cite{Heifetz2015}}};%
+        \end{scope}%  
+      \end{tikzpicture}%
+      \hfill%
+      \begin{tikzpicture}%
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {
+          \def\svgwidth{0.6\textwidth}%
+          \import{../figs/lung_figs/}{brouillette_fig3_mod_compact.pdf_tex}\hfill%
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.15,-0.05) {\textcolor{black}{Adapted from \cite{Brouillette2002}}};%
+        \end{scope}%  
+      \end{tikzpicture}%
+    \end{figure}
+    \hfill
+    \begin{itemize}
+    \item Shocks deposit baroclinic vorticity at perturbed fluid-fluid interfaces \citep{Drake2006}.
+    \item This vorticity drives the interface perturbation to grow.
+    \item This problem is not well studied in the acoustic regime.
+    \end{itemize}
+  }  
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Shock-driven fluid-fluid interfaces have been studied extensively}
-  \begin{itemize}
-  \item 
-  \end{itemize}
+%% 
+%% 
+\begin{frame} \frametitle{We hypothesize that US waves generate baroclinic vorticity at air-tissue interfaces in the lungs, straining fragile alveolar walls.}%
+  The vorticity generation equation\vspace{2pt}
+  \only<1>{
+    \scalebox{1.0}{$
+      \frac{\partial \boldsymbol{\omega}}{\partial t}%
+      +\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}=% 
+      \left(\boldsymbol{\omega}\cdot\nabla\right)\boldsymbol{u}%
+      -\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)%
+      +\frac{\nabla\rho\times\nabla p}{\rho^2}%
+      -\nabla\times\left(\frac{\nabla\cdot\boldsymbol{\tau}}{\rho}\right)%
+      +\nabla\times\boldsymbol{B}%
+      $%
+    }
+  }
+  \only<2->{
+    \scalebox{0.94}{$
+      \frac{\partial \boldsymbol{\omega}}{\partial t}%
+      +\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}=% 
+      \cancelto{0}{\left(\boldsymbol{\omega}\cdot\nabla\right)\boldsymbol{u}}%
+      -\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)%
+      +\frac{\nabla\rho\times\nabla p}{\rho^2}%
+      -\cancelto{0}{\nabla\times\left(\frac{\nabla\cdot\boldsymbol{\tau}}{\rho}\right)}%
+      +\cancelto{0}{\nabla\times\boldsymbol{B}}%
+      $
+    }
+  }
+  \vfill 
+  \begin{minipage}{\textwidth}
+    \begin{minipage}{0.5\textwidth}
+      {\footnotesize
+        \begin{itemize}%
+        \item Alveolar air-tissue interfaces have sharp density gradients%
+          \vspace*{6pt}%
+        \item US has strong pressure gradients%
+          \vspace*{6pt}%
+        \item US-induced baroclinic vorticity may cause strain, similar to shock-driven interfaces%
+          \vspace*{6pt}%
+        \item Linear acoustics does not capture this.
+        \end{itemize}
+      }
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \begin{tikzpicture}%
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+            \def\svgwidth{\textwidth}
+            {\footnotesize
+              \import{../figs/lung_figs/}{usbe_lung_schematic2.pdf_tex} \hfill%
+            }  
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+            \node[font=\footnotesize,right] at (0.6,0.72){ $\nabla p$};%
+            \node[font=\footnotesize,right] at (0.59,0.515){ $\nabla \rho$};%
+            \node[font=\tiny,right] at (0.7,0.05){\textcolor{gray}{wikimedia.org}};%
+          \end{scope}%  
+        \end{tikzpicture}%
+      \end{figure}
+    \end{minipage}
+  \end{minipage}
 \end{frame}
-%%
-%%
-\begin{frame}
-We aim to study acoustic wave interactions with perturbed liquid-gas interfaces
-\end{frame}
-%%
-%%
-\begin{frame} \frametitle{Methods: Problem setup}
+%% 
+%% 
+\begin{frame} \frametitle{Problem setup: We model the ultrasound-alveolar interaction as a 2D, compressible, inviscid fluid system.}
   \begin{figure}
     \centering
     \def\svgwidth{0.48\textwidth}
     {\footnotesize
-    \import{../figs/lung_figs/}{usbe_lung_schematic2.pdf_tex} \hfill%
-  }
+      \import{../figs/lung_figs/}{usbe_lung_schematic2.pdf_tex} \hfill%
+    }
     \includegraphics[width=0.48\textwidth]{../figs/lung_figs/usbe_model_schematic} \hfill
   \end{figure}
+  An acoustic wave impinges downward from water toward a perturbed air interface $(a_0\equals0.03\lambda)$.
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Methods: The acoustic waves}
+%% 
+%% 
+\begin{frame} \frametitle{Trapezoidal and US pulse acoustic waveforms are used.}
   \begin{figure}
     \centering
-      \includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_y}%
-      \includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_t_us}%
+    \visible<1-2>{\includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_y}}%
+    \hfill%
+    \visible<1>{\includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_t_us}}%
   \end{figure}
+  \begin{itemize}
+  \item The simplicity of trapezoidal waves is useful for understanding physics and analysis
+  \item Pulse waveforms are used to check relevance to DUS.
+  \end{itemize}
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Methods: Governing Equations}
-Euler equations of fluid motion
-  \begin{align*}% 
-    \frac{\partial \rho}{\partial t} + \frac{\partial \left(\rho u\right)}{\partial x} + \frac{\partial \left(\rho v\right)}{\partial y} = 0,\\
-    \frac{\partial \rho u}{\partial t} + \frac{\partial}{\partial x}\left( \rho u^2+p\right)  + \frac{\partial}{\partial y}\left( \rho uv\right) = 0,\\
-    \frac{\partial \rho v}{\partial t} + \frac{\partial}{\partial x}\left( \rho uv\right)  + \frac{\partial}{\partial y}\left( \rho v^2+p\right) = 0,\\
-    \frac{\partial E}{\partial t} + \frac{\partial}{\partial x}\left[u\left(E+p\right)\right] + \frac{\partial}{\partial y}\left[v\left(E+p\right)\right] = 0,
-  \end{align*}%
-
-Stiffened equation of state
-\begin{align*} \label{eq:stiffened_eos}%
-  E=\frac{\rho\left(u^2+v^2\right)}{2} + \frac{p+\gamma B}{\gamma-1}.
-\end{align*}
-% Two additional advection equations are solved for $\gamma$ and $B$.
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm}Governing Equations}
+  \vfil\vspace*{0.5cm}
+  {\small
+    \hspace*{1cm}Euler equations of fluid motion
+  }
+  {\scriptsize
+    \begin{align*}% 
+      \frac{\partial \rho}{\partial t} + \frac{\partial \left(\rho u\right)}{\partial x} + \frac{\partial \left(\rho v\right)}{\partial y} = 0,\\
+      \frac{\partial \rho u}{\partial t} + \frac{\partial}{\partial x}\left( \rho u^2+p\right)  + \frac{\partial}{\partial y}\left( \rho uv\right) = 0,\\
+      \frac{\partial \rho v}{\partial t} + \frac{\partial}{\partial x}\left( \rho uv\right)  + \frac{\partial}{\partial y}\left( \rho v^2+p\right) = 0,\\
+      \frac{\partial E}{\partial t} + \frac{\partial}{\partial x}\left[u\left(E+p\right)\right] + \frac{\partial}{\partial y}\left[v\left(E+p\right)\right] = 0,
+    \end{align*}%
+  }
+  \vfil
+  {\small
+    \hspace*{1cm}Stiffened equation of state
+  }
+  {\scriptsize
+    \begin{align*} \label{eq:stiffened_eos}%
+      E=\frac{\rho\left(u^2+v^2\right)}{2} + \frac{p+\gamma B}{\gamma-1}.
+    \end{align*}
+  }
+  \vfil
+  {\small
+    \hspace*{1cm}Advection equations for $\gamma,\,B$ prevent interface pressure oscillations.
+  }
+  \scriptsize{
+    \begin{align*}
+      \frac{\partial}{\partial t}\left(\frac{\gamma B}{\gamma-1}\right)+\vec{u}\frac{\partial}{\partial x}\left(\frac{\gamma B}{\gamma-1}\right) = 0,\\%
+      \frac{\partial}{\partial t}\left(\frac{1}{\gamma-1}\right)+\vec{u}\frac{\partial}{\partial x}\left(\frac{1}{\gamma-1}\right) = 0%
+    \end{align*}
+  }
 \end{frame}
+%% 
+%% 
+\begin{frame} \frametitle{A high-order accurate computational solution strategy is invoked}
+  \begin{minipage}{0.62\textwidth}
+    \begin{itemize}
+    \item An in-house developed code is used to solve the Euler equations.
+    \item Numerical methods
+      \begin{itemize}
+      \item $3^{rd}$ order Discontinuous Galerkin method is used in space
+      \item $4^{th}$ order Runge-Kutta time marching
+      \item Roe Solver used to handle discontinuities
+      \end{itemize}
+    \item Acoustic waves are prescribed within the domain.
+    \item Grid stretching reduces reflections.
+    \end{itemize}
+  \end{minipage}
+  \hfill%
+  \begin{minipage}{0.34\textwidth}
+    \begin{figure}
+      \centering
+      \def\svgwidth{\textwidth}
+      {\footnotesize
+        \import{../figs/lung_figs/}{domain_bcs.pdf_tex}%
+      }
+    \end{figure}
+  \end{minipage}
 
-
-%%
-%%
-\begin{frame} \frametitle{Methods: Computational techniques}
+\end{frame}
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm}Results: Evolution of the interface after 10 MPa trapezoidal wave}
   \begin{figure}
     \centering
-    
+    \includegraphics[width=0.85\textwidth]{../figs/lung_figs/snapshots_density_t1}
   \end{figure}
+  {\small
+    The interface perturbation evolves from a smooth sinusoid into a sharp point.
+  }
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Results: Evolution of the interface}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.9\textwidth]{../figs/lung_figs/snapshots_density_t1}
-  \end{figure}
-\end{frame}
-%%
-%%
-\begin{frame} \frametitle{Results: Evolution of the interface}
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm}Results: Evolution of the interface}
   \begin{figure}
     \centering
     \includegraphics[width=0.48\textwidth]{../figs/lung_figs/trapz10_intf_schematic}
     \includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_y}%
   \end{figure}
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Results: Late-time evolution of the interface}
-  \begin{minipage}{0.5\textwidth}
-    \begin{figure}
-      \centering
-      \includegraphics[width=\textwidth]{../figs/lung_figs/interface_multi-amp_loglog_roe_extra}
-    \end{figure}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.48\textwidth}
-    \begin{align*}
-      a(t) \sim \sqrt{\Gamma t}.
-    \end{align*}
-  \end{minipage}
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm}Results: Late-time evolution of the interface}
+  \begin{figure}
+    \centering%
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+        \includegraphics[width=0.6\textwidth]{../figs/lung_figs/interface_multi-amp_loglog_roe_t1000_nolines}%
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\footnotesize,right] at (0.4,0.7){ $10$ MPa};%
+        \node[font=\footnotesize,right] at (0.6,0.4){ $5$ MPa};%
+      \end{scope}%  
+    \end{tikzpicture}%
+  \end{figure}
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Results: Vorticity dynamics}
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm}Results: Vorticity dynamics}
   \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{../figs/lung_figs/snapshots_vorticity_t1}
   \end{figure}
-%
+  % 
   \begin{itemize}
   \item Two questions: What kinds of vorticity, can we predict where it is generated
   \end{itemize}
 \end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame} \frametitle{Results: Evolution of the interface}
   \begin{figure}
     \centering
@@ -288,53 +472,82 @@ Stiffened equation of state
     \includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_y}%
   \end{figure}
 \end{frame}
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm}Results: Late-time evolution of the interface}
+  \begin{figure}
+    \centering%
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+        \includegraphics[width=0.48\textwidth]{../figs/lung_figs/interface_multi-amp_loglog_roe_t1000}%
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\footnotesize,right] at (0.38,0.7){ $10$ MPa};%
+        \node[font=\footnotesize,right] at (0.57,0.4){ $5$ MPa};%
+      \end{scope}%  
+    \end{tikzpicture}%
+    \hfill%
+    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/circulation_multi-amp_roe_t1000}%
+  \end{figure}
+  {\small
+    From dimensional analysis, we expect a purely circulation driven interface to grow as $a(t) \sim \sqrt{\Gamma t}.$
+  }
+
+\end{frame}
 %%
 %%
 \begin{frame} \frametitle{Analysis of vorticity dynamics}%
   \begin{align*}
-  \frac{\partial \vec{\omega}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{\omega} =% 
-  - \vec{\omega}\left(\nabla\cdot\vec{u}\right) + \frac{\nabla\rho\times\nabla p}{\rho^2}.%
+    \frac{\partial \vec{\omega}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{\omega} =% 
+    - \vec{\omega}\left(\nabla\cdot\vec{u}\right) + \frac{\nabla\rho\times\nabla p}{\rho^2}.%
   \end{align*}
+  Acoustic Relations - $\Delta p_a=\pm\Delta u_a \rho c=c^2\Delta \rho_a$
+
+  $\nabla f, \nabla\cdot f, \nabla\times f= \orderof{\left|\Delta f\right|/\Delta L}$,
+
+
 \end{frame}
-%%
-%%
-\begin{frame} \frametitle{Results: Vorticity dynamics}
-  \begin{itemize}
-  \item Surface plot of vorticity during the compression wave interaction
-  \item Plot of vorticity vs time (during wave interaction)
-  \item Vorticity distribution plots
-  \end{itemize}
-\end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame} \frametitle{Vorticity generation occurs primarily in gas-dominated fluid}
-\vspace*{-.5cm}
-{\scriptsize
+  \vspace*{-.5cm}
+  {\scriptsize
     \begin{figure}
-    \centering
-    \hfill
-    \includegraphics[width=.13\textwidth]{../figs/lung_figs/snapshots_vorticity_t1_only} \hfill
-    \includegraphics[width=.38\textwidth]{./figs/vorticity_vs_y0} \hfill
-    \includegraphics[width=.38\textwidth]{./figs/circ_y0_dist}
-    \hfill
-  \end{figure}
-  %
-  \vspace*{-.3cm}
-  \begin{align*}%
-    \frac{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{air\quad}}{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{water}}%
-    =&\orderof{\abs{\boldsymbol{T}}\left(\frac{\abs{\rho^-}}{\abs{\rho^+}}\right)^2}%
-    \approx 357
-  \end{align*}
-  \vspace*{-.25cm}
-  % 
-  \begin{itemize}
+      \centering
+      \hfill
+      \includegraphics[width=.13\textwidth]{../figs/lung_figs/snapshots_vorticity_t1_only} \hfill
+      \includegraphics[width=.38\textwidth]{./figs/vorticity_vs_y0} \hfill
+      \includegraphics[width=.38\textwidth]{./figs/circ_y0_dist}
+      \hfill
+    \end{figure}
+    % 
+    \vspace*{-.3cm}
+    \begin{align*}%
+      \frac{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{air\quad}}{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{water}}%
+      =&\orderof{\abs{\boldsymbol{T}}\left(\frac{\abs{\rho^-}}{\abs{\rho^+}}\right)^2}%
+         \approx 357
+    \end{align*}
+    \vspace*{-.25cm}
+    % 
+    \begin{itemize}
     \item 97\% of circulation appears in fluid with $y_0<0.5$
     \item Computed circulation ratio from air($y_0<0.1$) to water($y_0>0.9$) is $\approx 27$
-  \end{itemize}
-}
+    \end{itemize}
+  }
 \end{frame}
-%%
-%%
+%% 
+%% 
+\begin{frame}\frametitle{ \vspace*{0.5cm} Results: Dependence on the length of the wave}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/interface_multi-lag}
+    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/circulation_multi-lag_fixed}
+  \end{figure}
+  The length of the wave strongly effects the vorticity deposited and
+  thus the long-term dynamics of the interface.
+\end{frame}
+%% 
+%% 
 \begin{frame} \frametitle{Interface response to a 10 MPa DUS pulse}
   \begin{figure}
     \centering
@@ -342,8 +555,8 @@ Stiffened equation of state
     \includegraphics[width=0.48\textwidth]{../figs/lung_figs/us_circ_schematic}
   \end{figure}
 \end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame} \frametitle{Conclusions thus far}
   \begin{itemize}
   \item Acoustically-generated baroclinic vorticity is likely capable
@@ -355,16 +568,16 @@ Stiffened equation of state
     vorticity.
   \end{itemize}
 \end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame}
   \centering
   \begin{center}
     \LARGE Part III: Future work
   \end{center}
 \end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame}\frametitle{I aim to increase the relevance to DUS}
   \begin{itemize}
   \item Calculate the engineering strain of the interface
@@ -373,8 +586,8 @@ Stiffened equation of state
   \item Investigate the propagation of acoustic waves into subsequent layers of alveoli
   \end{itemize}
 \end{frame}
-%%
-%%
+%% 
+%% 
 \begin{frame}\frametitle{I aim to further our understanding of the relevant fluid mechanics}
   \begin{itemize}
   \item Explain the discrepancies between numerical results and $a(t)\sim\sqrt{\Gamma t}$
@@ -384,8 +597,8 @@ Stiffened equation of state
   \item 
   \end{itemize}
 \end{frame}
-%%
-%%
+%% 
+%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 

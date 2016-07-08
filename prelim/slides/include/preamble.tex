@@ -1,4 +1,4 @@
-\documentclass[11pt]{beamer} %Add 'handout' in the options for printing
+\documentclass[11pt,handout]{beamer} %Add 'handout' in the options for printing
 
 \usepackage{beamercolorthemewolverine}
 \usetheme{AnnArbor}
@@ -23,6 +23,8 @@
 \usepackage{soul,xcolor}
 \usepackage{import}
 \usepackage{relsize}
+\usepackage{tikz}
+\usepackage[makeroom]{cancel}
 %\usepackage{multimedia}
 %\usepackage{media9}
 
@@ -66,13 +68,15 @@
   \begin{center}
     \vspace*{-0.5cm}
   \hbox{%
-  \begin{beamercolorbox}[wd=0.85\paperwidth,ht=0.4cm,dp=1.35ex]{White}%
-    \raggedright\vspace*{-.25cm}{\normalsize \insertframetitle} %\small{\insertframetitle}
+  \begin{beamercolorbox}[wd=0.85\paperwidth,ht=0.35cm,dp=1.35ex]{White}%
+    \raggedright
+    \vspace*{-.25cm}
+    {\normalsize \insertframetitle} %\small{\insertframetitle}
   \end{beamercolorbox}
   % \hspace*{1em}{\normalsize \insertframetitle} %\small{\insertframetitle}
   }%
   \end{center}
-  \vspace*{-1.25cm}
+  \vspace*{-0.75cm}
 }
 \def\newblock{\hskip .11em plus .33em minus .07em}
 
