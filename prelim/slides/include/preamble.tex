@@ -1,4 +1,4 @@
-\documentclass[11pt,handout]{beamer} %Add 'handout' in the options for printing
+\documentclass[11pt]{beamer} %Add 'handout' in the options for printing
 
 \usepackage{beamercolorthemewolverine}
 \usetheme{AnnArbor}
@@ -16,8 +16,9 @@
 \usepackage{layouts}
 \usepackage[center]{caption}
 \usepackage{natbib}
-\usepackage{movie15}
+%\usepackage{movie15}
 \usepackage{etex}
+\usepackage{adjustbox}
 \usepackage{embedfile}
 \usepackage{caption}
 \usepackage{soul,xcolor}
@@ -25,11 +26,14 @@
 \usepackage{relsize}
 \usepackage{tikz}
 \usepackage[makeroom]{cancel}
-%\usepackage{multimedia}
+\usepackage{multimedia}
 %\usepackage{media9}
 
 
 
+%Setup note page
+\setbeamertemplate{note page}[plain]
+%\setbeameroption{show notes on second screen=right}
 
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 

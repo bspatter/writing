@@ -48,7 +48,14 @@
     \begin{figure}
       Acoustic uncertainty in the ocean \vspace*{4pt}\\
       \centering
-      \includegraphics[width=\textwidth]{./figs/bathmap}
+      \begin{tikzpicture}%
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {
+          \includegraphics[width=\textwidth]{./figs/bathmap}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.05,0.05) {\textcolor{white}{mrs.eecs.umich.edu}};%
+        \end{scope}%  
+      \end{tikzpicture}%
     \end{figure}
   \end{minipage}
   \hfill
@@ -56,7 +63,14 @@
     \begin{figure}
       \centering
       Ultrasound bioeffects \vspace*{4pt}\\
-      \includegraphics[width=\textwidth]{./figs/ultrasound_example}
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {
+          \includegraphics[width=\textwidth]{./figs/ultrasound_example}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.02,0.03) {\textcolor{white}{by: W. Moroder  }};%
+        \end{scope}%  
+      \end{tikzpicture}%
     \end{figure}
   \end{minipage}
 \end{frame}
@@ -69,11 +83,17 @@
     \vspace*{0.25cm}
     \begin{figure}
       \centering
-      \includegraphics[width=0.6\textwidth]{./figs/ocean_0}
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {
+          \includegraphics[width=0.6\textwidth]{./figs/ocean_0}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.9,0.03) {\textcolor{white}{Getty Images}};%
+        \end{scope}%  
+      \end{tikzpicture}%
     \end{figure}
     TL uncertainty is important for those making decisions based on TL,
-    but traditional methods are slow and expensive.  \hl{Add features to
-      ocean} }
+    but traditional methods are slow and expensive.}
 \end{frame}
 %% 
 %% 
@@ -98,6 +118,10 @@
       \end{itemize}
     }
   }
+  \note<5>{Mention that MC is the gold standard}
+  \note{To Do: Find higher quality version of last figure}
+  \note{Mauro's questions:\\(1) What is shallow?\\(2) How does the functional depth of this technique compare to important depths for relevant applications?}
+
 \end{frame}
 %% 
 %% 
@@ -142,8 +166,22 @@
 \begin{frame} \frametitle{\vspace*{0.5cm}Background on DUS bioeffects}
   \begin{figure}
     \centering
-    \includegraphics[height=0.25\textheight]{./figs/CEUS}\hfill
-    \includegraphics[height=0.25\textheight]{./figs/Kidney_Bleed3}\hfill
+    \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[height=0.25\textheight]{./figs/CEUS}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\tiny,right] at (0.01,0.03) {\scalebox{0.4}{\textcolor{white}{\cite{Wei2001}}}};%
+      \end{scope}%  
+    \end{tikzpicture}\hfill%
+    \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[height=0.25\textheight]{./figs/Kidney_Bleed3}\hfill
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\tiny,right] at (0.01,0.03) {\scalebox{0.4}{\textcolor{white}{\cite{Miller2008b}}}};%
+      \end{scope}%  
+    \end{tikzpicture}\hfill%
     \includegraphics[height=0.25\textheight]{./figs/cavitation_hemorrhage}
   \end{figure}
   {\small
@@ -224,12 +262,41 @@
       \includegraphics[width=0.5\textwidth]{LungBleed2} \nocite{Miller2012}%
     \end{figure}%
     % 
-    \visible<2>{To gain insight into DUS-induced LH, we aim to use computational modeling to study acoustically driven gas-liquid interfaces.}%
+    \visible<2>{To gain insight into DUS-induced LH, we aim to use computational modeling to investigate DUS-lung interaction.}%
     % 
   }
 \end{frame}
 %% 
 %% 
+\begin{frame}\frametitle{\vspace*{0.5cm}We simulated and US-pulse impinging on a water-air interface}
+  \begin{minipage}{0.62\textwidth}
+    \begin{minipage}{\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_t_us}%
+      \end{figure}
+    \end{minipage}
+  % 
+    \begin{minipage}{\textwidth}
+      \begin{figure}
+        \centering \def\svgwidth{0.48\textwidth} {\footnotesize
+          \import{../figs/lung_figs/}{usbe_lung_schematic3.pdf_tex}
+          \hfill%
+        }
+        \includegraphics[width=0.48\textwidth]{../figs/lung_figs/usbe_model_schematic}
+      \end{figure}
+    \end{minipage}
+  \end{minipage}
+  % 
+  \hfill
+  %
+  \begin{minipage}{0.36\textwidth}
+    \movie[externalviewer]{\adjincludegraphics[trim={{0.32\width} 0 {0.32\width} 0 },clip=true,height = 0.7\textheight]{./figs/still.jpg}}{./figs/rmawave_1_10000000.0_0.03_45.0_0.0_1.0_1.0_100_100_blue.avi}
+  \end{minipage}
+  % 
+\end{frame}
+%%
+%%
 \begin{frame} \frametitle{\vspace*{0.5cm} Shock-driven fluid-fluid interfaces have been studied extensively}
   {\small
     \hfill%
@@ -256,9 +323,9 @@
     \end{figure}
     \hfill
     \begin{itemize}
-    \item Shocks deposit baroclinic vorticity at perturbed fluid-fluid interfaces \citep{Drake2006}.
-    \item This vorticity drives the interface perturbation to grow.
-    \item This problem is not well studied in the acoustic regime.
+    \item Shocks deposit baroclinic vorticity at perturbed fluid-fluid interfaces \citep{Drake2006}, which drives the interface perturbation to grow.
+    \item This is the Richtymyer-Meshkov ``instability''.
+    \item This problem is not well studied for acoustic waves.
     \end{itemize}
   }  
 \end{frame}
@@ -348,7 +415,7 @@
     \visible<1>{\includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_t_us}}%
   \end{figure}
   \begin{itemize}
-  \item The simplicity of trapezoidal waves is useful for understanding physics and analysis
+  \item The trapezoidal waves is simple for understanding physics and analysis, but able to capture feature of US pulse.
   \item Pulse waveforms are used to check relevance to DUS.
   \end{itemize}
 \end{frame}
@@ -382,8 +449,14 @@
   }
   \scriptsize{
     \begin{align*}
-      \frac{\partial}{\partial t}\left(\frac{\gamma B}{\gamma-1}\right)+\vec{u}\frac{\partial}{\partial x}\left(\frac{\gamma B}{\gamma-1}\right) = 0,\\%
-      \frac{\partial}{\partial t}\left(\frac{1}{\gamma-1}\right)+\vec{u}\frac{\partial}{\partial x}\left(\frac{1}{\gamma-1}\right) = 0%
+      \frac{\partial}{\partial t}\left(\frac{\gamma B}{\gamma-1}\right)%
+      +u\frac{\partial}{\partial x}\left(\frac{\gamma B}{\gamma-1}\right)%
+      +v\frac{\partial}{\partial y}\left(\frac{\gamma B}{\gamma-1}\right)%
+      = 0,\\%
+      %
+      \frac{\partial}{\partial t}\left(\frac{1}{\gamma-1}\right)%
+      +u\frac{\partial}{\partial x}\left(\frac{1}{\gamma-1}\right)%
+      +v\frac{\partial}{\partial y}\left(\frac{1}{\gamma-1}\right)= 0%
     \end{align*}
   }
 \end{frame}
@@ -401,6 +474,7 @@
       \end{itemize}
     \item Acoustic waves are prescribed within the domain.
     \item Grid stretching reduces reflections.
+    \item Grid size: $\lambda \times 70\lambda \, (L_x \times L_y)$
     \end{itemize}
   \end{minipage}
   \hfill%
@@ -430,10 +504,26 @@
 %% 
 \begin{frame} \frametitle{\vspace*{0.5cm}Results: Evolution of the interface}
   \begin{figure}
+    \hfill%
     \centering
-    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/trapz10_intf_schematic}
-    \includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_y}%
+    \includegraphics[height=0.5\textheight]{../figs/lung_figs/trapz10_intf_schematic}%
+    \hfill%
+    % 
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+        \includegraphics[height=0.5\textheight]{../figs/lung_figs/p0_vs_t_nd.pdf}%
+      };%  
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\footnotesize,right] at (0.22,0.18){ $t_1$};%
+        \node[font=\footnotesize,right] at (0.22,0.8){ $t_2$};%
+        \node[font=\footnotesize,right] at (0.83,0.8){ $t_3$};%
+        \node[font=\footnotesize,right] at (0.82,0.18){ $t_4$};%
+      \end{scope}%  
+    \end{tikzpicture}%
+    \hfill%
+    % 
   \end{figure}
+  The interface perturbation is initially compressed $(0^+\leq t\leq5)$, experiences a phase change $(t=5)$, then grows $t>5$.
 \end{frame}
 %% 
 %% 
@@ -450,6 +540,9 @@
       \end{scope}%  
     \end{tikzpicture}%
   \end{figure}
+  \begin{center}
+    We suspect vorticity is driving this late time growth.
+  \end{center}
 \end{frame}
 %% 
 %% 
@@ -459,18 +552,39 @@
     \includegraphics[width=0.8\textwidth]{../figs/lung_figs/snapshots_vorticity_t1}
   \end{figure}
   % 
-  \begin{itemize}
-  \item Two questions: What kinds of vorticity, can we predict where it is generated
-  \end{itemize}
+  Vorticity is initially deposited in the air-dominated portion of the
+  interface region. As the interface evolves, some vorticity advects
+  with it.
+  \note{A linear scale that changes each timestep is used for visual reasons.}
 \end{frame}
 %% 
 %% 
-\begin{frame} \frametitle{Results: Evolution of the interface}
+\begin{frame} \frametitle{\vspace*{0.5cm}Results: A closer look at how circulation is deposited.}
   \begin{figure}
     \centering
+    \hfill%
     \includegraphics[width=0.48\textwidth]{../figs/lung_figs/trapz10_circ_schematic}
-    \includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_y}%
+    \hfill%
+    % 
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+        \includegraphics[height=0.5\textheight]{../figs/lung_figs/p0_vs_t_nd.pdf}%
+      };%  
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\footnotesize,right] at (0.22,0.18){ $t_1$};%
+        \node[font=\footnotesize,right] at (0.22,0.8){ $t_2$};%
+        \node[font=\footnotesize,right] at (0.83,0.8){ $t_3$};%
+        \node[font=\footnotesize,right] at (0.82,0.18){ $t_4$};%
+      \end{scope}%  
+    \end{tikzpicture}%
+    \hfill%
   \end{figure}
+  Both the compression and expansion deposit vorticity.
+  \note{ To Do: Label phase-inversion.
+    Mauro's Questions:\\
+    (1) What is the vorticity doing during the phase inversion?
+  }
+
 \end{frame}
 %% 
 %% 
@@ -496,20 +610,79 @@
 \end{frame}
 %%
 %%
-\begin{frame} \frametitle{Analysis of vorticity dynamics}%
-  \begin{align*}
-    \frac{\partial \vec{\omega}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{\omega} =% 
-    - \vec{\omega}\left(\nabla\cdot\vec{u}\right) + \frac{\nabla\rho\times\nabla p}{\rho^2}.%
-  \end{align*}
-  Acoustic Relations - $\Delta p_a=\pm\Delta u_a \rho c=c^2\Delta \rho_a$
 
-  $\nabla f, \nabla\cdot f, \nabla\times f= \orderof{\left|\Delta f\right|/\Delta L}$,
-
-
+\begin{frame}\frametitle{ \vspace*{0.5cm} Results: Dependence on the length of the wave}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/interface_multi-lag}
+    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/circulation_multi-lag_fixed}
+  \end{figure}
+  The length of the wave strongly effects the vorticity deposited and
+  thus the long-term dynamics of the interface.
+  %
+  \note{ To Do: Remove
+    un-neccessary lines, $15\lambda$,
+    Mauro's Questions:\\
+    (1) Is there a way to non-dimensionalize this show that the
+    transition of the physics occurs between $L = 20 - 30 \lambda$.
+    (1A): This essentially boils down to figuring out the speed of the
+    interface evolution and modeling the time at which the
+    phase-inversion will occur.\\Maybe I should subtract
+    $\Delta L_{lag}$ to see this better, or divide $\gamma$ by
+    $a(t=t_{phase-reversal})^n$ or $\Delta L_{Lag}^n$.\\
+    (2) What is the Reynolds number?
+  }
 \end{frame}
 %% 
 %% 
-\begin{frame} \frametitle{Vorticity generation occurs primarily in gas-dominated fluid}
+\begin{frame} \frametitle{\vspace*{0.5cm}Order of magnitude analysis of vorticity generation}%
+  \vspace*{-0.25cm}
+  \scriptsize{
+    \begin{align*}
+      \frac{\partial \vec{\omega}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{\omega} =% 
+      - \vec{\omega}\left(\nabla\cdot\vec{u}\right) + \frac{\nabla\rho\times\nabla p}{\rho^2}.%
+    \end{align*}
+
+    \visible<2->{
+      \text{Acoustic Relations and operator treatments}%
+      \begin{align*}
+        \Delta p_a=\pm\Delta u_a \rho c=c^2\Delta \rho_a, \quad\qquad \norm{\nabla f} \sim \norm{\nabla\cdot f} \sim \norm{\nabla\times f}= \orderof{\left|\Delta f\right|/\Delta L}%
+      \end{align*}
+    }
+    \visible<3->{
+      Baroclinic vorticity generation%
+      \begin{align*}
+        \norm{\frac{\nabla\rho\times\nabla p}{\rho^2}} = \orderof{\frac{\abs{\Delta \rho_I}}{\abs{\Delta L_I}}\frac{\abs{\Delta p_a}}{\abs{\Delta L_a}}\frac{1}{\abs{\rho}^2}\abs{\theta}}
+      \end{align*}
+    }
+    
+    \visible<4->{
+      Advective and compressible vorticity generation - $\norm{\vec{\omega}} = \int_0^{\Delta t_a} (\text{baroclinic term}) dt$
+      \begin{align*}
+        \norm{\left(\vec{u}\cdot\nabla\right)\vec{\omega}} \sim \norm{-\vec{\omega}\left(\nabla\cdot\vec{u}\right)} = \orderof{\left[\frac{\abs{\Delta u_a}}{\abs{\Delta L_a}}\right]^2},
+      \end{align*}
+    }
+
+    \visible<5->{
+      Comparing terms for our our problem
+      \begin{align*}
+        \Delta t_a\approx5\lambda/c_{w}, \qquad \Delta L_a=5\lambda, \qquad \Delta p_a = 10 MPa, \qquad \Delta L_I \approx 0.05\lambda\\%
+        \frac{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}}{\norm{-\vec{\omega}\left(\nabla\cdot\vec{u}\right)}} = \frac{c}{\abs{\Delta u_a}} = \frac{\rho}{\abs{\Delta \rho_a}}=\orderof{10^2}%
+      \end{align*}
+    }
+    \visible<6->{
+      Calculated values at $t=1$: 
+      \begin{center}
+        $\frac{\nabla\rho\times\nabla p}{\rho^2}=7.7\,\text{e}{-3},\qquad$
+        $\left(\vec{u}\cdot\nabla\right)\vec{\omega}=-5.3\text{e}{-5},\qquad$%
+        $-\vec{\omega}\left(\nabla\cdot\vec{u}\right)=2.7\text{e}{-5},\qquad$%
+      \end{center}
+    }
+  }
+\end{frame}
+%% 
+%% 
+\begin{frame} \frametitle{\vspace*{0.5cm}Vorticity generation occurs predominately in gas-dominated fluid}
   \vspace*{-.5cm}
   {\scriptsize
     \begin{figure}
@@ -537,36 +710,35 @@
 \end{frame}
 %% 
 %% 
-\begin{frame}\frametitle{ \vspace*{0.5cm} Results: Dependence on the length of the wave}
+\begin{frame} \frametitle{\vspace*{0.5cm}Interface response to a 10 MPa US pulse}
   \begin{figure}
     \centering
-    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/interface_multi-lag}
-    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/circulation_multi-lag_fixed}
-  \end{figure}
-  The length of the wave strongly effects the vorticity deposited and
-  thus the long-term dynamics of the interface.
-\end{frame}
-%% 
-%% 
-\begin{frame} \frametitle{Interface response to a 10 MPa DUS pulse}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/us_intf_schematic} \hfill
+    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/us_intf_schematic}\hfill
     \includegraphics[width=0.48\textwidth]{../figs/lung_figs/us_circ_schematic}
   \end{figure}
+  \begin{itemize}
+  \item Qualitatively, the interface response for the 10 MPa US pulse looks very similar to the 10 MPa trapezoidal wave. 
+  \item The circulation deposited is of the same order as the equivalent amplitude trapezoidal wave.
+  \end{itemize}
+
 \end{frame}
-%% 
-%% 
-\begin{frame} \frametitle{Conclusions thus far}
+%%
+%%
+\begin{frame} \frametitle{\vspace*{0.5cm}Conclusions thus far}
   \begin{itemize}
   \item Acoustically-generated baroclinic vorticity is likely capable
-    of significantly deforming perturbed liquid gas interfaces.
-  \item Baroclinic vorticity is predominantly deposited in gaseous fluids.
+    of significantly deforming perturbed liquid gas interfaces.\vfill%
+  \item Baroclinic vorticity is predominantly deposited in gaseous fluids.\vfill%
   \item Changes in the acoustic waveform that have little effect on
     the interface during the wave-interface interaction can
     substantially effect the interface over long periods of time, via
-    vorticity.
+    vorticity.\vfill%
+  \item Interface response from an US wave is qualitatively similar to that for a trapezoidal wave.
   \end{itemize}
+  \note{
+    Mauro's Questions:\\
+    (1) How important baroclinic vorticity relative to viscous and body forces?
+  }
 \end{frame}
 %% 
 %% 
@@ -578,24 +750,64 @@
 \end{frame}
 %% 
 %% 
-\begin{frame}\frametitle{I aim to increase the relevance to DUS}
-  \begin{itemize}
-  \item Calculate the engineering strain of the interface
-  \item Calculate the stress at the interface
-  \item Investigate the effects of alveolar side wall structures
-  \item Investigate the propagation of acoustic waves into subsequent layers of alveoli
-  \end{itemize}
+\begin{frame}\frametitle{\vspace*{0.5cm}I plan to increase the relevance to DUS}
+  \begin{minipage}{0.5\textwidth}
+    \begin{itemize}
+      \alert<1>{
+    \item Calculate interface strain\vfill%
+    \vspace*{5pt}
+
+    \item Calculate stress at the interface\vfill%
+    \vspace*{5pt}
+    }
+    \alert<2>{
+    \item Investigate the effects of alveolar side wall structures\vfill%
+    }
+    \vspace*{5pt}
+    \alert<3>{
+    \item Investigate the propagation of acoustic waves into
+      subsequent layers of alveoli\vfill%
+      }
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \only<1>{
+    \def\svgwidth{\textwidth}%
+    {\tiny
+      % 
+      \import{./figs/}{usbe_lung_model_arclength.pdf_tex}%
+    }
+  }
+  \includegraphics<2>[width=\textwidth]{../figs/lung_figs/usbe_model_schematic_walls}
+  \includegraphics<3>[width=\textwidth]{../figs/lung_figs/usbe_model_schematic_periodic}
+  \end{minipage}
+\note{Mauro's Question:
+  (1) Would a bubble-like configuration be more relevant/useful?
+  }
 \end{frame}
 %% 
 %% 
-\begin{frame}\frametitle{I aim to further our understanding of the relevant fluid mechanics}
+\begin{frame}\frametitle{\vspace*{0.5cm}I aim to further our understanding of the relevant fluid mechanics}
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.4\textheight]{../figs/lung_figs/trapz10_intf_schematic}\hspace{1cm}%
+    \includegraphics[height=0.4\textheight]{../figs/lung_figs/trapz10_circ_schematic}%
+  \end{figure}
+
+{\small
   \begin{itemize}
-  \item Explain the discrepancies between numerical results and $a(t)\sim\sqrt{\Gamma t}$
+  \item Explain the discrepancies between numerical results and $a(t)\sim\sqrt{\Gamma t}$%
+    \vspace*{5pt}
   \item Develop a model to approximate the circulation deposited on a
     slightly perturbed interface by a compression or expansion wave
+    \vspace*{5pt}
   \item Develop a model to predict the interface phase-reversal time for a compression wave
-  \item 
+    \vspace*{5pt}
+  \item Design an acoustic waveform to minimize circulation deposited and interface growth.
+    \vspace*{5pt}
+  \item Investigate cause of late time circulation growth
   \end{itemize}
+}
 \end{frame}
 %% 
 %% 
