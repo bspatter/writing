@@ -6,7 +6,7 @@ and compare them to our analysis. We focus specifically on the
 relationship between circulation and interface dynamics.
 %
 %
-\subsection{Qualitative observations of the interface response to the $p_a=10$ MPa trapezoidal wave}
+\subsection{Qualitative observations of the interface response to the trapezoidal wave}
 \label{subsec:Qualitative}
 To provide a qualitative understanding of the underlying physics, we
 consider our reference case in which a $p_a=10$ MPa trapezoidal wave
@@ -23,20 +23,80 @@ boundaries.
 \includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_density_t1}
 %\includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_vorticity_t1}
 \caption[The evolution of the acoustically perturbed interface]
-{Surface plots of density throughout the evolution of the interface,
-  at $t=1, 10, 100, 300$, for the $10$ MPa trapezoidal wave
-  case. Areas of high density (i.e., water) are indicated in dark
-  blue. Areas of low density (i.e., air) are indicated in white.}
+{Contour plots of density field illustrate the shape and location of
+  the interface throughout the evolution of the flow, at
+  $t=1, 10, 100, 300$, for the $10$ MPa trapezoidal wave case. Areas
+  of high density (i.e., water) are indicated in dark blue. Areas of
+  low density (i.e., air) are indicated in white. Constant 0.5 volume
+  fraction water contour lines are indicated in black.}
   \label{fig:interface_snapshots}
 \end{figure}
 %
 To illustrate the evolution of the interface, Figure
-\ref{fig:interface_snapshots} contains color plots of the density
-during the compression-interface interaction $(t=1)$, immediately
-after the wave leaves the interface $(t=10)$, and at late times
+\ref{fig:interface_snapshots} contains contour plots of the density
+during the compression-interface interaction $(t=1)$, shortly after
+the wave leaves the interface $(t=10)$, and at late times
 $(t=100, 300)$. Contours of 0.5 volume fraction of water are indicated
-in black on both plots. The initially smooth interface perturbation
-grows from a smooth sinusoid to a sharp point at late times.
+in black on both plots. The interface perturbation grows from an
+initially smooth sinusoid to a sharp point at late times.
+%
+\begin{figure}[h] 
+  \centering
+  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/trapz10_intf_schematic}
+%  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/trapz10_circ_schematic}
+  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/interface_multi-amp_loglog_roe_t1000}
+  \caption[The interface perturbation amplitude histories]{The
+    interface perturbation amplitude histories (Left) corresponding to
+    the $10$ MPa trapezoidal wave case for $t\leq25$, with the times
+    at which different stages of the incoming trapezoidal pressure
+    wave encounter the interface indicated as $t_{1-4}$. The
+    perturbation amplitude histories for the $5$ and $10$ MPa cases
+    are plotted for $t\leq1000$ are plotted on logarithmic axes (Right).}
+  \label{fig:trapz10_circ_interface}
+\end{figure}
+%
+To more closely exam the interface dynamics associated with the
+wave-interface interaction, Figure \ref{fig:trapz10_circ_interface}
+shows the early-time histories of the interface amplitude $a(t)$ and
+right half-domain circulation $\Gamma$. We have labeled the times at
+which different portions of the incoming wave encounter the interface
+as $t_{1-4}$, denoted with black $\bs{\times}$s along the curves in
+these figures and those hereafter. From $t_1=0^+$ to $t_2$ the
+compression wave encounters the interface. We note the average
+perturbation amplitude during this period
+$\overline{a(t_{1-2})}/a_0\approx0.96$, suggesting that the static
+interface assumption made in our vorticity generation order of
+magnitude analysis was reasonable. At $t_2\approx1.1$, the pressure
+reaches its maximum amplitude, $p_a=10$ MPa, and remains constant
+until $t_3$. During this period, the interface amplitude continues to
+decrease until $t\approx 5.0$, at which point the perturbation
+undergoes a phase inversion and begins to grow. This phase inversion
+is also observed for the heavy-light interface Richtmyer-Meshkov
+problem. At $t_3\approx8.5$ the expansion wave hits the interface and
+the perturbation amplitude continues to grow. At $t_4\approx9.7$ the
+acoustic wave has finished traversing the interface, and atmospheric
+pressure is resumed. The perturbation amplitude $a(t)$ continues to
+increase indefinitely after the wave-interface interaction has
+finished.
+
+
+
+%
+\subsection{Vorticity dynamics}
+\begin{figure}[h] 
+  \centering
+%\includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_vorticity_t1}
+  \caption[The evolution of the vorticity] {Contour plots of vorticity
+    field throughout the evolution of flow, at
+    $t=1, 10, 100, 300$, for the $10$ MPa trapezoidal wave case. Areas
+    of positive vorticity are indicated in red. Areas of negative
+    vorticity are indicated in blue. Constant 0.5 volume fraction
+    water contour lines are indicated in black.}
+  \label{fig:interface_snapshots}
+\end{figure}
+
+
+
 
 
 \section{OLD}
