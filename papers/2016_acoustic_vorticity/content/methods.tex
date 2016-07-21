@@ -7,12 +7,11 @@ acoustically-accelerated, perturbed liquid-gas interfaces.
 \label{subsec:setup}
 \begin{figure}
   \centering
-  % \includegraphics[width=0.48\textwidth]{./figs/lung_figs/Alveolus_US_zoom_diagram.pdf_tex} \hfill
-  % \def\svgwidth{0.48\textwidth}
-  % \import{./figs/lung_figs/}{usbe_lung_schematic2.pdf_tex} \hfill%
+  \def\svgwidth{0.48\textwidth}
+  \import{./figs/lung_figs/}{usbe_lung_schematic2.pdf_tex} \hfill%
   \includegraphics[width=0.48\textwidth]{./figs/lung_figs/usbe_model_schematic2} \hfill
-  \caption[A schematic view of the model problem]{A schematic view of the initial and boundary conditions of the
-    numerical experiments performed. An acoustic wave travels from water toward a sinusoidally perturbed water-air interface.}
+  \caption[A schematic view of the model problem]{A schematic of an
+    ultrasound wave impinging upon an alveolus (Left) is modeled as a sinusoidally perturbed water-air interface with an acoustic wave impinging from water onto the interface (Right).}
   \label{fig:problem_schematic}
 \end{figure}
 % 
@@ -47,10 +46,16 @@ $45\lambda$.
 % 
 \begin{figure}% 
   \centering%
-  \includegraphics[width=0.47\textwidth]{./figs/lung_figs/p0_vs_y_labeled}%
-  \caption[Trapezoidal wave]{The trapezoidal pressure wave prescribed
-    as an in initial condition is shown as a function of distance from
-    the interface.}%
+  \hfill
+  \includegraphics[width=0.3\textheight]{./figs/lung_figs/wave_logic_schematic}\hfill
+  \includegraphics[width=0.3\textheight]{./figs/lung_figs/p0_vs_y_labeled}%
+  \caption[Trapezoidal wave]{The ideological progression of how the
+    trapezoidal wave was designed was is illustrated. The
+    ultrasound pulse is thought of as a sum of sin waves, each of
+    which is composed of half-sinusoids, which can be approximated as
+    trapezoidal waves (Left). The specific trapezoidal pressure wave prescribed as an
+    in initial condition is shown as a function of distance from the
+    interface (Right).}%
   \label{fig:p0}
 \end{figure}
 % 
