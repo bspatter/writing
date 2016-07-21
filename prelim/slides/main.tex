@@ -176,10 +176,10 @@
     \end{tikzpicture}\hfill%
     \begin{tikzpicture}
       \node[anchor=south west,inner sep=0] (image) at (0,0) {
-        \includegraphics[height=0.25\textheight]{./figs/Kidney_Bleed3}\hfill
+        \includegraphics[height=0.25\textheight]{./figs/Kidney_Bleed}\hfill
       };%
       \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-        \node[font=\tiny,right] at (0.01,0.03) {\scalebox{0.4}{\textcolor{white}{\cite{Miller2008b}}}};%
+        \node[font=\tiny,right] at (0.01,0.03) {\scalebox{0.4}{\textcolor{white}{Courtesy of D. L. Miller}}};%
       \end{scope}%  
     \end{tikzpicture}\hfill%
     \includegraphics[height=0.25\textheight]{./figs/cavitation_hemorrhage}
@@ -188,7 +188,7 @@
     \begin{itemize}
     \item Diagnostic Ultrasound (DUS) is ubiquitous and generally very safe.
     \item CEUS uses echogenic microbubbles for contrast, but these may act as cavitation nuclei and can lead to hemorrhage.
-    \item Lung Hemorrhage (LH) is the only known bioeffect of non-contrast diagnostic ultrasound.
+    \item Lung Hemorrhage (LH) is the only known bioeffect of non-contrast diagnostic ultrasound under clinically safe conditions.
     \end{itemize}
   }
 \end{frame}
@@ -200,7 +200,15 @@
     \begin{minipage}{0.3\textwidth}
       \begin{figure}
         \centering
-        \includegraphics[width=0.8\textwidth]{./figs/Kidney_Bleed}
+            \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=0.8\textwidth]{./figs/Kidney_Bleed3}\hfill
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\tiny,right] at (0.01,0.03) {\scalebox{0.4}{\textcolor{white}{\cite{Miller2008b}}}};%
+      \end{scope}%  
+    \end{tikzpicture}\hfill%
+        
       \end{figure}
     \end{minipage}
     \begin{minipage}{0.68\linewidth}
@@ -262,7 +270,7 @@
       \includegraphics[width=0.5\textwidth]{LungBleed2} \nocite{Miller2012}%
     \end{figure}%
     % 
-    \visible<2>{To gain insight into DUS-induced LH, we aim to use computational modeling to investigate DUS-lung interaction.}%
+    \visible<2>{To gain insight into DUS-induced LH, we aim to use computational modeling and simulations to investigate DUS-lung interaction.}%
     % 
   }
 \end{frame}
