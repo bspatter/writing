@@ -11,7 +11,6 @@ remain safe. The purpose of this work is to investigate the underlying
 physics of acoustically accelerated liquid-gas interfaces such as
 those in the lungs. 
 
-%
 Over the last few decades \ac{DUS}-induced \ac{LH} has been
 studied extensively and is the only known bioeffect of non-contrast,
 pulsed \ac{US} known to occur in mammals. It has been demonstrated in
@@ -70,15 +69,6 @@ Analytically, baroclinic vorticity generation can be shown by taking
 the curl of the conservation of momentum equation for a compressible
 fluid. However we note that it is a nonlinear effect and cannot be
 explained by traditional linear acoustics.
-% \begin{figure}
-%   \centering
-%   \includegraphics[width=0.9\textwidth]{./figs/lung_figs/baroclinic_schematic} \hfill
-%   \caption[A schematic of baroclinic torque]{From
-%     \cite{Heifetz2015}. A hydrostatic force balance upon a particle
-%     subject to perpendicular pressure and density gradients
-%     illustrates baroclinic torque on a fluid particle.}
-%   \label{fig:usbe_lung_baroclinic_schematic}
-% \end{figure}
 
 The physics of the \ac{RMI} are fairly well understood. For the classical \ac{RMI}
 setup a planar shock impinges normally upon the peaks and troughs of a
@@ -115,9 +105,9 @@ from \cite{Brouillette2002}.
   \label{fig:rmi_schematic}
 \end{figure}
 
-Previous studies of the \ac{RMI} have utilized theory, computation, and
-experiments to describe the behavior of the interface after the wave
-has passed. \cite{Richtmyer1960} performed the linear stability
+Previous studies of the \ac{RMI} have utilized theory, computation,
+and experiments to describe the behavior of the interface after the
+wave has passed. \cite{Richtmyer1960} performed the linear stability
 perturbation analysis developed by \cite{Taylor1950} for the case of
 an impulsive acceleration to create a model for the initial growth of
 the interface perturbation. \cite{Meshkov1969} experimentally
@@ -147,39 +137,39 @@ the circulation deposited by a shock on planar and non-planar
 interfaces. Their results are validated using and Euler code and found
 to be within 10\% of the computed value for $1.0\,<\,$Ma$\,\leq\,1.32$
 for all $\rho_2/\rho_1\,>\,1$, and
-$5.8\,\leq\,\rho_2/\rho_1\,\leq\,32.6$ for all Ma. This work aims to
-add to the current body of work on this topic by investigating
-interfaces accelerated by pressure waves within the acoustic regime.
+$5.8\,\leq\,\rho_2/\rho_1\,\leq\,32.6$ for all Ma.
 
-% Accordingly we propose a possible damage mechanism of
-% \ac{DUS}-induced \ac{LH}. We hypothesize that misalignment between
-% the pressure gradients in the \ac{DUS} pulses and density gradients
-% within the lungs create torque at the alveolar walls, which deform
-% and ultimately hemorrhage as a result.
+Beyond the \ac{RMI}, computational solutions of the nonlinear
+equations of fluid motion have been used to study wave-interface
+problems such as shock-bubble and shock-droplet
+interactions. \cite{Ball2000} solved the Euler equations to simulate
+interaction between a shock-wave and a cylindrical cavity and found
+that baroclinicity effects the dynamics of the cavity.
+%% ADD ANOTHER SHOCK-DROP AND A SHOCK-DROPLET
 
-While there has been little work studying transient wave-interface
-interactions, the detailed nonlinear interactions between acoustic
-waves and perturbed liquid-gas interfaces do not appear to have been
-previously considered in this context
-context. \cite{HenrydeFrahan2015b} demonstrated that interface growth
-could be controlled through transient wave-interface interactions by
-simulating shock passage through layered media, resulting in
-subsequent interactions between the interfaces and reflected and
-transmitted shocks and rarefactions.
+This work is separate from previous research into the \ac{RMI} as a
+result of the acoustic regime considered here. Unlike shock waves,
+which occur over a few molecular mean free paths and interact nearly
+instantaneously, acoustic waves have a finite spacial wavelength and
+can occupy a much larger portion of space. Consequently, their
+interaction with interfaces occurs over a longer period of time
+depending on the waveform and the geometric and material properties of
+the media. This duration can also be thought of in terms of the
+relative sizes of the physical features of the interface and the
+wavelengths of each feature of the acoustic wave of interest. Simple
+\ac{RMI} analysis assumes an impulsive acceleration, and does not
+apply to this work because the interface deforms throughout its
+interaction with the wave. Transient interactions between deforming
+interfaces and shocks are known to be capable of affecting the long
+term growth of the interface. \cite{HenrydeFrahan2015b} demonstrated
+that interface growth could be controlled through transient
+wave-interface interactions by simulating shock passage through
+layered media, resulting in subsequent interactions between the
+interfaces and reflected and transmitted shocks and rarefactions.
+This work aims to add to the current body of work on this topic by
+investigating the importance of transient acoustic wave behavior on
+interface growth.
 
-considering subsequent This work is separate
-from previous research into the \ac{RMI} as a result of the acoustic
-regime considered here. Unlike shock waves, which occur over a few
-molecular mean free paths and interact nearly instantaneously,
-acoustic waves have a finite spacial wavelength and can occupy a much
-larger portion of space. Consequently, their interaction with
-interfaces occurs over a longer period of time depending on the
-waveform and the geometric and material properties of the media. This
-duration can also be thought of in terms of the relative sizes of the
-physical features of the interface and the wavelengths of each feature
-of the acoustic wave of interest. Simple \ac{RMI} analysis assumes an
-impulsive acceleration, and does not apply to this work because the
-interface deforms throughout its interaction with the wave.
 
 Additionally, we argue that the basic problem setup of the \ac{RMI}, a
 mechanical wave impinging upon a material interface, has many
