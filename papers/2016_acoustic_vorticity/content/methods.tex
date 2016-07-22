@@ -119,8 +119,8 @@ pressure oscillations at the interface, two additional advection
 equations are solved for $\gamma$ and $B$.
 \begin{subequations} \label{usbe_lung_eosvar_advection}%
   \begin{align}% 
-    \frac{\partial}{\partial t}\left(\frac{\gamma B}{\gamma-1}\right)+\vec{u}\frac{\partial}{\partial x}\left(\frac{\gamma B}{\gamma-1}\right) = 0,\\
-    \frac{\partial}{\partial t}\left(\frac{1}{\gamma-1}\right)+\vec{u}\frac{\partial}{\partial x}\left(\frac{1}{\gamma-1}\right) = 0. 
+    \frac{\partial}{\partial t}\left(\frac{\gamma B}{\gamma-1}\right)+\boldsymbol{u}\frac{\partial}{\partial x}\left(\frac{\gamma B}{\gamma-1}\right) = 0,\\
+    \frac{\partial}{\partial t}\left(\frac{1}{\gamma-1}\right)+\boldsymbol{u}\frac{\partial}{\partial x}\left(\frac{1}{\gamma-1}\right) = 0. 
   \end{align}%
 \end{subequations}%
 This implementation is consistent with the works of \cite{Abgrall1996,

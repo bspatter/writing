@@ -21,7 +21,6 @@ boundaries.
 \begin{figure}[h] 
   \centering
 \includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_density_t1}
-%\includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_vorticity_t1}
 \caption[The evolution of the acoustically perturbed interface]
 {Contour plots of density field illustrate the shape and location of
   the interface throughout the evolution of the flow, at
@@ -44,14 +43,16 @@ initially smooth sinusoid to a sharp point at late times.
   \centering
   \includegraphics[width=0.48\textwidth]{./figs/lung_figs/trapz10_intf_schematic}
 %  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/trapz10_circ_schematic}
-  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/interface_multi-amp_loglog_roe_t1000}
+%  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/interface_multi-amp_loglog_roe_t1000}
   \caption[The interface perturbation amplitude histories]{The
     interface perturbation amplitude histories (Left) corresponding to
     the $10$ MPa trapezoidal wave case for $t\leq25$, with the times
     at which different stages of the incoming trapezoidal pressure
-    wave encounter the interface indicated as $t_{1-4}$. The
-    perturbation amplitude histories for the $5$ and $10$ MPa cases
-    are plotted for $t\leq1000$ are plotted on logarithmic axes (Right).}
+    wave encounter the interface indicated as $t_{1-4}$.
+    % The
+    % perturbation amplitude histories for the $5$ and $10$ MPa cases
+    % are plotted for $t\leq1000$ are plotted on logarithmic axes (Right).
+  }
   \label{fig:trapz10_circ_interface}
 \end{figure}
 %
@@ -78,24 +79,52 @@ acoustic wave has finished traversing the interface, and atmospheric
 pressure is resumed. The perturbation amplitude $a(t)$ continues to
 increase indefinitely after the wave-interface interaction has
 finished.
-
-
-
+%
 %
 \subsection{Vorticity dynamics}
 \begin{figure}[h] 
   \centering
-%\includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_vorticity_t1}
+  \includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_vorticity_t1}
   \caption[The evolution of the vorticity] {Contour plots of vorticity
     field throughout the evolution of flow, at
     $t=1, 10, 100, 300$, for the $10$ MPa trapezoidal wave case. Areas
     of positive vorticity are indicated in red. Areas of negative
     vorticity are indicated in blue. Constant 0.5 volume fraction
     water contour lines are indicated in black.}
-  \label{fig:interface_snapshots}
+  \label{fig:vorticity_snapshots}
 \end{figure}
 
+% Qualitatively describe and justify looking at vorticity/circulation here
+\subsubsection{Baroclinic vorticity generation during the compression-interface interaction}
+\begin{figure}[h] 
+  \centering
+  \includegraphics[height=0.3\textheight]{./figs/lung_figs/snapshots_vorticity_t1_only}
+  \includegraphics[height=0.3\textheight]{./figs/lung_figs/trapz10_circ_schematic}
+  \caption[\hl{PUT SOMETHING HERE}] {Contour plots of vorticity
+    field at $t=1$ for the $10$ MPa trapezoidal wave case. Areas
+    of positive vorticity are indicated in red. Areas of negative
+    vorticity are indicated in blue. Constant 0.5 volume fraction
+    water contour lines are indicated in black.\hl{rewrite this and add caption for circulation plot.}}
+  \label{fig:circulation_schematic}
+\end{figure}
 
+% Show circulation is baroclinic here
+
+\subsubsection{Circulation-driven, late-time growth of the interface}
+\begin{figure}[h] 
+  \centering
+  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/interface_multi-amp_loglog_roe_t1000}
+  \caption[The long term interface perturbation amplitude
+  histories]{The perturbation amplitude histories for the $5$ and $10$
+    MPa cases are plotted for $t\leq1000$ are plotted on logarithmic
+    axes.}
+  \label{fig:trapz10_circ_interface}
+\end{figure}
+
+% Show scaling law analysis here 
+
+
+% Plots showing that circulation generation is mostly in air
 
 
 
