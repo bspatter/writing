@@ -4,18 +4,18 @@ future work to address some of these issues. To further evaluate the
 relevance of the proposed damage mechanisms and presented results to
 \ac{DUS}-induced lung hemorrhage, viscous and elastic effects should
 be considered, as both of these have the potential to reduce observed
-deformation, and mitigate hemorrhage. Additionally, more realistic
-geometries that more accurately represent physical networks of alveoli
-within the lungs will be useful to understand the propagation of
-ultrasound waves and hemorrhage deeper into the lungs, beyond the
-first tissue, air interface. To do this accurately, it may be
-necessary to include a model for interface rupture. Many of these
-future tasks will require not only additional numerical efforts, but
-also experimental studies to appropriately characterize the lung
-tissue and validate the suggested models. Additionally, to increase
-our understanding of the relevant fluid dynamics, it will be important
-it would be useful to be able predict the circulation and interface
-dynamics based on the wave properties and initial conditions.
+deformation, and mitigate hemorrhage. Additionally, geometries that
+more accurately represent physical networks of alveoli within the
+lungs will be useful to understand the propagation of ultrasound waves
+and hemorrhage deeper into the lungs, beyond the first tissue-air
+interface. To do this accurately, it may be necessary to include a
+model for interface rupture. Many of these future tasks will require
+not only numerical efforts, but also experimental studies to
+appropriately characterize the lung tissue and validate the suggested
+models. Additionally, to increase our understanding of the relevant
+fluid dynamics, it would be useful to be able predict the circulation
+and interface dynamics based on the wave properties and initial
+conditions.
 
 To address some of these issues and complete the proposed dissertation
 research we plan to perform several tasks:
@@ -24,16 +24,16 @@ research we plan to perform several tasks:
 \item To further the relevance of this research to the problem of
   \ac{DUS} of the lung we will:
   \begin{enumerate}
-  \item Calculate stresses and strains at the interface compare to
-    known properties of the lung. A passive viscous stress tensor will
-    be computed from the velocity field and volume fraction fields,
-    assuming constant viscosity for pure water and air. Lagrange
-    particles will be placed upon the interface and tracked in time to
-    calculate the pathlength of the interface as a function of time
-    $S_{Intf}(t)$. This will be used to compute the engineering strain,
-    $\varepsilon$, as though the interface were a solid sheet of
-    tissue where, where
-    $\varepsilon=[S_{Intf}(t=0)-S_{Intf}(t)]/S_{Intf}(t=0)$.
+  \item Calculate stresses and strains at the interface and compare to
+    previously measured failure thresholds of the lungs. A passive
+    viscous stress tensor will be computed from the velocity field and
+    volume fraction fields, assuming constant viscosity for pure water
+    and air. Either Volume fraction fields or Lagrange particles will
+    be used to calculate the pathlength of the interface as a function
+    of time $S_{Intf}(t)$ and engineering strain of the interface,
+    $\varepsilon_{Intf}$, as though the interface were a solid sheet
+    of tissue where,
+    $\varepsilon_{Intf}=[S_{Intf}(t=0)-S_{Intf}(t)]/S_{Intf}(t=0)$.
     % 
   \item Investigate the effects of alveolar side wall structures. To
     model this, a thin layer of tissue (modeled as water) will be
@@ -53,7 +53,12 @@ research we plan to perform several tasks:
 \item To further our understanding of fluid mechanics
   associated with acoustically perturbed fluid interfaces we will:
   \begin{enumerate}
-  \item Perform longer simulations to validate $a(t)\sim\sqrt{\Gamma t}$ scaling.
+  \item Seek to understand discrepancies between the
+    $a(t)\sim\sqrt{\Gamma t}$ scaling obtained and the numerical
+    results. This may require longer simulations to reach the final
+    growth rate of the interface, or re-assessment of the logic behind
+    using a global metric to describe a locally-dependent flow
+    feature.
     % 
   \item Develop a model to predict the circulation deposited on a
     slightly perturbed interface by a simple compression or expansion
@@ -87,17 +92,10 @@ research we plan to perform several tasks:
     determine if this effect is physical or numerical. If this effect
     is physical, we aim to determine the mechanism.
     %
-  \item Investigate the dependence of circulation on the type of
-    Riemann solver used. Though this document has not provided results
-    to this effect, we have noticed that the amount of circulation
-    produced by a given problem setup is roughly twice as large when
-    the Rusanov solver is implemented as opposed to Roe solver. We
-    will investigate the cause of this in order to determine which is
-    more appropriate for our work.
   \end{enumerate}
 \end{itemize}
 
-\hl{FUTURE: ESTIMATE a0 THAT WOULD MAKE BAROCLINIC CIRCULATION EQUAL TO OTHER TERMS TO FIGURE OUT HOW LARGE a0 MUST BE TO GET RM}
+%\hl{FUTURE: ESTIMATE a0 THAT WOULD MAKE BAROCLINIC CIRCULATION EQUAL TO OTHER TERMS TO FIGURE OUT HOW LARGE a0 MUST BE TO GET RM}
 
 
 
