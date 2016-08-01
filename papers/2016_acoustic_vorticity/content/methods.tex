@@ -1,49 +1,55 @@
 \section{Methods} \label{sec:methods}%
-In this section, we describe the set of numerical experiments designed
-to investigate the fundamental fluid dynamics associated with
-acoustically-accelerated, perturbed liquid-gas interfaces.
+In this section, we describe numerical experiments designed to
+investigate the fundamental fluid dynamics associated with
+acoustically-driven, perturbed liquid-gas interfaces. While the focus
+is on the fluid mechanics, we specifically consider acoustic and
+geometric properties relevant to the \ac{DUS} of the lung.
 
 \subsection{Problem set-up}
 \label{subsec:setup}
-\begin{figure}
+\begin{figure}[h]
   \centering
   \def\svgwidth{0.48\textwidth}
- % \import{./figs/lung_figs/}{usbe_lung_schematic2.pdf_tex} \hfill%
    \import{./figs/lung_figs/}{Alveolus_US_zoom_only_diagram.pdf_tex} \hfill%
    \includegraphics[width=0.4\textwidth]{./figs/lung_figs/usbe_model_schematic2} \hfill
-  \caption[A schematic view of the model problem]{A schematic of an
-    ultrasound wave impinging upon an alveolus (Left) is modeled as a sinusoidally perturbed water-air interface with an acoustic wave impinging from water onto the interface (Right).}
+   \caption[A schematic view of the model problem]{A schematic of an
+     ultrasound wave impinging upon an alveolus (Left) is modeled as a
+     sinusoidally perturbed water-air interface with an acoustic wave
+     impinging from water onto the interface (Right).}
   \label{fig:problem_schematic}
 \end{figure}
 % 
-We consider a 2D, compressible inviscid fluid system in the $xy$-plane
-with an acoustic wave impinging from water (top) downward toward air
+Figure \ref{fig:problem_schematic} illustrates a close up schematic of
+an ultrasound wave impinging upon alveoli (Left) and a schematic view
+of the computational problem setup used to model this. We consider a
+2D, compressible inviscid fluid system in the $xy$-plane with an
+acoustic wave impinging from water (top) downward toward air
 (bottom). The water-air interface is initially located at the origin
-and has a sinusoidal shape with wavelength $\lambda$ and amplitude
-$0.03\lambda$ as seen in Figure \ref{fig:problem_schematic}. The width
-of the rectangular computational domain is $1\lambda$ such that it is
-traversed by a single period of the interface. This interface geometry
-is consistent previous studies of the \ac{RMI}
-\citep{Brouillette2002}.
+and has a sinusoidal shape with wavelength $\lambda$ and perturbation
+amplitude $0.03\lambda$. The width of the rectangular computational
+domain is $\lambda$ such that it is traversed by a single period of
+the interface. This interface geometry is consistent previous studies
+of the \ac{RMI} \citep{Brouillette2002}.
 
-As the primary focus of this study is on the fundamental physics of
-acoustically-accelerated perturbed liquid-gas interfaces a very simple
-acoustic waveform that can be studied analytically is optimal for our
-purposes. As such, we choose initially symmetric trapezoidal waveforms
-for the numerical experiments as illustrated in Figure
-\ref{fig:p0}. The wave is composed of three stages, described here in
-the order that they encounter the interface. First, compression
-occurs, the pressure increases linearly from atmospheric to a maximum
-of $p_a=1, 5$, or $10$ MPa gauge pressure. Second, the elevated
-pressure $p_a$ is held constant over a fixed period. Note
-that the subscript $_a$ will be used from here on to denote properties
-of the acoustic wave. Third, an expansion occurs and pressure
-decreases linearly back to atmospheric pressure. The pressure rise and
-fall initially occur over equal distances $5\lambda$, such that they
-have constant, equal spatial slopes $\pm p_{a}/5\lambda$. Unless
-otherwise stated, the period of constant pressure has length
-$35\lambda$ and thus the total length $L$ of the incoming acoustic wave is
-$45\lambda$.
+A typical \ac{DUS} pulse is mathematically complicated and not ideal
+for analysis. To simplify the problem, we think of the ultrasound
+pulse as a sum of sin waves, each of which is composed of
+half-sinusoids, which can be approximated as trapezoidal waves. This
+thought process is illustrated in figure \ref{fig:p0}
+(Left). Accordingly we use an initially trapezoidal waveform for the
+acoustic wave as shown in Figure \ref{fig:p0} (Right). The wave is
+composed of three stages, described here in the order that they
+encounter the interface. First, compression occurs, the pressure
+increases linearly from atmospheric to a maximum of $p_a=1, 5$, or
+$10$ MPa gauge pressure. Second, the elevated pressure $p_a$ is held
+constant over a fixed period. Note that the subscript $_a$ will be
+used from here on to denote properties of the acoustic wave. Third, an
+expansion occurs and pressure decreases linearly back to atmospheric
+pressure. The pressure rise and fall initially occur over equal
+distances $5\lambda$, such that they have constant, equal spatial
+slopes $\pm p_{a}/5\lambda$. Unless otherwise stated, the period of
+constant pressure has length $35\lambda$ and the total length $L$
+of the incoming acoustic wave is $45\lambda$.
 % 
 \begin{figure}% 
   \centering%
@@ -63,11 +69,9 @@ $45\lambda$.
 \subsection{Governing equations}
 The governing equations describing the motivating problem of \ac{DUS}
 of the lung are conservation of mass, momentum, and energy for a
-compressible, viscoelastic material. The present work aims to
-study the fundamental fluid physics of acoustically-accelerated,
-perturbed liquid-gas interfaces, so we neglect elastic and viscous
-effects. Hence We arrive at the Euler equations which we present here
-for the case of fluid motion in two dimensions ($x,y$):
+compressible, viscoelastic material. The present work neglects elastic
+and viscous effects. Thus we solve the Euler equations are presented
+here for the case of fluid motion in two dimensions ($x,y$):
 % 
 \begin{subequations} \label{eq:euler}%
   \begin{align}% 
@@ -87,7 +91,7 @@ thus no inherent physical length scale exists in the equations that we
 solve. Hence all length scales hereafter will be considered relative
 to an interface perturbation wavelength $\lambda$.
 
-To close the system, we solve a stiffened equation of state which
+To close the system, we use a stiffened equation of state to
 relate the total energy to the pressure and velocity in the flow, such
 that,
 % 
@@ -95,29 +99,29 @@ that,
   E=\frac{\rho\left(u^2+v^2\right)}{2} + \frac{p+\gamma B}{\gamma-1}.
 \end{align}
 % 
-Here $B$ is a measure of liquid stiffness. For perfect gases, such as
-is our treatment of air, $\gamma$ is the specific heats ratio and
-$B=0$. The sound speed in our simulations is calculated based on the
-following relationship, derived from the stiffened equation of state.
+Here $B$ is a measure of liquid stiffness that has been experimentally
+determined for this equation. For perfect gases, such as is our
+treatment of air, $\gamma$ is the specific heats ratio and $B=0$. The
+sound speed in our simulations is calculated based on the following
+relationship, derived from the stiffened equation of state.
 % 
 \begin{align}
   c = \sqrt{\frac{\gamma\left(p+B\right)}{\rho}}.
 \end{align}
 % 
-While physical diffusion is not considered in this setup, numerical
-diffusion does occur at the water-air interface, creating a mixed
-region between the two fluids. The numerical treatment of the
-diffusion layer at the interface for the initial condition is such
-that the density has an exponential profile \citep{Latini2007}, which
-is used to get the mass fraction and molecular weight fields in the
-mixed region. Which then used to determine the other material
-parameters in the mixed region in a thermodynamically consistent
-fashion.
+While physical diffusion is not considered in this setup, portions of
+the flow contain a water-air mixture as a result of the initial
+treatment of the interface and numerical diffusion. The numerical
+treatment of the diffusion layer at the interface for the initial
+condition is such that the density has an exponential profile
+\citep{Latini2007}, which is used to get the mass fraction and
+molecular weight fields in the mixed region. These are then used to
+determine the initial conditions for $\gamma$ and $B$ in a
+thermodynamically consistent fashion.
 
-To solve for
-the material parameters in the mixed region and prevent spurious
-pressure oscillations at the interface, two additional advection
-equations are solved for $\gamma$ and $B$.
+To solve for the material parameters in the mixed region and prevent
+spurious pressure oscillations at the interface, two additional
+advection equations are solved for $\gamma$ and $B$.
 \begin{subequations} \label{usbe_lung_eosvar_advection}%
   \begin{align}% 
     \frac{\partial}{\partial t}\left(\frac{\gamma B}{\gamma-1}\right)+\boldsymbol{u}\frac{\partial}{\partial x}\left(\frac{\gamma B}{\gamma-1}\right) = 0,\\
@@ -130,7 +134,9 @@ are explained by \cite{HenrydeFrahan2015}.
 %
 The dimensional and dimensionless values of each fluid property can be
 found in tables \ref{tab:usbe_lung_dimensional_parameters} and
-\ref{tab:usbe_lung_dimensionless_parameters} respectively.
+\ref{tab:usbe_lung_dimensionless_parameters} respectively. Values for
+$\gamma$ and $B$ for water have been determined
+empirically\citep{Marsh1980,holian1984t,Cocchi1996}.
 % 
 \begin{table}[bp]%
   \begin{center}
@@ -164,7 +170,7 @@ found in tables \ref{tab:usbe_lung_dimensional_parameters} and
 To solve the governing equations, we implement a third-order accurate
 \ac{DG} scheme in space and a fourth-order accurate, adaptive
 Runge-Kutta method to march forward in time
-\citep{HenrydeFrahan2015}. Roe solver is used to calculate flux in an
+\citep{HenrydeFrahan2015}. Roe solver is used to calculate flux in and
 out of each cell in a way that handles discontinuities and keeps the
 interface sharp. As previously stated, the computational domain width
 ($x$-direction) is $\lambda$. The domain length ($y$-direction) is
