@@ -25,7 +25,7 @@ The experiments are designed to model the physics associated with a
 onto a pulmonary alveolus (modeled as air). Accordingly, we consider a
 2D, compressible inviscid fluid system in the $xy$-plane with an
 acoustic wave impinging from water (top) downward toward air
-(bottom). The water-air interface is initially located at the origin
+(bottom). The water-air interface is initially located near $y=0$ 
 and has a sinusoidal shape with wavelength $\lambda$ and amplitude
 $0.03\lambda$ as seen in Figure \ref{fig:lung_schematic}. The width
 of the rectangular computational domain is $1\lambda$ such that it is
@@ -33,66 +33,72 @@ traversed by a single period of the interface. This interface geometry
 is consistent previous studies of the \ac{RMI}
 \citep{Brouillette2002}.
 
-To model the \ac{DUS} pulse we consider two different waveforms with
-different purposes. We aim to create the first waveform such that the
-problem can be analytically studied to understand the relevant
-vorticity and interface dynamics. To design this wave, we consider a
-typical \ac{US} pulse waveform as one that can be Fourier decomposed
-into a sum of sinusoids of varying frequencies and amplitudes. Each
-sinusoid can be further broken down into its positive and negative
-portions, each consisting of a pressure rise and fall in either
-order. We consider only a single rise and fall in pressure and we
-simplify further allowing pressure to only rise and fall linearly
-(i.e., with constant time derivative). Hence we use an initially
-symmetric trapezoidal waves. Each wave is prescribed as an initial
-condition in the flow and is composed of three stages, described here
-in the order that they encounter the interface. First, compression
-occurs. Pressure increases linearly from atmospheric to a maximum of
-$p_a=1, 5$, or $10$ MPa gauge pressure. Second, the elevated pressure
-$p_a$ remains constant over a fixed distance (or time). Third,
-expansion occurs and pressure decreases linearly back to atmospheric
-pressure. The pressure rise and fall occur over equal distances
-$5\lambda$, such that they have constant, equal slopes
-$\pm p_{a}/5\lambda$. Note that this neglects wave distortion due to
-acoustically induced changes in sound speed, which we assume to be
-small for our purposes. Unless otherwise stated, the period of
-constant pressure has length $35\lambda$. Hence the total length $L$
-of the incoming trapezoidal wave is $45\lambda$. 
 
-We aim to design the second waveform to closely resemble that of a
-typical \ac{DUS} pulse, such that we can compare the associated
-interface and vorticity dynamics to those created by the trapezoidal
-waveform. The waveform shape is composed of a sinusoidal pressure
-modulated by a Gaussian envelope as seen in Figure \ref{fig:p0}),
+
+
+
+
+
+
+To model the \ac{DUS} pulse we consider two different waveforms with
+different purposes. We design the first waveform to closely resemble
+a typical \ac{DUS} pulse, in order to simulate the appropriate dynamics.
+The waveform shape is composed of a sinusoidal pressure modulated by a
+Gaussian envelope as seen in Figure \ref{fig:p0}),
 %
 \begin{align} \label{eq:us_waveform}
-p(t)=p_a \sin{\left( 2\pi f \left[ t-t_0\right]\right)}
+p(t)=p_a \sin{\left( 2\pi f \left[ \left(t-t_0\right)^2\right]\right)}
 \exp{\left(-\frac{t-t_0}{FWHM/\left(2\sqrt{2\ln{\left(2\right)}}\right)}\right)}.
 \end{align}
 %
 Here $p(t)$ is the pulse pressure as a function of time, $p_a$ is the
 maximum acoustic pressure, $f$ is the frequency in Hz, $t$ is time,
 $t_0$ is a time offset, and $FWHM$ is the full width at half maximum
-amplitude for the Gaussian envelope. The presented \ac{DUS}-like pulse
+amplitude for the Gaussian envelope. The presented \ac{DUS}- pulse
 waveform is given as a function of time, as is typical of \ac{US}. The
 speed of sound in water is used to convert this to a spatial waveform
 for the initial condition.
 
-we assume a typical alveolar length scale
-$\lambda=100 \, \mu$m. For the wave initially in water, (c=$1500$
-m/s), we find an equivalent acoustic pulse duration of our waveform is
-$3 \, \mu$s.  This is within the range of typical \ac{US} pulse
-durations in clinical imaging \citep{Edelman2005} and relevant
-research \citep{Obrien2006b}.
+Because A typical \ac{DUS} pulse is mathematically complicated and not
+ideal for analysis we also use a trapezoidal waveform, which is
+sufficiently simple such that the relevant vorticity and interface
+dynamics can be studied analytically. To design this wave, we think of
+the ultrasound pulse as a sum of sin waves, each of which is composed
+of half-sinusoids, which can be approximated as trapezoidal
+waves. This thought process is illustrated in figure \ref{fig:p0}
+(Left). Hence we use an initially symmetric trapezoidal waves.
+
+Each wave is prescribed as an initial condition in the flow and is
+composed of three stages, described here in the order that they
+encounter the interface. First, compression occurs. Pressure increases
+linearly from atmospheric to a maximum of $p_a=1, 5$, or $10$ MPa
+gauge pressure. Second, the elevated pressure $p_a$ remains constant
+over a fixed distance (or time). Third, expansion occurs and pressure
+decreases linearly back to atmospheric pressure. The pressure rise and
+fall occur over equal distances $5\lambda$, such that they have
+constant, equal slopes $\pm p_{a}/5\lambda$. Note that this neglects
+wave distortion due to acoustically induced changes in sound speed,
+which we assume to be small for our purposes. Unless otherwise stated,
+the period of constant pressure has length $35\lambda$. Hence the
+total length $L$ of the incoming trapezoidal wave is $45\lambda$. We
+assume a typical alveolar length scale $\lambda=100 \, \mu$m. For the
+wave initially in water, (c=$1500$ m/s), we find an equivalent
+acoustic pulse duration of our waveform is $3 \, \mu$s.  This is
+within the range of typical \ac{US} pulse durations in clinical
+imaging \citep{Edelman2005} and relevant research \citep{Obrien2006b}.
 %
 \begin{figure}% 
   \centering%
-  \includegraphics[width=0.47\textwidth]{./figs/lung_figs/p0_vs_y}%
-  \includegraphics[width=0.47\textwidth]{./figs/lung_figs/p0_vs_t_us}%
-  \caption[Trapezoidal and \ac{DUS} pulse waves]{The initial pressure in the domain. The trapezoidal wave
-    pressure is shown as a function of distance from the interface
-    (Left). A \ac{DUS}-like pulse wave is used for comparison
-    (Right).}%
+  \includegraphics[width=0.32\textwidth]{./figs/lung_figs/p0_vs_t_us}\hfill%
+  \includegraphics[width=0.17\textheight]{./figs/lung_figs/wave_logic_schematic2}\hfill
+  \includegraphics[width=0.32\textwidth]{./figs/lung_figs/p0_vs_y}%
+  \caption[Trapezoidal and \ac{DUS} pulse waves]{The initial pressure
+    waveforms in the domain. A \ac{DUS} pulse used as in initial
+    condition (Left) is thought of as a sum of (half) sinusoids
+    (Center), which can each be approximated as a trapezoidal waves
+    (Right). The trapezoidal wave initial condition, shown as a function of
+    vertical distance from the interface, is used for the bulk of this
+    study.}%
   \label{fig:p0}
 \end{figure}
 %

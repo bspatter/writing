@@ -1,0 +1,65 @@
+\begin{frame} \frametitle{We hypothesize that US waves generate baroclinic vorticity at air-tissue interfaces in the lungs, straining fragile alveolar walls.}%
+  The vorticity generation equation\vspace{2pt}
+  \only<1>{
+    \scalebox{1.0}{$
+      \frac{\partial \boldsymbol{\omega}}{\partial t}%
+      +\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}=% 
+      \left(\boldsymbol{\omega}\cdot\nabla\right)\boldsymbol{u}%
+      -\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)%
+      +\frac{\nabla\rho\times\nabla p}{\rho^2}%
+      -\nabla\times\left(\frac{\nabla\cdot\boldsymbol{\tau}}{\rho}\right)%
+      +\nabla\times\boldsymbol{B}%
+      $%
+    }
+  }
+  \only<2->{
+    \scalebox{0.94}{$
+      \frac{\partial \boldsymbol{\omega}}{\partial t}%
+      +\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}=% 
+      \cancelto{0}{\left(\boldsymbol{\omega}\cdot\nabla\right)\boldsymbol{u}}%
+      -\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)%
+      +\frac{\nabla\rho\times\nabla p}{\rho^2}%
+      -\cancelto{0}{\nabla\times\left(\frac{\nabla\cdot\boldsymbol{\tau}}{\rho}\right)}%
+      +\cancelto{0}{\nabla\times\boldsymbol{B}}%
+      $
+    }
+  }
+  \vfill 
+  \begin{minipage}{\textwidth}
+    \begin{minipage}{0.5\textwidth}
+      {\footnotesize
+        \begin{itemize}%
+        \item Alveolar air-tissue interfaces have sharp density gradients%
+          \vspace*{6pt}%
+        \item US has strong pressure gradients%
+          \vspace*{6pt}%
+        \item US-induced baroclinic vorticity may cause strain, similar to shock-driven interfaces%
+          \vspace*{6pt}%
+        \item Linear acoustics does not capture this.
+        \end{itemize}
+      }
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \begin{tikzpicture}%
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+            \def\svgwidth{\textwidth}
+            {\footnotesize
+              \import{../figs/lung_figs/}{usbe_lung_schematic2.pdf_tex} \hfill%
+            }  
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+            \node[font=\footnotesize,right] at (0.6,0.72){ $\nabla p$};%
+            \node[font=\footnotesize,right] at (0.59,0.515){ $\nabla \rho$};%
+            \node[font=\tiny,right] at (0.7,0.05){\textcolor{gray}{wikimedia.org}};%
+          \end{scope}%  
+        \end{tikzpicture}%
+      \end{figure}
+    \end{minipage}
+  \end{minipage}
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
