@@ -5,7 +5,6 @@
       \begin{figure}%
         \centering%
         Diagnostic\\%
-        % \includegraphics[width=0.8\textwidth]{./figs/ultrasound_example}%
         \begin{tikzpicture}
           \node[anchor=south west,inner sep=0] (image) at (0,0) {
             \includegraphics[trim={0 0 0 1cm},clip=true,width=0.8\textwidth]{./figs/ultrasound_example}
@@ -43,6 +42,18 @@
       \visible<2->{I focus on Diagnostic Ultrasound (DUS) bioeffects and relevant physics.}%
     \end{center}%
   }%
+  %
+  \note{
+    \begin{enumerate}
+    \item The remainder of this talk will cover US and related physics.
+    \item US sends high frequency acoustic waves into the body that scatter at material interfaces.
+    \item The acoustic energy is viscously dissipated as heat and some can be converted to kinetic energy via bubbles for example.
+    \item Within medical US there are two types, therapeutic and diagnostic.
+    \item Therapeutic US uses sound waves to intentionally trigger a biological effect in the tissue.
+    \item DUS uses reconstructs scattered waves to obtain images and information about the body.
+    \item TUS tries to cause bioeffects, DUS typically wants to avoid them.
+    \end{enumerate}
+  }
 \end{frame}
 %%% Local Variables:
 %%% mode: latex

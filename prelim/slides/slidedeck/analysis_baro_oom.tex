@@ -1,0 +1,54 @@
+\begin{frame} \frametitle{\vspace*{0.5cm}Order of magnitude analysis of vorticity generation}%
+  \vspace*{-0.25cm}
+  \scriptsize{
+    \begin{align*}
+      \frac{\partial \vec{\omega}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{\omega} =% 
+      - \vec{\omega}\left(\nabla\cdot\vec{u}\right) + \frac{\nabla\rho\times\nabla p}{\rho^2}.%
+    \end{align*}
+
+    \visible<2->{
+      Acoustic Relations and operator treatments%
+      \begin{align*}
+        \Delta p_a=\pm\Delta u_a \rho c=c^2\Delta \rho_a, \quad\qquad \norm{\nabla f} \sim \norm{\nabla\cdot f} \sim \norm{\nabla\times f}= \orderof{\left|\Delta f\right|/\Delta L}%
+      \end{align*}
+    }
+
+    \vspace*{-0.15cm}
+    \visible<3->{%
+      Baroclinic vorticity generation%
+      \begin{align*}
+        \norm{\frac{\nabla\rho\times\nabla p}{\rho^2}} = \orderof{\frac{\abs{\Delta \rho_I}}{\abs{\Delta L_I}}\frac{\abs{\Delta p_a}}{\abs{\Delta L_a}}\frac{1}{\abs{\rho}^2}\abs{\theta}}
+      \end{align*}
+    }
+    
+    \visible<4->{
+      Advective and compressible vorticity generation - $\norm{\vec{\omega}} = \int_0^{\Delta t_a} (\text{baroclinic term}) dt$
+      \begin{align*}
+        \norm{\left(\vec{u}\cdot\nabla\right)\vec{\omega}} \sim \norm{-\vec{\omega}\left(\nabla\cdot\vec{u}\right)} = \orderof{\left[\frac{\abs{\Delta u_a}}{\abs{\Delta L_a}}\right]^2},
+      \end{align*}
+    }
+
+    \vspace*{-0.15cm}
+    \visible<5->{
+      Comparing terms for our our problem
+      \begin{align*}
+        \Delta t_a\approx5\lambda/c_{w}, \qquad \Delta L_a=5\lambda, \qquad \Delta p_a = 10 MPa, \qquad \Delta L_I \approx 0.05\lambda, \qquad <\abs{\theta}>=0.12%
+      \end{align*}\vspace*{-0.5cm}
+      \begin{align*}  
+        \frac{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}}{\norm{-\vec{\omega}\left(\nabla\cdot\vec{u}\right)}} = \frac{c}{\abs{\Delta u_a}} = \frac{\rho}{\abs{\Delta \rho_a}}=\orderof{10^2}%
+      \end{align*}
+    }
+    \visible<6->{
+      Calculated values at $t=1$: 
+      \begin{center}
+        $\int\frac{\nabla\rho\times\nabla p}{\rho^2}\,\diff A=7.7\,\text{e}{-3},\qquad$
+        $\int\left(\vec{u}\cdot\nabla\right)\vec{\omega}\,\diff A=-5.3\text{e}{-5},\qquad$%
+        $\int-\vec{\omega}\left(\nabla\cdot\vec{u}\right)\,\diff A=2.7\text{e}{-5},\qquad$%
+      \end{center}
+    }
+  }
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
