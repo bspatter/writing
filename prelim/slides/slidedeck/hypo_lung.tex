@@ -1,27 +1,29 @@
 \begin{frame} \frametitle{We hypothesize that US waves generate baroclinic vorticity at air-tissue interfaces in the lungs, straining fragile alveolar walls.}%
-  The vorticity generation equation\vspace{2pt}
-  \only<1>{
-    \scalebox{1.0}{$
-      \frac{\partial \boldsymbol{\omega}}{\partial t}%
-      +\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}=% 
-      \left(\boldsymbol{\omega}\cdot\nabla\right)\boldsymbol{u}%
-      -\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)%
-      +\frac{\nabla\rho\times\nabla p}{\rho^2}%
-      -\nabla\times\left(\frac{\nabla\cdot\boldsymbol{\tau}}{\rho}\right)%
-      +\nabla\times\boldsymbol{B}%
-      $%
+  \visible<2->{
+    The vorticity generation equation\vspace{2pt}
+    \only<2>{
+      \scalebox{1.0}{$
+        \frac{\partial \boldsymbol{\omega}}{\partial t}%
+        +\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}=% 
+        \left(\boldsymbol{\omega}\cdot\nabla\right)\boldsymbol{u}%
+        -\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)%
+        +\frac{\nabla\rho\times\nabla p}{\rho^2}%
+        -\nabla\times\left(\frac{\nabla\cdot\boldsymbol{\tau}}{\rho}\right)%
+        +\nabla\times\boldsymbol{B}%
+        $%
+      }
     }
-  }
-  \only<2->{
-    \scalebox{0.94}{$
-      \frac{\partial \boldsymbol{\omega}}{\partial t}%
-      +\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}=% 
-      \cancelto{0}{\left(\boldsymbol{\omega}\cdot\nabla\right)\boldsymbol{u}}%
-      -\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)%
-      +\frac{\nabla\rho\times\nabla p}{\rho^2}%
-      -\cancelto{0}{\nabla\times\left(\frac{\nabla\cdot\boldsymbol{\tau}}{\rho}\right)}%
-      +\cancelto{0}{\nabla\times\boldsymbol{B}}%
-      $
+    \only<3->{
+      \scalebox{0.94}{$
+        \frac{\partial \boldsymbol{\omega}}{\partial t}%
+        +\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}=% 
+        \cancelto{0}{\left(\boldsymbol{\omega}\cdot\nabla\right)\boldsymbol{u}}%
+        -\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)%
+        +\alert{\frac{\boldsymbol{\nabla\rho\times\nabla p}}{\boldsymbol{\rho^2}}}%
+        -\cancelto{0}{\nabla\times\left(\frac{\nabla\cdot\boldsymbol{\tau}}{\rho}\right)}%
+        +\cancelto{0}{\nabla\times\boldsymbol{B}}%
+        $
+      }
     }
   }
   \vfill 
@@ -59,11 +61,24 @@
     \end{minipage}
   \end{minipage}
   \note{
-    \begin{itemize}
-    \item $\nabla \rho \times \nabla p$ is generally small for acoustics $\orderof{\Delta u^2}$
-    \item Linear acoustics won't capture this
-    \item Acoustic simulations may not get this right either because of huge $\nabla \rho$
-    \end{itemize}
+    {\tiny
+    \begin{enumerate}
+    \item In DUS-lung interaction, you have a nearly infinite density gradient where the tissue and lung meet within the alveolas and strong pressure gradients in the US.
+    \item If we look at vorticity equation, which shows all of the
+      ways that vorticity or local fluid rotation can be generated.
+    \item Vorticity is curl of velocity field, can be obtained from curl of conservation of momentum equation.
+      $\nabla \rho \times \nabla p$, which is generally small for
+      acoustics $\orderof{\Delta u^2}$ has the potential to be quite
+      large.
+    \item For the model problems we'll be looking at, other appear less relevant.
+    \item Gravity term is small based on Freud number calculation, so gravity will be neglected in our model problem.
+    \item Acoustic viscous boundary length scale is micron order, which is small relative to 100 micron alveolar length scales.
+    \item For our toy problem, we consider two-D, so vortex stretching term is identically zero, and expected to be of order $\Delta u^2$, velocity perturbation squared, in 3D anyway.
+    \item compressible and advective terms also appear to be of order $\Delta u^2$.
+    \item Linear acoustics won't capture this, and acoustic simulations may not get this right either because of huge $\nabla \rho$ is produces a second order compressible effect.
+    \item Full nonlinear equations of motion needed.
+    \end{enumerate}
+    }
   }
 \end{frame}
 %%% Local Variables:
