@@ -79,7 +79,12 @@
 \bibliographystyle{./tex/myauthordate2}
 
 % Give this command the relative path to the .bib file.
-\bibliography{../../../literature/library}
+\IfFileExists{../../../literature/library}%
+{\bibliography{../../../literature/library}}
+{\bibliography{./backups/library}}
+
+
+%\bibliography{../../../literature/library}
 % 
 % 
 \end{document}
