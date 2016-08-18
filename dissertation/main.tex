@@ -27,7 +27,7 @@
 \frontpagestyle{1}
 
 %% Dedication
-%\include{./Content/Dedication}
+\dedication{\include{./content/Dedication}}
 
 %% Acknowledgments
 %\include{./Content/Acknowledgements}
@@ -52,20 +52,21 @@ Professor J. Brian Fowlkes
 \chair{Eric Johnsen}
 
 %% What deliverable requirement does this fill
-\deliverable{Dissertation proposal}
+\deliverable{Dissertation}
 
 % Commands to hide or show lists of figures, tables, etc.
-\hidelistoftables
-\hidelistofprograms
-\hidelistofappendices
-\hidelistoffigures
-\hidelistofabbreviations
+% \hidelistoftables
+% \hidelistofprograms
+% \hidelistofappendices
+% \hidelistoffigures
+% \hidelistofabbreviations
+\hidededication
 
 %\showlistoftables
 %\showlistofprograms
 %\showlistofappendices
 %\showlistofabbreviations
-\showlistoffigures
+%\showlistoffigures
 
 
 
@@ -78,7 +79,7 @@ Professor J. Brian Fowlkes
 \abstract{\input{./content/abstract}}
 \hideabstractpagenumber
 
-\usepackage{fullpage}
+%\usepackage{fullpage}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{natbib}
@@ -88,7 +89,7 @@ Professor J. Brian Fowlkes
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{tikz}
 \usepackage{pgfgantt}
-\usepackage{typearea}
+%\usepackage{typearea}
 \usepackage{abstract}
 \usepackage{verbatim}
 \usepackage{tabularx}
@@ -172,16 +173,20 @@ Professor J. Brian Fowlkes
 
 
 % TL uncertainty: Area statistics
-\part{Estimating transmission loss uncertainty in uncertain ocean environments.}
+%\part{Estimating transmission loss uncertainty in uncertain ocean environments.}
 
-\chapter{\textit{Past work:} Efficient estimation of the probability density function of transmission loss in uncertain ocean environments via area statistics}
-\input{./content/chapters/asuq_astats_key}
+%\chapter{\textit{Past work:} Efficient estimation of the probability density function of transmission loss in uncertain ocean environments via area statistics}
+%\input{./content/chapters/asuq_astats_key}
 %\input{./content/chapters/asuq_astats_abstract}
 % \input{./content/chapters/asuq_astats_intro}
 % \input{./content/chapters/asuq_astats_methods}
 % \input{./content/chapters/asuq_astats_results}
 % \input{./content/chapters/asuq_astats_conclusions}
 \acresetall
+
+\appendix
+\chapter{Random Pieces}
+\chapter{More Random Pieces}
 
 %% Using AIAA bibliography.
 \bibliographystyle{./tex/myauthordate2}
