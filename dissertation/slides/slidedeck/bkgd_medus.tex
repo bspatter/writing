@@ -1,0 +1,61 @@
+\begin{frame}%
+  \frametitle{\vspace*{0.5cm}Background on medical ultrasound}
+  \begin{minipage}{\textwidth}
+    \begin{minipage}{0.45\textwidth}%
+      \begin{figure}%
+        \centering%
+        Diagnostic\\%
+        \begin{tikzpicture}
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {
+            \includegraphics[trim={0 0 0 1cm},clip=true,width=0.8\textwidth]{./figs/ultrasound_example}
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+            \node[font=\tiny,right] at (0.02,0.03) {\textcolor{white}{by: W. Moroder  }};%
+          \end{scope}%  
+        \end{tikzpicture}%
+      \end{figure}%
+    \end{minipage}%
+    %
+    \begin{minipage}{0.45\textwidth}%
+      \visible<1>{
+        \begin{figure}%
+          \centering%
+          Therapeutic\\%
+          \begin{tikzpicture}%
+            \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.8\textwidth]{./figs/lithotripsy}};%
+            \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+              \node[font=\tiny,right] at (0.55,0.05) {\textcolor{white}{biology-forums.com}};%
+            \end{scope}%  
+          \end{tikzpicture}%
+        \end{figure}% 
+      }
+    \end{minipage}%
+  \end{minipage}%
+
+  {\small%
+    \begin{itemize}%
+    \item High frequency (MHz) sound waves travel into the body and scatter at material interfaces.%
+    \item Acoustic energy is converted to kinetic via cavitation or dissipated as heat.%
+    \end{itemize}%
+    \vspace*{4pt}%
+    \begin{center}%
+      \visible<2->{I focus on Diagnostic Ultrasound (DUS) bioeffects and relevant physics.}%
+    \end{center}%
+  }%
+  %
+  \note{
+    \begin{enumerate}
+    \item The remainder of this talk will cover US and related physics.
+    \item US sends high frequency acoustic waves into the body that scatter at material interfaces.
+    \item The acoustic energy is viscously dissipated as heat and some can be converted to kinetic energy via bubbles for example.
+    \item Within medical US there are two types, therapeutic and diagnostic.
+    \item Therapeutic US uses sound waves to intentionally trigger a biological effect in the tissue.
+    \item DUS uses reconstructs scattered waves to obtain images and information about the body.
+    \item TUS tries to cause bioeffects, DUS typically wants to avoid them.
+    \end{enumerate}
+  }
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: ../main
+%%% End:

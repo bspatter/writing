@@ -1,0 +1,203 @@
+% Author: Brandon Patterson
+% Description: Dissertation proposal document
+%
+%
+% Use the University of Michigan thesis class.
+\documentclass{./tex/thesis-umich}
+
+
+% Title of the thesis
+\title{Applications of computation in acoustics: ultrasound bioeffects and underwater transmission loss uncertainty}
+
+
+
+% Author name
+\author{Brandon Patterson}
+
+% Department
+\department{Mechanical Engineering}
+
+% Year of completion
+\year=\the\year
+
+% Frontispiece
+%\frontispiece{\includegraphics[width=4in]{./Images/frontispiece.pdf}}
+
+% Default style for front pages
+\frontpagestyle{1}
+
+%% Dedication
+\dedication{\include{./content/Dedication}}
+
+%% Acknowledgments
+%\include{./Content/Acknowledgements}
+% This command sets the width of the acknowledgments area as a fraction
+% of the total width of the text area.
+%\acknowledgmentswidth{0.8}
+
+%% Preface
+%\preface[2]{ %
+%}
+
+% Committee
+\committee{
+Assistant Professor Eric Johnsen, Chair \\
+Professor David R. Dowling\\%, Mechanical Engineering, University of Michigan\\
+Professor William Schultz\\%, Mechanical Engineering, University of Michigan\\
+Professor Douglas L. Miller\\%, Radiology, University of Michigan
+Professor J. Brian Fowlkes
+}
+
+%% Chair must be entered separately for formatting reasons.
+\chair{Eric Johnsen}
+
+%% What deliverable requirement does this fill
+\deliverable{Dissertation}
+
+% Commands to hide or show lists of figures, tables, etc.
+% \hidelistoftables
+% \hidelistofprograms
+% \hidelistofappendices
+% \hidelistoffigures
+% \hidelistofabbreviations
+\hidededication
+
+%\showlistoftables
+%\showlistofprograms
+%\showlistofappendices
+%\showlistofabbreviations
+%\showlistoffigures
+
+
+
+%% Definition of any abbreviations used.
+\abbreviations{
+\input{./content/acronyms}
+}
+
+%% Some abstract text
+\abstract{\input{./content/abstract}}
+\hideabstractpagenumber
+
+%\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{pdflscape}
+\usepackage{mathrsfs}
+\usepackage{rotating}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfgantt}
+%\usepackage{typearea}
+\usepackage{abstract}
+\usepackage{verbatim}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{embedfile}
+\usepackage{import}
+\usepackage[normalem]{ulem}
+
+% My commands
+\newcommand{\ganttgroupc}[5][none]{\ganttgroup[group/.append style={draw=black, fill=#1}, group incomplete/.append style={draw=black,fill=#1!50}, progress=#2]{#3}{#4}{#5}}
+\newcommand{\ganttbarc}[5][none]{\ganttbar[bar/.append style={draw=black, fill=#1}, bar incomplete/.append style={draw=black,fill=#1!50}, progress=#2]{#3}{#4}{#5}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\del}[0]{\nabla}
+\newcommand{\orderof}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
+\newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\norm}[1]{\ensuremath{\left\Vert#1\right\Vert}}
+\newcommand{\plus}{\raisebox{.2\height}{\scalebox{.8}{+}}}
+
+%% Declare math operators
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arcCot}
+\DeclareMathOperator{\arccsc}{arcCsc}
+\DeclareMathOperator{\arccosh}{arcCosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arcCsch}
+\DeclareMathOperator{\arccoth}{arcCoth}  
+
+% Create a snapshot of dependencies and place in .dep file
+\RequirePackage{snapshot}
+
+% Embed files
+\input{./embed_files}
+\embedfile{./main.tex}
+
+% Setup latexdiff
+\input{./tex/diff_preamble.tex}
+
+
+%% DOCUMENT AREA
+
+\begin{document}
+\chapter*{Foreword} \label{ch:foreword}
+\input{./content/foreword.tex}
+
+
+%Abstract
+%\include{./content/abstract}
+\chapter{Introduction} \label{ch:Introduction}
+\input{./content/chapters/intro_chapter}
+\acresetall
+
+% % US Bioeffects
+\part{Ultrasound bioeffects} \label{part:ultrasound_bioeffects}
+\input{./content/chapters/usbe_intro}
+
+% % US Bioeffects: 2012 Jasa Paper
+\chapter{\textit{Past work:} Theoretical microbubble Dynamics at capillary breaching thresholds}   \label{ch:usbe_bubble}%
+%\input{./content/chapters/usbe_bubble_abstract}
+\input{./content/chapters/usbe_bubble_key}
+% \input{./content/chapters/usbe_bubble_chapter}
+\acresetall
+% %
+%
+% US Bioeffects: DUS-induced Lung Hehorrage work
+\chapter{\textit{Current work:} Diagnostic Ultrasound Induced Lung Hemorrhage} \label{ch:usbe_lung}
+\input{./content/chapters/usbe_lung_abstract}
+\input{./content/chapters/usbe_lung_intro}
+\input{./content/chapters/usbe_lung_methods}
+\input{./content/chapters/usbe_lung_analysis}
+%\input{./content/chapters/usbe_lung_analysis_diff}
+\input{./content/chapters/usbe_lung_results}
+\input{./content/chapters/usbe_lung_conclusions}
+\input{./content/chapters/usbe_lung_future}
+%\input{./content/chapter/usbe_lung_chapter}
+\acresetall
+
+
+% TL uncertainty: Area statistics
+%\part{Estimating transmission loss uncertainty in uncertain ocean environments.}
+
+%\chapter{\textit{Past work:} Efficient estimation of the probability density function of transmission loss in uncertain ocean environments via area statistics}
+%\input{./content/chapters/asuq_astats_key}
+%\input{./content/chapters/asuq_astats_abstract}
+% \input{./content/chapters/asuq_astats_intro}
+% \input{./content/chapters/asuq_astats_methods}
+% \input{./content/chapters/asuq_astats_results}
+% \input{./content/chapters/asuq_astats_conclusions}
+\acresetall
+
+\appendix
+\chapter{Random Pieces}
+\chapter{More Random Pieces}
+
+%% Using AIAA bibliography.
+\bibliographystyle{./tex/myauthordate2}
+
+% Give this command the relative path to the .bib file.
+\bibliography{../../literature/library}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

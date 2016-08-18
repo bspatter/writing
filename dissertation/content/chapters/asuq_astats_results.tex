@@ -1,0 +1,73 @@
+\section{Results and comparisons} \label{section:asuq_astats_results}
+For an overall accuracy assessment of the area statistics method, the
+error from (1) was computed on a coarse rectangular grid in each of
+the four uncertain ocean environments. The results are shown in Figure
+5 as a grid of test locations overlaid on the baseline TL field for a
+200 Hz source in each environment. The number and position of test
+locations were chosen based on the physical geometry and computational
+grid spacing in each environment without consideration for the results
+at the test locations. The number of test locations was increased in
+environment 4 due its larger physical size. Test points below the
+ocean floor were not considered. In each panel of Fig. 5, a white
+circle indicates a test location where the area-statistics estimated
+PDF of TL was found to be engineering-level accurate ( ≤ 0.50), while
+a black triangle indicates a test location where engineering-level
+accuracy of the area-statistics estimated PDF of TL was not achieved (
+> 0.50).
+
+In the three shallower environments, area statistics produced PDFs of
+TL with errors less than or equal to 0.50 at 88, 95, and 85\% or more
+of test locations for 91-m, 137-m, and 183-m deep sources at
+frequencies of 100, 200, and 300 Hz respectively. In the deepest
+environment where refraction of sound plays a larger role, area
+statistics was less successful. A quantitative summary of these
+results is provided in Table 2 which also includes additional results
+for environment 4 when the area-statistics algorithm described above
+is adjusted (marked with a †).
+
+To improve the area statistics results for deeper refractive
+environments, a closer look was taken at the TL fields and PDFs of TL
+calculated for environment 4. The most common failure in environment 4
+typically occurred at test locations below the critical depth at which
+the sound speed equals the sound speed at the ocean surface (herein
+referred to as deep water test locations). For this failure, the
+shapes of the area-statistics and Monte-Carlo generated PDFs of TL
+were similar but the mean TL values were sufficiently different such
+that the errors were high. Furthermore, in these failures of area
+statistics, the baseline TL value at the center of the sample
+rectangle was noticeably different from the mean and median TL values
+of the sample area, indicating a highly non-uniform distribution of TL
+values around the sample rectangle center point. To partially correct
+the area statistics PDFs of TL for failures of this type, half the
+difference between the baseline and median TL values from the AS
+sample area was added to every TL value in the sample area to
+appropriately shift the area-statistics PDF of TL. This algorithm
+adjustment improved the percentage of engineering accurate tests
+locations in environment 4 from 64\% to 73\% for a 137m deep, 200 Hz
+source. And, this algorithm adjustment did not affect the success
+percentages of area statistics in environments 1, 2, or 3 at any of
+the frequencies considered here (100, 200, and 300 Hz).
+
+The computational effort associated with area statistics was also
+compared to that associated with the Monte Carlo calculations using
+the MATLAB profiler. As might be expected, given its simple
+formulation, area statistics is significantly more efficient than
+Monte Carlo calculations. With the baseline TL calculation as a
+starting point for both approaches, area statistics does not require
+another TL field calculation while the Monte-Carlo approach – as
+implemented here – involves 1000 more. Thus, the difference in
+computational burden is substantial. For a single location, the
+Monte-Carlo calculations (using 10 Padé terms in RAM's PE solver)
+required 4.6 million times more computational effort than area
+statistics on average. For 100 field locations in a single range-depth
+plane of an uncertain ocean, the Monte-Carlo calculations required an
+average of 46 thousand times more computational effort than area
+statistics. Additionally, once the baseline TL calculation is
+complete, area statistics can provide PDFs of TL in milliseconds of
+real time, making it practical for real-time applications of TL
+uncertainty.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../prelim"
+%%% End:

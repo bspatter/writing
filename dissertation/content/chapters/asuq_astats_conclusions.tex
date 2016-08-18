@@ -1,0 +1,64 @@
+\section{Conclusions} \label{section:asuq_astats_conclusions}
+This paper describes the area statistics technique for efficiently
+estimating transmission loss (TL) uncertainty in underwater
+acoustics. The technique is based on the idea that the TL variation
+found near the point interest in real space is similar to that found
+at the location of interest when environmental parameters are
+varied. The technique is simple and can be used to produce approximate
+PDFs of TL in uncertain ocean sound channels from a single (baseline)
+TL field calculation completed using the most probable value for each
+uncertain parameter. To implement the technique, TL values near a
+location of interest in the baseline TL field are collected and sorted
+into a histogram that is normalized to obtain an approximate PDF of TL
+at the location of interest. To determine the technique's accuracy,
+PDFs of TL created using area statistics were compared to PDFs
+generated using 1000-sample Monte Carlo calculations in four different
+ocean environments at three acoustic frequencies (100, 200, and 300
+Hz) for three different source depths (91m, 137m, 183m). The
+area-statistics PDFs of TL achieved engineering-level accuracy ($\leq$0.5)
+in 93\% of test cases in the three shallower environments with
+consistent bottom reflection. In the environments where refraction was
+more important, area statistics was less successful; engineering level
+accuracy was only achieved in 56\% of test cases, initially.  However,
+this success percentage was improved to 65\% by gently modifying the
+area statistics algorithm, and this modification did not affect the
+results in the shallower ocean environments.
+
+The effort reported here supports the following four conclusions. (1)
+The area statistics technique is a viable alternative, or worthy
+complement, to Monte-Carlo calculations or other more computationally
+intensive techniques for estimating the uncertainty of TL field
+calculations in uncertain ocean environments with consistent
+downward-refraction and bottom reflection. In each of the three
+environments of this investigation meeting this bottom reflection
+criterion, the technique produced engineering-level accuracy at 85\%
+or more of the test locations. (2) The area statistics algorithm is
+simple enough that it can be modified to improve the technique's
+overall performance. One simple algorithm adjustment improved the
+engineering accuracy success rate of area statistics in the deepest
+environment considered in this study by approximately 10\% at all
+three frequencies. (3) The area statistics technique is so inexpensive
+computationally that it should be implemented even when a more
+reliable but more computationally demanding approach is the primary
+means for TL uncertainty estimation. As part of this investigation,
+the area statistics approach was found to be millions of times faster
+than Monte-Carlo calculations. Thus, the computational penalty for
+implementing both, if the latter is preferred, is vanishingly
+small. Moreover, the technique is computationally inexpensive enough
+for use in real time applications. (4) The sample rectangle size, TL
+sample weighting, and other implementation details of the area
+statistics algorithm described here are likely to need adjustment if
+the ocean sound channel uncertainties of interest differ from those
+given in Table 1. The area statistics technique is ad-hoc and the
+implementation parameters in its current formulation were tuned to
+achieve a high percentage of engineering-accurate predictions for
+ocean sound channels with the uncertainties specified in Table
+1. However, the uncertainties specified in Table 1 are generic and may
+serve as a useful starting point for many uncertain ocean sound
+channels. Thus, the area statistics formulation provided here may be
+broadly applicable.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../prelim"
+%%% End:

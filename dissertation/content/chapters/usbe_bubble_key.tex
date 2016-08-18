@@ -1,0 +1,177 @@
+In this chapter we present work in which experimentally-measured
+\ac{US} pulses are used to simulate \ac{US} contrast agent microbubble
+dynamics. The pulses were previously used in experiments to determine
+capillary breaching thresholds in rat kidneys \citep{Miller2008b}. We
+compare the calculated bubble dynamics to the
+experimentally-determined bioeffects thresholds to investigate the use
+of theoretical \ac{IC} thresholds as a predictor for bioeffects. This
+work was published in the Journal of the Acoustical Society of America
+\citep{Patterson2012, Patterson2012a}. Here we present the abstract, key figures, and
+conclusions of the published work.
+%
+\input{./content/chapters/usbe_bubble_abstract}
+
+\section{Key figures}
+\label{sec:usbe_bubble_key_figures}
+%\subsection{Bubble Response}
+In this section we present key figures from \cite{Patterson2012a}. The
+results presented are based on simulations of microbubbles in a Voigt
+viscoelastic medium as modeled by \cite{Yang2005}. Experimentally
+determined input pressure waveforms and the associated bioeffects are
+based on the work performed in \cite{Miller2008b}.
+
+To illustrate typical bubble responses, Figures
+\ref{fig:sample_bubble_linear} and \ref{fig:sample_bubble_nonlinear}
+show sample experimental input pressure waveforms from
+\citep{Miller2008b} and the calculated bubble radius histories
+corresponding to each. Both simulations are for the case of the wave
+impinging upon an initially $R_0=1 \mu$m radius microbubble in Voigt
+viscoelastic media with shear moduli, $G=5$ kPa, $100$ kPa, and $1$
+MPa as indicated. Figure \ref{fig:sample_bubble_linear} represents an
+essentially linear case with \ac{US} center frequency 1.5 MHz and 0.35
+MPa \ac{PRPA}, in which no bioeffects were observed. Figure
+\ref{fig:sample_bubble_nonlinear} represents a highly nonlinear case
+with 7.5 MHz and 6.0 MPa \ac{PRPA}. In bioeffects, in the form of
+bleeding on the surface of the rat kidney, were observed
+\cite{Miller2008b}.
+\begin{figure}%[h!]
+  \centering
+  \includegraphics[width=0.66\textwidth]{./figs/bubble_figs/rt_linear}
+  \caption[Bubble radius history and input-pressure for an essentially linear case]{History of the bubble radius (top) and input-pressure
+    waveform (bottom) for an essentially linear case (frequency: 1.5 MHz; \ac{PRPA}: 0.35 MPa). No bioeffects are observed
+    here. $R_0=1$ $\mu$m; solid: $G=5$ kPa; dashed: $G=100$ kPa; dotted: $G=1$ MPa.}
+  \label{fig:sample_bubble_linear}
+\end{figure}
+%
+\begin{figure}%[h!]
+  \centering \includegraphics[width=0.66\textwidth]{./figs/bubble_figs/rt_nonlinear}
+  \caption[Bubble radius history and input-pressure for a nonlinear case]{History of the bubble radius (top) and input-pressure
+    waveform (bottom) for a highly nonlinear case (frequency: 
+    7.5 MHz; peak negative pressure: 6.0 MPa). Bioeffects are observed
+    here. $R_0=1$ $\mu$m; solid: $G=5$ kPa; dashed: $G=100$ kPa; dotted: $G=1$ MPa.}
+  \label{fig:sample_bubble_nonlinear}
+\end{figure}
+
+To study the dependence of the bubble dynamics on the gas content, we
+compare results obtained for bubbles containing \ac{PFP} and air.
+Figure \ref{fig:gascontents} shows sample bubble radii histories for
+each gas and the corresponding input pressure wave. Additionally, we
+plot of the maximum temperature for \ac{PFP} (circles) and air
+(squares), calculated based on isentropic relationships, for bubbles
+with initial radii $R_0=0.1-2$ $\mu$m exposed to ultrasound
+frequencies 1.5 - 7.5 MHz and \ac{PRPA} 0.35 - 6 MPa.
+\begin{figure*}%[h!]
+  \includegraphics[width=0.47\textwidth]{./figs/bubble_figs/pfpair}% }
+  \includegraphics[width=0.47\textwidth]{./figs/bubble_figs/tmaxpfpair}% }
+  \caption[Dependence of the bubble dynamics on the gas contents]{ Dependence of the bubble dynamics on the gas contents ($G=100$ kPa). (Left) History of the bubble radius for \ac{PFP} (solid) 
+    and air (dashed). (Right) Maximum temperature for \ac{PFP} (circles) and air (squares). $R_0=0.1-2$ $\mu$m; frequency: 1.5 - 7.5 MHz. }
+  \label{fig:gascontents}
+\end{figure*}
+
+To illustrate the dependence of the bubble response on the pulse
+frequency Figure \ref{fig:freq} shows the maximum dimensionless and
+dimensional radius for all initial bubble sizes and amplitudes vs
+frequency. The square symbols denote cases in which bioeffects were
+observed in the experiments, while the circular symbols represent no
+bioeffects. The initial bubble sizes are not discriminated here for
+simplicity. With the exception of a few outliers, a clear separation
+between cases for which bioeffects did and did not occur is observed;
+in other words, the bioeffect threshold has a strong dependence on the
+frequency. The trend appears to be approximately linear with
+frequency. Large growth may be achieved with no evident bioeffects,
+especially at high frequencies. The quantity $R_{max}$ is a measure of
+cavitation collapse since it is related to the available energy of the
+bubble. Thus, the present results indicate that cavitation collapse is
+expected to play an important role regarding bioeffects, although the
+precise mechanism cannot be inferred. Again, the existing criteria for
+inertial cavitation thresholds are frequency-independent and do not
+correlate well with the bioeffects threshold, which clearly shows a
+strong dependence on frequency.
+\begin{figure*}%[h!]
+  \includegraphics[width=0.47\textwidth]{./figs/bubble_figs/rstarmax_f}  
+  \includegraphics[width=0.47\textwidth]{./figs/bubble_figs/rmax_f}      
+  \caption[Dependence of the bubble dynamics on the ultrasound frequency]{ Dependence of the bubble dynamics on the frequency for
+    $G=100$ kPa. $R_0=0.1-2$ $\mu$m; empty circles: no bioeffects; squares:
+    bioeffects. (Left) Dimensionless (Left) and dimensional (Right) maximum bubble radius.}
+  \label{fig:freq}
+\end{figure*}
+
+To explore the effect of the elasticity on the results and the
+correlation to bioeffects, Figure \ref{fig:freq_tissue} shows the
+maximum dimensionless radius for all initial bubble sizes and
+amplitudes vs frequency for $G=5$ kPa and $G=1$ MPa. Although
+seemingly high, the latter elasticity is chosen to match the work of
+\begin{figure*}%[h!]
+  \includegraphics[width=0.47\textwidth]{./figs/bubble_figs/rstarmax_f_ca=20}
+  \includegraphics[width=0.47\textwidth]{./figs/bubble_figs/rstarmax_f_ca=0,1}    
+  \caption[Dependence of the dimensionless maximum bubble radius on
+    the ultrasound frequency]{ Dependence of the dimensionless maximum bubble radius on
+    the frequency for $G=5$ kPa (Left) and $G=1$ MPa (Right). $R_0=0.1-2$ $\mu$m; empty circles: no bioeffects; squares:
+    bioeffects. }
+  \label{fig:freq_tissue}
+\end{figure*}
+
+% \begin{figure*}[h!]
+%   \subfigure[$G=5$ kPa.]{
+%     \includegraphics[width=0.47\textwidth]{./figs/bubble_figs/rstarmax_f_ca=20}
+%   }
+%   \subfigure[$G=1$ MPa.]{
+%     \includegraphics[width=0.47\textwidth]{./figs/bubble_figs/rstarmax_f_ca=0,1}    
+%   }
+%    \caption{ Dependence of the dimensionless maximum bubble radius on
+%      the frequency. $R_0=0.1-2$ $\mu$m; empty circles: no bioeffects; squares:
+%      bioeffects.}
+%   \label{fig:freq_tissue}
+% \end{figure*}
+\clearpage
+\pagebreak
+\section{Conclusions}
+\label{sec:conclusions}
+
+In the present work, a numerical model is used
+to investigate experimentally observed bioeffects as a result of
+contrast-enhanced ultrasound. This work is unique in its 
+combination of experimental results and numerical modeling.
+For the experimentally generated input
+pressure waveforms, it is known which of these triggered bioeffects,
+and from the numerical model we obtained calculated values for
+the dimensionless maximum radius and dimensional maximum temperature for each of these cases.  By comparing the
+results of this study to previously established inertial cavitation
+thresholds used by \cite{Apfel1991} and \cite{Yang2005},
+$T_{max}=5000$ K and $R_{max}=2$, it would appear that the inertial
+cavitation threshold does not play a role in determining the bioeffects
+threshold.  However, it is unlikely that the inertial cavitation
+threshold is irrelevant. Instead, it is far more probable that these
+thresholds are not defined appropriately for cavitation in a
+viscoelastic medium, such as soft tissue. This work suggests the need for
+further experimental and numerical studies of cavitation in viscoelastic media.
+
+The present work shows a strong correlation between cavitation dynamics and bioeffects
+when considering the pulse frequency.
+From the plot of maximum
+dimensionless radius vs. frequency, there is a clear separation
+between when bioeffects do and do not occur, and based on these
+results it appears that the frequency of the input pressure waveforms
+is of key importance to the definition of a bioeffect threshold, and
+likely the inertial cavitation threshold as well. 
+
+The present work shows that the elasticity of tissue significantly
+affects the bubble dynamics. This finding is perhaps not completely
+unexpected given that bubble dynamics are known to strongly depend
+on viscoelastic properties and model. The present study shows the need
+for more accurate measurements of material properties and for
+determining appropriate constitutive models for soft tissue,
+particularly at high strain rates. Finally, although the present work
+suggests that inertial cavitation collapse plays an important role with respect
+to bioeffects, it does not shed light on the exact mechanism,
+\emph{e.g.}, shock emission upon collapse, growth beyond a given size,
+high temperatures generating free radicals, re-entrant jets in
+non-spherical collapse, etc.  In future work we plan on investigating 
+this injury mechanism by conducting direct simulations of
+the full equations of motion for bubble dynamics in a viscoelastic medium.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../prelim"
+%%% End:

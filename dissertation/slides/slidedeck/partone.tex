@@ -1,0 +1,48 @@
+\begin{frame}
+  \begin{center}
+    {\LARGE Part I: Past Work\\} {\vspace*{0.5cm}\large Two very different problems in computational acoustics}\\
+  \end{center}
+  \begin{minipage}{0.48\textwidth}
+    \begin{figure}
+      Acoustic uncertainty in the ocean \vspace*{4pt}\\
+      \centering
+      \begin{tikzpicture}%
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {
+          \includegraphics[width=\textwidth,valign=t]{./figs/bathmap}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.08,0.05) {\textcolor{white}{mrs.eecs.umich.edu}};%
+        \end{scope}%  
+      \end{tikzpicture}%
+    \end{figure}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \begin{figure}%
+      \centering
+      Ultrasound bioeffects \vspace*{4pt}\\
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {
+          \includegraphics[trim={0 0 0 1cm},clip=true,width=\textwidth]{./figs/ultrasound_example}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.02,0.03) {\textcolor{white}{by: W. Moroder  }};%
+        \end{scope}%  
+      \end{tikzpicture}%
+    \end{figure}
+  \end{minipage}
+  \note{
+    \begin{enumerate}
+    \item My work has focused on using computation to solve nonlinear problems in acoustics.
+    \item I have focused on two very different problem areas: Acoustic uncertainty and Ultrasound bioeffects.
+    \item I'm going to briefly touch on work on my past work in each
+      of these, then spend the majority of this talk on my present and
+      future work, which fall into US bioeffects category.
+    \end{enumerate}
+    }
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: ../main
+%%% End:

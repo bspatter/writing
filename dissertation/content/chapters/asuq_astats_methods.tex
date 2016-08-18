@@ -1,0 +1,181 @@
+\section{Methods} \label{section:asuq_astats_methods}
+This section describes the main components of this investigation: the
+uncertain ocean environments and their characterization, the algorithm
+steps followed for the area statistics technique, the implementation
+details for the Monte Carlo calculations, and the quantitative means
+for assessing the accuracy of the PDFs of TL produced from area
+statistics. Sample results are provided to illustrate each component.
+
+Four ocean environments with uncertain bathymetry, sound speed profile
+(SSP), and seabed properties were considered in this study. The
+environments, labeled 1 through 4 and ordered according to their
+maximum depth from shallowest to deepest, are shown in cross section
+in Figure 1. For environments 1 and 3, bathymetric data were obtained
+from National Oceanographic and Atmospheric Administration’s multibeam
+bathymetric survey database \nocite{multibeam_km0504,multibeam_ew9509}
+(Multibeam collections for KM0504, EW9509), and are taken from the
+challenger plateau west of New Zealand, in the South China Sea, and
+off the coast of Taiwan. For environments 2 and 4, bathymetric data
+were obtained from the US Office of Naval Research’s
+(Vuln-TDA-STTR\_10-25-14\_samples), and are taken from the North
+Pacific, near the Hawaiian Islands.
+
+Five uncertain parameters were considered within each environment:
+bathymetry offset , sound speed increment multiplier , seabed density
+, seabed sound speed , and seabed attenuation . These are labeled and
+depicted in Figure 2. Detailed specifications of these were needed to
+complete the Monte Carlo calculations described below. The bathymetry
+offset represented ocean depth uncertainty and was a random
+range-independent distance that was added uniformly to the
+range-dependent bathymetric survey depth of the environment. The
+seabed was treated as a single layer with random range independent
+properties ($\rho_b, c_b, \text{and} \alpha_b$).
+
+The sound speed increment multiplier $\gamma$ requires a little more
+description. For the environments where range- and depth-dependent SSP
+information was provided (2 and 4), the range-averaged, but still
+depth-dependent, mean $<c(z)>$ and standard deviation $<\sigma_c(z)>$ of the sound
+speed were calculated. This range-averaged mean SSP $<c(z)>$ was then used
+as the baseline SSP for TL calculations in each sample
+environment. Uncertainty in the SSP was introduced by adding $\gamma<\sigma_c(z)>$ to
+$<c(z)>$ for each individual Monte Carlo calculation, with $\gamma$ varying
+randomly between calculations. Because only $<c(z)>$ was known for
+environments 1 and 3, $<\sigma_c(z)>$ calculated for environment 2 was used to
+incorporate SSP uncertainty in these environments.
+
+All 5 uncertain parameters were assumed to have Gaussian-like
+distributions, however the extremes of the distributions were
+truncated as described below and the distribution values were then
+renormalized.  The most-probable value and Gaussian standard deviation
+of each uncertain parameter is provided in Table 1. Samples were drawn
+randomly from these distributions for the Monte Carlo calculations.
+The most-probable values, standard deviations, and parametric ranges
+in Table 1 were intended to mimic the actual uncertainties associated
+with readily available information about ocean environmental
+parameters. The bathymetry offset values were intended to mimic tidal
+fluctuations. The seabed values were developed from the mean and
+standard deviation of the tabulated bottom layer properties for clay,
+silt, sand, gravel, moraine, chalk, and limestone found in \citet{Jensen2011}. The distributions of , , , and were truncated at ± 3.
+And, the distribution of was truncated by the properties of clay on
+the low end and limestone on the high end to ensure that the value of
+remained physically realistic.  The sound speed increment multiplier
+values were based on appropriately incorporating tabulated variations
+in ocean sound speed. Note that for each environment, the situation
+where all of the uncertain parameters take on their most likely values
+are referred to as the baseline case.
+
+The area statistics technique is based on the assumption that the
+uncertainty in the TL value at any range-depth ($r,z$) location in an
+uncertain ocean sound channel can be obtained by considering the
+variations in TL found near that location in the baseline TL
+calculation. The procedure for area statistics merely requires the
+baseline TL calculation at the frequency of the sound source, the ($r,z$)
+location of interest within the calculated TL field, and an algorithm
+or recipe for choosing and combining TL values near the location of
+interest to form an estimate of the PDF of TL. Given the simple
+assumption upon which the area statistics technique is based, the
+primary development effort involved empirically determining how to
+sample the TL field near the point of interest to achieve acceptable
+results for the five uncertain environmental parameters. Thus, some of
+the details of the algorithm described here would likely need revision
+if additional (or fewer) environmental parameters were uncertain.
+
+For the area statistics technique, the baseline TL field calculation
+may come from any acoustic propagation model. For this investigation,
+computed TL fields were obtained from the Range-dependent Acoustic
+Model (RAM)\citep{Collins1994}. In each case, TL field calculations were
+performed along an outward radial from a unity-strength harmonic
+monopole sound source with frequency $f_s=$ 100 Hz, 200 Hz, or 300 Hz, and
+placed 91 m, 137 m, or 183 m, below the ocean surface. The source
+frequency and a nominal sound speed $c_s=$ 1500 m/s were used to calculate
+the nominal wavelength, $\lambda_s$.
+
+Using the baseline TL-field calculation, a simple algorithm or recipe
+with three steps was developed to produce area statistics results for
+any range-depth ($r,z$) location of interest. First, all the TL values
+within a range-depth rectangle centered on ($r,z$) were collected and
+weighted uniformly. Second, these TL values were sorted into a
+histogram.  And third, this histogram was normalized to form an
+estimate of the PDF of TL. For this study, the sample rectangle's
+range and depth dimensions were 40$\lambda_s$ and 13$\lambda_s$,
+respectively, and a nominal histogram bin width of 1 dB was
+used. Here, the sample rectangle's dimensions were chosen to produce
+suitable results for the uncertainties defined in Table 1. Different
+sample rectangle dimensions, different TL sample weighting, and other
+adjustments to the area statistics algorithm are likely to be
+necessary for a different set of uncertainties.
+
+Figure 3 illustrates this procedure at the range-depth location of
+(5720 km, 240 m) in environment 2 for a 200 Hz sound source. In
+Figure 3a), the TL sample area is indicated by the black box near the
+center of the TL field plot. The TL sample area is shown in an
+expanded view in Figure 3b) and is comprised of 720 individual TL
+samples.  Two-dimensional linear interpolation was used to increase
+the number of range columns in the computational grid such that the
+final normalized histogram is comprised of 1715 TL samples. The
+area-statistics-estimated PDF of TL developed from the TL samples in
+Figure 3b) is shown in Figure 3c). For successful area statistics results,
+at least 400 TL samples are needed, and these can be obtained by
+two-dimensional linear interpolation if the baseline TL calculation
+was performed with coarse resolution and does not provide enough TL
+values within the sample rectangle. In addition, TL samples were not
+collected from any portion of the sample rectangle lying above the
+ocean surface or below the ocean floor. When necessary, the bathymetry
+was linearly interpolated to calculate the water column depth at the
+range associated with each column of the computational grid.
+
+To assess the accuracy of the estimated PDFs of TL, they were compared
+with Monte Carlo-generated PDFs of TL that were created from the
+computed TL values at the location of interest. Here, 1000 separate TL
+field calculations were completed used, each with values for the
+uncertain environmental parameters, drawn randomly from the
+probability distributions described in Table 1. These 1000 TL samples
+were sorted into a histogram with 1 dB nominal width bins, and the
+histogram was normalized to create a PDF of TL. Here the number of
+Monte-Carlo samples (1000) was high enough so that the Monte-Carlo
+generated PDFs of TL were comparably converged when compared to their
+counterpart area-statistics-estimated PDFs of TL (typically 400 to
+3000 samples). A sensitivity analysis for a 200 Hz source in each of
+the four environments that involved increasing the number of
+Monte-Carlo samples to 2000 did not produce significant differences.
+Specifically, when compared to the 1000 sample results, the number of
+test points at which engineering accuracy was achieved changed by 1\%
+or less.
+
+Quantitative comparisons of the area-statistics estimated PDFs of TL
+(subscript 'AS') and the Monte-Carlo PDFs of TL (subscript 'MC') were
+made with the $L_1$ error-norm:
+\begin{align}
+L_1=\int^{+\infty}_{-\infty}|PDF_{MC}(TL)-PDF_{AS}(TL)|d(TL),
+\end{align}
+the integrated absolute value of the difference between the two PDFs,
+or, more intuitively, the non-overlapping area of the two PDFs.  For
+PDF comparisons, is a convenient metric of accuracy because it is a
+single quantity that inherently accounts for differences in the mean,
+width, and shape of two PDFs. The error-norm is a dimensionless
+quantity that is bounded between 0 and 2, with corresponding to a
+perfect match between the two PDFs and corresponding to total mismatch
+(no overlap) of the two of the PDFs. In this study, ≤ 0.50 was chosen
+as the criterion for which an area-statistics-generated PDF was deemed
+engineering-level accurate.  This criterion corresponds to a
+difference of ≤ 2 dB mean error (a measure of PDF location) and ≤ 2 dB
+standard deviation error (a measure of PDF width) in 84\% and 85\% of
+test cases, respectively.
+
+The $L_1$ error-norm is illustrated in Figure 4 for
+engineering-level-accurate (Figure 4a) and -inaccurate (Figure 4b)
+estimates for the PDF of TL. In both panels, the jagged marked area is
+the error. The result shown in Figure 4a) comes from the range-depth
+location (5720 m, 288 m) in environment 2, and the mean and standard
+deviation of the area statistics PDF (solid curve) are 1.23 dB and
+1.02 dB smaller, respectively, than those of the Monte-Carlo PDF
+(dashed curve). The result shown in Figure 4b) comes from the
+range-depth location (1140 m, 384 m) in environment 2, and the mean
+and standard deviation of the area statistics PDF (solid curve) are
+0.86 dB and 1.92 dB smaller, respectively, than those of the
+Monte-Carlo PDF (dashed curve).
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../prelim"
+%%% End:
