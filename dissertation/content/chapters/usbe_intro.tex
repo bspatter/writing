@@ -1,14 +1,14 @@
-\chapter{Introduction} \label{ch:usbe_intro}%
-The purpose of this chapter is two fold. First, we aim to provide a
-general physical context for the work presented in this part of the
-thesis proposal. Second, we will provide a brief overview of the work
-to be presented and its significance. For a more detailed overview of
-the relevant literature, the reader is referred to later parts of this
-document, and to this authors published works.
+\chapter{Introduction to ultrasound bioeffects} \label{ch:usbe_intro}%
+The purpose of this chapter is twofold. First, I provide a brief
+introduction to ultrasound and related biological effects to provide
+physical context for this work. Second, I offer a brief overview of
+the work to be presented and its significance. For a more detailed
+overview of the relevant literature, the reader is referred to later
+parts of this document, and to this authors published works.
 
 \section{Physical context} \label{sec:usbe_intro_physical_context}%
 Diagnostic \ac{US} has proven to be among the safest and most powerful
-medical imaging tools currently available. Its use has become
+medical imaging tools currently available \hl{CITE}. Its use has become
 ubiquitous throughout modern medicine. The basic physical principle
 underlying this technology is the scattering of sound at material
 interfaces. In practice, high-frequency, typically MHz range, acoustic
@@ -34,12 +34,12 @@ typically take the form of unintended hemorrhage, tissue damage, or
 cell death. Depending on the physical damage mechanism responsible,
 these bioeffects are broadly classified into two groups, thermal and
 non-thermal \citep{OBrien2007}. The first group, thermal bioeffects
-are characterized by deposition of acoustic energy into tissue as
-heat. At the cellular and molecular scales, this can lead to the
-release of highly reactive free radicals, protein denaturation, and
-ultimately tissue damage and death. Little else will be said about
-thermal bioeffects, as the bioeffects problems of interest to this
-work are a result of non-thermal mechanisms. 
+are characterized by deposition of acoustic energy into tissue as heat
+via viscous dissipation. At the cellular and molecular scales, this
+can lead to the release of highly reactive free radicals, protein
+denaturation, and ultimately tissue damage and death. Little else will
+be said about thermal bioeffects, as the bioeffects problems of
+interest to this work are a result of non-thermal mechanisms.
 
 The bulk of known non-thermal bioeffects are attributed to
 acoustically-induced cavitation. Acoustic cavitation is the phenomenon
@@ -74,6 +74,41 @@ microbubbles injected into patients bloodstream to act as additional
 scattering surfaces. These microbubbles can also serve as cavitation
 nuclei and have been associated with a variety of \ac{US} bioeffects. 
 
+\hl{
+ MECHANICAL INDEX PARAGRAPH:} As a result of the potential for
+  cavitation-related \ac{US} bioeffects the United States Food and
+  Drug Administration called for a metric to predict likely cavitation
+  damage from ultrasound. As bioeffects are typically attributed to
+  \ac{IC}, efforts to predict cavitation damage considered the
+  likelihood of \ac{IC} based on theoretical calculations of free gas
+  bubbles in water. In the case of acoustic cavitation, this depends
+  on the duration of peak negative pressure experienced by a
+  cavitation nucleus, with longer interactions depositing more energy
+  into the nucleus, and thus having a greater likelihood inducing
+  \ac{IC}. The duration of the \ac{PRPA} is inversely related to the
+  \ac{US} frequency. \cite{Holland1989} demonstrated that the
+  threshold \ac{PRPA} needed to trigger \ac{IC}, defined based on a
+  maximum bubble temperature $\geq5000$K, depended on the size of the
+  cavitation nucleus. Smaller cavitation nucleii, must overcome
+  greater surface tension effects in order to cavitate, with the
+  Laplace pressure scaling inversely with the radius of the
+  nucleus. Furthermore, as initial radius a nucleus increases, the
+  inertia of the surrounding fluid that must be overcome also
+  increases\cite{AiumS72000}. Thus \cite{Holland1989} illustrated that
+  for a given frequency their is an optimal nucleus size for
+  triggering \ac{IC}. Based on these calculations and corrections for
+  heat dissipation in tissue the \ac{MI} was created as a measure of
+  ultrasound induced cavitation related bioeffects and defined as 
+  \begin{align}
+    MI = \frac{P_{r.3}}{\sqrt{f_c}},
+  \end{align}
+  where $P_{r.3}$ is the \ac{PRPA} derated by $0.3$ dB/MHz-cm and
+  $f_c$ is the center frequency \cite{Apfel1991}. The United States
+  \ac{FDA} mandates that $MI\leq1.9$ for diagnostic imaging, though
+  \ac{US} bioeffects have been observed at \ac{MI} below this in case
+  of \ac{DUS} of mammalian lungs.
+
+
 Another non-thermal \ac{US} bioeffect of interest is \ac{DUS}-induced
 \ac{LH}, which is the only known bioeffect of non-contrast \ac{DUS}
 known to occur in mammals. Despite the fact that this phenomenon was
@@ -96,35 +131,40 @@ present and future work, and makes up the bulk of this proposal. As
 such, a far more in-depth literature review will be provided in
 Chapter \ref{ch:usbe_lung}.
 
-\section{An overview of our work studying \ac{US}
-  bioeffects} \label{sec:usbe_intro_overview}%
-For the proposed dissertation, we will discuss our work studying two
-ultrasound bioeffects problems. 
+\section{An overview the present work}
+\label{sec:usbe_intro_overview}%
+This dissertation focuses on two specific problems within the realm of
+\ac{DUS}-related bioeffects and the underlying physics of
+each. Specifically, we will consider contrast enhanced ultrasound and
+\ac{DUS}-induced lung tissue.
 
-First, in Chapter \ref{ch:usbe_bubble} we present past work in which
-we simulate ultrasonically induced cavitation of contrast agent
-microbubbles in soft tissue \citep{Patterson2012}. We use
-experimentally measured $1.5-7.5$ MHz \ac{US} waves, previously used
-by \cite{Miller2008b} to determine kidney capillary hemorrhage
-threshold amplitudes in rats, as input to the simulation. The
-calculated cavitation dynamics and theoretical inertial cavitation
-thresholds \citep{Flynn1982,Apfel1982} are compared with known
-thresholds for kidney hemorrhage to investigate their dependence on
-US, gas, and tissue properties. At the time of its publication, this
-work was unique in its combination of experimental results and
-numerical modeling to approach this problem.
+First, in Chapter \ref{ch:usbe_bubble} we look at the problem of
+contrast enhanced ultrasound and consider calculated cavitation
+dynamics as they relate to experimentally observed bioeffects from
+corresponding experiments. We present past work in which we simulate
+ultrasonically induced cavitation of contrast agent microbubbles in
+soft tissue \citep{Patterson2012}. We use experimentally measured
+$1.5-7.5$ MHz \ac{US} waves, previously used by \cite{Miller2008b} to
+determine kidney capillary hemorrhage threshold amplitudes in rats, as
+input to the simulation. The calculated cavitation dynamics and
+theoretical inertial cavitation thresholds \citep{Flynn1982,Apfel1982}
+are compared with known thresholds for kidney hemorrhage to
+investigate their dependence on US, gas, and tissue properties. At the
+time of its publication, this work was unique in its combination of
+experimental results and numerical modeling to approach this problem.
 
-Second, in Chapter \ref{ch:usbe_lung} we present current work
-investigating a previously unconsidered potential mechanism for
-\ac{DUS}-induced \ac{LH}. We develop a model of \ac{DUS}-alveolus
-interaction as an acoustically accelerated interface between two
-compressible fluids and perform numerical simulations to show that
-acoustically generated baroclinic torque at tissue-air interfaces
-within the lungs may be capable of deforming the fragile alveolar
-walls within the lungs, possibly to the point of hemorrhage. We
-generalize our discussion to acoustically-accelerated, perturbed,
-liquid-gas interfaces. Finally we propose future work to be completed
-for this dissertation.
+Second, in Chapter \ref{ch:usbe_lung} we consider \ac{DUS}-induced
+\ac{LH} and the underlying physics of acoustically driven liquid-gas
+interfaces. We propose acoustically-generated baroclinic vorticity as
+a previously unconsidered damage mechanism. To investigate this, we
+develop a model of \ac{DUS}-alveolus interaction as an acoustically
+driven liquid-gas interface, which is representative of tissue-air
+interfaces within the lungs. We perform numerical simulations to show
+that the resulting vorticity at the interface, may be capable of
+deforming the interface and thus straining fragile alveolar walls
+within the lungs, possibly to the point of hemorrhage. We generalize
+our discussion to acoustically-driven, perturbed, liquid-gas
+interfaces. 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../prelim"

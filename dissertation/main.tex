@@ -1,5 +1,5 @@
 % Author: Brandon Patterson
-% Description: Dissertation proposal document
+% Description: Dissertation
 %
 %
 % Use the University of Michigan thesis class.
@@ -7,7 +7,8 @@
 
 
 % Title of the thesis
-\title{Applications of computation in acoustics: ultrasound bioeffects and underwater transmission loss uncertainty}
+% \title{Applications of computation in acoustics: ultrasound bioeffects and underwater transmission loss uncertainty}
+\title{Computational investigations of ultrasound bioeffects and related physics}
 
 
 
@@ -64,7 +65,7 @@ Professor J. Brian Fowlkes
 
 %\showlistoftables
 %\showlistofprograms
-%\showlistofappendices
+\showlistofappendices
 %\showlistofabbreviations
 %\showlistoffigures
 
@@ -98,6 +99,7 @@ Professor J. Brian Fowlkes
 \usepackage{embedfile}
 \usepackage{import}
 \usepackage[normalem]{ulem}
+\usepackage[toc,page]{appendix}
 
 % My commands
 \newcommand{\ganttgroupc}[5][none]{\ganttgroup[group/.append style={draw=black, fill=#1}, group incomplete/.append style={draw=black,fill=#1!50}, progress=#2]{#3}{#4}{#5}}
@@ -108,6 +110,8 @@ Professor J. Brian Fowlkes
 \newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
 \newcommand{\norm}[1]{\ensuremath{\left\Vert#1\right\Vert}}
 \newcommand{\plus}{\raisebox{.2\height}{\scalebox{.8}{+}}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
 
 %% Declare math operators
 \DeclareMathOperator{\sech}{sech}
@@ -136,18 +140,18 @@ Professor J. Brian Fowlkes
 %% DOCUMENT AREA
 
 \begin{document}
-\chapter*{Foreword} \label{ch:foreword}
-\input{./content/foreword.tex}
+% \chapter*{Foreword} \label{ch:foreword}
+% \input{./content/foreword.tex}
 
 
 %Abstract
-%\include{./content/abstract}
-\chapter{Introduction} \label{ch:Introduction}
-\input{./content/chapters/intro_chapter}
-\acresetall
+% %\include{./content/abstract}
+% \chapter{Introduction} \label{ch:Introduction}
+% \input{./content/chapters/intro_chapter}
+% \acresetall
 
 % % US Bioeffects
-\part{Ultrasound bioeffects} \label{part:ultrasound_bioeffects}
+%\part{Ultrasound bioeffects} \label{part:ultrasound_bioeffects}
 \input{./content/chapters/usbe_intro}
 
 % % US Bioeffects: 2012 Jasa Paper
@@ -168,25 +172,34 @@ Professor J. Brian Fowlkes
 \input{./content/chapters/usbe_lung_results}
 \input{./content/chapters/usbe_lung_conclusions}
 \input{./content/chapters/usbe_lung_future}
+\input{./content/chapters/usbe_lung_bio}
 %\input{./content/chapter/usbe_lung_chapter}
 \acresetall
 
 
-% TL uncertainty: Area statistics
-%\part{Estimating transmission loss uncertainty in uncertain ocean environments.}
-
-%\chapter{\textit{Past work:} Efficient estimation of the probability density function of transmission loss in uncertain ocean environments via area statistics}
-%\input{./content/chapters/asuq_astats_key}
-%\input{./content/chapters/asuq_astats_abstract}
-% \input{./content/chapters/asuq_astats_intro}
-% \input{./content/chapters/asuq_astats_methods}
-% \input{./content/chapters/asuq_astats_results}
-% \input{./content/chapters/asuq_astats_conclusions}
 \acresetall
 
 \appendix
-\chapter{Random Pieces}
-\chapter{More Random Pieces}
+\begin{appendices}
+  \chapter{Random Pieces}
+  \include{./content/raw/circulation_model}
+  \include{./content/raw/dimensionless_numbers}
+  \include{./content/raw/reflections}
+  \include{./content/raw/mechanical_index}
+  \include{./content/raw/convergence}
+
+
+  % TL uncertainty: Area statistics
+  \chapter{Past work: Efficient estimation of the probability density
+    function of transmission loss in uncertain ocean environments via
+    area statistics}
+  % \input{./content/chapters/asuq_astats_key}
+  \input{./content/chapters/asuq_astats_abstract}
+  \input{./content/chapters/asuq_astats_intro}
+  \input{./content/chapters/asuq_astats_methods}
+  \input{./content/chapters/asuq_astats_results}
+  \input{./content/chapters/asuq_astats_conclusions}
+\end{appendices}
 
 %% Using AIAA bibliography.
 \bibliographystyle{./tex/myauthordate2}
