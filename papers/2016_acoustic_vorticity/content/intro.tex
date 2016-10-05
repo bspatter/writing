@@ -1,15 +1,12 @@
 \section{Introduction}%
 \label{sec:introduction}%
-%
+% 
 \ac{DUS} is one of the safest forms of medical imaging and has become
 ubiquitous in clinical practice. However it has been demonstrated to
 cause \ac{LH} in a variety of mammals. While the problem does not
 appear to be one of medical concern under typical clinical conditions,
 the underlying physical mechanism is not well understood and more
-information is needed so that future developments in ultrasound remain
-safe. The purpose of this work is to investigate the underlying
-physics of acoustically-driven liquid-gas interfaces such as those in
-the lungs.
+information is needed. 
 
 Over the last few decades \ac{DUS}-induced \ac{LH} has been studied
 extensively and is the only known bioeffect of non-contrast, pulsed
@@ -17,56 +14,68 @@ extensively and is the only known bioeffect of non-contrast, pulsed
 conditions. While it has been not been directly demonstrated in
 humans, it has been shown to occur in a variety of mammals including
 mice, rats, rabbits, pigs, and monkeys
-\citep{Child1990,OBrien2006a,Tarantal1994a}. Presently the physical
-damage mechanisms underlying \ac{DUS}-induced \ac{LH} are not well
-understood.
-
-\hl{
+\citep{Child1990,OBrien2006a,Tarantal1994a,Miller2012}.
 \ac{DUS}-induced \ac{LH} does not appear to be caused by traditionally
 expected \ac{US} bioeffects mechanisms. Typically, \ac{US} bioeffects
 mechanisms are classified as thermal or non-thermal with the bulk of
 non-thermal bioeffects being a result of acoustic
 \ac{IC}. \cite{Zachary2006} finds that \ac{DUS}-induced lung lesions
-do not appear similar to those induced by heat and concludes that
-thermal mechanisms are not likely to be the cause. \cite{OBrien2000}
-observes that the severity of \ac{DUS}-induced \ac{LH} in mice
-increases under raised hydrostatic pressure, and \cite{Raeman1996}
-finds that the \ac{LH} is unaffected by the introduction of \ac{US}
-contrast agents. Both of these findings are inconsistent with what
-would be expected of \ac{IC}-induced hemorrhage. One study reports
-detecting cavitation during \ac{DUS}-lung interaction in rats
-\cite{Holland1996}. \cite{Tjan2007} considers another potential damage
-mechanism, that focused \ac{US} may lead to the ejection of droplets
-capable of puncturing the air-filled sacs within the lung. To
-investigate this, they perform numerical simulations of as an
-inviscid, free surface subjected to a Gaussian velocity potential and
-show show that the proposed droplet ejection may occur under certain
-circumstances. Similarly, \cite{Simon2012} observed \ac{HIFU} induced
-atomization of tissue at air interfaces. Despite these efforts, the
-precise damage mechanism underlying \ac{DUS}-induced \ac{LH} is still
-unknown.
-}
+are different from induced by heat and concludes that thermal
+mechanisms are not likely to be the cause. \cite{OBrien2000} observes
+that the severity of \ac{DUS}-induced \ac{LH} in mice increases under
+raised hydrostatic pressure, and \cite{Raeman1996} finds that the
+\ac{LH} is unaffected by the introduction of \ac{US} contrast
+agents. Both of these findings are inconsistent with \ac{IC}-induced
+hemorrhage. One study reports detecting cavitation during
+\ac{DUS}-lung interaction in rats \cite{Holland1996}. \cite{Tjan2007}
+consider another potential damage mechanism, that focused \ac{US} may
+lead to the ejection of droplets capable of puncturing the air-filled
+sacs within the lung. To investigate this, they a develop
+potential-flow solution for an inviscid, free surface subjected to a
+Gaussian velocity potential and show that the proposed droplet
+ejection may occur under certain circumstances. \cite{Simon2012}
+observed \ac{HIFU} induced atomization of tissue at air
+interfaces. Other studies have used experiments and nonlinear modeling
+to look at possible nonlinear effects of ultrasound in
+tissue. \cite{Khokhlova1997} used spectral methods to model
+propagation of plane waves in soft tissue to study nonlinear
+attenuation and wave propagation during
+\ac{HIFU}. \cite{Khokhlova2005} numerically solved a KZK-type equation
+to simulate the \ac{HIFU} field in a tissue phantom with the purpose
+of studying the impact of nonlinear phenomena on lesion formation.
+Despite these efforts, the precise damage mechanism underlying
+\ac{DUS}-induced \ac{LH} is still unknown. The aim of this work is to
+investigate a possible physical mechanism for \ac{DUS}-induced
+\ac{LH}. 
 
-Within the fluids community, there has been extensive research into
-the fundamental physics describing interactions between mechanical
-waves and fluid-fluid interfaces. Much of this research is motivated
-by applications in fusion energy and astrophysics and accordingly has
+The proposed damage mechanism is based on the idea that acoustic waves
+are capable generating baroclinic vorticity at a perturbed fluid-fluid
+interface, which is capable of then driving the interface to
+deform. There has been extensive research into the fundamental physics
+describing interactions between mechanical waves, acceleration, and
+fluid-fluid interfaces. Much of this research is motivated by
+applications in fusion energy and astrophysics and accordingly has
 sought to investigate regimes outside of those of acoustic
-interests. One topic of considerable past study is the \ac{RMI}, in
-which a perturbed fluid-fluid interface is instantaneously accelerated
-by a shock, causing the interface perturbation to grow
-\citep{Brouillette2002,Drake2006}. This growth is driven by a sheet of
-baroclinic vorticity deposited along the interface as a result of
-misalignment between the pressure gradient across the shock and the
-density gradient across the perturbed interface. This physical
-mechanism by which these misaligned gradients create a torque on fluid
-particles and generate vorticity can be thought of in terms of a
-hydrostatic balance upon a particle. Pressure gradients result in
-acceleration of the flow that is inversely proportional to
-density. When these two gradients are misaligned, the result is a
-shearing effect on the fluid and vorticity is generated. A graphical
-explanations of baroclinic vorticity generation and the resulting
-interface deformation can be found in
+interests. \cite{Taylor1950} predicted that for an interface between
+two fluids of different density, if the fluid was accelerated normal
+to the interface in the heavy-to-light direction, perturbations at the
+interface would grow. That is to say that a ``bubble'' of light fluid
+penetrates the heavy fluid, and a ``spike'' of heavy fluid penetrates
+the light fluid. This is known as the \ac{RTI}. A similar topic of
+past study is the \ac{RMI}, which occurs when a perturbed fluid-fluid
+interface is instantaneously accelerated by a shock, causing the
+interface perturbation to grow \citep{Brouillette2002,Drake2006}. This
+growth is driven by a sheet of baroclinic vorticity deposited along
+the interface as a result of misalignment between the pressure
+gradient across the shock and the density gradient across the
+perturbed interface. This physical mechanism by which these misaligned
+gradients create a torque on fluid particles and generate vorticity
+can be thought of in terms of a hydrostatic balance upon a
+particle. Pressure gradients result in acceleration of the flow that
+is inversely proportional to density. When these two gradients are
+misaligned, the result is a shearing effect on the fluid and vorticity
+is generated. A graphical explanations of baroclinic vorticity
+generation and the resulting interface deformation can be found in
 \citep{Heifetz2015}. Analytically, baroclinic vorticity generation can
 be shown by taking the curl of the conservation of momentum equation
 for a compressible fluid. However we note that it is a nonlinear
@@ -74,38 +83,20 @@ effect and cannot be explained by traditional linear acoustics.
 
 The physics of the \ac{RMI} are fairly well understood. For the
 classical \ac{RMI} setup a planar shock impinges normally upon the
-peaks and troughs of a sinusoidal interface. As the degree of
-misalignment varies along the interface, the interface is accelerated
-non-uniformly. The direction of the vorticity changes where the slope
-of the interface changes. This counter rotation on either side of
-interface peaks and troughs entrains nearby fluid causing interface
-peaks to accelerate in one direction and troughs to accelerate in the
-opposite direction. This results in a ``bubble'' of light fluid
-penetrating the heavy fluid, and a ``spike'' of heavy fluid
-penetrating the light fluid. How exactly this occurs varies slightly
-depending on the relative densities of the two fluids. For the case of
-a wave moving from a light fluid into a heavy one, the peaks and
-troughs of the interface are initially accelerated to move away from
-one another, and the interface perturbation amplitude undergoes growth
-exclusively. For the case of a wave moving from a heavy fluid to a
-lighter fluid, the peaks and troughs of the interface are accelerated
-such that they initially move closer to one another decreasing the
-perturbation amplitude. They then pass one another, inverting the
-phase of the interface perturbation, and then continue moving in
-opposite directions, growing the perturbation amplitude. This process
-is illustrated in \citep{Brouillette2002}.
-\begin{comment}
-  \begin{figure}
-    \centering \def\svgwidth{0.9\textwidth}
-    \import{./figs/lung_figs/}{brouillette_fig3_mod.pdf_tex} \hfill%
-    \caption[A schematic view of the \ac{RMI} instability for a
-    heavy-light interface]{Adapted from \cite{Brouillette2002}. The
-      \ac{RMI} for a heavy-light interface is illustrated. The initial
-      condition (left), circulation post wave-interface interaction
-      (center), and perturbation growth (right) are shown.}
-    \label{fig:rmi_schematic}
-  \end{figure}
-\end{comment}
+peaks and troughs of a sinusoidal interface. The interface is
+accelerated non-uniformly counter-rotating vorticies are generated
+across the interface. This drives peaks and troughs of the interface
+to accelerate in the opposite direction. Much like in the case of the
+\ac{RTI} instability, this too results in light fluid penetrating the
+heavy fluid and vice versa. For the case of a wave moving from a light
+fluid into a heavy one, the peaks and troughs of the interface
+accelerate away from one another, growing the interface perturbation
+perturbation. For the case of a wave moving from a heavy fluid to a
+lighter fluid, the peaks and troughs interface initially accelerate
+toward one another. They then pass each, inverting the phase of the
+interface perturbation, and continue moving in opposite directions,
+growing the perturbation amplitude.
+
 Previous studies of the \ac{RMI} have utilized theory, computation,
 and experiments to describe the behavior of the interface after the
 wave has passed. \cite{Richtmyer1960} performed the linear stability
@@ -140,54 +131,61 @@ to be within 10\% of the computed value for $1.0\,<\,$Ma$\,\leq\,1.32$
 for all $\rho_2/\rho_1\,>\,1$, and
 $5.8\,\leq\,\rho_2/\rho_1\,\leq\,32.6$ for all Ma.
 
-Beyond the \ac{RMI}, computational solutions of the nonlinear
-equations of fluid motion have been used to study wave-interface
-problems such as shock-bubble and shock-droplet
-interactions. \cite{Ball2000} solved the Euler equations to simulate
-interaction between a shock-wave and a cylindrical cavity and found
-that baroclinicity effects the dynamics of the cavity.
-%% ADD ANOTHER SHOCK-DROP AND A SHOCK-DROPLET
+Computational and experimental approaches has been used to study the
+impact of nonlinear effects on wave-interface problems such as
+shock-bubble and shock-droplet interactions. \cite{Haast1987}
+experimentally shocked helium and R22-filled bubbles in air, and
+showed that transmitted waves overtook one another an merged
+downstream as a result of nonlinear gas dynamics. Numerical
+simulations simulations of shock-bubble interactions have verified the
+timescales and physical features observed in these experiments. These
+simulations, in conjunction with nonlinear theory, and have shown that
+baroclinic vorticity is generated by the wave-interface interaction,
+and dominates the late-time dynamics of the system
+\citep{Picone1988,Quirk2006}. \cite{Hawley1989} performed numerical
+experiments to demonstrate that a vorticity deposition and evolution
+can be used to explain the dynamics of shock-accelerated fluid-fluid
+interfaces after early times. We argue that the basic problem setup of
+the \ac{RMI}, a mechanical wave impinging upon a fluid-fluid
+interface, is physically similar the an acoustic wave interactions
+with air-tissue interfaces in the lungs. While the pressure gradients
+of acoustic waves are much weaker than those of shock waves,
+nonlinearity arises from the strong density discontinuity across the
+tissue-air interfaces of the lungs.
 
-This work is separate from previous research into the \ac{RMI} as a
-result of the acoustic regime considered here. Unlike shock waves,
-which occur over a few molecular mean free paths and interact nearly
-instantaneously, acoustic waves have a finite spacial wavelength and
-can occupy a much larger portion of space. Consequently, their
-interaction with interfaces occurs over a longer period of time
-depending on the waveform and the geometric and material properties of
-the media. This duration can also be thought of in terms of the
-relative sizes of the physical features of the interface and the
-wavelengths of each feature of the acoustic wave of interest. Simple
-\ac{RMI} analysis assumes an impulsive acceleration, and does not
-apply to this work because the interface deforms throughout its
-interaction with the wave. Transient interactions between deforming
-interfaces and shocks are known to be capable of affecting the long
-term growth of the interface. \cite{HenrydeFrahan2015b} demonstrated
-that interface growth could be controlled through transient
-wave-interface interactions by simulating shock passage through
-layered media, resulting in subsequent interactions between the
-interfaces and reflected and transmitted shocks and rarefactions.
-This work aims to add to the current body of work on this topic by
-investigating the importance of transient acoustic wave behavior on
-interface growth.
+The objective of the present study is to provide a detailed
+explanation of the physics governing a perturbed water-air interface
+driven by a trapezoidal acoustic wave. This separate from previous
+research, which has largely looked at constantly-accelerated and
+shock-accelerated interfaces. Consequently, there are physically novel
+aspects of the present study.  First, acoustic waves, which are
+typically thought of as small amplitude are shown to drive
+perturbation growth at the interface via baroclinic vorticity. Shock
+waves are, by definition, discontinuous and hence their propagation is
+a nonlinear process. In contrast, the propagation of acoustic waves in
+a homogeneous medium is a linear process. In the present study
+nonlinearity occurs as a result of the strong density discontinuity at
+the liquid-gas interface. Second, the acoustic wave has a finite
+duration. Hence the vorticity is deposited throughout a finite
+interaction time, unlike in the case of the \ac{RMI} in which it is
+created by an instantaneous acceleration or the \ac{RTI} in which
+vorticity results from constant acceleration. Unlike shocks, which
+occur over a few molecular mean free paths and interact nearly
+instantaneously, acoustic waves occupy a finite space. Hence their
+interaction with interfaces occurs over a finite time. And third,
+interface deformation that occurs during the acoustic wave-interface
+interaction cannot be neglected. Transient interactions between
+deforming interfaces and multiple shocks are known to be capable of
+affecting the long term growth of the
+interface. \cite{HenrydeFrahan2015b} demonstrated that interface
+growth could be controlled through transient wave-interface
+interactions by simulating shock passage through layered media, as a
+result of subsequent interactions between the interfaces and reflected
+and transmitted shocks and rarefactions. This work demonstrates that
+interface deformations that occur during the interaction with the
+acoustic wave can have a strong effect on the final growth of the
+interface.
 
-Additionally, we argue that the basic problem setup of the \ac{RMI}, a
-mechanical wave impinging upon a material interface, has many
-physical similarities to the motivating problem of \ac{DUS} of the
-lungs. While the pressure gradient due to the \ac{US} pulse is not as
-sharp as it would be across the shock, there is a strong density
-discontinuity across the tissue-air interfaces of the
-lungs. Accordingly, we study problem geometries and acoustic waves
-within the regimes of \ac{DUS} of the lung.
-
-\begin{figure}[h]
-  \centering
-  \def\svgwidth{0.48\textwidth}
-  \import{./figs/lung_figs/}{usbe_lung_schematic2.pdf_tex} \hfill%
-  \caption[A schematic view of the model problem]{A schematic of an
-    ultrasound wave impinging from tissue onto an air-filled alveolus.}
-  \label{fig:problem_schematic}
-\end{figure}
 In the remainder of this work we will first present a model problem
 and a set of numerical experiments designed to investigate the
 fundamental physics underlying interactions between acoustic waves and
@@ -200,30 +198,94 @@ deformation that occurs during this period. We perform analysis to
 explain the vorticity deposition and late time behavior of the
 interface after all acoustic waves have passed. The results will be
 discussed to address the following questions:
-\begin{enumerate} \label{itm:usbe_lung_questions}
-\item Are acoustic waves capable of generating sufficient baroclinic
-  vorticity at perturbed liquid-gas interfaces for substantial
-  deformations?
-\item What is the impact of the acoustic wave properties, such as
-  amplitude and wave duration, on the vorticity and interface
-  dynamics?
-\end{enumerate}
+
 We will then discuss on the significance of these results as
 they regard to the motivating problem of \ac{DUS}-induced lung
 hemorrhage. We will finally end by summarizing the main conclusions
 drawn from this work and suggest the next steps to be taken.
 
 
+% \begin{figure}[h]
+%   \centering
+%   \def\svgwidth{0.48\textwidth}
+%   \import{./figs/lung_figs/}{usbe_lung_schematic2.pdf_tex} \hfill%
+%   \caption[A schematic view of the model problem]{A schematic of an
+%     ultrasound wave impinging from tissue onto an air-filled alveolus.}
+%   \label{fig:problem_schematic}
+% \end{figure}
 
-% \hl{ (MOVE ALL THIS TO LATER)
-% We consider a compressible multi-fluid system and
-% solve the Euler equations of inviscid fluid motion to study the
-% dynamics of fluid-fluid interfaces exposed to acoustic waves relevant
-% to \ac{DUS}. We observe that acoustically-generated vorticity at
-% perturbed water-air interfaces drives the interface to deform. We
-% hypothesize that a similar mechanism may be responsible for deforming
-% and ultimately rupturing the fragile tissue barriers around alveoli,
-% tiny air sacs within the lungs, leading to \ac{DUS} induced \ac{LH}.}
+%
+% \begin{comment} %This was too pedagogical for paper, but could be useful for thesis.
+%   The physics of the \ac{RMI} are fairly well understood. For the
+%   classical \ac{RMI} setup a planar shock impinges normally upon the
+%   peaks and troughs of a sinusoidal interface. As the degree of
+%   misalignment varies along the interface, the interface is
+%   accelerated non-uniformly. The direction of the vorticity changes
+%   where the slope of the interface changes. This counter rotation on
+%   either side of interface peaks and troughs entrains nearby fluid
+%   causing interface peaks to accelerate in one direction and troughs
+%   to accelerate in the opposite direction. Much like in the case of
+%   the \ac{RT} instability, this too results in light fluid penetrating
+%   the heavy fluid and vice versa. How exactly this occurs varies
+%   slightly depending on the relative densities of the two fluids. For
+%   the case of a wave moving from a light fluid into a heavy one, the
+%   peaks and troughs of the interface are initially accelerated to move
+%   away from one another, and the interface perturbation amplitude
+%   undergoes growth exclusively. For the case of a wave moving from a
+%   heavy fluid to a lighter fluid, the peaks and troughs of the
+%   interface are accelerated such that they initially move closer to
+%   one another decreasing the perturbation amplitude. They then pass
+%   one another, inverting the phase of the interface perturbation, and
+%   then continue moving in opposite directions, growing the
+%   perturbation amplitude. This process is illustrated in
+%   \citep{Brouillette2002}.
+%   \begin{comment}
+%     \begin{figure}
+%       \centering \def\svgwidth{0.9\textwidth}
+%       \import{./figs/lung_figs/}{brouillette_fig3_mod.pdf_tex} \hfill%
+%       \caption[A schematic view of the \ac{RMI} instability for a
+%       heavy-light interface]{Adapted from \cite{Brouillette2002}. The
+%         \ac{RMI} for a heavy-light interface is illustrated. The
+%         initial condition (left), circulation post wave-interface
+%         interaction (center), and perturbation growth (right) are
+%         shown.}
+%       \label{fig:rmi_schematic}
+%     \end{figure}
+%   \end{comment}
+%   Previous studies of the \ac{RMI} have utilized theory, computation,
+%   and experiments to describe the behavior of the interface after the
+%   wave has passed. \cite{Richtmyer1960} performed the linear stability
+%   perturbation analysis developed by \cite{Taylor1950} for the case of
+%   an impulsive acceleration to create a model for the initial growth
+%   of the interface perturbation. \cite{Meshkov1969} experimentally
+%   confirmed Richtmyer's qualitative predictions, hence the name of the
+%   instability. \cite{Meyer1972} performed numerical simulations of the
+%   \ac{RMI} and found good agreement with Richtmyer for the case of a
+%   shock impinging upon a light-heavy interface. \cite{Fraley1986} used
+%   Laplace transforms in order to find the first analytical solution
+%   for the asymptotic growth rate for a shocked interface between
+%   perfect gases. To describe the late time, nonlinear growth of the
+%   perturbation, \cite{Zhang1997} used single mode perturbation,
+%   keeping many high order terms, to describe the velocity of the
+%   bubble and spike regions of the fluid. \cite{Sadot1998} combined the
+%   linear, impulsive solution with potential flow models of the
+%   asymptotic behavior of the bubble and spike to develop a model for
+%   the perturbation growth that is in good agreement with shock tube
+%   experiments for shocks with Mach numbers Ma=1.3, 3.5. Vortex theory
+%   has also been used to describe the behavior of the
+%   interface. \cite{Jacobs1996} horizontally oscillated a container
+%   with two vertically stratified liquids to obtain standing waves and
+%   then bounced the container off of a coil spring to study the
+%   incompressible \ac{RMI}. The late time evolution of is interface is
+%   modeled using a row of line vorticies to obtain qualitatively
+%   similar results to those experimentally observed, however the
+%   late-time growth rate is underestimated. \cite{Samtaney1994} used
+%   shock polar analysis to find the circulation deposited by a shock on
+%   planar and non-planar interfaces. Their results are validated using
+%   and Euler code and found to be within 10\% of the computed value for
+%   $1.0\,<\,$Ma$\,\leq\,1.32$ for all $\rho_2/\rho_1\,>\,1$, and
+%   $5.8\,\leq\,\rho_2/\rho_1\,\leq\,32.6$ for all Ma.
+% \end{comment}
 
 
 
