@@ -14,7 +14,7 @@ relationship between circulation and interface dynamics.
 \label{subsec:Qualitative}
 To provide a qualitative understanding physics underlying the
 wave-interface interaction, we consider a base reference case in which
-a $p_a=10$ MPa trapezoidal wave, of length $L=45\lambda$, (See Figure
+a $p_a=10$ MPa trapezoidal wave, of length $L=45\ell$, (See Figure
 \ref{fig:p0}) impinges from water onto the water-air interface. Nearly
 all of the acoustic energy is reflected back into the water as a
 tension wave due to the sharp decrease in acoustic impedance across
@@ -41,11 +41,11 @@ To illustrate the evolution of the interface, Figure
 during the compression-interface interaction $(t=1)$, shortly after
 the wave leaves the interface $(t=10)$, and at late times
 $(t=100, 300)$. Note that all times and lengths presented are
-dimensionless such that $t = \text{Time}/(\lambda/c_{air}$ and $x$,
-$y$ are nondimensionalized by $\lambda$. High-density regions (i.e.,
+dimensionless such that $t = \text{Time}/(\ell/c_{air}$ and $x$,
+$y$ are nondimensionalized by $\ell$. High-density regions (i.e.,
 water) are indicated in dark blue. Low-density regions (i.e., air) are
 indicated in light-blue. Contours of volume fraction of water
-$y_0=0.5$ are indicated in black on both plots. The interface
+$\alpha=0.5$ are indicated in black on both plots. The interface
 perturbation grows from an initially smooth sinusoid to a sharp point
 at late times, long after all waves have left the domain.
 % 
@@ -98,7 +98,7 @@ vorticity remains to drive the deformation of the interface.
     $t=1, 10, 100, 300$, for the $10$ MPa trapezoidal wave case. Areas
     of positive vorticity are indicated in red. Areas of negative
     vorticity are indicated in blue. Constant volume fraction of 
-    water $y_0=0.5$ contour lines are indicated in black.}
+    water $\alpha=0.5$ contour lines are indicated in black.}
   \label{fig:vorticity_snapshots}
 \end{figure}
 % 
@@ -111,7 +111,7 @@ vorticity are indicated in blue. As the purpose of this plot is to
 visualize the location of vorticity, the color scale changes at each
 time step and is not indicated on this plot. The position of the
 interface is indicated by black contour lines of constant volume
-fraction of water $y_0=0.5$. At $t=1$, near the end of the
+fraction of water $\alpha=0.5$. At $t=1$, near the end of the
 compression-interface interaction, the bulk of the vorticity is in
 air-dominated fluid. As the perturbation grows, vorticity bleeds
 across the interface. Vorticity remains concentrated around the middle
@@ -164,7 +164,7 @@ wave.
 
 For simplicity, we consider the period in which the compression
 interacts with the interface. This interaction occurs
-quickly, over approximately $\Delta t_a\approx5\lambda/c_{w}$. As such
+quickly, over approximately $\Delta t_a\approx5\ell/c_{w}$. As such
 we treat the interface as static and undeformed during this
 interaction. Based on the results presented in Figure
 \ref{fig:trapz10_interface}, the average perturbation amplitude during
@@ -174,7 +174,7 @@ assumption is reasonable for order of magnitude analysis.
 To evaluate the order of magnitude of the individual terms of the
 vorticity generation equation \eqref{eq:vorticity_euler}, we treat
 gradient, curl, and divergence of any arbitrary quantity $f$ such that
-$\nabla f= \orderof{\left|\Delta f\right|/\Delta L}$,
+$\abs{\nabla} f= \orderof{\left|\Delta f\right|/\Delta L}$,
 $\nabla\cdot f=\orderof{\left|\Delta f\right|/\Delta L}$, and
 $\nabla\times f=\orderof{\left|\Delta f\right|/\Delta L}$. Here
 $\Delta f$ is a change in $f$ over a characteristic length scale
@@ -196,7 +196,7 @@ $\abs{\nabla \rho} \abs{\nabla p} \sin{\left(\theta\right)}$. Here
 $\theta$ is the angle between the acoustic pressure gradient, treated
 as being in the $\plus y$-direction, and the direction of the density
 gradient which we treat as the outward normal direction to the
-interface. For $a_0/\lambda<<1$, we can approximate
+interface. For $a_0/\ell<<1$, we can approximate
 $\sin{\left(\theta\right)}\approx\theta$ at the interface. The density
 gradient due to the water-air interface is far greater than that due
 to the acoustic wave. As such we use the change in density across the
@@ -254,12 +254,12 @@ To evaluate the above expressions for comparison with our
 computational results, we consider our base trapezoidal wave case
 where $p_a = \Delta p_a = 10$ MPa. The length scale associated with
 the acoustic wave is the initial length of the pressure rise
-$\Delta L_a=5\lambda$. The initial interface length scale
+$\Delta L_a=5\ell$. The initial interface length scale
 $\Delta L_I$, defined as the thickness of the thickness of the mixed
-layer from $y_0=0.05$ to $0.95$ volume fraction of water is estimated
-as $\Delta L_I \approx 0.05\lambda$. We approximate the order of theta
+layer from $\alpha=0.05$ to $0.95$ volume fraction of water is estimated
+as $\Delta L_I \approx 0.05\ell$. We approximate the order of theta
 based on its average value along a half-wavelength of the interface
-for $a_0=0.03\lambda$ such that
+for $a_0=0.03\ell$ such that
 $<\abs{\theta}>\approx0.12$. Evaluating expression
 \eqref{eq:vorticity_comparison} we to find that
 $\abs{c}/\abs{\Delta u_a}$=247 and thus expect that the relative
@@ -275,7 +275,7 @@ right-half domain,
 \end{align}
 where
 $\int_{A_{RH}} dA_{RH} =
-\int_{-\infty}^{+\infty}\int_{\lambda/2}^{\lambda} \,dy\, dx$. Note
+\int_{-\infty}^{+\infty}\int_{\ell/2}^{\ell} \,dy\, dx$. Note
 that the right-half domain is considered because the total circulation
 over the whole domain is $0$ due to symmetry. Circulation is chosen as
 the quantity of comparison as it is a global quantity, which better
@@ -400,7 +400,7 @@ the interface will remain unchanged for evaluation in air such that
 $\Delta \rho_I^-=\Delta \rho_I^+$ and $\Delta L_I^-=\Delta L_I^+$. To
 evaluate the remaining terms in air we will borrow techniques from
 linear acoustics. To find the pressure rise in the transmitted wave
-$\Delta p_a^+$, we recognize that $a_0/\lambda<<1$ and treat the
+$\Delta p_a^+$, we recognize that $a_0/\ell<<1$ and treat the
 incoming wave as a plane wave impinging normally on a flat material
 interface such that $\Delta p_a^+=\bs{T} \Delta p_a^-$, where $\bs{T}$
 is the acoustic transmission coefficient,
@@ -415,7 +415,7 @@ decreases) relative to the incoming wave, such that
 $\Delta L_a^+=\Delta L_a^- (c^+/c^-)$. This effect increases the
 pressure gradient in the air. To evaluate $\theta^+$, we utilize
 Snell's law which states that
-$c^-\sin{\theta^-}=c^+\sin{\theta^+}$. Because $a_0/\lambda<<1$ it is
+$c^-\sin{\theta^-}=c^+\sin{\theta^+}$. Because $a_0/\ell<<1$ it is
 also true that $\theta^-<<1$, thus we use the small angle
 approximation of $\sin$ to find that
 $\theta^+\approx\theta^-(c^+/c^-)$. This refraction effect decreases
@@ -462,18 +462,18 @@ air than water.
 
 From the vorticity contours at $t=1.0$ shown in
 \ref{fig:vorticity_snapshots}, the vorticity is clearly concentrated
-in the region with volume fraction of water $y_0<0.5$. To quantify
+in the region with volume fraction of water $\alpha<0.5$. To quantify
 this, numerically integrating the vorticity over the right-half domain
 we find that 97\% of the circulation occurs in this region. To further
 illustrate the dependence of the vorticity deposition on the relative
 gas-liquid composition of the fluid within the interface region,
 Figure \ref{fig:baroclinic_y0_distribution} shows a scatter plot of
 the vorticity values in each cell vs the mean volume fraction of water
-in the cell $<y_0>$ (Left). The average circulation per-cell is
+in the cell $<\alpha>$ (Left). The average circulation per-cell is
 seperated into bins based on the relevant volume fraction to obtain a
 histogram and normalized to obtain the circulation distribution
-circulation as a function of $y_0$ (Right). The observed circulation
-deposition in air-dominated fluid, $y_0<0.5$, and is within the
+circulation as a function of $\alpha$ (Right). The observed circulation
+deposition in air-dominated fluid, $\alpha<0.5$, and is within the
 predicted upper bound. This is qualitatively consistent with our
 analysis.
 % 
@@ -491,9 +491,9 @@ analysis.
   duration]{The interface amplitude (left) and circulation (right)
     histories for waves of varying total length $L$ and elevated
     static pressure duration between the expansion and compression
-    . Here we show results for $L=45\lambda$ (blue), $L=35\lambda$
-    (orange), $L=30\lambda$ (yellow), $L=20\lambda$ (purple),
-    $L=15\lambda$ (green), $L=10\lambda$ (light blue)}
+    . Here we show results for $L=45\ell$ (blue), $L=35\ell$
+    (orange), $L=30\ell$ (yellow), $L=20\ell$ (purple),
+    $L=15\ell$ (green), $L=10\ell$ (light blue)}
   \label{fig:trapz_circ_interface_multi-lag}
 \end{figure}
 Lastly, we investigate the dependence of the interface and circulation
@@ -507,16 +507,16 @@ of the pressure rise and fall $\Delta L_a$.
 
 Figure \ref{fig:trapz_circ_interface_multi-lag} shows the interface
 amplitude and circulation histories corresponding to waves with
-$L=45\lambda, 35\lambda ,30\lambda ,25\lambda ,15\lambda ,10\lambda$
+$L=45\ell, 35\ell ,30\ell ,25\ell ,15\ell ,10\ell$
 for $t\leq 25$.
 
-For the two longest waves, $L=35\lambda, 45\lambda$, the expansion
+For the two longest waves, $L=35\ell, 45\ell$, the expansion
 encounters the interface appreciably after the perturbation reverses
 phase. In these cases, the expansion deposits additional positive
 circulation along the right half of the interface. For the shorter
-waves, $L \leq 25\lambda$, the expansion encounters the interface
+waves, $L \leq 25\ell$, the expansion encounters the interface
 before the perturbation reverses phase and the net half-domain
-circulation is decreased. For the $L=30\lambda$ case, the expansion
+circulation is decreased. For the $L=30\ell$ case, the expansion
 hits the interface very shortly after the interface phase-reversal,
 when the interface is nearly flat. As a result of this, the pressure
 gradient and density gradient are closely aligned and very little
