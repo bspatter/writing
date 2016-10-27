@@ -32,7 +32,7 @@ inflow and outflow boundaries.
     $t=1, 10, 100, 300$, for the $10$ MPa trapezoidal wave case. Areas
     of high density (i.e., water) are indicated in dark blue. Areas of
     low density (i.e., air) are indicated in light blue. Constant volume
-    fraction of water $y_0 = 0.5$ contour lines are indicated in black.}
+    fraction of water $\alpha = 0.5$ contour lines are indicated in black.}
   \label{fig:interface_snapshots}
 \end{figure}
 % 
@@ -51,14 +51,23 @@ at late times, long after all waves have left the domain.
 % 
 \begin{figure}[h] 
   \centering
-  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/trapz10_intf_schematic}
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figs/lung_figs/trapz10_intf_schematic}
+    \caption{\label{fig:trapz10_interface25} $0\leq t \leq 25$.}
+  \end{subfigure}
   ~
-  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/interface_single-case_linear}%
-  \caption[The interface perturbation amplitude history for 10 MPa]{The
-    interface perturbation amplitude $a(t)$ for the $10$ MPa
-    trapezoidal wave case for $t\leq25$ (Left) and $t\leq1000$ (Right). The times at which different
-    stages of the incoming trapezoidal pressure wave encounter the
-    interface are indicated as on the left plot as $t_{1-4}$.  }
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figs/lung_figs/interface_single-case_linear}%
+    \caption{\label{fig:trapz10_interface1000} $0\leq t \leq 1000$.}
+  \end{subfigure}
+  \caption[The interface perturbation amplitude history for 10 MPa
+  trapezoidal wave]{The interface perturbation amplitude $a(t)$ for
+    the $10$ MPa trapezoidal wave case for $t\leq25$ in Figure \protect\subref{fig:trapz10_interface25} and for
+    $t\leq1000$ in Figure \protect\subref{fig:trapz10_interface1000}. The times at which different stages of the
+    incoming trapezoidal pressure wave encounter the interface are
+    indicated as in Figure \protect\subref{fig:trapz10_interface25} as $t_{1-4}$.}
   \label{fig:trapz10_interface}
 \end{figure}\par
 % 

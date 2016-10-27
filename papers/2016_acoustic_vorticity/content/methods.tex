@@ -78,7 +78,8 @@ the effects of elasticity in the lungs.
   ~
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
-   \includegraphics[width=\textwidth]{./figs/lung_figs/usbe_model_schematic2} \hfill
+    \def\svgwidth{\textwidth}
+    \import{./figs/lung_figs/}{usbe_model_schematic_domain.pdf_tex} \hfill%
     \caption{\label{fig:problem_schematics} A schematic of the model problem.}
   \end{subfigure}
   %
@@ -130,8 +131,8 @@ of this amplitude for cases of $a_0=0.1\ell, 0.2\ell\ 0.3\ell$ where
 specified. This interface geometry is consistent previous studies of
 the \ac{RMI} \citep{Brouillette2002}. An interface thickness
 $\delta=0.08\ell$ is prescribed such that above
-$y\geqY_{0,interface}+\delta/2$ the fluid is pure water, below
-$y\leqY_{0,interface}-\delta/2$ is pure air. In the region
+$y\geq Y_{0,interface}+\delta/2$ the fluid is pure water, below
+$y\leq Y_{0,interface}-\delta/2$ is pure air. In the region
 $Y_{0,interface}-\delta/2 < y < Y_{0,interface}+\delta/2$, the fluid
 consists of an air-water mixture, the specific treatment of which is
 described later in section \ref{subsec:governing_equations}.
@@ -184,16 +185,32 @@ we will consider values of $p_a$ including $1, 5, 7.5, 10,$ and $15$
 MPa. Unless otherwise stated, $p_a=10$ MPa for the results provided.
 \begin{figure}% 
   \centering%
-  \hfill
-  \includegraphics[width=0.3\textheight]{./figs/lung_figs/wave_logic_schematic}\hfill
-  \includegraphics[width=0.3\textheight]{./figs/lung_figs/p0_vs_y_labeled}%
-  \caption[Trapezoidal wave]{The ideological progression of how the
-    trapezoidal wave was designed was is illustrated. The
-    ultrasound pulse is thought of as a sum of sin waves, each of
-    which is composed of half-sinusoids, which can be approximated as
-    trapezoidal waves (Left). The specific trapezoidal pressure wave prescribed as an
-    in initial condition is shown as a function of distance from the
-    interface (Right).}%
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \raisebox{\height}{%
+      \def\svgwidth{\textwidth}%
+      \import{./figs/lung_figs/}{shock_logic_schematic.pdf_tex}%
+    }%
+    \caption{\label{fig:wave_logic} Design of the trapezoidal waveform}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \def\svgwidth{\textwidth}
+    \import{./figs/lung_figs/}{p0_vs_y.pdf_tex}%
+    \caption{\label{fig:p0_vs_y}Acoustic pressure waveform}
+  \end{subfigure}
+  \caption[Trapezoidal wave]{Figure \protect\subref{fig:wave_logic}
+    illustrates ideological progression from a shock wave pressure
+    profile to an acoustic trapezoidal wave. Three conceptual changes
+    are implemented: 1) The rising pressure is spread over a finite
+    distance to satisfy continuity of pressure, 2) the pressure is
+    allowed to return to ambient after the passage of the wave, and 3)
+    The elevated pressure is held static for a period such that the
+    wave for the wave-interface interaction is of finite
+    duration. Figure \protect\subref{fig:p0_vs_y} shows an example
+    initial pressure condition as a function of distance from the
+    interface.}%
   \label{fig:p0}
 \end{figure}
 % 
@@ -279,7 +296,7 @@ empirically and are given by $n_{water}=5.5$ and
 $B^*_{water} = 492115000$ (Pa) such that $c^*_{water}=1648.7$ (m/s)
 \citep{Marsh1980,holian1984t,Cocchi1996}. Non-dimensionalizing these
 values based on the density and sound speed of air presented we find
-that $\rho_{air}=1$, $B_{air} = 0$, $c^_{air}=1$, and
+that $\rho_{air}=1$, $B_{air} = 0$, $c_{air}=1$, and
 $\rho_{water}=846.6$, $B_{water} = 3469.1$, and $c_{water}=4.75$.
  
 To solve the governing equations, we implement a third-order accurate
