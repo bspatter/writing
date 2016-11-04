@@ -69,10 +69,1233 @@
 \acresetall
 
 % Body of article
-\input{./content/intro}
-\input{./content/methods}
-\input{./content/results_analysis}
-\input{./content/conclusions}
+%=====================INTRODUCTION=======================
+%\input{./content/intro}
+
+\section{Introduction}%
+\label{sec:introduction}%
+% 
+\ac{DUS} is one of the safest forms of medical imaging and has become
+ubiquitous in clinical practice. However it has been demonstrated to
+cause \ac{LH} in a variety of mammals. While the problem does not
+appear to be one of medical concern under typical clinical conditions,
+the underlying physical mechanism is not well understood and more
+information is needed. 
+
+Over the last few decades \ac{DUS}-induced \ac{LH} has been studied
+extensively and is the only known bioeffect of non-contrast, pulsed
+\ac{US} known to occur in mammals under clinically relevant
+conditions. While it has been not been directly demonstrated in
+humans, it has been shown to occur in a variety of mammals including
+mice, rats, rabbits, pigs, and monkeys
+\citep{Child1990,OBrien2006a,Tarantal1994a,Miller2012}.
+\ac{DUS}-induced \ac{LH} does not appear to be caused by traditionally
+expected \ac{US} bioeffects mechanisms. Typically, \ac{US} bioeffects
+mechanisms are classified as thermal or non-thermal with the bulk of
+non-thermal bioeffects being a result of acoustic
+\ac{IC}. \cite{Zachary2006} finds that \ac{DUS}-induced lung lesions
+are different from induced by heat and concludes that thermal
+mechanisms are not likely to be the cause. \cite{OBrien2000} observes
+that the severity of \ac{DUS}-induced \ac{LH} in mice increases under
+raised hydrostatic pressure, and \cite{Raeman1996} finds that the
+\ac{LH} is unaffected by the introduction of \ac{US} contrast
+agents. Both of these findings are inconsistent with \ac{IC}-induced
+hemorrhage. One study reports detecting cavitation during
+\ac{DUS}-lung interaction in rats \cite{Holland1996}. \cite{Tjan2007}
+consider another potential damage mechanism, that focused \ac{US} may
+lead to the ejection of droplets capable of puncturing the air-filled
+sacs within the lung. To investigate this, they a develop
+potential-flow solution for an inviscid, free surface subjected to a
+Gaussian velocity potential and show that the proposed droplet
+ejection may occur under certain circumstances. \cite{Simon2012}
+observed \ac{HIFU} induced atomization of tissue at air
+interfaces. Other studies have used experiments and nonlinear modeling
+to look at possible nonlinear effects of ultrasound in
+tissue. \cite{Khokhlova1997} used spectral methods to model
+propagation of plane waves in soft tissue to study nonlinear
+attenuation and wave propagation during
+\ac{HIFU}. \cite{Khokhlova2005} numerically solved a KZK-type equation
+to simulate the \ac{HIFU} field in a tissue phantom with the purpose
+of studying the impact of nonlinear phenomena on lesion formation.
+Despite these efforts, the precise damage mechanism underlying
+\ac{DUS}-induced \ac{LH} is still unknown. The aim of this work is to
+investigate a possible physical mechanism for \ac{DUS}-induced
+\ac{LH}. 
+
+The proposed damage mechanism is based on the idea that acoustic waves
+are capable generating baroclinic vorticity at a perturbed fluid-fluid
+interface, which is capable of then driving the interface to
+deform. There has been extensive research into the fundamental physics
+describing interactions between mechanical waves, acceleration, and
+fluid-fluid interfaces. Much of this research is motivated by
+applications in fusion energy and astrophysics and accordingly has
+sought to investigate regimes outside of those of acoustic
+interests. \cite{Taylor1950} predicted that for an interface between
+two fluids of different density, if the fluid was accelerated normal
+to the interface in the heavy-to-light direction, perturbations at the
+interface would grow. That is to say that a ``bubble'' of light fluid
+penetrates the heavy fluid, and a ``spike'' of heavy fluid penetrates
+the light fluid. This is known as the \ac{RTI}. A similar topic of
+past study is the \ac{RMI}, which occurs when a perturbed fluid-fluid
+interface is instantaneously accelerated by a shock, causing the
+interface perturbation to grow \citep{Brouillette2002,Drake2006}. This
+growth is driven by a sheet of baroclinic vorticity deposited along
+the interface as a result of misalignment between the pressure
+gradient across the shock and the density gradient across the
+perturbed interface. This physical mechanism by which these misaligned
+gradients create a torque on fluid particles and generate vorticity
+can be thought of in terms of a hydrostatic balance upon a
+particle. Pressure gradients result in acceleration of the flow that
+is inversely proportional to density. When these two gradients are
+misaligned, the result is a shearing effect on the fluid and vorticity
+is generated. A graphical explanations of baroclinic vorticity
+generation and the resulting interface deformation can be found in
+\citep{Heifetz2015}. Analytically, baroclinic vorticity generation can
+be shown by taking the curl of the conservation of momentum equation
+for a compressible fluid. However we note that it is a nonlinear
+effect and cannot be explained by traditional linear acoustics.
+
+The physics of the \ac{RMI} are fairly well understood. For the
+classical \ac{RMI} setup a planar shock impinges normally upon the
+peaks and troughs of a sinusoidal interface. The interface is
+accelerated non-uniformly counter-rotating vorticies are generated
+across the interface. This drives peaks and troughs of the interface
+to accelerate in the opposite direction. Much like in the case of the
+\ac{RTI} instability, this too results in light fluid penetrating the
+heavy fluid and vice versa. For the case of a wave moving from a light
+fluid into a heavy one, the peaks and troughs of the interface
+accelerate away from one another, growing the interface perturbation
+perturbation. For the case of a wave moving from a heavy fluid to a
+lighter fluid, the peaks and troughs interface initially accelerate
+toward one another. They then pass each, inverting the phase of the
+interface perturbation, and continue moving in opposite directions,
+growing the perturbation amplitude.
+
+Previous studies of the \ac{RMI} have utilized theory, computation,
+and experiments to describe the behavior of the interface after the
+wave has passed. \cite{Richtmyer1960} performed the linear stability
+perturbation analysis developed by \cite{Taylor1950} for the case of
+an impulsive acceleration to create a model for the initial growth of
+the interface perturbation. \cite{Meshkov1969} experimentally
+confirmed Richtmyer's qualitative predictions, hence the name of the
+instability. \cite{Meyer1972} performed numerical simulations of the
+\ac{RMI} and found good agreement with Richtmyer for the case of a
+shock impinging upon a light-heavy interface. \cite{Fraley1986} used
+Laplace transforms in order to find the first analytical solution for
+the asymptotic growth rate for a shocked interface between perfect
+gases. To describe the late time, nonlinear growth of the
+perturbation, \cite{Zhang1997} used single mode perturbation, keeping
+many high order terms, to describe the velocity of the bubble and
+spike regions of the fluid. \cite{Sadot1998} combined the linear,
+impulsive solution with potential flow models of the asymptotic
+behavior of the bubble and spike to develop a model for the
+perturbation growth that is in good agreement with shock tube
+experiments for shocks with Mach numbers Ma=1.3, 3.5. Vortex theory
+has also been used to describe the behavior of the
+interface. \cite{Jacobs1996} horizontally oscillated a container with
+two vertically stratified liquids to obtain standing waves and then
+bounced the container off of a coil spring to study the incompressible
+\ac{RMI}. The late time evolution of is interface is modeled using a
+row of line vorticies to obtain qualitatively similar results to those
+experimentally observed, however the late-time growth rate is
+underestimated. \cite{Samtaney1994} used shock polar analysis to find
+the circulation deposited by a shock on planar and non-planar
+interfaces. Their results are validated using and Euler code and found
+to be within 10\% of the computed value for $1.0\,<\,$Ma$\,\leq\,1.32$
+for all $\rho_2/\rho_1\,>\,1$, and
+$5.8\,\leq\,\rho_2/\rho_1\,\leq\,32.6$ for all Ma.
+
+Computational and experimental approaches has been used to study the
+impact of nonlinear effects on wave-interface problems such as
+shock-bubble and shock-droplet interactions. \cite{Haast1987}
+experimentally shocked helium and R22-filled bubbles in air, and
+showed that transmitted waves overtook one another an merged
+downstream as a result of nonlinear gas dynamics. Numerical
+simulations simulations of shock-bubble interactions have verified the
+timescales and physical features observed in these experiments. These
+simulations, in conjunction with nonlinear theory, and have shown that
+baroclinic vorticity is generated by the wave-interface interaction,
+and dominates the late-time dynamics of the system
+\citep{Picone1988,Quirk2006}. \cite{Hawley1989} performed numerical
+experiments to demonstrate that a vorticity deposition and evolution
+can be used to explain the dynamics of shock-accelerated fluid-fluid
+interfaces after early times. We argue that the basic problem setup of
+the \ac{RMI}, a mechanical wave impinging upon a fluid-fluid
+interface, is physically similar the an acoustic wave interactions
+with air-tissue interfaces in the lungs. While the pressure gradients
+of acoustic waves are much weaker than those of shock waves,
+nonlinearity arises from the strong density discontinuity across the
+tissue-air interfaces of the lungs.
+
+The objective of the present study is to provide a detailed
+explanation of the physics governing a perturbed water-air interface
+driven by a trapezoidal acoustic wave. This separate from previous
+research, which has largely looked at constantly-accelerated and
+shock-accelerated interfaces. Consequently, there are physically novel
+aspects of the present study.  First, acoustic waves, which are
+typically thought of as small amplitude are shown to drive
+perturbation growth at the interface via baroclinic vorticity. Shock
+waves are, by definition, discontinuous and hence their propagation is
+a nonlinear process. In contrast, the propagation of acoustic waves in
+a homogeneous medium is a linear process. In the present study
+nonlinearity occurs as a result of the strong density discontinuity at
+the liquid-gas interface. Second, the acoustic wave has a finite
+duration. Hence the vorticity is deposited throughout a finite
+interaction time, unlike in the case of the \ac{RMI} in which it is
+created by an instantaneous acceleration or the \ac{RTI} in which
+vorticity results from constant acceleration. Unlike shocks, which
+occur over a few molecular mean free paths and interact nearly
+instantaneously, acoustic waves occupy a finite space. Hence their
+interaction with interfaces occurs over a finite time. And third,
+interface deformation that occurs during the acoustic wave-interface
+interaction cannot be neglected. Transient interactions between
+deforming interfaces and multiple shocks are known to be capable of
+affecting the long term growth of the
+interface. \cite{HenrydeFrahan2015b} demonstrated that interface
+growth could be controlled through transient wave-interface
+interactions by simulating shock passage through layered media, as a
+result of subsequent interactions between the interfaces and reflected
+and transmitted shocks and rarefactions. This work demonstrates that
+interface deformations that occur during the interaction with the
+acoustic wave can have a strong effect on the final growth of the
+interface.
+
+In the remainder of this work we will first present a model problem
+and a set of numerical experiments designed to investigate the
+fundamental physics underlying interactions between acoustic waves and
+perturbed interfaces between fluids. We will present results that
+specifically explore the dependence of the interface dynamics on
+acoustically relevant properties including the amplitude and
+wavelength of the acoustic wave. We pay particular attention to the
+finite duration of the wave-interface interaction, and the interface
+deformation that occurs during this period. We perform analysis to
+explain the vorticity deposition and late time behavior of the
+interface after all acoustic waves have passed. The results will be
+discussed to address the following questions:
+
+We will then discuss on the significance of these results as
+they regard to the motivating problem of \ac{DUS}-induced lung
+hemorrhage. We will finally end by summarizing the main conclusions
+drawn from this work and suggest the next steps to be taken.
+
+
+%=========================METHODS====================================
+%\input{./content/methods}
+\section{Methods} \label{sec:methods}%
+\subsection{Physical problem of interest}
+\label{subsec:physical_problem}
+Consider a \ac{DUS} pulse as it travels into the lungs. The wave
+traverses several layers of soft tissue and fluid that make up the
+thoracic wall and pulmonary pleura. After passing through the pleurae,
+the wave encounters a network of openly connected, air-filled saccules
+with distinctly irregular surfaces. These are the alveoli. It is the
+interaction between an incident \ac{US} pulse and the first alveolar
+tissue-air interface it encounters, as illustrated in figure
+\ref{fig:alveolar_schematic}\hl{MAKE A BETTER FIGURE}, to which we
+focus our attention. For simplicity, we will model this problem using
+acoustic wave traveling from soft tissue (treated as water) onto an
+alveolus (treated as air). As we are motivated to study
+\ac{DUS}-induced \ac{LH}, we will use the physical conditions relevant
+to this problem to lend context to our study, though we will expand
+the range of parameters we study to gain further insight study
+acoustically driven interfaces.
+
+There are several length and time scales relevant to this
+problem. The reference length scale that we will use throughout the
+rest of this work is the mean alveolar diameter $\ell$, which for
+adult humans is about $\approx 200 \mu$m \citep{Ochs2004}. The
+thoracic wall has mean anterior thickness ranging from $2.1$ - $2.3$
+cm \cite{McLean2011}, such that the length of the fluid layer in front
+of the alveolus $>>\ell$. The focal diameter of the ultrasound is at
+minimum of the order of the ultrasonic wave $\lambda$, which is
+$\approx 1$ mm for $1.5$ MHz \ac{US}, which has been found to cause
+\ac{LH} in mice and rats \cite{Child1990,Miller2015a}. As this focal diameter is
+appreciably larger than $\ell$, a flat alveolar interface will see the
+incoming pulse as a spatially uniform plane wave. We will consider an
+ultrasound pulse duration of approximately $5.5 \mu$s, which is
+consistent with previous research \citep{Child1990}, and has a
+corresponding spatial duration of $L=45\ell = 9$mm for a soft tissue sound
+speed of $c=1649$ m/s. 
+
+The lungs have long been recognized highly inhomogeneous, viscoelastic
+organs \citep{Bayliss1939,Suki1994} with multiple physical effects at
+play, including viscosity, elasticity, and surface tension. We perform
+dimensional analyses to determine which of these are important over
+the length and time scales relevant to the dynamics during
+\ac{DUS}. In consideration of viscous effects, we calculate an
+approximate length scale over which viscous effects will travel in the
+tissue. To avoid the effects of multiple \ac{US} pulses, the longest
+time span reasonable to observe the evolution of the system of is the
+time between consecutive pulses, which for a typical pulse repetition
+frequency of $1$ kHz is $t<\delta t_{pulse}=1000 \mu$ s. Due to
+computational limitations, this work only considers the evolution of
+the system up to $t\leq1000 \ell/c_{air}=576 \mu$s, such that the
+viscous length will scale as
+$L_{viscous}\sim\sqrt{\nu_{water} \delta t_{pulse}}=20 \mu$m. This is
+appreciably less that $\ell$, and as we will demonstrate later,
+appreciably less than some of the deformations we observe. Hence will
+exclude the effects of viscosity in our calculations. In consideration
+of surface tension in the lung, and which has been measured as $9$ mN/m
+\citep{Schurch1976}, we define an acoustic Weber number for a
+$p_a=1$ MPa acoustic wave amplitude such that
+$We=p_a\ell/\sigma_{lung}=\orderof{10^4}>>1$, suggesting that the
+acoustic forces during \ac{DUS} are far greater than those generated
+by surface tension and as such we will neglect surface tension in our
+model. Lastly, in consideration of the elasticity of the alveolar
+wall, treated as $K = 5$ kPa \cite{Cavalcante2005}, we compute an
+acoustic Cauchy number such that $Ca=p_a/K=200$, such that we neglect
+the effects of elasticity in the lungs.
+%
+%
+\subsection{Computational model}
+\label{subsec:setup}
+%
+\begin{figure}[!h]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \def\svgwidth{\textwidth}
+    \import{./figs/lung_figs/}{Alveolus_US_zoom_only_diagram.pdf_tex} \hfill%
+    \caption{\label{fig:alveolar_schematic} Physical problem of interest: an \ac{US} wave impinges upon an alveolus.}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \def\svgwidth{\textwidth}
+    \import{./figs/lung_figs/}{usbe_model_schematic_domain.pdf_tex} \hfill%
+    \caption{\label{fig:problem_schematics} A schematic of the model problem.}
+  \end{subfigure}
+  %
+  \caption[A schematic view of the physical and model
+  problems]{\protect\subref{fig:alveolar_schematic} illustrates the
+    physical problem of interest, an ultrasound wave traveling into
+    the lung and impinging upon the first alveolus it
+    encounters. \protect\subref{fig:problem_schematic} shows the model
+    problem, consisting of an acoustic wave impinging from water onto
+    a sinusoidally interface with air.}
+  \label{fig:schematics}
+\end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \def\svgwidth{0.48\textwidth}
+%    \import{./figs/lung_figs/}{Alveolus_US_zoom_only_diagram.pdf_tex} \hfill%
+%    \includegraphics[width=0.4\textwidth]{./figs/lung_figs/usbe_model_schematic2} \hfill
+%    \caption[A schematic view of the model problem]{A schematic of an
+%      ultrasound wave impinging upon an alveolus (Left) is modeled as a
+%      sinusoidally perturbed water-air interface with an acoustic wave
+%      impinging from water onto the interface (Right).}
+%   \label{fig:problem_schematic}
+% \end{figure}
+% 
+Based on the described problem of interest as illustrated in Figure
+\ref{fig:alveolar_schematic} and our previous considerations the
+relevant physical mechanisms, we view the problem as an inviscid,
+compressible fluid system. Hence we will solve the Euler Equations of
+fluid motion, as described later in section
+\ref{subsec:governing_equations}, and must define an appropriate
+initial condition to model the problem. Thus we consider a 2D,
+rectangular fluid domain in the $xy$-plane such that
+$0\leq x\leq 1\ell$ and $-20\ell\leq y\leq 60\ell$. Soft tissue and
+fluid surrounding the lung (modeled as water) sit atop an alveolus
+(modeled as air). An acoustic wave impinges from the water downward
+$(-\bs{\hat{e}}_y)$ toward the air. A schematic of the model problem
+is shown in \ref{fig:problem_schematic}.
+
+To captures the surface roughness of the alveolus, we prescribe the
+initial interface to include a single-mode sinusoidal perturbation of
+amplitude $a_0$ such that the vertical center of the interface is
+described by
+\begin{align} %Not y_interface in the code
+  Y(x,t=0)_{interface} = a_0\sin\left(\frac{2\pi x}{\ell}-\frac{\pi}{2}\right),
+\end{align}
+hereafter referred to as $Y_{0,interface}$. For this study
+$a_0=0.03\ell$ is used as a base value, though we explore the effects
+of this amplitude for cases of $a_0=0.1\ell, 0.2\ell\ 0.3\ell$ where
+specified. This interface geometry is consistent previous studies of
+the \ac{RMI} \citep{Brouillette2002}. An interface thickness
+$\delta=0.08\ell$ is prescribed such that above
+$y\geq Y_{0,interface}+\delta/2$ the fluid is pure water, below
+$y\leq Y_{0,interface}-\delta/2$ is pure air. In the region
+$Y_{0,interface}-\delta/2 < y < Y_{0,interface}+\delta/2$, the fluid
+consists of an air-water mixture, the specific treatment of which is
+described later in section \ref{subsec:governing_equations}.
+
+While our motivation is rooted in ac{DUS} of the lung, a typical
+\ac{DUS} pulse is mathematically complicated and not ideal for
+understanding the fundamental physics of acoustically-driven perturbed
+liquid-air interfaces. Hence, we must build a simpler acoustic
+waveform. To do this, we consider the differences between a \ac{DUS}
+acoustic pulse and a shock, the most well studied wave for this type
+of problem. We seek to create an acoustic waveform that interaction
+with the interface can be partially explained studied using previously
+established principles for shock-driven interfaces. We identify three
+key conditions that are met by an acoustic pulse that are not met by a
+shock. 1) Although sometimes highly nonlinear, \ac{DUS} pulse waves
+are continuous, unlike shock waves. 2) Acoustic waves interact with
+the interface over a finite time span, whereas shocks are typically
+treated as accelerating the interface instantaneously. 3) Acoustic
+waves contain a finite perturbation, eventually returning a
+homogeneous medium approximately to its undisturbed state after
+passing. Previous \ac{RMI} studies have typically considered shock
+waves that leave the post-shock region in a state of elevated
+pressure, velocity, etc... 
+
+To build our waveform we start from a shock wave and adjust to meet
+the three listed conditions. To uphold continuity within the wave, we
+allow the acoustic pressure to increase linearly to a maximum
+amplitude $p_a$ over a fixed region, $\Delta L_a$. As we are
+interested in baroclinic vorticity, we choose $\Delta L_a$ such that
+the acoustic pressure gradient is $\nabla p=p_a/\Delta L_a$ is roughly
+consistent with that of \ac{DUS}. We assume that acoustic pressure
+changes occur over a physical length on the order of the acoustic
+wavelength $\lambda\approx 1$ for a $1.5$ MHz pulse. Thus for an
+alveolus of diameter $200 \mu$ m, the expected pressure gradient is
+$\nabla p=p_a/\lambda/2=p_a/5\ell$. Hence $\Delta L_a=5\ell$. To meet
+the third condition, we eventually let the acoustically perturbed
+quantities, $p, v, \rho$ fall over a length $\Delta L_a=5\ell$. To
+meet the second condition we seek to have our wave interact with the
+interface for a typical \ac{DUS} pulse duration, which we previously
+established to have a corresponding spacial length of $45\ell$. Thus
+we arrive at an initial condition for our a acoustic waveform as a
+trapezoidal wave that rises in pressure from $p_{atm}$ to $p_a$ over a
+length $5\ell$ remains static over a length of $35\ell$ and then drops
+back to $p_{atm}$ over a final $5\ell$. This process by which we
+arrived at this waveform and the final waveform itself is illustrated
+in Figure \ref{fig:p0}. In choosing appropriate $p_a$ values for the
+numerical experiments performed in this study, we do not limit
+ourselves to strictly to acoustic parameters relevant to \ac{DUS} and
+we will consider values of $p_a$ including $1, 5, 7.5, 10,$ and $15$
+MPa. Unless otherwise stated, $p_a=10$ MPa for the results provided.
+\begin{figure}% 
+  \centering%
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \raisebox{\height}{%
+      \def\svgwidth{\textwidth}%
+      \import{./figs/lung_figs/}{shock_logic_schematic.pdf_tex}%
+    }%
+    \caption{\label{fig:wave_logic} Design of the trapezoidal waveform}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.5\textwidth}
+    \centering
+    \def\svgwidth{\textwidth}
+    \import{./figs/lung_figs/}{p0_vs_y.pdf_tex}%
+    \caption{\label{fig:p0_vs_y}Acoustic pressure waveform}
+  \end{subfigure}
+  \caption[Trapezoidal wave]{Figure \protect\subref{fig:wave_logic}
+    illustrates ideological progression from a shock wave pressure
+    profile to an acoustic trapezoidal wave. Three conceptual changes
+    are implemented: 1) The rising pressure is spread over a finite
+    distance to satisfy continuity of pressure, 2) the pressure is
+    allowed to return to ambient after the passage of the wave, and 3)
+    The elevated pressure is held static for a period such that the
+    wave for the wave-interface interaction is of finite
+    duration. Figure \protect\subref{fig:p0_vs_y} shows an example
+    initial pressure condition as a function of distance from the
+    interface.}%
+  \label{fig:p0}
+\end{figure}
+% 
+\subsection{Governing equations}
+\label{subsec:governing_equations}
+The governing equations describing the motivating problem of \ac{DUS}
+of the lung are conservation of mass, momentum, and energy for a
+compressible, viscoelastic material. The present work neglects elastic
+and viscous effects. Thus we solve the Euler equations are presented
+here for the case of fluid motion in two dimensions ($x,y$):
+% 
+\begin{subequations} \label{eq:euler}%
+  \begin{align}% 
+    \frac{\partial \rho}{\partial t} + \frac{\partial \left(\rho u\right)}{\partial x} + \frac{\partial \left(\rho v\right)}{\partial y} = 0,\\
+    \frac{\partial \rho u}{\partial t} + \frac{\partial}{\partial x}\left( \rho u^2+p\right)  + \frac{\partial}{\partial y}\left( \rho uv\right) = 0,\\
+    \frac{\partial \rho v}{\partial t} + \frac{\partial}{\partial x}\left( \rho uv\right)  + \frac{\partial}{\partial y}\left( \rho v^2+p\right) = 0,\\
+    \frac{\partial E}{\partial t} + \frac{\partial}{\partial x}\left[u\left(E+p\right)\right] + \frac{\partial}{\partial y}\left[v\left(E+p\right)\right] = 0,
+  \end{align}%
+\end{subequations}%
+% 
+where $t$ is time, $\rho$ is density, $p$ is the pressure, $u$ and $v$
+are the velocity components in the $x$ and $y$ directions
+respectively, and $E$ is the total energy. To close the system, we
+use a stiffened equation of state to relate the total energy to the
+pressure and velocity in the flow, such that,
+% 
+\begin{align} \label{eq:stiffened_eos}%
+  E=\frac{\rho\left(u^2+v^2\right)}{2} + \frac{p+n B}{n-1}.
+\end{align}
+% 
+Here $B$ is a measure of liquid stiffness that has been experimentally
+determined for this equation. For perfect gases, such as is our
+treatment of air, $n$ is the specific heats ratio and $B=0$. The
+sound speed in our simulations is calculated based on the following
+relationship, derived from the stiffened equation of state.
+% 
+\begin{align} \label{eq:sound_speed}%
+  c = \sqrt{\frac{n\left(p+B\right)}{\rho}}.
+\end{align}
+% 
+While physical diffusion is not considered in this setup, portions of
+the flow contain a water-air mixture as a result of the initial
+treatment of the interface and numerical diffusion. The numerical
+treatment of the diffusion layer at the interface for the initial
+condition is such that the density has an exponential profile
+\citep{Latini2007}, which is used to get the mass fraction and
+molecular weight fields in the mixed region. These are then used to
+determine the initial conditions for $n$ and $B$ in a
+thermodynamically consistent fashion.
+
+To solve for the material parameters in the mixed region and prevent
+spurious pressure oscillations at the interface, two additional
+advection equations are solved for $n$ and $B$.
+\begin{subequations} \label{usbe_lung_eosvar_advection}%
+  \begin{align}% 
+    \frac{\partial}{\partial t}\left(\frac{n B}{n-1}\right)+u\frac{\partial}{\partial x}\left(\frac{n B}{n-1}\right)+v\frac{\partial}{\partial }\left(\frac{n B}{n-1}\right) = 0,\\
+    \frac{\partial}{\partial t}\left(\frac{1}{n-1}\right)+u\frac{\partial}{\partial x}\left(\frac{1}{n-1}\right)+v\frac{\partial}{\partial y}\left(\frac{1}{n-1}\right) = 0. 
+  \end{align}%
+\end{subequations}%
+This implementation is consistent with the works of \cite{Abgrall1996,
+  Shyue2001, Beig2015}. Details of the full numerical implementation
+are explained by \cite{HenrydeFrahan2015}.
+%
+\subsection{Computational  methods}%
+\label{subsec:numerical_methods}%
+Before solving the system of governing equations presented we
+non-dimensionalize by the density and sound speed of air (provided
+below). It is worth noting that the Euler equations are length scale
+invariant, and thus no inherent physical length scale exists in the
+equations that we solve. Hence reason that all length scales are
+defined in terms of the to the alveolar length scale $\ell$, which is
+also the initial interface perturbation wavelength and the width of
+the computational domain.
+
+The dimensional fluid properties used for air determined at a
+temperature of $300$ K and an $1$ atm of pressure such that
+$\rho^*_{air}=1.18$ (kg/m$^3$). The stiffened equation of state
+variables are given by $n_{air}=1.4$ and $B^*_{air} = 0$ (Pa) such
+that $c^*_{air}=347.2$ (m/s) based on equation
+\eqref{eq:sound_speed}. For water, $\rho^*_{water}=996$ (kg/m$^3$) and
+the stiffened equation of state variables have been determined
+empirically and are given by $n_{water}=5.5$ and
+$B^*_{water} = 492115000$ (Pa) such that $c^*_{water}=1648.7$ (m/s)
+\citep{Marsh1980,holian1984t,Cocchi1996}. Non-dimensionalizing these
+values based on the density and sound speed of air presented we find
+that $\rho_{air}=1$, $B_{air} = 0$, $c_{air}=1$, and
+$\rho_{water}=846.6$, $B_{water} = 3469.1$, and $c_{water}=4.75$.
+ 
+To solve the governing equations, we implement a third-order accurate
+\ac{DG} scheme in space and a fourth-order accurate, adaptive
+Runge-Kutta method to march forward in time
+\citep{HenrydeFrahan2015}. Roe solver is used to calculate flux in and
+out of each cell in a way that handles discontinuities and keeps the
+interface sharp. The grid resolution is 100 points per $\ell$ unless
+otherwise stated. To minimize artificial reflections, we use inflow
+and outflow boundary conditions at the top and bottom of the domain,
+and implement geometric grid stretching in the vertical direction for
+the top and bottom-most $10\ell$ segments of the grid. Periodic
+boundary conditions are used at the left and right edges of the
+domain.
+
+%============================== RESULTS AND ANALYSIS ================
+%\input{./content/results_analysis}
+\section{Results, analysis, and discussion}%
+\label{sec:results}%
+% 
+In this section we present the results of the numerical experiments
+and compare them to our analysis. We focus specifically on the
+relationship between circulation and interface dynamics.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+\subsection{Qualitative observations of the interface response to the trapezoidal wave}
+\label{subsec:Qualitative}
+To provide a qualitative understanding of the physics underlying the
+wave-interface interaction, we consider a base reference case in which
+a $p_a=10$ MPa trapezoidal wave, of length $L=45\ell$, (See Figure
+\ref{fig:p0}) impinges from water onto the water-air interface. Nearly
+all of the acoustic energy is reflected back into the water as a
+tension wave due to the sharp decrease in acoustic impedance across
+the interface. The transmitted compression wave is weakly focused due
+to the sound speed mismatch across the curved interface
+perturbation. The reflected and transmitted waves dissipate at the
+inflow and outflow boundaries.
+% 
+\begin{figure}[h] 
+  \centering
+  \includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_density_t1}
+  \caption[The evolution of the acoustically perturbed interface]
+  {Contour plots of density field illustrate the shape and location of
+    the interface throughout the evolution of the flow, at
+    $t=1, 10, 100, 300$, for the $10$ MPa trapezoidal wave case. Areas
+    of high density (i.e., water) are indicated in dark blue. Areas of
+    low density (i.e., air) are indicated in light blue. Constant volume
+    fraction of water $\alpha = 0.5$ contour lines are indicated in black.}
+  \label{fig:interface_snapshots}
+\end{figure}
+% 
+Figure \ref{fig:interface_snapshots} illustrates the evolution of the interface. Contour plots of the density
+during the compression-interface interaction $(t=1)$, shortly after
+the wave leaves the interface $(t=10)$, and at late times
+$(t=100, 300)$ are shown. Note that all times and lengths presented are
+dimensionless such that $t = \text{Time}/(\ell/c_{air}$ and $x$,
+$y$ are nondimensionalized by $\ell$. High-density regions (i.e.,
+water) are indicated in dark blue. Low-density regions (i.e., air) are
+indicated in light-blue. Isocontours of volume fraction of water
+$\alpha=0.5$ are indicated in black. The interface
+perturbation grows from an initially smooth sinusoid to a sharp point
+at late times, long after all waves have left the domain.
+% 
+\begin{figure}[h] 
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figs/lung_figs/trapz10_intf_schematic}
+    \caption{\label{fig:trapz10_interface25} $0\leq t \leq 25$.}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figs/lung_figs/interface_single-case_linear}%
+    \caption{\label{fig:trapz10_interface1000} $0\leq t \leq 1000$.}
+  \end{subfigure}
+  \caption[The interface perturbation amplitude history for 10 MPa
+  trapezoidal wave]{The interface perturbation amplitude $a(t)$ for
+    the $10$ MPa trapezoidal wave case for $t\leq25$ in Figure \protect\subref{fig:trapz10_interface25} and for
+    $t\leq1000$ in Figure \protect\subref{fig:trapz10_interface1000}. The times at which different stages of the
+    incoming trapezoidal pressure wave encounter the interface are
+    indicated as in Figure \protect\subref{fig:trapz10_interface25} as $t_{1-4}$.}
+  \label{fig:trapz10_interface}
+\end{figure}\par
+% 
+To more closely exam the interface dynamics in the period surrounding
+the wave-interface interaction, Figure \ref{fig:trapz10_interface25}
+shows the interface perturbation amplitude nondimensionalized by its
+initial value $a(t)/a_0$ for $t\leq25$, the period during and shortly
+after the wave-interface interaction. We have labeled the times at
+which different portions of the incoming wave encounter the interface
+as $t_{1-4}$, denoted with black $\bs{\times}$s along the curves in
+these figures and those hereafter. From $t_1=0^+$ to $t_2\approx1.1$
+the compression wave encounters the interface. At $t_2$, the incoming
+pressure reaches its maximum amplitude, $p_a=10$ MPa, and remains
+constant until $t_3\approx8.5$. During this period, the interface
+amplitude continues to decrease until $t\approx 5.0$, at which point
+the perturbation undergoes a phase inversion and begins to grow. This
+phase inversion is similar to that observed for the heavy-light
+interface Richtmyer-Meshkov problem. At $t_3$ the pressure expansion
+hits the interface and the perturbation amplitude continues to
+grow. At $t_4\approx9.7$ the acoustic wave has finished traversing the
+interface, and the interface pressure is nominally atmospheric. Figure
+\ref{fig:trapz10_interface1000} shows $a(t)/a_0$ for $t\leq1000$. The
+interface amplitude continues to grow indefinitely, long after all
+acoustic waves have left the domain and the pressure field has
+returned to atmospheric. In the absence of viscosity or other loss
+mechanisms, this is expected. At late times, vorticity remains to
+drive the deformation of the interface.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+\subsection{Vorticity and circulation dynamics}
+\begin{figure}[h] 
+  \centering
+  %\includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_vorticity_t1}
+  \includegraphics[width=0.98\textwidth]{./figs/lung_figs/vorticity_snapshot_mat}
+  \caption[The evolution of the vorticity] {Contour plots of vorticity
+    field throughout the evolution of flow, at $t=1, 10, 100, 300$,
+    for the $10$ MPa trapezoidal wave case. Areas of positive
+    vorticity are indicated in red. Areas of negative vorticity are
+    indicated in blue. Constant volume fraction of water $\alpha=0.5$
+    contour lines are indicated in black. As this plot is designed
+    only to illustrate the location of vorticity, the color scale
+    changes at each time and its values are not indicated here.}
+  \label{fig:vorticity_snapshots}
+\end{figure}
+% 
+To explain the continued growth of the interface at late times, we
+look to vorticity. Figure \ref{fig:vorticity_snapshots} shows
+contour plots of the vorticity field at $t=1, 10, 100, 300$, for the
+$10$ MPa trapezoidal wave case. Areas of positive (counter-clockwise)
+vorticity are indicated in red. Areas of negative (clockwise)
+vorticity are indicated in blue. As the purpose of this plot is to
+visualize the location of vorticity, the color scale changes at each
+time step and is not indicated on this plot. The position of the
+interface is indicated by black contour lines of constant volume
+fraction of water $\alpha=0.5$. At $t=1$, near the end of the
+compression-interface interaction, the bulk of the vorticity is in
+air-dominated fluid. As the perturbation grows, vorticity bleeds
+across the interface. Vorticity remains concentrated around the middle
+of the interface and in its wake.
+
+To better understand the vorticity dynamics we consider the vorticity
+generation equation for a 2D, inviscid fluid system,
+\begin{align} \label{eq:vorticity_euler}
+  \frac{\partial \boldsymbol{\omega}}{\partial t}+\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega} =% 
+  - \boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right) + \frac{\nabla\rho\times\nabla p}{\rho^2}.%
+\end{align}
+
+Each term in equation \eqref{eq:vorticity_euler} represents a
+different physical mechanism by which the vorticity
+$\boldsymbol{\omega}$ is changing. Terms on the left-hand side
+represent changes in the existing vorticity field and terms on the
+right represent vorticity sources and sinks. On the left, the first
+term represents the total change of vorticity at a location in the
+flow field with respect to time and the second term represents the
+advection of vorticity. On the right, the first term describes changes
+in vorticity due to compressibility, and the second term is the
+baroclinic term which describes vorticity generated by the
+misalignment of the pressure and density gradients. We
+seek to understand the relative importance of these mechanisms on the
+dynamics of the acoustically accelerated interface.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+\subsubsection{Order of magnitude analysis of vorticity generation mechanisms}
+\label{subsubsec:oom_analysis}
+To quantifiably compare the various mechanisms by which vorticity
+changes within the flow we perform an order of magnitude analysis on
+each term of the vorticity generation equation
+\eqref{eq:vorticity_euler}.
+
+To determine the appropriate time and location for the analysis, we
+recognize that the flow is initially free of vorticity and any
+vorticity generated must be a result of acoustic energy being
+converted to kinetic energy in the flow. The only mechanism for
+this to occur in an inviscid fluid without pre-existing vorticity is
+baroclinicity. Thus we require misaligned density and pressure
+gradients. The greatest density gradients in the flow occur across the
+interface. The strongest pressure gradients occur in the acoustic
+wave. Hence we choose to perform our analysis at the water-air
+interface during the wave-interface interaction.
+
+For simplicity, we consider specifically the time in which the
+compression interacts with the interface. This interaction occurs
+quickly, over approximately $\Delta t_a\approx5\ell/c_{w}$. As such we
+treat the interface as static and undeformed during this
+interaction. Based on the results presented in Figure
+\ref{fig:trapz10_interface}, the average perturbation amplitude during
+this period is $<a(t_{1-2})>\approx0.96\ a_0$, suggesting that this
+assumption is reasonable for order of magnitude analysis.
+
+To evaluate the order of magnitude of the individual terms of the
+vorticity generation equation \eqref{eq:vorticity_euler}, we treat
+gradient, curl, and divergence of any arbitrary quantity $f$ such that
+$\abs{\nabla} f= \orderof{\left|\Delta f\right|/\Delta L}$,
+$\nabla\cdot f=\orderof{\left|\Delta f\right|/\Delta L}$, and
+$\nabla\times f=\orderof{\left|\Delta f\right|/\Delta L}$. Here
+$\Delta f$ is a change in $f$ over a characteristic length scale
+$\Delta L$. As the only motion in the flow is generated by the
+acoustic wave, we consider acoustic pressure, velocity, and density
+perturbations such that $\Delta p=\Delta p_a$,
+$\Delta \boldsymbol{u}=\Delta \boldsymbol{u}_a$, and
+$\Delta \rho=\Delta \rho_a$. The subscript $_a$ denotes acoustic
+quantities. We use acoustic relations to relate these quantities
+\citep{Anderson1990},
+\begin{align}%
+  \label{eq:acoustic_relations}%
+  \Delta p_a=\pm\Delta u_a \rho c=c^2\Delta \rho_a.%
+\end{align}
+
+To assess the baroclinic contribution to vorticity, we write the cross
+product of the density and pressure gradients as
+$\abs{\nabla \rho} \abs{\nabla p} \sin{\left(\theta\right)}$. Here
+$\theta$ is the angle between the acoustic pressure gradient, treated
+as being in the $\plus y$-direction, and the direction of the density
+gradient which we treat as the outward normal direction to the
+interface. For $a_0/\ell<<1$, we can approximate
+$\sin{\left(\theta\right)}\approx\theta$ at the interface. The density
+gradient due to the water-air interface is far greater than that due
+to the acoustic wave. As such we use the change in density across the
+interface $\Delta \rho_I$ and associated length scale $\Delta L_I$ to
+write the density gradient. The pressure change is a result of the
+acoustic wave, and as such we use the acoustic pressure change
+$\Delta p_a$ and associated length scale $\Delta L_a$ to express the
+pressure gradient. And thus we write the order of magnitude of the
+baroclinic vorticity generation term at the interface,
+\begin{align}
+  \label{eq:baroclinic_vorticity}%
+  \norm{\frac{\nabla\rho\times\nabla p}{\rho^2}} =%
+  \orderof{\frac{\abs{\Delta \rho_I}}{\abs{\Delta L_I}}\frac{\abs{\Delta p_a}}{\abs{\Delta L_a}}\frac{1}{\abs{\rho}^2}\abs{\theta}}.%
+\end{align}
+
+In the evaluation of the compressible and advective terms we consider
+two possible evaluations of the vorticity $\omega$ as either the curl
+of the acoustic velocity field
+$\boldsymbol{\omega}=\nabla\times\boldsymbol{u}$ or the integral of
+the baroclinic vorticity generation term from
+\eqref{eq:baroclinic_vorticity}, treated as constant, over the
+characteristic time of the pressure rise
+$\Delta t_a\approx\Delta L_a/c_w$. Evaluating the vorticity using both
+of these expressions and the values presented later in this section
+reveals that the baroclinic expression of the vorticity is dominant
+for the regimes of interest to this study and is thus what we will use
+this treatment in our further analysis. Hence the approximate order of magnitude of the compressible and
+advective vorticity generation is written as
+\begin{align}
+  \label{eq:compressible_advective_vorticity}%
+  \norm{-\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)}\sim \norm{\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}} = %
+  \orderof{%
+  \frac{\abs{\Delta u_a}}{\abs{\Delta L_a}} \frac{\abs{\Delta \rho_I}}{\abs{\Delta L_I}}%
+  \frac{\abs{\Delta p_a}}{\abs{\Delta L_a}} \frac{1}{\abs{\rho}^2}\abs{\theta}\frac{\abs{c}}{\abs{\Delta L_a}}%
+  }.%
+\end{align}
+
+Now, to compare the relative importance of the baroclinic and
+compressible (or advective) contributions to vorticity we will look at
+the ratio of the two vorticity generation approximations. We divide
+equation \eqref{eq:baroclinic_vorticity} by equation
+\eqref{eq:compressible_advective_vorticity} using
+\eqref{eq:acoustic_relations} to express acoustic quantities in terms
+of the acoustic perturbation quantities $\Delta \rho_a,\,\Delta u_a$ and simplify,
+\begin{align} \label{eq:vorticity_comparison}
+  \frac{\norm{\frac{\nabla\rho\times\nabla
+  p}{\rho^2}}}{\norm{-\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)}}
+  \sim
+  \frac{\norm{\frac{\nabla\rho\times\nabla
+  p}{\rho^2}}}{\norm{\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}}}
+  = \orderof{\frac{\abs{c}}{\abs{\Delta u_a}}} = \orderof{\frac{\abs{\rho}}{\abs{\Delta \rho_a}}}%
+\end{align}
+
+To evaluate the above expressions for comparison with our
+computational results, we consider our base trapezoidal wave case
+where $p_a = \Delta p_a = 10$ MPa. The length scale associated with
+the acoustic wave is the initial length of the pressure rise
+$\Delta L_a=5\ell$. The initial interface length scale
+$\Delta L_I$, defined as the thickness of the thickness of the mixed
+layer from $\alpha=0.05$ to $0.95$ volume fraction of water is estimated
+as $\Delta L_I \approx 0.05\ell$. We approximate the order of theta
+based on its average value along a half-wavelength of the interface
+for $a_0=0.03\ell$ such that
+$<\abs{\theta}>\approx0.12$. Evaluating expression
+\eqref{eq:vorticity_comparison} we to find that
+$\abs{c}/\abs{\Delta u_a}$=247 and thus expect that the relative
+contribution of baroclinic to compressible/advective vorticity
+generation is approximately of order $\orderof{10^2}$ at
+$t=\Delta t_a=1.05$.
+
+To compare our computational results to the analysis we consider the
+integral of the vorticity and vorticity generation terms over the
+right-half domain,
+\begin{align}
+  \Gamma = \int_{A_{RH}} \omega \,dA_{RH},
+\end{align}
+where
+$\int_{A_{RH}} dA_{RH} =
+\int_{-\infty}^{+\infty}\int_{\ell/2}^{\ell} \,dy\, dx$. Note
+that the right-half domain is considered because the total circulation
+over the whole domain is $0$ due to symmetry. Circulation is chosen as
+the quantity of comparison as it is a global quantity, which better
+captures the overall vorticity dynamics than the vorticity at any
+single point. As a single quantity rather than a field, it is also
+simpler to compare the computational and analytical results. The
+relative order of magnitude relationships obtained in
+\eqref{eq:vorticity_comparison} are spatially independent and expected
+to hold when integrated over the right-half domain. Accordingly we
+evaluate the vorticity generation terms from our computational results
+integrated over the right-half domain. At $t=1.0$ we find that %
+$$ \int_{A_{RH}} \left[\frac{\nabla\rho\times\nabla p}{\rho^2}\right] / \left[\left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}\right]\,\,dA_{RH}\approx 285=\orderof{10^2}$$
+and
+$$ \int_{A_{RH}} \left[\frac{\nabla\rho\times\nabla p}{\rho^2}\right] / \left[-\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)\right]\,\,dA_{RH} \approx 145=\orderof{10^2}.$$%
+% %
+% \begin{comment} %This shows actual values instead of relative ones
+% $ \int_{A_{RH}} \left(\frac{\nabla\rho\times\nabla p}{\rho^2}\right)
+% \,\,dA_{RH}= 7.7\,\text{e}{-3}$, %
+% $ \int_{A_{RH}} \left(\boldsymbol{u}\cdot\nabla\right)\boldsymbol{\omega}\,\,dA_{RH}
+% = -5.3\text{e}{-5}$, and %
+% $ \int_{A_{RH}}
+% -\boldsymbol{\omega}\left(\nabla\cdot\boldsymbol{u}\right)\,\,dA_{RH} =
+% 2.7\text{e}{-5}$.%
+% \end{comment}
+%
+Hence the computational results and analysis are in agreement and suggest
+that the vorticity is nearly entirely baroclinic.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+\subsubsection{Circulation deposition}
+Having established that the circulation is a primarily result of
+baroclinic vorticity, we now look to understand the circulation
+deposition associated with the wave-interface interaction period.
+
+% \begin{figure}[h] 
+%   \centering
+%   \includegraphics[height=0.3\textheight]{./figs/lung_figs/trapz10_circ_schematic}
+%   \includegraphics[height=0.3\textheight]{./figs/lung_figs/Gamma_t1000_28-Oct-2016}
+%   \caption[Circulation deposition by the 10 MPa trapezoidal wave] {The
+%     circulation history for the right-half domain is shown for the 10
+%     MPa trapezoidal wave case for $t\leq25$. The times at which
+%     different stages of the incoming trapezoidal pressure wave
+%     encounter the interface are indicated as $t_{1-4}$.}
+%   \label{fig:trapz10_circ_schematic}
+% \end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figs/lung_figs/trapz10_circ_schematic}
+    \caption{\label{fig:trapz10_circ_schematic_t25} $0\leq t \leq 25$ }
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figs/lung_figs/Gamma_t1000_28-Oct-2016}
+    \caption{\label{fig:trapz10_circ_schematic_t1000} $0\leq t \leq 1000$}
+  \end{subfigure}
+  %
+  \caption[Circulation deposition by the 10 MPa trapezoidal wave] {The
+    circulation history for the right-half domain is shown for the 10
+    MPa trapezoidal wave case for $t\leq25$ in Figure
+    \protect\subref{fig:trapz10_circ_schematic_t25} and for
+    $t\leq1000$ in Figure
+    \protect\subref{fig:trapz10_circ_schematic_t1000}. The times at
+    which different stages of the incoming trapezoidal pressure wave
+    encounter the interface are indicated in Figure
+    \protect\subref{fig:trapz10_circ_schematic_t25} as $t_{1-4}$.}
+  \label{fig:trapz10_circ_schematic}
+\end{figure}
+
+
+Figure \ref{fig:trapz10_circ_schematic}, shows circulation history of
+the right-half domain for the $10$ MPa wave case for $t\leq25$, during
+and shortly after the wave-interface interaction, and for the duration
+of the simulation, $t\leq1000$. The points at which the different
+components of the wave encounter the interface are indicate as
+$t_{1-4}$, as described in section \ref{subsec:Qualitative}.
+
+From $t_1=0^+$ to $t_2$ the compression wave encounters the interface
+and $\Gamma$ increases. From $t_2\approx1.1$ to $t_3\approx8.5$ the
+pressure gradient at the interface is small and $\Gamma$ changes
+little. From Figure \ref{fig:trapz10_interface}, the perturbation
+undergoes a phase inversion at $t\approx 5.0$, and hence the density
+gradient along the interface reverses direction around this point in
+time. At $t_3\approx8.5$ the expansion wave first hits the
+interface. The pressure and density gradients at the interface have
+both reversed sign since the initial compression wave-interface
+interaction and $\Gamma$ increases sharply again. At
+$t_4\approx9.7$ the acoustic wave has finished traversing the
+interface and ceases depositing vorticity around the interface.
+
+\subsubsection{Circulation-driven, late-time growth of the interface}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figs/lung_figs/a0_t1000_unscaled_loglog_01-Nov-2016}
+    \caption{\label{fig:trapz_interface_t1000} Constant scaling: $a(t)/a_0$}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+      \includegraphics[width=\textwidth]{./figs/lung_figs/a0_t1000_loglog28-Oct-2016}
+    \caption{\label{fig:trapz_interface_t1000_scaled} Vortex strength scaling: $a(t)/\left[\Gamma/s\right]_{t_\Gamma}$}
+  \end{subfigure}
+  %
+  \caption[The interface amplitude at long time]{The interface
+    amplitude histories corresponding to the $5$(blue), $7.5$ (red),
+    and $10$(green) MPa trapezoidal waves are shown for $t\leq
+    1000$. Figure \protect\subref{fig:trapz_interface_t1000} shows the
+    interface amplitudes $a(t)$ scaled by a constant
+    $a_0=0.03\ell$. Solid appearing at late time above the curves
+    correspond to indicate power law growth with $t^{3/5}$. In Figure
+    \protect\subref{fig:trapz_interface_t1000_scaled} the time for each curve
+    has been synced to align the interface phase inversion. To
+    collapse the curves, the interface amplitude has been scaled by
+    the circulation divided by the length of the interface at
+    $t_\Gamma$, the time at which the effects of vorticity on the
+    motion of the interface begin to dominate the effects of the
+    wave itself.}
+  \label{fig:trapz_interface_loglog}
+\end{figure}
+
+Figure \ref{fig:trapz_interface_loglog} shows the interface
+amplitude histories for $5$ (blue), $7.5$ (red), and $10$ (green) MPa
+trapezoidal wave cases for $0 \leq t\leq 1000$ plotted on a
+logarithmic scale. The perturbation amplitude history is plotted on
+logarithmically-scaled axes such that the constant slope at late times
+suggests power law growth. To collapse the data, we perform
+dimensional analysis. For a purely-circulation-driven interface
+perturbation, we would expect the growth of the interface $a(t)/a_0$
+to depend on the total circulation $\Gamma$ and the area over which it
+is distributed, which in our case goes with the interface length $s$. Thus
+% 
+\begin{align} \label{eq:intf_circ_scaling}
+  \frac{a(t)}{a_0} \sim \left(\frac{\Gamma t}{s}\right)^n,
+\end{align}
+% 
+Where the exponent $n$ is a constant that has been empirically
+determined to be approximately $\frac{3}{5}$. As we expect this
+analysis to be valid during the regime in which circulation dominates
+the interface dynamics, we seek to evaluate $\Gamma$ and $s$ at the
+instant in time in which the circulation becomes the dominant
+mechanism driving the motion of the interface. Initially after the
+wave encounters the interface, there is little vorticity and entire
+interface is accelerated downward by the increased acoustic pressure
+in the water. As the acoustic pressure drops and vorticity around the
+interface remains or increases, at some time $t_\Gamma$, the
+circulation begins to dominate the motion of the interface. This is
+observed to occur when the accelerate the entire interface downward,
+and peaks and troughs of the interface, driven by vortex pairs of
+opposite sign, begin to move in opposite directions. Specifically, for
+our cases the positive acoustic pressure in the water drives the
+entire interface downward, in the $-y$-direction, until at
+$t_\Gamma\approx9.4$ the vorticity overcomes the decreasing acoustic
+pressure in the water and the $y-$velocity at the interface peaks
+becomes positive. We expect that by evaluating $\Gamma$ and $s$ at
+$t_\Gamma$ the interface growth curves will collapse. This is
+illustrated in Figure \ref{fig:trapz_interface_t1000_scaled}. The
+interface phase inversion has been synced to occur simultaneously to
+better illustrate the collapse of the data at early times.
+
+
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+To better understand the distribution of vorticity generation within
+the gas-liquid mixture region of the interface we perform an order of
+magnitude analysis to compare the baroclinic vorticity from equation
+\eqref{eq:baroclinic_vorticity} in pure water vs air. As this can
+already be evaluated in water from what we have provided up to this
+point, we will focus on evaluation of the order of baroclinic
+vorticity generation in air.
+
+Throughout this analysis we will denote the properties of the incoming
+wave and water with a subscript $-$, and the transmitted wave and air
+with a subscript $+$. For water, we will use the values for
+$\Delta \rho_I, \Delta L_I, \Delta \rho_a, \Delta L_a$ and $\theta$
+previously defined in the section \ref{subsubsec:oom_analysis}, based
+on our initial condition. Our treatment of the density gradient across
+the interface will remain unchanged for evaluation in air such that
+$\Delta \rho_I^-=\Delta \rho_I^+$ and $\Delta L_I^-=\Delta L_I^+$. To
+evaluate the remaining terms in air we will borrow techniques from
+linear acoustics. To find the pressure rise in the transmitted wave
+$\Delta p_a^+$, we recognize that $a_0/\ell<<1$ and treat the
+incoming wave as a plane wave impinging normally on a flat material
+interface such that $\Delta p_a^+=\bs{T} \Delta p_a^-$, where $\bs{T}$
+is the acoustic transmission coefficient,
+$\bs{T}=2\rho^+ c^+/\left(\rho^+ c^+ + \rho^- c^- \right)$
+\citep{Kinsler1982}. For our water-air interface
+$\bs{T}\approx4.97\times10^{-4}$. Because of the strong impedance
+mismatch between fluids, the acoustic wave is almost entirely
+reflected, decreasing the pressure gradient in the air. Because of the
+drop in sound speed across the interface, the transmitted wave is
+compressed into a smaller physical area (i.e., the wavelength
+decreases) relative to the incoming wave, such that
+$\Delta L_a^+=\Delta L_a^- (c^+/c^-)$. This effect increases the
+pressure gradient in the air. To evaluate $\theta^+$, we utilize
+Snell's law which states that
+$c^-\sin{\theta^-}=c^+\sin{\theta^+}$. Because $a_0/\ell<<1$ it is
+also true that $\theta^-<<1$, thus we use the small angle
+approximation of $\sin$ to find that
+$\theta^+\approx\theta^-(c^+/c^-)$. This refraction effect decreases
+the misalignment between the pressure and density gradients for the
+transmitted wave relative to the incoming wave. Quantitatively it also
+approximately cancels the increase in vorticity deposition that arises
+as a result of the increased pressure gradient created by the decrease
+in the length of the transmitted wave.
+
+To get an idea of where within the mixed gas-liquid region at the
+interface the vorticity will be generated, we consider equation
+\eqref{eq:baroclinic_vorticity} in air and water and write the ratio
+to find
+\begin{align}%
+  \label{eq:baroclinic_air_water}%
+  % \left(\frac{\partial\omega}{\partial t}\right)_{\substack{\text{baroclinic}\\\text{air}}} / \left(\frac{\partial\omega}{\partial t}\right)_{\substack{\text{baroclinic}\\\text{water}}}%
+  \frac{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{air\quad}}{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{water}}
+  =&\orderof{\frac{\left[\frac{\abs{\Delta \rho_I^+}}{\abs{\Delta L_I^+}}\frac{\abs{\Delta p_a^+}}{\abs{\Delta L_a^+}}\frac{1}{\abs{\rho^+}^2}\abs{\theta^+}\right]}
+     {\left[\frac{\abs{\Delta \rho_I^+}}{\abs{\Delta L_I^+}}\frac{\left(\abs{\Delta p_a^+}/\abs{\bs{T}}\right)}{\abs{\Delta L_a^+}\left(\abs{c^+}/\abs{c^-}\right)}\frac{1}{\abs{\rho^-}^2}\left(\abs{c^+}/\abs{c^-}\right)\abs{\theta^+}\right]}},\nonumber\\%
+  =&\orderof{\abs{\bs{T}}\left(\frac{\abs{\rho^-}}{\abs{\rho^+}}\right)^2}.%
+\end{align}
+For our water-air interface, we evaluate equation
+\eqref{eq:baroclinic_air_water} to find that the ratio of baroclinic
+vorticity generation in air to that in water would be of order
+$\orderof{10^2}$. While this analysis considers vorticity generation
+in pure air and water, as opposed to the mixed fluid region that is
+exactly relevant to this work, we make two observations based on this
+result. First, this result analysis is for an extreme case in which
+all of the vortical energy relevant to this problem, is able to be
+concentrated in pure air and water, and thus this result acts as an
+upper bound on the change in vorticity deposition we expect as the
+wave move from water across the interface into air. Additionally, this
+result suggests that for the mixed water-air region, where the
+strongest density gradient exists, vorticity generation is likely to
+occur in gas dominated fluid regions with a higher volume fraction of
+air than water.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.48\textwidth]{./figs/lung_figs/vorticity_vs_y0} \hfill
+  \includegraphics[width=.48\textwidth]{./figs/lung_figs/circ_y0_dist2}
+  \caption{For cells with non-negligible vorticity, a scatter plot of the mean vorticity in each cell is plotted as a function of volume fraction water (Left).  }
+  \label{fig:baroclinic_y0_distribution}  
+\end{figure}
+
+From the vorticity contours at $t=1.0$ shown in
+\ref{fig:vorticity_snapshots}, the vorticity is clearly concentrated
+in the region with volume fraction of water $\alpha<0.5$. To quantify
+this, numerically integrating the vorticity over the right-half domain
+we find that 97\% of the circulation occurs in this region. To further
+illustrate the dependence of the vorticity deposition on the relative
+gas-liquid composition of the fluid within the interface region,
+Figure \ref{fig:baroclinic_y0_distribution} shows a scatter plot of
+the vorticity values in each cell vs the mean volume fraction of water
+in the cell $<\alpha>$ (Left). The average circulation per-cell is
+seperated into bins based on the relevant volume fraction to obtain a
+histogram and normalized to obtain the circulation distribution
+circulation as a function of $\alpha$ (Right). The observed circulation
+deposition in air-dominated fluid, $\alpha<0.5$, and is within the
+predicted upper bound. This is qualitatively consistent with our
+analysis.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+\subsubsection{Dependence on the length of the wave}%
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/interface_multi-lag}
+  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/circulation_multi-lag_fixed}
+  \caption[The interface and circulation dependence on wave
+  duration]{The interface amplitude (left) and circulation (right)
+    histories for waves of varying total length $L$ and elevated
+    static pressure duration between the expansion and compression
+    . Here we show results for $L=45\ell$ (blue), $L=35\ell$
+    (orange), $L=30\ell$ (yellow), $L=20\ell$ (purple),
+    $L=15\ell$ (green), $L=10\ell$ (light blue)}
+  \label{fig:trapz_circ_interface_multi-lag}
+\end{figure}
+Lastly, we investigate the dependence of the interface and circulation
+dynamics on the evolution of the interface that occurs during the
+wave-interface interaction. To study this, we vary the duration of the
+static elevated pressure that the interface experiences between the
+compression and expansion of the trapezoidal wave. For our setup, this
+is equivalent to changing initial length of the trapezoidal wave $L$,
+while keeping constant the wave amplitude $p_a=10$ MPa and the lengths
+of the pressure rise and fall $\Delta L_a$. 
+
+Figure \ref{fig:trapz_circ_interface_multi-lag} shows the interface
+amplitude and circulation histories corresponding to waves with
+$L=45\ell, 35\ell ,30\ell ,25\ell ,15\ell ,10\ell$
+for $t\leq 25$.
+
+For the two longest waves, $L=35\ell, 45\ell$, the expansion
+encounters the interface appreciably after the perturbation reverses
+phase. In these cases, the expansion deposits additional positive
+circulation along the right half of the interface. For the shorter
+waves, $L \leq 25\ell$, the expansion encounters the interface
+before the perturbation reverses phase and the net half-domain
+circulation is decreased. For the $L=30\ell$ case, the expansion
+hits the interface very shortly after the interface phase-reversal,
+when the interface is nearly flat. As a result of this, the pressure
+gradient and density gradient are closely aligned and very little
+circulation is generated by the expansion wave.
+
+Comparing cases for which the interface inverts phase before
+encountering the expansion, the larger $a(t)$ when the expansion
+occurs, the more circulation is generated due to the increases
+misalignment in density and pressure gradients. The same is true when
+comparing cases for which the interface inverts phase before
+encountering the expansion.
+
+After the passage of the acoustic wave and all reflections the
+pressure returns to the initial, atmospheric conditions. This implies
+that the integral of the pressure gradient $\nabla p$ along the
+interface, over all time is zero. If the interface remains unchanged
+during the interaction with the wave, as it would for a wave moving
+with infinite velocity, $\nabla \rho$ would remain constant and the
+net baroclinic circulation deposited must be zero. Thus for any finite
+duration acoustic wave to deposit net baroclinic circulation upon an
+interface, the interface itself must deform during interaction with
+the wave. This deformation alters the misalignment of the pressure and
+density gradients throughout the passage of the wave such that
+vorticity deposited by the compression and expansion waves do not
+cancel. This of particular interest for waves in which the pressure
+returns to the initial condition after the wave passes, which is not
+the case for the traditional shock-accelerated \ac{RMI} problem.
+
+%============================== Conclusions ================
+%\input{./content/conclusions}
+\section{Summary and Conclusions}
+\label{sec:conclusions}
+This paper demonstrates that acoustic waves may trigger significant
+deformation of perturbed liquid-gas interfaces over long periods of
+time. The driving mechanism behind this deformation is baroclinic
+vorticity, which occurs as a result of misalignment between the
+pressure gradient of the acoustic wave and density gradient of the
+perturbed interface. To demonstrate this we simulate trapezoidal
+acoustic waves of MPa-order amplitude impinging from water onto a
+perturbed air interface air.
+
+The work presented here supports the following three conclusions: (1)
+Acoustically-generated baroclinic vorticity is capable of
+significantly deforming perturbed liquid-gas interfaces. We observed
+that much of the vorticity generated by the acoustic wave at the
+interface remains with the interface as it evolves and deforms even
+long after the passage of all acoustic waves. Part of this is
+attributed to a lack of physical mechanism for dissipating vorticity
+in the inviscid case considered. From dimensional analysis we find
+present present a scaling law for the interface
+growth\eqref{eq:intf_circ_scaling}, as a function of the circulation
+and interface length at the point when vorticity becomes the dominant
+mechanism driving the interface motion. Empirically, from computed
+results we find the perturbation amplitude grows as
+$t^{\frac{3}{5}}$. 
+%
+(2) Baroclinic vorticity is predominantly deposited in the gaseous
+fluid. We perform analysis to predict that on either side of an
+infinitely sharp water-air interface, the vorticity generation rate
+would be approximately two orders of magnitude greater on the air side
+of the interface than in the water. This is qualitatively supported by
+our computational results which find that near the end of the initial
+compression wave-interface interaction nearly all of the circulation
+exists in fluid dominated by air. For the $10$ MPa wave, for instance,
+97\% of the circulation is found in fluid with volume fraction of
+water $\alpha<0.5$ at $t=1$, after 91\% of the compression has passed.
+%
+(3) Changes in the acoustic waveform that have little effect on the
+interface dynamics during their interaction can substantially effect
+the interface over longer periods of time, via vorticity. By comparing
+the effects of $10$ MPa trapezoidal waves with varying static pressure
+durations between compression and expansion, we observe that the
+evolution of the interface between these two wave components
+drastically effects the ultimate growth rate of the interface. The
+phase and amplitude of the interface perturbation at the time it
+encounters the expansion wave determine the direction and magnitude
+respectively of the vorticity deposited. Consequently, the amount of
+vorticity remaining at the interface and in the surrounding fluid
+after the passage of the wave changes greatly based on the
+time-dependent features of the wave. A consequence of this is that it
+should be possible to design waves that minimize the growth of the
+interface perturbation.
+
+This work is a step toward understanding the effects of acoustically
+generated vorticity on gas-liquid interfaces, but there are many
+questions left to be answered. Physical effects not considered here
+such as viscosity, which is critical to understanding the dissipation
+of viscosity, may be important in certain
+regimes. Additionally, to fully understand the application of these
+findings to the motivating problem of diagnostic induced lung
+hemorrhage, it will be pertinent to consider waveforms and geometries
+more relevant to the problem.
+
+
+
+
+
 
 
 %% Using AIAA bibliography.
