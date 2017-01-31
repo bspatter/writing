@@ -8,7 +8,8 @@
 
 % Title of the thesis
 % \title{Applications of computation in acoustics: ultrasound bioeffects and underwater transmission loss uncertainty}
-\title{Computational investigations of ultrasound bioeffects and related physics}
+%\title{Computational investigations of ultrasound bioeffects and related physics}
+\title{Acoustically-driven fluid interfaces with applications to diagnostic ultrasound bioeffects}
 
 
 
@@ -22,7 +23,7 @@
 \year=\the\year
 
 % Frontispiece
-%\frontispiece{\includegraphics[width=4in]{./Images/frontispiece.pdf}}
+\frontispiece{\includegraphics[width=4in]{./figs/placeholder.pdf}}
 
 % Default style for front pages
 \frontpagestyle{1}
@@ -31,10 +32,10 @@
 \dedication{\include{./content/Dedication}}
 
 %% Acknowledgments
-%\include{./Content/Acknowledgements}
+\acknowledgments{\include{./content/Acknowledgments}}
 % This command sets the width of the acknowledgments area as a fraction
 % of the total width of the text area.
-%\acknowledgmentswidth{0.8}
+\acknowledgmentswidth{0.8}
 
 %% Preface
 %\preface[2]{ %
@@ -63,12 +64,12 @@ Professor J. Brian Fowlkes
 % \hidelistofabbreviations
 \hidededication
 
-%\showlistoftables
-%\showlistofprograms
+\showlistoftables
+\showlistofprograms
 \showlistofappendices
-%\showlistofabbreviations
-%\showlistoffigures
-
+\showlistofabbreviations
+\showlistoffigures
+\showacknowledgments
 
 
 %% Definition of any abbreviations used.
@@ -100,6 +101,8 @@ Professor J. Brian Fowlkes
 \usepackage{import}
 \usepackage[normalem]{ulem}
 \usepackage[toc,page]{appendix}
+\usepackage{titlesec}
+
 
 % My commands
 \newcommand{\ganttgroupc}[5][none]{\ganttgroup[group/.append style={draw=black, fill=#1}, group incomplete/.append style={draw=black,fill=#1!50}, progress=#2]{#3}{#4}{#5}}
@@ -130,41 +133,58 @@ Professor J. Brian Fowlkes
 \RequirePackage{snapshot}
 
 % Embed files
-\input{./embed_files}
-\embedfile{./main.tex}
+%\input{./embed_files}
+\embedfile{main.tex}
 
 % Setup latexdiff
 \input{./tex/diff_preamble.tex}
+
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\captionsetup{subrefformat=parens}
 
 
 %% DOCUMENT AREA
 
 \begin{document}
-% \chapter*{Foreword} \label{ch:foreword}
-% \input{./content/foreword.tex}
+\chapter*{Foreword} \label{ch:foreword}
+\input{./content/foreword.tex}
 
 
 %Abstract
-% %\include{./content/abstract}
-% \chapter{Introduction} \label{ch:Introduction}
+%\include{./content/abstract}
+\acresetall
+
+% % US Bioeffects
+\part{Ultrasound bioeffects} \label{part:ultrasound_bioeffects}
+%\input{./content/chapters/usbe_intro}
+
+
+\chapter{Introduction} \label{ch:Introduction}
+\input{./content/chapters/introduction}
 % \input{./content/chapters/intro_chapter}
 % \acresetall
 
-% % US Bioeffects
-%\part{Ultrasound bioeffects} \label{part:ultrasound_bioeffects}
-\input{./content/chapters/usbe_intro}
-
 % % US Bioeffects: 2012 Jasa Paper
-\chapter{\textit{Past work:} Theoretical microbubble Dynamics at capillary breaching thresholds}   \label{ch:usbe_bubble}%
+\chapter{Theoretical microbubble Dynamics at capillary breaching thresholds}   \label{ch:usbe_bubble}%
 %\input{./content/chapters/usbe_bubble_abstract}
-\input{./content/chapters/usbe_bubble_key}
-% \input{./content/chapters/usbe_bubble_chapter}
+%\input{./content/chapters/usbe_bubble_key}
+\input{./content/chapters/usbe_bubble_chapter}
 \acresetall
 % %
-%
+% Acoustically-driven gas-liquid interfaces
+
+
 % US Bioeffects: DUS-induced Lung Hehorrage work
-\chapter{\textit{Current work:} Diagnostic Ultrasound Induced Lung Hemorrhage} \label{ch:usbe_lung}
-\input{./content/chapters/usbe_lung_abstract}
+\chapter{Dynamics of acoustically-driven gas-liquid interfaces} \label{ch:usbe_lung}%
+\input{./content/chapters/usbe_lung_abstract} \acresetall
 \input{./content/chapters/usbe_lung_intro}
 \input{./content/chapters/usbe_lung_methods}
 \input{./content/chapters/usbe_lung_analysis}
@@ -172,12 +192,30 @@ Professor J. Brian Fowlkes
 \input{./content/chapters/usbe_lung_results}
 \input{./content/chapters/usbe_lung_conclusions}
 \input{./content/chapters/usbe_lung_future}
-\input{./content/chapters/usbe_lung_bio}
 %\input{./content/chapter/usbe_lung_chapter}
-\acresetall
-
 
 \acresetall
+\chapter{Relevance of the vorticity mechanisms to ultrasound} \label{ch:usbe_lung_bio}%
+\input{./content/chapters/usbe_lung_bio}
+
+\acresetall
+
+\chapter{Conclusions} \label{ch:usbe_conclusions}
+
+
+\part{Underwater Acoustic Uncertainty} \label{part:uw_uncertainty}
+% TL uncertainty: Area statistics
+\chapter{Past work: Efficient estimation of the probability density
+  function of transmission loss in uncertain ocean environments via
+  area statistics}
+% \input{./content/chapters/asuq_astats_key}
+\input{./content/chapters/asuq_astats_abstract}
+\input{./content/chapters/asuq_astats_intro}
+\input{./content/chapters/asuq_astats_methods}
+\input{./content/chapters/asuq_astats_results}
+\input{./content/chapters/asuq_astats_conclusions}
+
+
 
 \appendix
 \begin{appendices}
@@ -187,25 +225,19 @@ Professor J. Brian Fowlkes
   \include{./content/raw/reflections}
   \include{./content/raw/mechanical_index}
   \include{./content/raw/convergence}
+  \include{./content/raw/circulation_interface_intro}
+  \include{./content/raw/vorticity_objective}
+  \include{./content/raw/vorticity_distribution}
 
 
-  % TL uncertainty: Area statistics
-  \chapter{Past work: Efficient estimation of the probability density
-    function of transmission loss in uncertain ocean environments via
-    area statistics}
-  % \input{./content/chapters/asuq_astats_key}
-  \input{./content/chapters/asuq_astats_abstract}
-  \input{./content/chapters/asuq_astats_intro}
-  \input{./content/chapters/asuq_astats_methods}
-  \input{./content/chapters/asuq_astats_results}
-  \input{./content/chapters/asuq_astats_conclusions}
 \end{appendices}
 
 %% Using AIAA bibliography.
 \bibliographystyle{./tex/myauthordate2}
 
 % Give this command the relative path to the .bib file.
-\bibliography{../../literature/library}
+%\bibliography{../../literature/library}
+\bibliography{library}
 
 
 \end{document}
