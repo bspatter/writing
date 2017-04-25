@@ -422,27 +422,28 @@ the effects of elasticity in the lungs.
 %
 \begin{figure}
   \centering
-  \begin{subfigure}[b]{0.45\textwidth}
+  \begin{subfigure}[b]{0.3\textwidth}
     \centering
     \def\svgwidth{\textwidth}
     \import{./figs/lung_figs/}{Alveolus_US_zoom_only_diagram.pdf_tex} \hfill%
     \caption{\label{fig:alveolar_schematic} Physical problem of interest: an \ac{US} wave impinges upon an alveolus.}
   \end{subfigure}
   ~
-  \begin{subfigure}[b]{0.45\textwidth}
+  \begin{subfigure}[b]{0.65\textwidth}
     \centering
     \def\svgwidth{\textwidth}
     \import{./figs/lung_figs/}{usbe_model_schematic_domain.pdf_tex} \hfill%
-    \caption{\label{fig:problem_schematic} A schematic of the model problem.}
+    \caption{\label{fig:problem_schematic} A schematic of the domain and model problem.}
   \end{subfigure}
   %
   \caption[A schematic view of the physical and model
   problems]{\protect\subref{fig:alveolar_schematic} illustrates the
     physical problem of interest, an ultrasound wave traveling into
     the lung and impinging upon the first alveolus it
-    encounters. \subref{fig:problem_schematic} shows the model
-    problem, consisting of an acoustic wave impinging from water onto
-    a sinusoidally interface with air.}
+    encounters. \subref{fig:problem_schematic} model problem,
+    consisting of an acoustic wave impinging from water onto a
+    sinusoidally interface with air. The left image shows the entire
+    domain and the right zooms in on the area around the interface.}
   \label{fig:schematics}
 \end{figure}
 % 
@@ -458,7 +459,9 @@ $0\leq x\leq 1\ell$ and $-20\ell\leq y\leq 60\ell$. Soft tissue and
 fluid surrounding the lung (modeled as water) sit atop an alveolus
 (modeled as air). An acoustic wave impinges from the water downward
 $(-\bs{\hat{e}}_y)$ toward the air. A schematic of the model problem
-is shown in \ref{fig:problem_schematic}.
+is shown in Figure \ref{fig:problem_schematic}. The entire domain of
+the model is shown on the left, and the image on the right zooms in on
+the area around the interface.
 
 To captures the surface roughness of the alveolus, we prescribe the
 initial interface to include a single-mode sinusoidal perturbation of
@@ -518,21 +521,26 @@ established to have a corresponding spacial length of $45\ell$. Thus
 we arrive at an initial condition for our a acoustic waveform as a
 trapezoidal wave that rises in pressure from $p_{atm}$ to $p_a$ over a
 length $5\ell$ remains static over a length of $35\ell$ and then drops
-back to $p_{atm}$ over a final $5\ell$. This process by which we
-arrived at this waveform and the final waveform itself is illustrated
-in Figure \ref{fig:p0}. In choosing appropriate $p_a$ values for the
-numerical experiments performed in this study, we do not limit
-ourselves to strictly to acoustic parameters relevant to \ac{DUS} and
-we will consider values of $p_a$ including $1, 5, 7.5, 10,$ and $15$
-MPa. Unless otherwise stated, $p_a=10$ MPa for the results provided.
+back to $p_{atm}$ over a final $5\ell$. We note that this trapezoidal
+waveform can also be looked at an approximate component of an
+ultrasound pulse. To arrive at this, we can approximate the
+trapezoidal wave as a half-sine wave. A sum of sine waves can be used
+to construct the pulse waveform. The relationship between a shock
+wave, a trapezoidal wave, and an ultrasound pulse described here is
+illustrated in Figure \ref{fig:wave_logic}. The waveform used in the
+initial condition is illustrated in Figure \ref{fig:p0}.
+
+In choosing appropriate $p_a$ values for the numerical experiments
+performed in this study, we do not limit ourselves to strictly to
+acoustic parameters relevant to \ac{DUS} and we will consider values
+of $p_a$ including $1, 5, 7.5, 10,$ and $15$ MPa. Unless otherwise
+stated, $p_a=10$ MPa for the results provided.
 \begin{figure}% 
   \centering%
-  \begin{subfigure}[b]{0.45\textwidth}
+  \begin{subfigure}[b]{\textwidth}
     \centering
-    \raisebox{\height}{%
-      \def\svgwidth{\textwidth}%
-      \import{./figs/lung_figs/}{shock_logic_schematic.pdf_tex}%
-    }%
+    \def\svgwidth{\textwidth}%
+    \import{./figs/lung_figs/}{shock_2_ultrasound_logic.pdf_tex}%
     \caption{\label{fig:wave_logic} Design of the trapezoidal waveform}
   \end{subfigure}
   ~
@@ -544,14 +552,19 @@ MPa. Unless otherwise stated, $p_a=10$ MPa for the results provided.
   \end{subfigure}
   \caption[Trapezoidal wave]{Figure \protect\subref{fig:wave_logic}
     illustrates ideological progression from a shock wave pressure
-    profile to an acoustic trapezoidal wave. Three conceptual changes
-    are implemented: 1) The rising pressure is spread over a finite
-    distance to satisfy continuity of pressure, 2) the pressure is
-    allowed to return to ambient after the passage of the wave, and 3)
-    The elevated pressure is held static for a period such that the
-    wave for the wave-interface interaction is of finite
-    duration. Figure \protect\subref{fig:p0_vs_y} shows an example
-    initial pressure condition as a function of distance from the
+    profile to an acoustic trapezoidal wave and an ultrasound
+    pulse. Three conceptual changes are implemented to arrive at the
+    trapezoidal wave from the shock: 1) The rising pressure is spread
+    over a finite distance to satisfy continuity of pressure, 2) the
+    pressure is allowed to return to ambient after the passage of the
+    wave, and 3) The elevated pressure is held static for a period
+    such that the wave for the wave-interface interaction is of finite
+    duration. To then arrive at the ultrasound wave we can approximate
+    the trapezoidal wave as a half-sine wave. A sum of sine waves can
+    be used to construct the pulse waveform.
+
+    Figure \protect\subref{fig:p0_vs_y} shows an example trapezoidal
+    wave initial pressure condition as a function of distance from the
     interface.}%
   \label{fig:p0}
 \end{figure}
@@ -681,7 +694,7 @@ to the sound speed mismatch across the curved interface
 perturbation. The reflected and transmitted waves dissipate at the
 inflow and outflow boundaries.
 % 
-\begin{figure}[h] 
+\begin{figure}
   \centering
   \includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_density_t1}
   \caption[The evolution of the acoustically perturbed interface]
@@ -706,7 +719,7 @@ $\alpha=0.5$ are indicated in black. The interface
 perturbation grows from an initially smooth sinusoid to a sharp point
 at late times, long after all waves have left the domain.
 % 
-\begin{figure}[h] 
+\begin{figure} 
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
@@ -759,7 +772,7 @@ drive the deformation of the interface.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % 
 \subsection{Vorticity and circulation dynamics}
-\begin{figure}[h] 
+\begin{figure}
   \centering
   %\includegraphics[width=0.9\textwidth]{./figs/lung_figs/snapshots_vorticity_t1}
   \includegraphics[width=0.98\textwidth]{./figs/lung_figs/vorticity_snapshot_mat}
@@ -815,8 +828,445 @@ dynamics of the acoustically accelerated interface.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % 
-\subsubsection{Order of magnitude analysis of vorticity generation mechanisms}
-\label{subsubsec:oom_analysis}
+
+
+
+\subsubsection{Circulation deposition}
+Having established that the circulation is a primarily result of
+baroclinic vorticity, we now look to understand the circulation
+deposition associated with the wave-interface interaction period.
+%
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figs/lung_figs/trapz10_circ_schematic.pdf}
+    \caption{\label{fig:trapz10_circ_schematic_t25} $0\leq t \leq 25$ }
+  \end{subfigure}
+  ~
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{./figs/lung_figs/Gamma_t1000_28-Oct-2016.pdf}
+    \caption{\label{fig:trapz10_circ_schematic_t1000} $0\leq t \leq 1000$}
+  \end{subfigure}
+  %
+  \caption[Circulation deposition by the 10 MPa trapezoidal wave] {The
+    circulation history for the right-half domain is shown for the 10
+    MPa trapezoidal wave case for $t\leq25$ in Figure
+    \protect\subref{fig:trapz10_circ_schematic_t25} and for
+    $t\leq1000$ in Figure
+    \protect\subref{fig:trapz10_circ_schematic_t1000}. The times at
+    which different stages of the incoming trapezoidal pressure wave
+    encounter the interface are indicated in Figure
+    \protect\subref{fig:trapz10_circ_schematic_t25} as $t_{1-4}$.}
+  \label{fig:trapz10_circ_schematic}
+\end{figure}
+%
+Figure \ref{fig:trapz10_circ_schematic}, shows circulation history of
+the right-half domain for the $10$ MPa wave case for $t\leq25$, during
+and shortly after the wave-interface interaction, and for the duration
+of the simulation, $t\leq1000$. The points at which the different
+components of the wave encounter the interface are indicate as
+$t_{1-4}$, as described in section \ref{subsec:Qualitative}.
+
+From $t_1=0^+$ to $t_2$ the compression wave encounters the interface
+and $\Gamma$ increases. From $t_2\approx1.1$ to $t_3\approx8.5$ the
+pressure gradient at the interface is small and $\Gamma$ changes
+little. From Figure \ref{fig:trapz10_interface}, the perturbation
+undergoes a phase inversion at $t\approx 5.0$, and hence the density
+gradient along the interface reverses direction around this point in
+time. At $t_3\approx8.5$ the expansion wave first hits the
+interface. The pressure and density gradients at the interface have
+both reversed sign since the initial compression wave-interface
+interaction and $\Gamma$ increases sharply again. At
+$t_4\approx9.7$ the acoustic wave has finished traversing the
+interface and ceases depositing vorticity around the interface.
+
+\subsubsection{Circulation-driven, late-time growth of the interface}
+\begin{figure}
+  \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[height=0.8\textwidth]{./figs/lung_figs/a0_t1000_23-Dec-2016}
+    \caption{\label{fig:trapz_interface_t1000} Constant scaling: $a(t)/a_0$}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[height=0.8\textwidth]{./figs/lung_figs/intf_amp_t1000_23-Dec-2016}
+    \caption{\label{fig:trapz_interface_t1000_scaled} Vortex strength scaling: $a(t)/\left(\frac{\Gamma_0}{s_0}\frac{\ell}{c}\right)$}
+  \end{subfigure}
+  %
+  \caption[The interface amplitude at long time]{The interface
+    amplitude histories corresponding to the $5$ (blue), $7.5$ (red),
+    $10$ (green), and $12.5$ (Purple) MPa trapezoidal waves are shown
+    for $t\leq 1000$. \subref{fig:trapz_interface_t1000} shows the
+    interface amplitudes $a(t)$ scaled by a constant
+    $a_0=0.03\ell$. \protect\subref{fig:trapz_interface_t1000_scaled}
+    shows the interface amplitude scaled by $\Gamma_0/s_0$, the
+    circulation per unit arc length of the interface at the time at
+    when vorticity becomes the dominant mechanism driving the motion
+    of the interface. This scaled amplitude is nondimensionalized by
+    constants $\ell$ and $c_{air}$. The time for each curve has been
+    synced to align the phase inversion of the interface. The black
+    dashed line above the curves at late times corresponds to power
+    law growth with $t^{3/5}$.}
+  \label{fig:trapz_interface_loglog}
+\end{figure}
+
+In consideration of the late time growth, Figure
+\ref{fig:trapz_interface_loglog} shows the interface amplitude
+$a(t)/a_0$ as a function of time for $5$ (blue), $7.5$ (red), $10$
+(green), and $12.5$ (Purple) MPa trapezoidal waves for
+$0 \leq t\leq 1000$. From the figure, we observe that at late times
+the growth of the interface appears to grow at a fairly constant rate
+and appears asymptotic in nature. To explain this, we consider the
+case circulation-driven growth of the interface. For this regime, we
+expect the perturbation amplitude to depend on the total circulation
+$\Gamma$, time $t$, and the material and geometric properties of the
+flow setup such as the arc length interface $s$, the transverse
+distance between peaks of the interface $\ell$, and the speed of sound
+$c$, such that
+
+\begin{align}
+  \label{eq:dimensional_amplitude}
+  a(t)=f\left(\Gamma, s, \ell, c, t\right).
+\end{align}
+
+We hypothesize that growth will specifically depend on concentration
+of circulation along the interface, such that we consider the
+circulation per unit arc length or the linear circulation density
+$\Gamma/s$ as a single variable. Furthermore, we choose to evaluate
+these quantities at the specific moment when our assumption of a
+circulation-driven interface becomes valid. Thus we evaluate
+$\Gamma/s$ at the instant in time in which the circulation becomes the
+dominant mechanism driving the motion of the interface. Initially
+after the wave encounters the interface, there is little vorticity and
+entire interface is accelerated downward by the increased acoustic
+pressure in the water. As the acoustic pressure drops and vorticity
+around the interface remains or increases, at some time $t_\Gamma$,
+the circulation begins to dominate the motion of the interface. This
+is observed to occur when the peaks and troughs of the interface,
+driven by opposing vortex pairs, begin to move in opposite
+directions. The linear circulation density at $t_\Gamma$ will be
+denoted as $\Gamma_0/s_0$. For the cases shown, the positive acoustic
+pressure in the water drives the entire interface downward, in the
+$-y$-direction, until at $t_\Gamma\approx9.4$ the vorticity overcomes
+the decreasing acoustic pressure in the water and the $y-$velocity of
+the bubble or interface peak becomes positive.
+
+Thus by treating $\Gamma$ and $s$ as a single variable $\Gamma_0/s_0$
+and nondimensionalizing Equation \eqref{eq:dimensional_amplitude} by
+constants values $\ell$ and $c=c_{air}$ we arrive at a dimensionless
+expression of the perturbation amplitude as a function of time,
+%
+\begin{align}
+  \label{eq:dimensionless_groups}
+  \frac{a(t)}{\ell}=F\left(\frac{\Gamma_0}{s_0 c}, \frac{t c}{\ell} \right).
+\end{align}
+%
+Furthermore, we expect $a(t)$ to scale linearly with $\Gamma_0/s_0$
+such that we write
+%
+\begin{align}
+  \label{eq:dimensionless_relationship}
+  a(t)=\frac{\Gamma_0}{s_0}F\left(\frac{t c}{\ell} \right).
+\end{align}
+%
+To test this hypothesized relationship
+\eqref{eq:dimensionless_relationship}, we scale the amplitude by the
+appropriate circulation density, and plot
+$a(t)/\left(\frac{\Gamma_0}{s_0}\frac{c}{l}\right)$ in Figure
+\ref{fig:trapz_interface_t1000_scaled}, thereby collapsing the
+interface amplitude curves along the vertical direction. To collapse
+the data along the horizontal direction, time is shifted to sync the
+interface phase inversion for each case. The apparently asymptotic
+growth observed suggests power law growth in time, and plotting on a
+log-log scale reveals that the perturbation amplitude grows
+approximately as $t^{3/5}$, which is indicated by the black dashed
+line. Calculated growth goes as $t^n$ where
+$n=0.61 (5 \text{MPa}), 0.59 (7.5 \text{MPa}), 0.61 (10 \text{MPa})$
+and $0.66 (12.5 \text{MPa})$. To explain the discrepancy, in the $12.5$
+MPa case, Figure \ref{fig:trapz_circ_t1000} shows the circulation as a function of time for each
+case. Note that for the $5-10$ MPa cases, the circulation is
+relatively constant after the passage of the wave. For the $12.5$ MPa
+case, there is sufficient baroclinic vorticity deposited by the wave
+to generate additional vorticity at late times.
+
+\subsubsection{Bubble and spike growth}
+The individual growth of the bubble and spike are calculated for the
+10 MPa trapezoidal wave case and plotted on Figure
+\ref{fig:trapz_bubble-spike_t1000}. Here we define the bubble
+amplitude $a_b(t)$ and spike amplitude $a_s(t)$ as the location of the
+interface maximum and minimum relative to the location of an
+unperturbed flat interface also driven by the $10$ MPa wave. The
+calculated growth of each goes as $t^n$ where
+$n=0.42 ( \text{bubble} ), 0.66 ( \text{spike} )$, and
+$0.61 ( \text{bubble + spike} )$.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[height=0.8\textwidth]{./figs/lung_figs/bubble-spike_t1000_14-Feb-2017}
+    \caption{\label{fig:trapz_bubble-spike_t1000_unscaled} Constant scaling: $a(t)/\ell$}
+  \end{subfigure}
+  ~
+  \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[height=0.8\textwidth]{./figs/lung_figs/bubble-spike_scaled_t1000_14-Feb-2017}
+    \caption{\label{fig:trapz_bubble-spike_t1000_scaled} Vortex strength scaling: $a(t)/\left(\frac{\Gamma_0}{s_0}\frac{\ell}{c}\right)$}
+  \end{subfigure}
+  \caption{The amplitude of the bubble (blue), spike (red), and the
+    sum of the two (green) is plotted as function of time for the $10$
+    MPa trapezoidal waves for $10\geq t\leq
+    1000$. \subref{fig:trapz_bubble-spike_t1000_unscaled} shows the
+    amplitudes $a(t)$ scaled by a constant
+    $\ell$. \subref{fig:trapz_bubble-spike_t1000_scaled} shows the
+    interface amplitude scaled by $\Gamma_0/s_0$, the circulation per
+    unit arc length of the interface at the time at when vorticity
+    becomes the dominant mechanism driving the motion of the
+    interface. This scaled amplitude is nondimensionalized by
+    constants $\ell$ and $c_{air}$. The time for each curve has been
+    synced to align the phase inversion of the interface. The dashed
+    lines above the curves at late times corresponds to power law
+    growth with time.}
+  \label{fig:trapz_bubble-spike_t1000}
+\end{figure}
+
+%
+\begin{figure}
+  \centering
+  \includegraphics[height=0.45\textwidth]{./figs/lung_figs/Circulation_t1000_23-Dec-2016}
+  \caption[The circulation long time]{The circulation histories
+    $\Gamma(t)$ corresponding to the $5$ (blue), $7.5$ (red), $10$
+    (green), and $12.5$ (Purple) MPa trapezoidal waves are shown for
+    $t\leq 1000$. }
+  \label{fig:trapz_circ_t1000}
+\end{figure}
+%
+To quantify the deformation of the interface in cases where the
+circulation experiences appreciable change, such as those observed in
+the 12.5 MPa case, we have to consider the relationship between the
+circulation and the arc-length of the interface. Much like the
+perturbation amplitude $a(t)$, we expect change in the arc length of
+the interface $s$ to depend on the circulation $\Gamma$ and time
+$t$.
+%
+\begin{align}
+  \label{eq:s_dependencies}%
+  s(t) = g\left(\Gamma(t), t \right).%
+\end{align}%
+%
+However, the circulation itself initially depends on the geometric and
+material properties of the interface during the interaction and then
+continues to evolve in time such that for constant wave shape we
+expect
+%
+\begin{align}%
+  \label{eq:gamma_dependencies}%
+  \Gamma(t) = h\left(p_a, \rho, c, \ell, t\right).%
+\end{align}%
+%
+Previously, we treated the circulation density as a single quantity to
+as the two are intrinsically linked. Here, we will do this again, but
+in consideration of the interface deformation we now consider the
+inverse quantity, the interface arc length per unit circulation
+$s(t)/\Gamma(t)$. Thus by appropriately combining equations
+\eqref{eq:s_dependencies} and \eqref{eq:gamma_dependencies} we find
+that
+%
+\begin{align}%
+  \label{eq:scp_dependencies}%
+  \frac{s(t)}{\Gamma(t)} = \psi\left(p_a,\rho, c, \ell, t,\right).
+\end{align}%
+%
+Nondimensionalizing by $\rho$ $c$ and $\ell$,
+%
+\begin{align}%
+  \label{eq:scp_dimensionless}%
+  \frac{s(t)}{\Gamma(t)} c = \Psi\left(\frac{p_a}{\rho c^2},\frac{c}{\ell}t,\right).%
+\end{align}%
+%
+Experimental results are used to determine this functional
+relationship more precisely. Figure \ref{fig:trapz_scp_t1000_unscaled}
+shows the arc length as a function of time and Figure
+\ref{fig:trapz_scp_t1000_scaled} shows the arc length per unit
+circulation as a function of time, scaled by the input pressure
+amplitude $p_a$ and nondimensionalized by the density and sound speed
+of air for $5$ (blue), $7.5$ (red), $10$ (green), and $12.5$ (Purple)
+MPa trapezoidal waves. Time is shifted such that interface phase
+inversion is synced for each case. For the $7.5$, $10$, and $12.5$ MPa
+waves the interface arc length per unit circulation grows as $t^{1/2}$
+and these curves collapse upon one another when scaled by the input
+pressure amplitude.
+
+Based on the described results and Equation \eqref{eq:scp_dimensionless} we find that 
+\begin{align}
+  \label{eq:scp_relationship}
+  \frac{s(t)}{\Gamma(t)} = \mathcal{C}\frac{\rho}{p_a}\left(\frac{c^3t}{\ell}\right)^{1/2}.
+\end{align}
+The result from the $5$ MPa case differs from the others in
+two ways. First, the value of $s(t)/\Gamma(t)$ does not collapse with
+the other curves at late time and second, this quantity does not
+achieve $t^{1/2}$ by the end of the simulation. There are a few things
+that could be contributing to this. For this case in particular, the
+expansion wave encounters the interface nominally simultaneously with
+the phase-inversion. This is when the interface is at its flattest,
+and as a result, there is not much circulation contributed by the
+expansion, because the pressure and density gradients are
+aligned. However, the expansion does serve to accelerate the interface
+and stretch the perturbations in the interface length, such that it
+drives the circulation density to decrease, creating a slightly
+different initial condition at the start of the circulation-driven
+regime than is observed in the other cases. Furthermore, unlike the
+other cases, the circulation density in the $5$ MPa case has not
+reached asymptotic behavior at the end of the simulation, so it is not
+surprising that the $t^{1/2}$ growth has not yet been
+achieved. Running the simulation to asymptotic behavior was
+prohibitively computationally expensive in this case.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[height=0.8\textwidth]{./figs/lung_figs/s_t1000_14-Feb-2017}
+    \caption{\label{fig:trapz_scp_t1000_unscaled} Constant scaling: $s(t)/\ell$}
+  \end{subfigure}
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[height=0.8\textwidth]{./figs/lung_figs/scp_t1000_23-Dec-2016}
+    \caption{\label{fig:trapz_scp_t1000_scaled} Vortex strength scaling: $\frac{s(t)}{\Gamma(t)} \frac{p_a}{\rho c}$}
+  \end{subfigure}
+  \caption[The interface arc length at long times]{The arc length of
+    the interface is plotted as function of time for the $5$ (blue),
+    $7.5$ (red), $10$ (green), and $12.5$ (Purple) MPa trapezoidal
+    waves for $10\geq t\leq 1000$. Figure
+    \subref{fig:trapz_scp_t1000_unscaled} shows the interface arc
+    length scaled by constant $\ell$ and Figure
+    \subref{fig:trapz_scp_t1000_scaled} shows the arc length per unit
+    circulation, or the inverse circulation density, $s(t)/\Gamma(t)$
+    scaled by the input pressure $p_a$ and non-dimensionalized using
+    constants $\ell$ and $c_{air}$. Time is synced such that the
+    interface phase-inversion occurs simultaneously in each case.}
+  \label{fig:trapz_scp_t1000}
+\end{figure}
+% 
+\subsubsection{Dependence on transient wave-interface interactions}%
+\begin{figure}
+  \centering
+  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/interface_multi-lag}
+  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/circulation_multi-lag_fixed}
+  \caption[The interface and circulation dependence on wave
+  duration]{The interface amplitude (left) and circulation (right)
+    histories for waves of varying total length $L$ and elevated
+    static pressure duration between the expansion and compression
+    . Here we show results for $L=45\ell$ (blue), $L=35\ell$ (orange),
+    $L=30\ell$ (yellow), $L=20\ell$ (purple), $L=15\ell$ (green),
+    $L=10\ell$ (light blue)}
+  \label{fig:trapz_circ_interface_multi-lag}
+\end{figure}
+Lastly, we investigate the dependence of the interface and circulation
+dynamics on the evolution of the interface that occurs during the
+wave-interface interaction. To study this, we vary the duration of the
+static elevated pressure that the interface experiences between the
+compression and expansion of the trapezoidal wave. For our setup, this
+is equivalent to changing initial length of the trapezoidal wave $L$,
+while keeping constant the wave amplitude $p_a=10$ MPa and the lengths
+of the pressure rise and fall $\Delta L_a$. 
+
+Figure \ref{fig:trapz_circ_interface_multi-lag} shows the interface
+amplitude and circulation histories corresponding to waves with
+$L=45\ell, 35\ell ,30\ell ,25\ell ,15\ell ,10\ell$ for $t\leq 25$.
+For the two longest waves, $L=35\ell, 45\ell$, the expansion
+encounters the interface appreciably after the perturbation reverses
+phase. In these cases, the expansion deposits additional positive
+circulation along the right half of the interface. For the shorter
+waves, $L \leq 25\ell$, the expansion encounters the interface before
+the perturbation reverses phase and the net half-domain circulation is
+decreased. For the $L=30\ell$ case, the expansion hits the interface
+very shortly after the interface phase-reversal, when the interface is
+nearly flat. As a result of this, the pressure gradient and density
+gradient are closely aligned and very little circulation is generated
+by the expansion wave.
+
+Among cases for which the interface inverts phase before encountering
+the expansion, the larger the perturbation amplitude $a(t)$ at the
+time of the expansion, the greater the circulation generated. This is
+a result of the consequence misalignment in density and pressure
+gradients. The same is true when comparing cases for which the
+interface inverts phase before encountering the expansion. After the
+passage of the acoustic wave and all reflections the pressure returns
+to the initial, atmospheric conditions. This implies that the integral
+of the pressure gradient $\nabla p$ along the interface, over all time
+is zero. If the interface remains unchanged during the interaction
+with the wave, as it would for a wave moving with infinite velocity,
+$\nabla \rho$ would remain constant and the net baroclinic circulation
+deposited must be zero. Thus for any finite duration acoustic wave to
+deposit net baroclinic circulation upon an interface, the interface
+itself must deform during interaction with the wave. This deformation
+alters the misalignment of the pressure and density gradients
+throughout the passage of the wave such that vorticity deposited by
+the compression and expansion waves do not cancel. This of particular
+interest for waves in which the pressure returns to the initial
+condition after the wave passes, which is not the case for the
+traditional shock-accelerated \ac{RMI} problem.
+
+%============================== Conclusions ================
+\section{Summary and Conclusions}
+\label{sec:conclusions}
+This paper demonstrates that acoustic waves may trigger significant
+deformation of perturbed liquid-gas interfaces over long periods of
+time. The driving mechanism behind this deformation is baroclinic
+vorticity, which occurs as a result of misalignment between the
+pressure gradient of the acoustic wave and density gradient of the
+perturbed interface. To demonstrate this we simulate trapezoidal
+acoustic waves of MPa-order amplitude impinging from water onto a
+perturbed air interface air.
+
+The work presented here supports the following three conclusions: (1)
+Acoustically-generated baroclinic vorticity is capable of
+significantly deforming perturbed liquid-gas interfaces. We observed
+that much of the vorticity generated by the acoustic wave at the
+interface remains with the interface as it evolves and deforms even
+long after the passage of all acoustic waves. Part of this is
+attributed to a lack of physical mechanism for dissipating vorticity
+in the inviscid case considered. From dimensional analysis we find a
+scaling law for the interface growth
+\eqref{eq:dimensionless_relationship}, as a function of the
+circulation per unit arc length of the interface at the point when
+vorticity becomes the dominant mechanism driving the interface
+motion. Empirically, from computed results we find the perturbation
+amplitude grows as $t^{\frac{3}{5}}$. (2) The interface arc length
+per unit circulation grows as $t^{\frac{1}{2}}$ at late times and
+scales inversely with the amplitude of the incoming wave.
+%
+(3) Changes in the acoustic waveform that have little effect on the
+interface dynamics during their interaction can substantially effect
+the interface over longer periods of time, via vorticity. By comparing
+the effects of $10$ MPa trapezoidal waves with varying static pressure
+durations between compression and expansion, we observe that the
+evolution of the interface between these two wave components
+drastically effects the ultimate growth rate of the interface. The
+phase and amplitude of the interface perturbation at the time it
+encounters the expansion wave determine the direction and magnitude
+respectively of the vorticity deposited. Consequently, the amount of
+vorticity remaining at the interface and in the surrounding fluid
+after the passage of the wave changes greatly based on the
+time-dependent features of the wave. A consequence of this is that it
+should be possible to design waves that minimize the growth of the
+interface perturbation.
+
+This work is a step toward understanding the effects of acoustically
+generated vorticity on gas-liquid interfaces, but there are many
+questions left to be answered. Physical effects not considered here
+such as viscosity, which is critical to understanding the dissipation
+of viscosity, may be important in certain regimes. Additionally, to
+fully understand the application of these findings to the motivating
+problem of diagnostic induced lung hemorrhage, it will be pertinent to
+consider waveforms and geometries more relevant to the problem.
+
+
+\appendix
+\section{Order of magnitude analysis of vorticity generation mechanisms}
+\label{sec:oom_analysis}
 To quantifiably compare the various mechanisms by which vorticity
 changes within the flow we perform an order of magnitude analysis on
 each term of the vorticity generation equation
@@ -965,386 +1415,6 @@ $$ \int_{A_{RH}} \left[\frac{\nabla\rho\times\nabla p}{\rho^2}\right] / \left[-\
 hence the computational results and analysis are in agreement and suggest
 that the vorticity is nearly entirely baroclinic.
 % 
-
-\subsubsection{Circulation deposition}
-Having established that the circulation is a primarily result of
-baroclinic vorticity, we now look to understand the circulation
-deposition associated with the wave-interface interaction period.
-%
-\begin{figure}
-  \centering
-  \begin{subfigure}[b]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{./figs/lung_figs/trapz10_circ_schematic.pdf}
-    \caption{\label{fig:trapz10_circ_schematic_t25} $0\leq t \leq 25$ }
-  \end{subfigure}
-  ~
-  \begin{subfigure}[b]{0.48\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{./figs/lung_figs/Gamma_t1000_28-Oct-2016.pdf}
-    \caption{\label{fig:trapz10_circ_schematic_t1000} $0\leq t \leq 1000$}
-  \end{subfigure}
-  %
-  \caption[Circulation deposition by the 10 MPa trapezoidal wave] {The
-    circulation history for the right-half domain is shown for the 10
-    MPa trapezoidal wave case for $t\leq25$ in Figure
-    \protect\subref{fig:trapz10_circ_schematic_t25} and for
-    $t\leq1000$ in Figure
-    \protect\subref{fig:trapz10_circ_schematic_t1000}. The times at
-    which different stages of the incoming trapezoidal pressure wave
-    encounter the interface are indicated in Figure
-    \protect\subref{fig:trapz10_circ_schematic_t25} as $t_{1-4}$.}
-  \label{fig:trapz10_circ_schematic}
-\end{figure}
-
-Figure \ref{fig:trapz10_circ_schematic}, shows circulation history of
-the right-half domain for the $10$ MPa wave case for $t\leq25$, during
-and shortly after the wave-interface interaction, and for the duration
-of the simulation, $t\leq1000$. The points at which the different
-components of the wave encounter the interface are indicate as
-$t_{1-4}$, as described in section \ref{subsec:Qualitative}.
-
-From $t_1=0^+$ to $t_2$ the compression wave encounters the interface
-and $\Gamma$ increases. From $t_2\approx1.1$ to $t_3\approx8.5$ the
-pressure gradient at the interface is small and $\Gamma$ changes
-little. From Figure \ref{fig:trapz10_interface}, the perturbation
-undergoes a phase inversion at $t\approx 5.0$, and hence the density
-gradient along the interface reverses direction around this point in
-time. At $t_3\approx8.5$ the expansion wave first hits the
-interface. The pressure and density gradients at the interface have
-both reversed sign since the initial compression wave-interface
-interaction and $\Gamma$ increases sharply again. At
-$t_4\approx9.7$ the acoustic wave has finished traversing the
-interface and ceases depositing vorticity around the interface.
-
-\subsubsection{Circulation-driven, late-time growth of the interface}
-\begin{figure}
-  \centering
-  \begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \includegraphics[height=0.8\textwidth]{./figs/lung_figs/a0_t1000_23-Dec-2016}
-    \caption{\label{fig:trapz_interface_t1000} Constant scaling: $a(t)/a_0$}
-  \end{subfigure}
-  ~
-  \begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \includegraphics[height=0.8\textwidth]{./figs/lung_figs/intf_amp_t1000_23-Dec-2016}
-    \caption{\label{fig:trapz_interface_t1000_scaled} Vortex strength scaling: $a(t)/\left(\frac{\Gamma_0}{s_0}\frac{\ell}{c}\right)$}
-  \end{subfigure}
-  %
-  \caption[The interface amplitude at long time]{The interface
-    amplitude histories corresponding to the $5$ (blue), $7.5$ (red),
-    $10$ (green), and $12.5$ (Purple) MPa trapezoidal waves are shown
-    for $t\leq 1000$. \subref{fig:trapz_interface_t1000} shows the
-    interface amplitudes $a(t)$ scaled by a constant
-    $a_0=0.03\ell$. \protect\subref{fig:trapz_interface_t1000_scaled}
-    shows the interface amplitude scaled by $\Gamma_0/s_0$, the
-    circulation per unit arc length of the interface at the time at
-    when vorticity becomes the dominant mechanism driving the motion
-    of the interface. This scaled amplitude is nondimensionalized by
-    constants $\ell$ and $c_{air}$. The time for each curve has been
-    synced to align the phase inversion of the interface. The black
-    dashed line above the curves at late times corresponds to power
-    law growth with $t^{3/5}$.}
-  \label{fig:trapz_interface_loglog}
-\end{figure}
-
-In consideration of the late time growth, Figure
-\ref{fig:trapz_interface_loglog} shows the interface amplitude
-$a(t)/a_0$ as a function of time for $5$ (blue), $7.5$ (red), $10$
-(green), and $12.5$ (Purple) MPa trapezoidal waves for
-$0 \leq t\leq 1000$. From the figure, we observe that at late times
-the growth of the interface appears to grow at a fairly constant rate
-and appears asymptotic in nature. To explain this, we consider the
-case circulation-driven growth of the interface. For this regime, we
-expect the perturbation amplitude to depend on the total circulation
-$\Gamma$, time $t$, and the material and geometric properties of the
-flow setup such as the arc length interface $s$, the transverse
-distance between peaks of the interface $\ell$, and the speed of sound
-$c$, such that
-
-\begin{align}
-  \label{eq:dimensional_amplitude}
-  a(t)=f\left(\Gamma, s, \ell, c, t\right).
-\end{align}
-
-We hypothesize that growth will specifically depend on concentration
-of circulation along the interface, such that we consider the
-circulation per unit arc length or the linear circulation density
-$\Gamma/s$ as a single variable. Furthermore, we choose to evaluate
-these quantities at the specific moment when our assumption of a
-circulation-driven interface becomes valid. Thus we evaluate
-$\Gamma/s$ at the instant in time in which the circulation becomes the
-dominant mechanism driving the motion of the interface. Initially
-after the wave encounters the interface, there is little vorticity and
-entire interface is accelerated downward by the increased acoustic
-pressure in the water. As the acoustic pressure drops and vorticity
-around the interface remains or increases, at some time $t_\Gamma$,
-the circulation begins to dominate the motion of the interface. This
-is observed to occur when the peaks and troughs of the interface,
-driven by opposing vortex pairs, begin to move in opposite
-directions. The linear circulation density at $t_\Gamma$ will be
-denoted as $\Gamma_0/s_0$. For the cases shown, the positive acoustic
-pressure in the water drives the entire interface downward, in the
-$-y$-direction, until at $t_\Gamma\approx9.4$ the vorticity overcomes
-the decreasing acoustic pressure in the water and the $y-$velocity of
-the bubble or interface peak becomes positive.
-
-Thus by treating $\Gamma$ and $s$ as a single variable $\Gamma_0/s_0$
-and nondimensionalizing Equation \eqref{eq:dimensional_amplitude} by
-constants values $\ell$ and $c=c_{air}$ we arrive at a dimensionless
-expression of the perturbation amplitude as a function of time,
-%
-\begin{align}
-  \label{eq:dimensionless_groups}
-  \frac{a(t)}{\ell}=F\left(\frac{\Gamma_0}{s_0 c}, \frac{t c}{\ell} \right).
-\end{align}
-%
-Furthermore, we expect $a(t)$ to scale linearly with $\Gamma_0/s_0$
-such that we write
-%
-\begin{align}
-  \label{eq:dimensionless_relationship}
-  a(t)=\frac{\Gamma_0}{s_0}F\left(\frac{t c}{\ell} \right).
-\end{align}
-%
-To test this hypothesized relationship
-\eqref{eq:dimensionless_relationship}, we scale the amplitude by the
-appropriate circulation density, and plot
-$a(t)/\left(\frac{\Gamma_0}{s_0}\frac{c}{l}\right)$ in Figure
-\ref{fig:trapz_interface_t1000_scaled}, thereby collapsing the
-interface amplitude curves along the vertical direction. To collapse
-the data along the horizontal direction, time is shifted to sync the
-interface phase inversion for each case. The apparently asymptotic
-growth observed suggests power law growth in time, and plotting on a
-log-log scale reveals that the perturbation amplitude grows
-approximately as $t^{3/5}$, which is indicated by the black dashed
-line. Calculated growth goes as $t^n$ where
-$n=0.61 (5 \text{MPa}), 0.59 (7.5 \text{MPa}), 0.61 (10 \text{MPa})$
-and $0.66 (12.5 \text{MPa})$. To explain the discrepancy, in the $12.5$
-MPa case, Figure shows the circulation as a function of time for each
-case. Note that for the $5-10$ MPa cases, the circulation is
-relatively constant after the passage of the wave. For the $12.5$ MPa
-case, there is sufficient baroclinic vorticity deposited by the wave
-to generate additional vorticity at late times.
-%
-\begin{figure}
-  \centering
-  \includegraphics[height=0.45\textwidth]{./figs/lung_figs/Circulation_t1000_23-Dec-2016}
-  \caption[The circulation long time]{The circulation histories
-    $\Gamma(t)$ corresponding to the $5$ (blue), $7.5$ (red), $10$
-    (green), and $12.5$ (Purple) MPa trapezoidal waves are shown for
-    $t\leq 1000$. }
-  \label{fig:trapz_circ_t1000}
-\end{figure}
-%
-To quantify the deformation of the interface in cases where the
-circulation experiences appreciable change, such as those observed in
-the 12.5 MPa case, we have to consider the relationship between the
-circulation and the arc-length of the interface. Much like the
-perturbation amplitude $a(t)$, we expect change in the arc length of
-the interface $s$ to depend on the circulation $\Gamma$ and time
-$t$.
-%
-\begin{align}
-  \label{eq:s_dependencies}%
-  s(t) = g\left(\Gamma(t), t \right).%
-\end{align}%
-%
-However, the circulation itself initially depends on the geometric and
-material properties of the interface during the interaction and then
-continues to evolve in time such that for constant wave shape we
-expect
-%
-\begin{align}%
-  \label{eq:gamma_dependencies}%
-  \Gamma(t) = h\left(p_a, \rho, c, \ell, t\right).%
-\end{align}%
-%
-Previously, we treated the circulation density as a single quantity to
-as the two are intrinsically linked. Here, we will do this again, but
-in consideration of the interface deformation we now consider the
-inverse quantity, the interface arc length per unit circulation
-$s(t)/\Gamma(t)$. Thus by appropriately combining equations
-\eqref{eq:s_dependencies} and \eqref{eq:gamma_dependencies} we find
-that
-%
-\begin{align}%
-  \label{eq:scp_dependencies}%
-  \frac{s(t)}{\Gamma(t)} = \psi\left(p_a,\rho, c, \ell, t,\right).
-\end{align}%
-%
-Nondimensionalizing by $\rho$ $c$ and $\ell$,
-%
-\begin{align}%
-  \label{eq:scp_dimensionless}%
-  \frac{s(t)}{\Gamma(t)} c = \Psi\left(\frac{p_a}{\rho c^2},\frac{c}{\ell}t,\right).%
-\end{align}%
-%
-Experimental results are used to determine this functional
-relationship more precisely. Figure \ref{fig:trapz_scp_t1000} shows
-the arc length of the interface per unit circulation as a function of
-time, scaled by the input pressure amplitude $p_a$ and
-nondimensionalized by the density and sound speed of air for $5$
-(blue), $7.5$ (red), $10$ (green), and $12.5$ (Purple) MPa trapezoidal
-waves. Time is shifted such that interface phase inversion is synced
-for each case. For the $7.5$, $10$, and $12.5$ MPa waves the interface
-arc length per unit circulation grows as $t^{1/2}$ and these curves
-collapse upon one another when scaled by the input pressure
-amplitude. 
-
-Based on the described results and Equation \eqref{eq:scp_dimensionless} we find that 
-\begin{align}
-  \label{eq:scp_relationship}
-  \frac{s(t)}{\Gamma(t)} = \mathcal{C}\frac{\rho}{p_a}\left(\frac{c^3t}{\ell}\right)^{1/2}.
-\end{align}
-The result from the $5$ MPa case differs from the others in
-two ways. First, the value of $s(t)/\Gamma(t)$ does not collapse with
-the other curves at late time and second, this quantity does not
-achieve $t^{1/2}$ by the end of the simulation. There are a few things
-that could be contributing to this. For this case in particular, the
-expansion wave encounters the interface nominally simultaneously with
-the phase-inversion. This is when the interface is at its flattest,
-and as a result, there is not much circulation contributed by the
-expansion, because the pressure and density gradients are
-aligned. However, the expansion does serve to accelerate the interface
-and stretch the perturbations in the interface length, such that it
-drives the circulation density to decrease, creating a slightly
-different initial condition at the start of the circulation-driven
-regime than is observed in the other cases. Furthermore, unlike the
-other cases, the circulation density in the $5$ MPa case has not
-reached asymptotic behavior at the end of the simulation, so it is not
-surprising that the $t^{1/2}$ growth has not yet been
-achieved. Running the simulation to asymptotic behavior was
-prohibitively computationally expensive in this case.
-
-\begin{figure}
-  \centering
-  \includegraphics[height=0.45\textwidth]{./figs/lung_figs/scp_t1000_23-Dec-2016}
-  \caption[The interface arc length at long times]{The arc length of
-    the interface per unit circulation or inverse circulation density
-    $s(t)/\Gamma(t)$ is plotted as function of time for the $5$
-    (blue), $7.5$ (red), $10$ (green), and $12.5$ (Purple) MPa
-    trapezoidal waves for $10\geq t\leq 1000$. The data is scaled by
-    the input pressure $p_a$ and non-dimensionalized using constants
-    $\ell$ and $c_{air}$. Time is synced such that the interface
-    phase-inversion occurs simultaneously in each case.}
-  \label{fig:trapz_scp_t1000}
-\end{figure}
-% 
-\subsubsection{Dependence on transient wave-interface interactions}%
-\begin{figure}
-  \centering
-  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/interface_multi-lag}
-  \includegraphics[width=0.48\textwidth]{./figs/lung_figs/circulation_multi-lag_fixed}
-  \caption[The interface and circulation dependence on wave
-  duration]{The interface amplitude (left) and circulation (right)
-    histories for waves of varying total length $L$ and elevated
-    static pressure duration between the expansion and compression
-    . Here we show results for $L=45\ell$ (blue), $L=35\ell$ (orange),
-    $L=30\ell$ (yellow), $L=20\ell$ (purple), $L=15\ell$ (green),
-    $L=10\ell$ (light blue)}
-  \label{fig:trapz_circ_interface_multi-lag}
-\end{figure}
-Lastly, we investigate the dependence of the interface and circulation
-dynamics on the evolution of the interface that occurs during the
-wave-interface interaction. To study this, we vary the duration of the
-static elevated pressure that the interface experiences between the
-compression and expansion of the trapezoidal wave. For our setup, this
-is equivalent to changing initial length of the trapezoidal wave $L$,
-while keeping constant the wave amplitude $p_a=10$ MPa and the lengths
-of the pressure rise and fall $\Delta L_a$. 
-
-Figure \ref{fig:trapz_circ_interface_multi-lag} shows the interface
-amplitude and circulation histories corresponding to waves with
-$L=45\ell, 35\ell ,30\ell ,25\ell ,15\ell ,10\ell$ for $t\leq 25$.
-For the two longest waves, $L=35\ell, 45\ell$, the expansion
-encounters the interface appreciably after the perturbation reverses
-phase. In these cases, the expansion deposits additional positive
-circulation along the right half of the interface. For the shorter
-waves, $L \leq 25\ell$, the expansion encounters the interface before
-the perturbation reverses phase and the net half-domain circulation is
-decreased. For the $L=30\ell$ case, the expansion hits the interface
-very shortly after the interface phase-reversal, when the interface is
-nearly flat. As a result of this, the pressure gradient and density
-gradient are closely aligned and very little circulation is generated
-by the expansion wave.
-
-Among cases for which the interface inverts phase before encountering
-the expansion, the larger the perturbation amplitude $a(t)$ at the
-time of the expansion, the greater the circulation generated. This is
-a result of the consequence misalignment in density and pressure
-gradients. The same is true when comparing cases for which the
-interface inverts phase before encountering the expansion. After the
-passage of the acoustic wave and all reflections the pressure returns
-to the initial, atmospheric conditions. This implies that the integral
-of the pressure gradient $\nabla p$ along the interface, over all time
-is zero. If the interface remains unchanged during the interaction
-with the wave, as it would for a wave moving with infinite velocity,
-$\nabla \rho$ would remain constant and the net baroclinic circulation
-deposited must be zero. Thus for any finite duration acoustic wave to
-deposit net baroclinic circulation upon an interface, the interface
-itself must deform during interaction with the wave. This deformation
-alters the misalignment of the pressure and density gradients
-throughout the passage of the wave such that vorticity deposited by
-the compression and expansion waves do not cancel. This of particular
-interest for waves in which the pressure returns to the initial
-condition after the wave passes, which is not the case for the
-traditional shock-accelerated \ac{RMI} problem.
-
-%============================== Conclusions ================
-\section{Summary and Conclusions}
-\label{sec:conclusions}
-This paper demonstrates that acoustic waves may trigger significant
-deformation of perturbed liquid-gas interfaces over long periods of
-time. The driving mechanism behind this deformation is baroclinic
-vorticity, which occurs as a result of misalignment between the
-pressure gradient of the acoustic wave and density gradient of the
-perturbed interface. To demonstrate this we simulate trapezoidal
-acoustic waves of MPa-order amplitude impinging from water onto a
-perturbed air interface air.
-
-The work presented here supports the following three conclusions: (1)
-Acoustically-generated baroclinic vorticity is capable of
-significantly deforming perturbed liquid-gas interfaces. We observed
-that much of the vorticity generated by the acoustic wave at the
-interface remains with the interface as it evolves and deforms even
-long after the passage of all acoustic waves. Part of this is
-attributed to a lack of physical mechanism for dissipating vorticity
-in the inviscid case considered. From dimensional analysis we find a
-scaling law for the interface growth
-\eqref{eq:dimensionless_relationship}, as a function of the
-circulation per unit arc length of the interface at the point when
-vorticity becomes the dominant mechanism driving the interface
-motion. Empirically, from computed results we find the perturbation
-amplitude grows as $t^{\frac{3}{5}}$. (2) The interface arc length
-per unit circulation grows as $t^{\frac{1}{2}}$ at late times and
-scales inversely with the amplitude of the incoming wave.
-%
-(3) Changes in the acoustic waveform that have little effect on the
-interface dynamics during their interaction can substantially effect
-the interface over longer periods of time, via vorticity. By comparing
-the effects of $10$ MPa trapezoidal waves with varying static pressure
-durations between compression and expansion, we observe that the
-evolution of the interface between these two wave components
-drastically effects the ultimate growth rate of the interface. The
-phase and amplitude of the interface perturbation at the time it
-encounters the expansion wave determine the direction and magnitude
-respectively of the vorticity deposited. Consequently, the amount of
-vorticity remaining at the interface and in the surrounding fluid
-after the passage of the wave changes greatly based on the
-time-dependent features of the wave. A consequence of this is that it
-should be possible to design waves that minimize the growth of the
-interface perturbation.
-
-This work is a step toward understanding the effects of acoustically
-generated vorticity on gas-liquid interfaces, but there are many
-questions left to be answered. Physical effects not considered here
-such as viscosity, which is critical to understanding the dissipation
-of viscosity, may be important in certain regimes. Additionally, to
-fully understand the application of these findings to the motivating
-problem of diagnostic induced lung hemorrhage, it will be pertinent to
-consider waveforms and geometries more relevant to the problem.
 
 
 \bibliographystyle{jfm}

@@ -108,6 +108,8 @@ Professor J. Brian Fowlkes
 \newcommand{\ganttgroupc}[5][none]{\ganttgroup[group/.append style={draw=black, fill=#1}, group incomplete/.append style={draw=black,fill=#1!50}, progress=#2]{#3}{#4}{#5}}
 \newcommand{\ganttbarc}[5][none]{\ganttbar[bar/.append style={draw=black, fill=#1}, bar incomplete/.append style={draw=black,fill=#1!50}, progress=#2]{#3}{#4}{#5}}
 \newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\mcbs}[1]{\boldsymbol{\mathcal{#1}}}
+\newcommand{\mbbs}[1]{\boldsymbol{\mathbf{#1}}}
 \newcommand{\del}[0]{\nabla}
 \newcommand{\orderof}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
 \newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
@@ -184,24 +186,25 @@ Professor J. Brian Fowlkes
 
 % US Bioeffects: DUS-induced Lung Hehorrage work
 \chapter{Dynamics of acoustically-driven gas-liquid interfaces} \label{ch:usbe_lung}%
-\input{./content/chapters/usbe_lung_abstract} \acresetall
-\input{./content/chapters/usbe_lung_intro}
-\input{./content/chapters/usbe_lung_methods}
-\input{./content/chapters/usbe_lung_analysis}
-%\input{./content/chapters/usbe_lung_analysis_diff}
-\input{./content/chapters/usbe_lung_results}
-\input{./content/chapters/usbe_lung_conclusions}
-\input{./content/chapters/usbe_lung_future}
-%\input{./content/chapter/usbe_lung_chapter}
+\input{./content/chapters/usbe_lung_chapter}
+% \input{./content/chapters/usbe_lung_abstract} \acresetall
+% \input{./content/chapters/usbe_lung_intro}
+% \input{./content/chapters/usbe_lung_methods}
+% \input{./content/chapters/usbe_lung_analysis}
+% %\input{./content/chapters/usbe_lung_analysis_diff}
+% \input{./content/chapters/usbe_lung_results}
+% \input{./content/chapters/usbe_lung_conclusions}
+% \input{./content/chapters/usbe_lung_future}
+
 
 \acresetall
-\chapter{Relevance of the vorticity mechanisms to ultrasound} \label{ch:usbe_lung_bio}%
+\chapter{Pulsed ultrasound-induced stresses and strains at gas-liquid interfaces} \label{ch:usbe_lung_bio}%
 \input{./content/chapters/usbe_lung_bio}
 
 \acresetall
 
 \chapter{Conclusions} \label{ch:usbe_conclusions}
-
+\include{./content/chapters/usbe_conclusions}
 
 \part{Underwater Acoustic Uncertainty} \label{part:uw_uncertainty}
 % TL uncertainty: Area statistics
@@ -228,6 +231,8 @@ Professor J. Brian Fowlkes
   \include{./content/raw/circulation_interface_intro}
   \include{./content/raw/vorticity_objective}
   \include{./content/raw/vorticity_distribution}
+  \include{./content/raw/additional_data}
+  \include{./content/raw/astats_randomization}
 
 
 \end{appendices}

@@ -14,53 +14,384 @@
 \newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
 
 \makeatletter
-\let\my@cancelto\cancelto %copy over the original cancelto command
-\newcommand<>{\cancelto}[2]{\alt#3{\my@cancelto{#1}{#2}}{\mathrlap{#2}\phantom{\my@cancelto{#1}{#2}}}}
+% This is used for crossing out terms in an equation, but it works, but causes weird syntax errors when compiling that borks the terminal
+%\let\my@cancelto\cancelto %copy over the original cancelto command
+%\newcommand<>{\cancelto}[2]{\alt#3{\my@cancelto{#1}{#2}}{\mathrlap{#2}\phantom{\my@cancelto{#1}{#2}}}}
 % redefine the cancelto command, using \phantom to assure that the
 % result doesn't wiggle up and down with and without the arrow
 \makeatother
 
 
 \begin{document}
-\input{include/TitleSlide.tex}
+%\input{include/TitleSlide.tex}
+\input{slidedeck/mufmech_TitleSlide.tex}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slides %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{./slidedeck/funding}
-\input{./slidedeck/partone}
-\input{./slidedeck/pastwork_astats}
-\input{./slidedeck/bkgd_medus}
-\input{./slidedeck/bkgd_dus}
-\input{./slidedeck/pastwork_bubble}
-\input{./slidedeck/parttwo}
+\begin{frame}
+  \frametitle{Ultrasound (not just for babies)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{./figs/ultrasound_example}
+  \end{figure}
+\end{frame}
 \input{./slidedeck/bkgd_lung}
-\input{./slidedeck/bkgd_waves}
-\input{./slidedeck/blank}
-\input{./slidedeck/aim}
-\input{./slidedeck/hypo_lung}
-\input{./slidedeck/setup_lung}
-\input{./slidedeck/results_prelimus}
-\input{./slidedeck/trapzwave}
+% 
+% 
+\begin{frame}
+  \frametitle{Ultrasound driven alveoli are modeled as compressible fluids.}
+  \only<1>{
+    
+    \vspace*{0.5cm}
+    \begin{figure}
+      \centering
+      % \begin{subfigure}[b]{0.3\textwidth}
+      %   \includegraphics[width=\textwidth]{./figs/lung_figs/alveolar_sac}
+      %   %\caption{A histological cross section of alveoli. [By Jpogi (Own work) [CC BY-SA 4.0
+      %     (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia
+      %     Commons]}
+      % \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figs/lung_figs/alveolar_sac}
+        \vspace*{0.5cm}
+        \def\svgwidth{\textwidth}
+        {\small
+          \import{../2016_acoustic_vorticity/figs/lung_figs/}{Alveolus_US_zoom_only_diagram.pdf_tex} \hfill%
+        }
+        \caption{\label{fig:alveolar_schematic} Physical problem schematic }
+      \end{subfigure}
+      % 
+      \begin{subfigure}[b]{0.69\textwidth}
+        \centering \def\svgwidth{\textwidth} {\footnotesize
+          \import{../2016_acoustic_vorticity/figs/lung_figs/}{usbe_model_schematic_domain_tall.pdf_tex}
+          \hfill%
+        }
+        \caption{\label{fig:problem_schematic} Domain and model problem schematic.}
+      \end{subfigure}
+    \end{figure}
+    {\tiny
+    [By Jpogi (Own work) [CC BY-SA 4.0
+    (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia
+    Commons]
+    }
+    }
+  % 
+  \only<2->{
+    % \scriptsize{
+    %   % \begin{align*}
+    %   %   p(y,t_0) = p_a\sin{\left(2\pi f\frac{\left[y-\left(Y_{wave}+L_{wave}\right)\right]}{c}\right)}\exp{\left(-\frac{\left(\left[y-\left(Y_{wave}+L_{wave}/2\right)\right]c\right)^2}{FWHM/\left(2\sqrt{2\ln{\left(2\right)}} \right)}\right)}.%
+    %   % \end{align*}
+    % }
+      \begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+          \includegraphics[width=\textwidth]{../figs/lung_figs/p0_vs_t_us}
+          \vspace*{0.75cm}
+          \caption{\label{fig:alveolar_histology} Ultrasound pulse
+            waveform}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.55\textwidth}
+          \centering
+          \def\svgwidth{\textwidth}%
+          {\footnotesize \import{./figs/}{p_rho_ic_fields.pdf_tex}}%
+          \caption{Initial Condition}
+        \end{subfigure}
+      \end{figure}
+  }
+  % 
+  % \caption[A schematic view of the physical and model
+  % problems]{\protect\subref{fig:alveolar_schematic} illustrates the
+  % physical problem of interest, an ultrasound wave traveling into
+  % the lung and impinging upon the first alveolus it
+  % encounters. \subref{fig:problem_schematic} model problem,
+  % consisting of an acoustic wave impinging from water onto a
+  % sinusoidally interface with air. The left image shows the entire
+  % domain and the right zooms in on the area around the interface.}
+  % \label{fig:schematics}
+\end{frame}
+%
+%
 \input{./slidedeck/governing_eq}
 \input{./slidedeck/methods_computation}
-\input{./slidedeck/methods_basecase}
-\input{./slidedeck/results_trapz_qualitative}
-\input{./slidedeck/results_trapz_early_interface}
-\input{./slidedeck/results_trapz_late_interface}
-\input{./slidedeck/results_vorticity_contours}
-\input{./slidedeck/results_trapz_circ_deposition}
-\input{./slidedeck/results_trapz_late_interface_circ}
-\input{./slidedeck/results_trapz_length}
-\input{./slidedeck/analysis_baro_oom}
-\input{./slidedeck/results_volumefrac}
-\input{./slidedeck/results_postus}
-\input{./slidedeck/results_uswave}
-\input{./slidedeck/prelim_conclusions}
-\input{./slidedeck/partthree}
-\input{./slidedeck/future_fluids}
-\input{./slidedeck/future_us}
+% 
+% 
+\begin{frame}
+  \frametitle{\vspace*{0.25cm} The theoretical interface dynamics are simulated}
+  \vspace*{0.5cm}
+  Ex: Ultrasound pulse: $f=1.5$ MHz, $p_a=5$ MPa; Interface:$a_0=0.3\ell$.
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.9\textwidth}
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+          \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a30_t500_rho_snapshots}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\scriptsize,align=left,right] at (0.06,0.92){{\textcolor{white}{Wave hits}}};%
+          \node[font=\scriptsize,align=left,right] at (0.06,0.86){{\textcolor{white}{interface}}};%
+          \node[font=\scriptsize,right] at (0.27,0.92){{\textcolor{white}{Wave leaves}}};%
+          \node[font=\scriptsize,right] at (0.27,0.86){{\textcolor{white}{interface}}};%
+        \end{scope}%
+      \end{tikzpicture} 
+    \end{subfigure}
+  \end{figure}
+  \begin{center}
+    \begin{minipage}{0.75\linewidth}
+      The interface evolves long after the wave has passed.\vspace*{0.25cm}\\%
+      Acoustics can't explain this.
+    \end{minipage}
+  \end{center}
+\end{frame}
+%
+%
+\begin{frame}
+  \vfill
+  \begin{center}
+    {\LARGE What's driving the deformation\vspace*{0.15cm}\\of the interface at late
+      time?}
+  \end{center}
+  \vfill
+\end{frame}
+%
+%
+\input{./slidedeck/bkgd_waves}
+\input{./slidedeck/hypo_lung_new}
+% 
+% 
+\begin{frame}
+  \frametitle{\vspace*{0.5cm}The model is adapted for acoustically-driven gas-liquid interfaces}
+    \begin{figure}
+      \centering
+      \centering%
+      \begin{subfigure}[b]{0.53\textwidth}
+        \centering
+        \def\svgwidth{\textwidth}%
+        \import{../figs/avpaper_figs/}{shock_2_ultrasound_logic.pdf_tex}%
+        \vspace*{2cm}
+        \caption{Design of the trapezoidal waveform}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.46\textwidth}
+        \centering
+        \def\svgwidth{\textwidth}
+        {\footnotesize
+          \import{../figs/avpaper_figs/}{p0_vs_y.pdf_tex}%
+        }
+        \caption{Acoustic pressure waveform}
+      \end{subfigure}
+    \end{figure}
+    A trapezoidal wave is used to capture features of both the ultrasound pulse and the shock wave.
+\end{frame}
+% 
+% 
+\begin{frame} \frametitle{\vspace*{0.25cm}Problem setup remains otherwise unchanged}
+\vspace*{0.5cm}
+  \begin{figure}
+    \centering \def\svgwidth{0.6\textwidth} {\footnotesize
+      \import{../2016_acoustic_vorticity/figs/lung_figs/}{usbe_model_schematic_domain_tall.pdf_tex}
+    }
+    \caption{\label{fig:problem_schematic} Domain and model problem
+      schematic.}
+  \end{figure}
+\end{frame}
+%
+%
+\begin{frame}
+  \frametitle{The theoretical interface dynamics are calculated for trapezoidal waves of varying amplitude $p_a=5, 7.5, 10,$ and $12.5$ MPa.} 
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+      \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/snapshots_density_t1}
+      \caption{$p_a = 10$ MPa.}
+    \end{subfigure}
+    \only<1>{
+      \begin{subfigure}[b]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/trapz10_intf_schematic}%
+        \caption{$0\leq t \leq 25$.}
+      \end{subfigure}
+    }
+    \only<2>{
+      \begin{subfigure}[b]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/trapz10_intf_t1000}%
+        \caption{$0\leq t \leq 1000$.}
+      \end{subfigure}
+    }
+  \end{figure}
 
+\end{frame}
+% 
+% 
+\begin{frame}%
+\frametitle{It is shown that baroclinic vorticity is capable of deforming the interface long after the wave has passed.}%
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+      \includegraphics[width=0.98\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/vorticity_snapshot_mat}
+      \caption{$p_a = 10$ MPa.}
+    \end{subfigure}
+    \only<1>{
+      \begin{subfigure}[b]{0.35\textwidth}
+        \centering
+        $\Gamma = \int_{A_r} \omega dA_r$
+        \includegraphics[height=0.9\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/trapz10_circ_schematic.pdf}%
+        \caption{$0\leq t \leq 25$.}
+        \hfill
+      \end{subfigure}
+    }
+    \only<2>{
+      \begin{subfigure}[b]{0.35\textwidth}
+        \centering
+        $\Gamma = \int_{A_r} \omega dA_r$
+        \includegraphics[height=0.9\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/Gamma_t1000_28-Oct-2016}%
+        \caption{$0\leq t \leq 1000$.}
+        \hfill
+      \end{subfigure}
+    }
+  \end{figure}
+\end{frame}
+%
+%
+\begin{frame}
+  \frametitle{The interface perturbation appears to grow asymptotically.}
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}
+      \centering
+      \begin{subfigure}[t]{\textwidth}
+        \centering
+        \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/a0_t1000_23-Dec-2016}
+        \caption*{\label{fig:trapz_interface_t1000} Constant scaling:
+          $a(t)/a_0$}
+      \end{subfigure}
+    \end{figure}
+    \end{minipage}
+    ~
+    \begin{minipage}{0.45\textwidth}
+      \only<2->{
+        From dimensional analysis:
+        \begin{align*}
+          a(t) &\sim f\left(\Gamma, s,\ell,c\right)\\
+          \text{We suspect}\\
+          a(t) &\sim f\left(\frac{\Gamma}{s},\ell,c\right),\\
+          \text{such that}\\
+          \frac{a(t)}{\ell} &\sim \left(\frac{\Gamma}{s c}\right)\left(\frac{c}{\ell}t\right)^n
+        \end{align*}
+      }
+    \end{minipage}
+
+
+
+\end{frame}
+%
+%
+\begin{frame}
+  \frametitle{The interface perturbation amplitude grows approximately as $t^{3/5}$ and scales with the linear circulation density $\Gamma_0/s_0$.}
+  \begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/a0_t1000_23-Dec-2016}
+      \caption{\label{fig:trapz_interface_t1000} Constant scaling: $a(t)/a_0$}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/intf_amp_t1000_23-Dec-2016}
+      \caption{Vortex strength scaling: $a(t)/\left(\frac{\Gamma_0}{s_0}\frac{\ell}{c}\right)$}
+    \end{subfigure}
+  \end{figure}
+  The perturbation amplitude curves collapse by:\\
+  (1) Syncing the time of the phase inversion\\ 
+  (2) Scaling by $\Gamma / s$ at the time when circulation dominates the wave.
+\end{frame}
+%
+%
+\begin{frame}
+  \frametitle{The interface arc length per unit circulation $s(t)/\Gamma(t)$ grows approximately as $t^{1/2}$ and scales with wave amplitude $p_a$.}
+  \begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/s_t1000_14-Feb-2017}
+      \caption{\label{fig:trapz_interface_t1000} Constant scaling: $s(t)/\ell$}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/scp_t1000_23-Dec-2016}
+      \caption{Vortex strength scaling: $\frac{s(t)}{\Gamma(t)}\frac{p_a}{\rho c}$}
+    \end{subfigure}
+  \end{figure}
+\end{frame}
+% 
+% 
+% \begin{frame}
+%   \frametitle{The circulation deposited and therefore late time perturbation growth depend heavily on time-dependent wave features}
+%   \begin{figure}
+%   \centering
+%   \begin{subfigure}{0.49\textwidth}
+%     \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/interface_multi-lag}
+%     \caption{$a(t)/a_0$}
+%   \end{subfigure}
+%   \begin{subfigure}{0.49\textwidth}
+%   \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/circulation_multi-lag_fixed}
+%   \caption{$\Gamma(t)$}
+%   \end{subfigure}
+%   \begin{flushleft}
+%     {\footnotesize
+%     The interface amplitude (left) and circulation (right) histories
+%     for waves of varying total length $L$ and elevated static pressure
+%     duration between the expansion and compression. Here we show
+%     results for $L=45\ell$ (blue), $L=35\ell$ (orange), $L=30\ell$
+%     (yellow), $L=20\ell$ (purple), $L=15\ell$ (green), $L=10\ell$
+%     (light blue)
+%     }
+%   \end{flushleft}
+%   \label{fig:trapz_circ_interface_multi-lag}
+% \end{figure}
+% \end{frame}
+%
+\input{./slidedeck/2017-03-09_acoustic_vorticity_conclusions}
+% 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% \begin{frame}  
+%   \centering
+%   \begin{center}
+%     {\LARGE EXTRA SLIDES}\\
+%   \end{center}
+% \end{frame}
+% \input{./slidedeck/pastwork_bubble}
+% \input{./slidedeck/parttwo}
+% \input{./slidedeck/bkgd_waves}
+% \input{./slidedeck/blank}
+% \input{./slidedeck/aim}
+% \input{./slidedeck/hypo_lung}
+% \input{./slidedeck/setup_lung}
+% \input{./slidedeck/results_prelimus}
+% \input{./slidedeck/trapzwave}
+% \input{./slidedeck/governing_eq}
+% \input{./slidedeck/methods_computation}
+% \input{./slidedeck/methods_basecase}
+% \input{./slidedeck/results_trapz_qualitative}
+% \input{./slidedeck/results_trapz_early_interface}
+% \input{./slidedeck/results_trapz_late_interface}
+% \input{./slidedeck/results_vorticity_contours}
+% \input{./slidedeck/results_trapz_circ_deposition}
+% \input{./slidedeck/results_trapz_late_interface_circ}
+% \input{./slidedeck/results_trapz_length}
+% \input{./slidedeck/analysis_baro_oom}
+% \input{./slidedeck/results_volumefrac}
+% \input{./slidedeck/results_postus}
+% \input{./slidedeck/results_uswave}
+% \input{./slidedeck/prelim_conclusions}
+% \input{./slidedeck/partthree}
+% \input{./slidedeck/future_fluids}
+% \input{./slidedeck/future_us}
+% \input{./slidedeck/pastwork_astats}
 % 
 %% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
