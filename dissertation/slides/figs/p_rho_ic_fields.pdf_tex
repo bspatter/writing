@@ -48,7 +48,6 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  {\footnotesize
   \begin{picture}(1,0.8921339)%
     \put(0,0){\includegraphics[width=\unitlength]{p_rho_ic_fields.pdf}}%
     \put(0.02157143,0.85444507){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$60\ell$}}}%
@@ -82,5 +81,4 @@
     \put(0.69344302,0.00528769){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$424$}}}%
     \put(0.91407965,0.00528769){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$847$}}}%
   \end{picture}%
-} 
 \endgroup%
