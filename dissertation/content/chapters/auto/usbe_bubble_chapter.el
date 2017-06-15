@@ -1,0 +1,30 @@
+(TeX-add-style-hook
+ "usbe_bubble_chapter"
+ (lambda ()
+   (LaTeX-add-labels
+    "sec:usbe_bubble_intro"
+    "sec:usbe_bubble_methods"
+    "fig:waveforms"
+    "subsec:usbe_bubble_model"
+    "eq:keller"
+    "eq:bubble_pressure"
+    "tab:usbe_bubble_parameters"
+    "sec:usbe_bubble_results"
+    "fig:sample_bubble_linear"
+    "fig:sample_bubble_intermediate"
+    "fig:sample_bubble_nonlinear"
+    "fig:amplitude"
+    "fig:usbe_bubble_pfpair_radius"
+    "fig:usbe_bubble_pfpair_temp"
+    "fig:gascontents"
+    "fig:size"
+    "fig:usbe_bubble_ndradius_frequency"
+    "fig:usbe_bubble_dradius_frequency"
+    "fig:freq"
+    "sec:usbe_bubble_tissue_properties"
+    "fig:freq_tissue_Ca20"
+    "fig:freq_tissue_Ca0,1"
+    "fig:freq_tissue"
+    "sec:usbe_bubble_conclusions"))
+ :latex)
+

@@ -1,0 +1,37 @@
+The objective of the present study is to provide a detailed
+explanation of the physics governing a perturbed water-air interface
+driven by a trapezoidal acoustic wave. This separate from previous
+research, which has largely looked at constantly-accelerated and
+shock-accelerated interfaces. Consequently, there are physically novel
+aspects of the present study.  First, acoustic waves, which are
+typically thought of as small amplitude are shown to drive
+perturbation growth at the interface via baroclinic vorticity. Shock
+waves are, by definition, discontinuous and hence their propagation is
+a nonlinear process. In contrast, the propagation of acoustic waves in
+a homogeneous medium is a linear process. In the present study
+nonlinearity occurs as a result of the strong density discontinuity at
+the liquid-gas interface. Second, the acoustic wave has a finite
+duration. Hence the vorticity is deposited throughout a finite
+interaction time, unlike in the case of the \ac{RMI} in which it is
+created by an instantaneous acceleration or the \ac{RTI} in which
+vorticity results from constant acceleration. Unlike shocks, which
+occur over a few molecular mean free paths and interact nearly
+instantaneously, acoustic waves occupy a finite space. Hence their
+interaction with interfaces occurs over a finite time. And third,
+interface deformation that occurs during the acoustic wave-interface
+interaction cannot be neglected. Transient interactions between
+deforming interfaces and multiple shocks are known to be capable of
+affecting the long term growth of the
+interface. \cite{HenrydeFrahan2015b} demonstrated that interface
+growth could be controlled through transient wave-interface
+interactions by simulating shock passage through layered media, as a
+result of subsequent interactions between the interfaces and reflected
+and transmitted shocks and rarefactions. This work demonstrates that
+interface deformations that occur during the interaction with the
+acoustic wave can have a strong effect on the final growth of the
+interface.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

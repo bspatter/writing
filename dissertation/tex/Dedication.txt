@@ -1,0 +1,5 @@
+% Dedication
+
+\dedication{ %
+
+These notes are dedicated to bubbles.}

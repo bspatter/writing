@@ -1,0 +1,12 @@
+RM occurs when shock hits perturbed intf between fluids diff density. (Taylor, meshkov)
+
+baro. vort. causes growth. (broullette)
+
+Phase inversion occurs when shock moves heavy to light.
+
+vortex sheet is only thing driving interface deformation after wave. Different velocities at different points along the interface.
+
+This creates bubble, defined as light fluid moving into heavier fluid, and  spike, defined as heavier fluid moving into light fluid.
+
+Brouillette picture illustrates this.
+

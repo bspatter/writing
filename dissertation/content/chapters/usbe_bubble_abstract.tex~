@@ -1,0 +1,29 @@
+\subsection{Abstract}
+  In order to predict bioeffects in contrast-enhanced diagnostic and
+  therapeutic ultrasound procedures, the dynamics of cavitation
+  microbubbles in viscoelastic media must be determined.  For this
+  theoretical study, measured 1.5-7.5 MHz pulse pressure waveforms,
+  which were used in experimental determinations of capillary
+  breaching thresholds for contrast-enhanced diagnostic ultrasound in
+  rat kidney, were used to calculate cavitation nucleated from
+  contrast agent microbubbles.  A numerical model for cavitation in
+  tissue was developed based on the Keller-Miksis equation (a
+  compressible extension of the Rayleigh-Plesset equation for
+  spherical bubble dynamics), with a Kelvin-Voigt constitutive relation. From
+  this model, the bubble dynamics corresponding to the experimentally
+  obtained capillary breaching thresholds were determined. Values of
+  the maximum radius and temperature corresponding to previously
+  determined bioeffect thresholds were computed for a range of
+  ultrasound pulses and bubble sizes for comparison to inertial
+  cavitation threshold criteria.  The results were dependent on
+  frequency, the gas contents, and the tissue elastic properties.  The
+  bioeffects thresholds were above previously determined inertial
+  cavitation thresholds, even for the tissue models, suggesting the
+  possibility of a more complex dosimetry for capillary injury in
+  tissue.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

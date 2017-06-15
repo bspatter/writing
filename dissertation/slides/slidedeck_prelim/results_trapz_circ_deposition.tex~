@@ -1,0 +1,35 @@
+\begin{frame} \frametitle{\vspace*{0.5cm}Results: A closer look at how circulation is deposited.}
+  \begin{figure}
+    \centering
+    \hfill%
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+        \includegraphics[height=0.4\textheight]{../figs/lung_figs/p0_vs_t_nd.pdf}%
+      };%  
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\footnotesize,right] at (0.22,0.18){ $t_1$};%
+        \node[font=\footnotesize,right] at (0.2,0.8){ $t_2$};%
+        \node[font=\footnotesize,right] at (0.83,0.8){ $t_3$};%
+        \node[font=\footnotesize,right] at (0.82,0.18){ $t_4$};%
+      \end{scope}%  
+    \end{tikzpicture}%
+    \hfill%
+    %
+    \includegraphics[height=0.4\textheight]{../figs/lung_figs/trapz10_circ_schematic}
+    \hfill%
+    % 
+    \includegraphics[height=0.5\textheight]{../figs/lung_figs/snapshots_vorticity_t1_only}%
+  \end{figure}
+  \begin{itemize}
+  \item Both the compression and expansion deposit vorticity.
+  \end{itemize}
+
+  \note{ To Do: Label phase-inversion.
+    Mauro's Questions:\\
+    (1) What is the vorticity doing during the phase inversion?
+  }
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

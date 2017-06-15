@@ -1,0 +1,670 @@
+\input{include/preamble.tex}
+\embedfile{\jobname}
+\embedfile{include/preamble.tex}
+% 
+
+% My commands
+\newcommand{\orderof}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
+\newcommand{\plus}{\raisebox{.2\height}{\scalebox{.8}{+}}}
+\newcommand{\minus}{\raisebox{.2\height}{\scalebox{.8}{-}}}
+\newcommand{\timesx}{\raisebox{.2\height}{\scalebox{.8}{\times}}}
+\newcommand{\equals}{\raisebox{.25\height}{\scalebox{0.9}{=}}}
+\renewcommand{\CancelColor}{\color{red}} %change cancel color to red
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+
+\makeatletter
+\let\my@cancelto\cancelto %copy over the original cancelto command
+\newcommand<>{\cancelto}[2]{\alt#3{\my@cancelto{#1}{#2}}{\mathrlap{#2}\phantom{\my@cancelto{#1}{#2}}}}
+% redefine the cancelto command, using \phantom to assure that the
+% result doesn't wiggle up and down with and without the arrow
+\makeatother
+
+
+\begin{document}
+\input{include/TitleSlide.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slides %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{./slidedeck/funding}
+\input{./slidedeck/partone}
+% \input{./slidedeck/bkgd_medus}
+% \input{./slidedeck/bkgd_dus}
+\input{./slidedeck/bkgd_ceus}
+% 
+% 
+\begin{frame}%
+  \frametitle{A model for spherical bubble dynamics in tissue, treated as a compressible, Voigt viscoelastic medium, was developed}%
+  {\footnotesize
+    \begin{align*}
+      &\left(1-\frac{\dot{R}}{C}\right) R \ddot{R} + \frac{3}{2}\left(1-\frac{\dot{R}}{3 C}\right) \dot{R}^2 = \left(1+\frac{\dot{R}}{C}\right) \left[p_B- 1 -p_a - \frac{R}{C}\frac{dp_a}{dt}\right] +\frac{R}{C} \dot{p}_B\\
+      &p_B = \left(1+\frac{2}{We}\right)\frac{1}{R^{3\gamma}}-\frac{2}{WeR} + \tau_R
+    \end{align*}
+  }
+
+  \vspace*{1cm}
+  \begin{tabular}{l l c l}
+    Parameter & Dimensional value & & Dimensionless number \\ \hline
+    Viscosity & $\mu=0.015$ (Pa s) & $\mapsto$ & $Re=\rho u R_o / \mu = 2/3$ \\
+    Elasticity & $G=10^5$ (Pa) & $\mapsto$ & $Ca= \rho u^2 / G = 1.0$ 	\\
+    Surface tension & $S=0.056$ (N/m) & $\mapsto$ & $We=\rho u^2 R_o / S$ = 2 \\
+    Sound speed & $c=1570$ (m/s) & $\mapsto$ & $C = c/u=157$ \\  
+    % Relaxation time & $\lambda = 0.5$ ($\mu$ s) & $\mapsto$ &	$De=\lambda u / R_o =0$ \\
+  \end{tabular}
+  \vfill
+  \scalebox{0.7}{
+    {\tiny Yang, X., \& Church, C. C. (2005). A
+      model for the dynamics of gas bubbles in soft tissue. The
+      Journal of the Acoustical Society of America, 118(6),
+      3595 – 3606.}
+  }
+\end{frame}%
+% 
+% 
+\begin{frame}
+  \frametitle{Dynamics were calculated for bubbles by driven experimental ultrasound pulses with known occurrence of bioeffects \citep{Miller2008b}}
+  \begin{minipage}{\textwidth}
+    % \includegraphics[width=0.6\textwidth]{../figs/bubble_figs/rt_nonlinear}\hfill
+    \begin{figure}
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+          \includegraphics[width=0.7\textwidth]{../figs/bubble_figs/rt_nonlinear_flip_legend}\hfill%
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.62,0.59) {\scalebox{0.7}{{7.5%
+                MHz Experimental Pressure Waveform}}};%
+        \end{scope}%
+      \end{tikzpicture}\hfill%
+    \end{figure}
+  \end{minipage}
+  \vfill
+  \scalebox{0.7}{
+    {\tiny Patterson, B., Miller, D. L., \& Johnsen, E. (2012). Theoretical microbubble dynamics in a viscoelastic medium at capillary breaching thresholds. JASA, 132(6), 3770.
+    }
+  }
+\end{frame}
+% 
+% 
+\begin{frame}
+  \frametitle{Accepted inertial cavitation thresholds are compared with experimentally observed
+    bioeffects thresholds}
+
+  \begin{figure}
+    \centering
+    \begin{subfigure}{0.43\textwidth}
+      \includegraphics[width=\textwidth]{../figs/bubble_figs/Rstarmax_F}
+      \caption[Dependence of maximum dimensionless bubble radius on pulse frequency]{$R_{max}/R_0$}
+      \label{fig:usbe_bubble_ndradius_frequency}
+    \end{subfigure}  
+    ~
+    \begin{subfigure}{0.43\textwidth}
+      \includegraphics[width=\textwidth]{../figs/bubble_figs/rmax_F}
+      \caption[Dependence of maximum dimensional bubble radius on pulse frequency]{$R_{max}$}
+      \label{fig:usbe_bubble_dradius_frequency}
+    \end{subfigure}
+    \vspace*{-0.25cm}
+    \begin{flushleft}
+      {\small
+      Dependence of the bubble dynamics on the frequency for $G=100$
+      kPa. $R_0=0.1-2$ $\mu$m; empty circles: no bioeffects; squares:
+      bioeffects.}
+    \end{flushleft}
+    {\small
+    \begin{itemize}
+    \item The dimensionless maximum radius, a cavitation metric appears to correlate with bioffects. The dimensional maximum radius does not.
+    \item Inertial cavitation threshold $R_{max}/R_0\geq2$ does not hold for bioeffects.
+    \end{itemize}
+    }
+
+  \end{figure}
+\end{frame}
+% 
+% 
+\begin{frame}
+  \frametitle{Cavitation dynamics and bioeffects thresholds strongly depend on frequency and elasticity}
+  \begin{figure}
+    \begin{subfigure}{0.47\textwidth}
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+          \includegraphics[height=0.6\textwidth]{../figs/bubble_figs/Rstarmax_F}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.57,0.15) {{$G=100$ kPa}};%
+        \end{scope}%
+      \end{tikzpicture} 
+      \caption[]{$G=100 kPa$}
+    \end{subfigure}  
+    % 
+    \begin{subfigure}{0.47\textwidth}
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+          \includegraphics[height=0.6\textwidth]{../figs/bubble_figs/rstarmax_f2_1mpa}%
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\tiny,right] at (0.57,0.15) {{$G=1000$ kPa}};%
+        \end{scope}%
+      \end{tikzpicture} 
+      \caption[]{$G=1000 kPa$}
+    \end{subfigure}
+    {\small
+      \begin{flushleft}
+        The dimensionless maximum bubble radius is plotted as a
+        function of frequency for media of elastic moduli
+        $G=100, 1000$ kPa. Marker color indicates whether
+        corresponding experiments observed bioeffects (red) and no
+        bioeffects (blue).
+      \end{flushleft}
+    }
+  \end{figure}
+  
+  \begin{itemize}
+  \item At a given frequency, the bioeffects threshold shows a strong
+    correlation to cavitation dynamics
+  \item Distinction becomes more clear for more elastic media
+  \end{itemize}
+\end{frame}
+% 
+% 
+% \begin{frame}
+%   \frametitle{Cavitation dynamics depend strongly on elasticity which is poorly characterized }
+% \end{frame}
+% 
+% 
+\input{./slidedeck/blank}
+\input{./slidedeck/bkgd_lung}
+% 
+% 
+\begin{frame}
+  \frametitle{\vspace*{0.5cm}A model of ultrasound-pulse driven alveoli was developed}
+  \only<1>{
+    \begin{figure}
+      \centering
+      % \begin{subfigure}[b]{0.3\textwidth}
+      %   \includegraphics[width=\textwidth]{./figs/lung_figs/alveolar_sac}
+      %   %\caption{A histological cross section of alveoli. [By Jpogi (Own work) [CC BY-SA 4.0
+      %     (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia
+      %     Commons]}
+      % \end{subfigure}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figs/lung_figs/alveolar_sac}
+        \vspace*{0.5cm}
+        \def\svgwidth{\textwidth}
+        {\small
+          \import{../2016_acoustic_vorticity/figs/lung_figs/}{Alveolus_US_zoom_only_diagram.pdf_tex} \hfill%
+        }
+        \caption{\label{fig:alveolar_schematic} Physical problem schematic }
+      \end{subfigure}
+      % 
+      \begin{subfigure}[b]{0.69\textwidth}
+        \centering
+        \def\svgwidth{\textwidth}
+        {\footnotesize
+          \import{../2016_acoustic_vorticity/figs/lung_figs/}{usbe_model_schematic_domain.pdf_tex} \hfill%
+        }
+        \caption{\label{fig:problem_schematic} Domain and model problem schematic.}
+      \end{subfigure}
+    \end{figure}
+    {\tiny
+    [By Jpogi (Own work) [CC BY-SA 4.0
+    (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia
+    Commons]
+    }
+    }
+  % 
+  \only<2>{
+    \scriptsize{
+      \begin{align*}
+        p(y,t_0) = p_a\sin{\left(2\pi f\frac{\left[y-\left(Y_{wave}+L_{wave}\right)\right]}{c}\right)}\exp{\left(-\frac{\left(\left[y-\left(Y_{wave}+L_{wave}/2\right)\right]c\right)^2}{FWHM/\left(2\sqrt{2\ln{\left(2\right)}} \right)}\right)}.%
+      \end{align*}
+    }
+    \begin{figure}
+      \centering
+      \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{../figs/lung_figs/p0_vs_t_us}
+        \caption{\label{fig:alveolar_histology} Ultrasound pulse waveform}
+      \end{subfigure}
+      % \caption{}
+    \end{figure}
+  }
+  % 
+  % \caption[A schematic view of the physical and model
+  % problems]{\protect\subref{fig:alveolar_schematic} illustrates the
+  % physical problem of interest, an ultrasound wave traveling into
+  % the lung and impinging upon the first alveolus it
+  % encounters. \subref{fig:problem_schematic} model problem,
+  % consisting of an acoustic wave impinging from water onto a
+  % sinusoidally interface with air. The left image shows the entire
+  % domain and the right zooms in on the area around the interface.}
+  % \label{fig:schematics}
+\end{frame}
+%
+%
+\input{./slidedeck/governing_eq}
+\begin{frame}
+  \frametitle{The model provides our initial condition for the Euler Equations}
+  \begin{center}
+    \begin{figure}
+      \centering
+      \begin{subfigure}{0.7\textwidth}
+        \centering%
+        \def\svgwidth{\textwidth}%
+        {\footnotesize
+          \import{./figs/}{p_rho_ic_fields.pdf_tex}%
+        }
+      \end{subfigure}
+    \end{figure}
+  \end{center}
+
+\end{frame}
+% 
+% 
+\input{./slidedeck/methods_computation}
+% 
+% 
+\begin{frame}
+  \frametitle{The theoretical interface dynamics are simulated}
+  \vspace*{0.5cm}
+  Perturbation and wave amplitudes are varied: $a_0=0.03\ell, 0.1\ell, 0.3\ell$; $p_a=1, 2.5, 5$ MPa.
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.9\textwidth}
+      \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a30_t500_rho_snapshots}
+      \caption{\label{fig:rho_snapshot_30} $a_0 = 0.3\ell, p_a = 5$ MPa}
+    \end{subfigure}
+    % 
+    \caption{The evolution of the interface is shown for $t=0, 10, 100,$
+      and $500$ for varying initial perturbation amplitudes and a wave amplitude of $p_a=5$ Pa.}
+    \label{fig:rho_snapshots_A50}
+  \end{figure}
+\end{frame}
+%
+%
+\begin{frame}
+  \frametitle{Interface strains are compared to known failure thresholds}
+  \vspace*{0.5cm}
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+      \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a10_strain_08-Mar-2017}
+      \caption{\label{fig:strain_multi-pa_a10} $p_a = 1, 2.5, 5$ MPa; $a_0 = 0.1\ell$}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+      \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A25_a03,10,30_strain_08-Mar-2017}
+      \caption{\label{fig:strain_multi-a0-A25} $p_a=2.5$ MPa; $a_0=0.03\ell, 0.1\ell, 0.3\ell$}
+    \end{subfigure}
+  \end{figure}
+  % 
+  \vspace*{-0.25cm}
+  $$\varepsilon = \frac{s(t) - s_0}{s_0}$$\\
+  Cyclic strains $\varepsilon\geq 8\%$ have been found to cause consistent failure
+  of alveolar epithelial cells \cite{Belete2010}.
+\end{frame}
+% 
+% 
+\begin{frame}
+  \frametitle{Theoretical Newtonian viscous stresses are calculated and compared to known stress failure thresholds.}
+  \only<1>{
+    \vspace*{0.5cm}
+    $p_a=5$ MPa case:
+    \begin{figure}
+      \centering
+      \begin{subfigure}[b]{0.31\textwidth}
+        \begin{tikzpicture}%
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {
+            \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a03_t005_tauxy_snapshots}
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+            \node[font=\small,right] at (0.75,0.05) {$\tau_{xy}$ (Pa)};%
+          \end{scope}%  
+        \end{tikzpicture}%
+        \caption{\label{fig:tauxy_snapshot_A50_a03} $a_0 = 0.03\ell$}
+      \end{subfigure}
+      ~ 
+      \begin{subfigure}[b]{0.31\textwidth}
+        \begin{tikzpicture}%
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {
+            \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a10_t005_tauxy_snapshots}
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+            \node[font=\small,right] at (0.75,0.05) {$\tau_{xy}$ (Pa)};%
+          \end{scope}%  
+        \end{tikzpicture}%
+        \caption{\label{fig:tauxy_snapshot_A50_a10} $a_0 = 0.1\ell$}
+      \end{subfigure}
+      ~ 
+      \begin{subfigure}[b]{0.31\textwidth}
+        \begin{tikzpicture}%
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {
+            \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a30_t500_tauxy_snapshots}
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+            \node[font=\small,right] at (0.75,0.05) {$\tau_{xy}$ (Pa)};%
+          \end{scope}%  
+        \end{tikzpicture}%
+        \caption{\label{fig:tauxy_snapshot_A50_a30} $a_0 = 0.3\ell$}
+      \end{subfigure}
+    \end{figure}
+    % 
+    \begin{align*}
+      \tau_{xy}(x,y,t) = \mu\left(\frac{du}{dy}+ \frac{dv}{dx}\right), \qquad \quad \mu = \alpha\mu_{water} + (1-\alpha)\mu_{air}\\
+    \end{align*}
+  }
+  % 
+  \only<2>{
+    \begin{figure}
+      \centering
+      \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a10_tauxy_27-Feb-2017}
+        \caption{$p_a = 1, 2.5, 5$ MPa; $a_0 = 0.1\ell$}
+      \end{subfigure}
+      ~
+      \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a3,10,30_tauxy_27-Feb-2017}
+        \caption{$p_a = 5$ MPa; $a_0 = 0.03\ell, 0.1\ell, 0.3\ell$}
+      \end{subfigure}
+    \end{figure}
+    \begin{itemize}
+    \item Alveolar failures have been observed to occur for transmural
+      stresses $\geq 3.2$ kPa \citep{West1991}.
+    \item Stresses observed here are far below this failure criterion.
+    \end{itemize}
+  }
+\end{frame}
+% 
+% 
+\begin{frame}
+  \frametitle{Baroclinic vorticity appears to cause the interface deformation after the wave has passed}
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+      \begin{tikzpicture}%
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {
+          \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a30_t500_vorticity_snapshots}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\normalsize,right] at (0.07,0.13) {$t=1$};%
+          \node[font=\normalsize,right] at (0.28,0.13) {$t=10$};%
+          \node[font=\normalsize,right] at (0.5,0.13) {$t=100$};%
+          \node[font=\normalsize,right] at (0.73,0.13) {$t=500$};%
+        \end{scope}%
+      \end{tikzpicture}%
+      \caption{\label{fig:vorticity_snapshot_A50_a30} $p_a = 5$ MPa,$a_0 = 0.3\ell$\\ \qquad}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.35\textwidth}
+      \begin{tikzpicture}%
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {
+          \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a30_circulation_01-Mar-2017}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\normalsize,right] at (0.07,0.13) {};%
+        \end{scope}%  
+      \end{tikzpicture}%
+      \caption{\label{fig:us_circulation_a0_dependence} $p_a = 5$ MPa, $a_0 = 0.03\ell, 0.1\ell, 0.3\ell$}
+    \end{subfigure}
+  \end{figure}
+  \begin{itemize}
+  \item Circulation appears to be the only mechanism remaining to drive the interface motion after the wave passes.
+  \item The amount of circulation deposited increases with wave amplitude.
+  \item This looks similar to Richtmyer-Meshkov / Rayleigh-Taylor instabilities.
+  \end{itemize}
+\end{frame}
+% 
+% 
+\input{./slidedeck/2017-03-09_lung_bio_conclusions}
+%
+%
+\input{./slidedeck/bkgd_waves}
+% 
+% 
+\begin{frame}
+  \frametitle{A model was developed to study acoustically-driven gas-liquid interfaces}
+  \only<1>{
+    \begin{figure}
+      \centering
+      \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \def\svgwidth{\textwidth}
+        {\small
+          \import{../2016_acoustic_vorticity/figs/lung_figs/}{Alveolus_US_zoom_only_diagram.pdf_tex} \hfill%
+        }
+        \caption{\label{fig:alveolar_schematic} Physical problem schematic }
+      \end{subfigure}
+      % 
+      \begin{subfigure}[b]{0.69\textwidth}
+        \centering
+        \def\svgwidth{\textwidth}
+        {\footnotesize
+          \import{../2016_acoustic_vorticity/figs/lung_figs/}{usbe_model_schematic_domain.pdf_tex} \hfill%
+        }
+        \caption{\label{fig:problem_schematic} Domain and model problem schematic.}
+      \end{subfigure}
+    \end{figure}
+  }
+
+  \only<2>{
+    \begin{figure}
+      \centering
+      \centering%
+      \begin{subfigure}[b]{0.53\textwidth}
+        \centering
+        \def\svgwidth{\textwidth}%
+        \import{../figs/avpaper_figs/}{shock_2_ultrasound_logic.pdf_tex}%
+        \vspace*{2cm}
+        \caption{Design of the trapezoidal waveform}
+      \end{subfigure}
+      \begin{subfigure}[b]{0.46\textwidth}
+        \centering
+        \def\svgwidth{\textwidth}
+        {\footnotesize
+          \import{../figs/avpaper_figs/}{p0_vs_y.pdf_tex}%
+        }
+        \caption{Acoustic pressure waveform}
+      \end{subfigure}
+    \end{figure}
+    A trapezoidal wave is used to capture features of both the ultrasound pulse and the shock wave, which has been previously studied as the Richtmyer-Meshkov instability.
+  }
+\end{frame}
+% 
+% 
+\begin{frame}
+  \frametitle{The theoretical dynamics of the interface are calculated for waves of varying amplitude $p_a=5, 7.5, 10,$ and $12.5$ MPa.} 
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+      \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/snapshots_density_t1}
+      \caption{$p_a = 10$ MPa.}
+    \end{subfigure}
+    \only<1>{
+      \begin{subfigure}[b]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/trapz10_intf_schematic}%
+        \caption{$0\leq t \leq 25$.}
+      \end{subfigure}
+    }
+    \only<2>{
+      \begin{subfigure}[b]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/trapz10_intf_t1000}%
+        \caption{$0\leq t \leq 1000$.}
+      \end{subfigure}
+    }
+  \end{figure}
+\end{frame}
+% 
+% 
+\begin{frame}%
+\frametitle{It is shown that baroclinic vorticity is capable of deforming the interface long after the wave has passed.}%
+  \begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+      \includegraphics[width=0.98\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/vorticity_snapshot_mat}
+      \caption{$p_a = 10$ MPa.}
+    \end{subfigure}
+    \only<1>{
+      \begin{subfigure}[b]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/trapz10_circ_schematic.pdf}%
+        \caption{$0\leq t \leq 25$.}
+      \end{subfigure}
+    }
+    \only<2>{
+      \begin{subfigure}[b]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/Gamma_t1000_28-Oct-2016}%
+        \caption{$0\leq t \leq 1000$.}
+      \end{subfigure}
+    }
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The interface perturbation amplitude grows approximately as $t^{3/5}$ and scales with the linear circulation density $\Gamma_0/s_0$.}
+  \begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/a0_t1000_23-Dec-2016}
+      \caption{\label{fig:trapz_interface_t1000} Constant scaling: $a(t)/a_0$}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/intf_amp_t1000_23-Dec-2016}
+      \caption{Vortex strength scaling: $a(t)/\left(\frac{\Gamma_0}{s_0}\frac{\ell}{c}\right)$}
+    \end{subfigure}
+  \end{figure}
+\end{frame}
+%
+%
+\begin{frame}
+  \frametitle{The interface arc length per unit circulation $s(t)/\Gamma(t)$ grows approximately as $t^{1/2}$ and scales with wave amplitude $p_a$.}
+  \begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/s_t1000_14-Feb-2017}
+      \caption{\label{fig:trapz_interface_t1000} Constant scaling: $s(t)/\ell$}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[t]{0.45\textwidth}
+      \centering
+      \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/scp_t1000_23-Dec-2016}
+      \caption{Vortex strength scaling: $\frac{s(t)}{\Gamma(t)}\frac{p_a}{\rho c}$}
+    \end{subfigure}
+  \end{figure}
+\end{frame}
+% 
+% 
+\begin{frame}
+  \frametitle{The circulation deposited and therefore late time perturbation growth depend heavily on time-dependent wave features}
+  \begin{figure}
+  \centering
+  \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/interface_multi-lag}
+    \caption{$a(t)/a_0$}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+  \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/circulation_multi-lag_fixed}
+  \caption{$\Gamma(t)$}
+  \end{subfigure}
+  \begin{flushleft}
+    {\footnotesize
+    The interface amplitude (left) and circulation (right) histories
+    for waves of varying total length $L$ and elevated static pressure
+    duration between the expansion and compression. Here we show
+    results for $L=45\ell$ (blue), $L=35\ell$ (orange), $L=30\ell$
+    (yellow), $L=20\ell$ (purple), $L=15\ell$ (green), $L=10\ell$
+    (light blue)
+    }
+  \end{flushleft}
+  \label{fig:trapz_circ_interface_multi-lag}
+\end{figure}
+\end{frame}
+%
+\input{./slidedeck/2017-03-09_acoustic_vorticity_conclusions}
+% 
+\begin{frame}
+  \centering
+  \begin{center}
+    {\LARGE Part II:\\Area statistics}\\
+  \end{center}
+\end{frame}
+\input{./slidedeck/pastwork_astats}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}  
+  \centering
+  \begin{center}
+    {\LARGE EXTRA SLIDES}\\
+  \end{center}
+\end{frame}
+\input{./slidedeck/pastwork_bubble}
+\input{./slidedeck/parttwo}
+\input{./slidedeck/bkgd_waves}
+\input{./slidedeck/blank}
+\input{./slidedeck/aim}
+\input{./slidedeck/hypo_lung}
+\input{./slidedeck/setup_lung}
+\input{./slidedeck/results_prelimus}
+\input{./slidedeck/trapzwave}
+\input{./slidedeck/governing_eq}
+\input{./slidedeck/methods_computation}
+\input{./slidedeck/methods_basecase}
+\input{./slidedeck/results_trapz_qualitative}
+\input{./slidedeck/results_trapz_early_interface}
+\input{./slidedeck/results_trapz_late_interface}
+\input{./slidedeck/results_vorticity_contours}
+\input{./slidedeck/results_trapz_circ_deposition}
+\input{./slidedeck/results_trapz_late_interface_circ}
+\input{./slidedeck/results_trapz_length}
+\input{./slidedeck/analysis_baro_oom}
+\input{./slidedeck/results_volumefrac}
+\input{./slidedeck/results_postus}
+\input{./slidedeck/results_uswave}
+\input{./slidedeck/prelim_conclusions}
+\input{./slidedeck/partthree}
+\input{./slidedeck/future_fluids}
+\input{./slidedeck/future_us}
+\input{./slidedeck/pastwork_astats}
+% 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\section{Citations}
+\bibliographystyle{../tex/myauthordate2}
+% Give this command the relative path to the .bib file.
+\bibliography{../../../literature/library}
+
+
+
+% Backup slides
+\input{./slidedeck/backup_slides}
+\input{./slidedeck/convergence}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% \begin{frame} \vspace{\fill} \begin{center} \Huge 
+%     Thanks a lot!\\ \vspace{\fill} Questions? 
+%   \end{center} \vspace{\fill} \end{frame} 
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+% Template Created by Brandon Patterson - awesome@umich.edu
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

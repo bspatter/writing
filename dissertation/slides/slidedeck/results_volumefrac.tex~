@@ -1,0 +1,33 @@
+\begin{frame} \frametitle{\vspace*{0.5cm}Vorticity generation occurs predominately in gas-dominated fluid}
+  \vspace*{-.5cm}
+  {\scriptsize
+    \begin{figure}
+      \centering
+      \hfill
+      \includegraphics[width=.13\textwidth]{../figs/lung_figs/snapshots_vorticity_t1_only} \hfill
+      \includegraphics[width=.38\textwidth]{./figs/vorticity_vs_y0} \hfill
+      \includegraphics[width=.38\textwidth]{./figs/circ_y0_dist}
+      \hfill
+    \end{figure}
+    % 
+    \vspace*{-.3cm}
+    \begin{align*}%
+      \frac{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{air\quad}}{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{water}}%
+      =&\orderof{\abs{\boldsymbol{T}}\left(\frac{\abs{\rho^-}}{\abs{\rho^+}}\right)^2}%
+         \approx 357,
+         %\qquad\qquad 
+%          \boldsymbol{T}=\frac{2\left(\rho c\right)_{air}}{\left(\rho c\right)_{air}+\left(\rho c\right)_{water
+% }}
+    \end{align*}
+    \vspace*{-.25cm}
+    % 
+    \begin{itemize}
+    \item 97\% of circulation appears in fluid with $y_0<0.5$
+    \item Computed circulation ratio from air($y_0<0.1$) to water($y_0>0.9$) is $\approx 27$
+    \end{itemize}
+  }
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

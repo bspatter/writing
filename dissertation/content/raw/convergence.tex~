@@ -1,0 +1,17 @@
+\section{Convergence}
+\begin{itemize}
+\item Plots of \hl{circulation} and amplitude for 50, 75, and 100
+  cells per domain width, in consideration of convergence.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figs/appendix/amplitude_res_study}
+  \caption{Interface amplitude $a(t)$}
+\end{figure}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

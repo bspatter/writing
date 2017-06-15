@@ -1,0 +1,35 @@
+[ch.2, foreward] "Format error" - clarify?
+
+[ch.2, abstract] "numbering" - How would you recommend formatting this.
+
+[ch.3, abstract] "not a medical problem... - I think this is a necessary nuance, lets figure out how to navigate this.
+
+[ch.3, intro] "if on humans..." - why not?
+
+[ch.3, intro] "need subsections..." - are you thinking break into background on US vs fluid physics
+
+[ch.3, intro] "too little on RM...need better motivation for RM schematic" - Better logical justification, or more past work
+
+[ch.3, intro] "logical sequence" - I GET THIS, move second sentence.
+
+[ch.3, intro] "explain schematically ... torque] - What are you thinking...
+
+[ch.3, methods] "Euler eqns are scalar invarient" - How is this different than later pointing out that there is not true length scale.
+
+[ch.3, methods] "Need to explain ... complicated lung geometry to simple geometry used" - How much is sufficient? What's wrong with current schematic?
+
+[ch.3, analysis] "Not sure why this is an assumption (talking about conversion of acoustic energy conversion to vorticity)" - Why not an assumption? Because it isn't useful/relevant, or is just too obvious.
+
+[ch.3, analysis] "Don't need to analyse advective terms" - I think this is useful, because while not a source, it looks at how the vorticity changes at a given point. Since the circulation is calculated as an integral over the domain, the eulerian derivative, which includes this term is relevant. Additionally, while not necessarily included here, we consider change in total circulation dGamma/dt, which includes this term.
+
+[ch.3, analysis] "For the scaling" - please explain this comment
+
+[ch.3, results, wave behavior] "should be part of next section", but it applies to all waves used.
+
+[ch.3, results, qualitative observations] "describe phase inversion in terms of RM." - Why?
+
+[ch.3, results, fig 3.3] "show vorticity contours to show vorticity occurs in air." - Do this for these plots, or just the one later?
+
+[ch.3, results, fig 3.4] "fonts, labels too small" Are labels really too small? I already blew these up a lot.
+
+[ch.3, results, further discussion], "highlight w/ no note" - What are you going for with this?"

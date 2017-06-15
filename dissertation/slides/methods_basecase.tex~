@@ -1,0 +1,13 @@
+
+\begin{frame}\frametitle{Base case: a $10$ MPa trapezoidal wave hits the interface}
+  \begin{figure}
+    \centering \def\svgwidth{\textwidth} {\footnotesize
+      \import{../figs/lung_figs/}{domain_bcs.pdf_tex}%
+    }
+    \includegraphics[height=0.4\textheight]{../figs/lung_figs/p0_vs_y}%
+  \end{figure}
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:

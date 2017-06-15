@@ -1,0 +1,126 @@
+\begin{frame}\frametitle{\vspace*{0.5cm}I plan to increase the relevance to DUS}
+  Hypothesis: Baroclinic vorticity stresses or strains pulmonary capillaries to failure.
+  
+    \begin{itemize}
+      \item Calculate interface strain\vfill%
+        \vspace*{5pt}
+
+      \item Calculate elastic and viscous stresses at the interface\vfill%
+        \vspace*{5pt}
+    \end{itemize}
+  %
+      \def\svgwidth{0.5\textwidth}%
+      {\tiny
+        % 
+        \import{./figs/}{usbe_lung_model_arclength.pdf_tex}%
+      }
+\end{frame}
+
+% \begin{frame}\frametitle{\vspace*{0.5cm}I plan to increase the relevance to DUS}
+% \item Investigate the propagation of acoustic waves into
+%       subsequent layers of alveoli\\
+%       No damage observed beneath clearly defined hemorrhage area \citep{Penney1993a}\\
+%       Propagation mechanism behind of US-induced lesions are unknown \citep{Zachary2006}
+%       \vfill%
+    
+%   \begin{minipage}{0.5\textwidth}
+%     \begin{itemize}
+%       \alert<1>{
+%       \item Calculate interface strain\vfill%
+%         \vspace*{5pt}
+
+%       \item Calculate stress at the interface\vfill%
+%         \vspace*{5pt}
+%       }
+%     \end{itemize}
+%   \end{minipage}
+%   \begin{minipage}{0.49\textwidth}
+%     \only<1>{
+%       \def\svgwidth{\textwidth}%
+%       {\tiny
+%         % 
+%         \import{./figs/}{usbe_lung_model_arclength.pdf_tex}%
+%       }
+%     }
+%     \includegraphics<2>[width=\textwidth]{../figs/lung_figs/usbe_model_schematic_walls}
+%     \includegraphics<3>[width=\textwidth]{../figs/lung_figs/usbe_model_schematic_periodic}
+%   \end{minipage}
+%   \note{Mauro's Question:
+%     (1) Would a bubble-like configuration be more relevant/useful?
+%   }
+% \end{frame}
+
+
+
+% \begin{frame}\frametitle{\vspace*{0.5cm}I plan to increase the relevance to DUS}
+%   \begin{minipage}{0.5\textwidth}
+%     \begin{itemize}
+%       \alert<1>{
+%     \item Calculate interface strain\vfill%
+%     \vspace*{5pt}
+
+%     \item Calculate stress at the interface\vfill%
+%     \vspace*{5pt}
+%     }
+%     \alert<2>{
+%     \item Investigate the effects of alveolar side wall structures\vfill%
+%     }
+%     \vspace*{5pt}
+%     \alert<3>{
+%     \item Investigate the propagation of acoustic waves into
+%       subsequent layers of alveoli\\
+%       No damage observed beneath clearly defined hemorrhage area \citep{Penney1993a}\\
+%       Propagation mechanism behind of US-induced lesions are unknown \citep{Zachary2006}
+%       \vfill%
+%       }
+%     \end{itemize}
+%   \end{minipage}
+%   \begin{minipage}{0.49\textwidth}
+%     \only<1>{
+%     \def\svgwidth{\textwidth}%
+%     {\tiny
+%       % 
+%       \import{./figs/}{usbe_lung_model_arclength.pdf_tex}%
+%     }
+%   }
+%   \includegraphics<2>[width=\textwidth]{../figs/lung_figs/usbe_model_schematic_walls}
+%   \includegraphics<3>[width=\textwidth]{../figs/lung_figs/usbe_model_schematic_periodic}
+%   \end{minipage}
+% \note{Mauro's Question:
+%   (1) Would a bubble-like configuration be more relevant/useful?
+%   }
+% \end{frame}
+
+% \begin{frame}\frametitle{\vspace*{0.5cm}I plan to increase the relevance to DUS}
+%   \begin{minipage}{0.5\textwidth}
+%     \begin{itemize}
+%       \alert<1>{
+%     \item Calculate interface strain\vfill%
+%     \vspace*{5pt}
+
+%     \item Calculate stress at the interface\vfill%
+%     \vspace*{5pt}
+%     }
+%     \end{itemize}
+%   \end{minipage}
+%   \begin{minipage}{0.49\textwidth}
+%     \only<1>{
+%     \def\svgwidth{\textwidth}%
+%     {\tiny
+%       % 
+%       \import{./figs/}{usbe_lung_model_arclength.pdf_tex}%
+%     }
+%   }
+%   \includegraphics<2>[width=\textwidth]{../figs/lung_figs/usbe_model_schematic_walls}
+%   \includegraphics<3>[width=\textwidth]{../figs/lung_figs/usbe_model_schematic_periodic}
+%   \end{minipage}
+% \note{Mauro's Question:
+%   (1) Would a bubble-like configuration be more relevant/useful?
+%   }
+% \end{frame}
+
+%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

@@ -1,0 +1,57 @@
+\section{Justifying Calculations}
+\subsection{$ka$-calculations}
+Length Scales:
+$L_{alveolus} = 100 \mu$ m\\
+$f_{us} = 1.5$ MHz\\
+$c_{water} = 1500$ m/s\\
+$\lambda_{acoustic} = \frac{c_{water}}{f_{us}} = 1$ mm\\
+$k = \frac{2\pi}{\lambda_{acoustic}} = 2000 \pi$ m$^{-1}$\\
+$a = L_{alveolus}$
+
+$(ka)_{f=1.5 \text{MHz}} = \frac{\pi}{5}$
+$(ka)_{f=4.5 \text{MHz}} = \frac{3\pi}{5}$
+
+
+
+Dimensional Numbers:\\
+\begin{itemize}
+\item Let $\lambda_{alveolus}=100 \mu$ m, $u_0=c_{air}=343$ m, $v_0=<\dot{a(t)}>\approx0.65$ m/s, $u_{intf}(t=20)=12.8$ m/s, $G=1$ kPa %\cite{Roan2011}
+\item $\lambda_{alveolus}=100 \mu$ m, $u_0=c_{air}=343$ m, $v_0=<\dot{a(t)}>\approx0.65$ m/s
+\item $t=1 \rightarrow t_{dim}=0.292 \mu$ s
+\item $\sigma_{Alv} = 0.009 - 0.02$ N/m \cite{Schurch1976}
+\end{itemize}
+
+
+
+Model justifications:
+\textbf{Argument against viscosity - viscous length scales}\\
+$\nu_{w}=0.7$ $\mu$m$^2$/s,\qquad
+$\nu_{a}=16.6 \mu$m$^2$/s,\qquad
+$f_c=\orderof{10^6}$Hz\\
+$\sqrt{\nu_{air}/f_c}=4\mu$ m $=\orderof{10^{-6}} << L_{\text{alveolus}}=\orderof{10^{-4}}$\\ \vspace*{4pt}
+$\sqrt{\nu_{air,ND}t} \approx0.5 < a(t)-a_0\approx4$ at $t=1000$\\ \vspace*{4pt}  
+Therefore the scale of the viscous effect is smaller than the scale of the problem we are looking at, but may be important at late times.\\
+
+
+Argument against gravity:\\% 
+\begin{itemize}
+\item $Fr=\frac{u_0}{\sqrt{g_0 \lambda}}\approx11000$
+\item $Fr=\frac{v_0}{\sqrt{g_0 \lambda}}\approx21$
+\end{itemize}
+$\grad \times \boldsymbol{g}=0$\\
+
+Argument against elasticity:\\
+\begin{itemize}
+\item $Ca=\frac{\rho u_{intf}^2}{G_{Alv}} = 163$
+\end{itemize}
+
+Argument against surface tension:\\
+\begin{itemize}
+\item $We=\frac{\rho u_{intf}^2}{\sigma_{Alv}} = 163$
+\end{itemize}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:

@@ -1,0 +1,11 @@
+This dissertation will present work using computation to make
+advancements in two separate, distinct areas of acoustics: ultrasound
+bioeffects and acoustic transmission loss uncertainty quantification
+in uncertain ocean environment. Hence this document is split into two
+parts along these lines. A summary of relevant background information,
+work performed, and conclusions in each area will be presented
+separately.
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

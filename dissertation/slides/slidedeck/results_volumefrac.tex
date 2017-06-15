@@ -1,0 +1,40 @@
+
+\begin{frame} \frametitle{\vspace*{0.5cm}Vorticity generation occurs predominately in gas-dominated fluid}
+  \vspace*{-.5cm}
+  {\scriptsize
+    \begin{figure}
+      \centering
+      \hfill
+      \includegraphics[width=.13\textwidth]{../figs/lung_figs/snapshots_vorticity_t1_only} \hfill
+      \includegraphics[width=.38\textwidth]{../figs/lung_figs/vorticity_vs_y0} \hfill
+      \includegraphics[width=.38\textwidth]{../figs/lung_figs/circ_y0_dist2}
+      \hfill
+    \end{figure}
+    % 
+    \vspace*{-.3cm}
+    \begin{minipage}{0.6\textwidth}
+      \begin{align*}%
+        \label{eq:circ_aw_ratio}
+      \tag{$\star$} \quad
+      \frac{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{air\quad}}{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{water}}%
+      =&\orderof{\abs{\boldsymbol{T}}\left(\frac{\abs{\rho^-}}{\abs{\rho^+}}\right)^2}%
+         \approx 357,
+    \end{align*}
+    \end{minipage}\hfill
+    \begin{minipage}{0.35\textwidth}
+      \begin{align*}
+        \boldsymbol{T}=\frac{2\left(\rho c\right)_{air}}{\left(\rho c\right)_{air}+\left(\rho c\right)_{water}}
+      \end{align*}
+    \end{minipage}
+    % 
+    \vspace*{0.15cm}
+    \begin{itemize}
+    \item 97\% of circulation appears in fluid with $y_0<0.5$
+    \item Computed ratio of circulation in gas-dominated fluid  ($y_0<0.5$) to liquid-dominated fluid ($y_0>0.5$),  $\int$\eqref{eq:circ_aw_ratio}$\diff A = \orderof{10^1}$
+    \end{itemize}
+  }
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

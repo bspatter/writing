@@ -1,0 +1,37 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\reset@newl@bel
+\@writefile{toc}{\contentsline {chapter}{List of Abbreviations}{ii}{section*.2}}
+\newacro{CFD}[\AC@hyperlink{CFD}{CFD}]{Computational Fluid Dynamics}
+\@input{./content/abstract.tex.aux}
+\@writefile{toc}{\contentsline {chapter}{Abstract}{iii}{section*.3}}
+\@writefile{toc}{\vspace  {1.3ex}\noindent {\bf  Chapter}\vspace  {1.3ex}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@input{./content/chapters/chapter_intro.tex.aux}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Theoretical microbubble Dynamics at capillary breaching thresholds}{2}{chapter.2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:BubbleDynamics}{{2}{2}{Theoretical microbubble Dynamics at capillary breaching thresholds}{chapter.2}{}}
+\@input{./content/chapters/chapter_bubble.tex.aux}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Diagnostic Ultrasound Induced Lung Hemorrhage}{3}{chapter.3}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@input{./content/chapters/chapter_lung.tex.aux}

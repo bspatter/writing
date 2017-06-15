@@ -1,0 +1,68 @@
+\begin{frame}
+  \begin{center}
+    {\LARGE Part I: Diagnostic ultrasound bioeffects\\}
+  \end{center}
+  \vspace*{0.5cm}
+  \begin{minipage}{0.48\textwidth}
+    \begin{figure}
+      Contrast-enhanced ultrasound\vspace*{4pt}\\
+      \centering
+    \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[height=0.25\textheight]{./figs/CEUS}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\tiny,right] at (0.01,0.03) {\scalebox{0.4}{\textcolor{white}{\cite{Wei2001}}}};%
+      \end{scope}%  
+    \end{tikzpicture}\hfill%
+    \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[height=0.25\textheight]{./figs/Kidney_Bleed}\hfill
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\tiny,right] at (0.01,0.03) {\scalebox{0.4}{\textcolor{white}{Courtesy of D. L. Miller}}};%
+      \end{scope}%  
+    \end{tikzpicture}\hfill%
+  %   \includegraphics[height=0.25\textheight]{./figs/cavitation_hemorrhage}
+  %   \begin{tikzpicture}%
+  %     \node[anchor=south west,inner sep=0] (image) at (0,0) {
+  %       \includegraphics[width=\textwidth,valign=t]{./figs/bathmap}
+  %     };%
+  %     \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+  %       \node[font=\tiny,right] at (0.08,0.05)
+  %       {\textcolor{white}{mrs.eecs.umich.edu}};%
+  %     \end{scope}%
+  %   \end{tikzpicture}%
+    \end{figure}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \begin{figure}%
+      \centering
+      Ultrasound-induced lung hemorrhage\vspace*{4pt}\\
+      \includegraphics[width=0.75\textwidth]{LungBleed2} \nocite{Miller2012}%
+      % \begin{tikzpicture}
+      %   \node[anchor=south west,inner sep=0] (image) at (0,0) {
+      %     \includegraphics[trim={0 0 0 1cm},clip=true,width=\textwidth]{./figs/ultrasound_example}
+      %   };%
+      %   \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+      %     \node[font=\tiny,right] at (0.02,0.03) {\textcolor{white}{by: W. Moroder  }};%
+      %   \end{scope}%  
+      % \end{tikzpicture}%
+    \end{figure}
+  \end{minipage}
+  \note{
+    \begin{enumerate}
+    \item My work has focused on using computation to solve nonlinear problems in acoustics.
+    \item I have focused on two very different problem areas: Acoustic uncertainty and Ultrasound bioeffects.
+    \item I'm going to briefly touch on work on my past work in each
+      of these, then spend the majority of this talk on my present and
+      future work, which fall into US bioeffects category.
+    \end{enumerate}
+    }
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: ../main
+%%% End:

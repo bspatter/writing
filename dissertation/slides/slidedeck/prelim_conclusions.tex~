@@ -1,0 +1,20 @@
+\begin{frame} \frametitle{\vspace*{0.5cm}Conclusions thus far}
+  \begin{itemize}
+  \item Acoustically-generated baroclinic vorticity is likely capable
+    of significantly deforming perturbed liquid gas interfaces.\vfill%
+  \item Baroclinic vorticity is predominantly deposited in gaseous fluids.\vfill%
+  \item Changes in the acoustic waveform that have little effect on
+    the interface during the wave-interface interaction can
+    substantially effect the interface over long periods of time, via
+    vorticity.\vfill%
+  \item Interface response from an US wave is qualitatively similar to that for a trapezoidal wave.
+  \end{itemize}
+  \note{
+    Mauro's Questions:\\
+    (1) How important baroclinic vorticity relative to viscous and body forces?
+  }
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

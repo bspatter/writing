@@ -1,0 +1,22 @@
+\begin{frame}\frametitle{Base case: a $10$ MPa trapezoidal wave hits the interface}
+  \begin{minipage}{0.4\textwidth}
+    \begin{figure}
+      \centering \hfill%
+      \def\svgwidth{0.5\textwidth} {\footnotesize
+        \import{../figs/lung_figs/}{domain_bcs2.pdf_tex}%
+      }%
+      \hfill%
+    \end{figure}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[height=\textheight]{../figs/lung_figs/p0_vs_y}%
+      \hfill%
+    \end{figure}
+  \end{minipage}
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

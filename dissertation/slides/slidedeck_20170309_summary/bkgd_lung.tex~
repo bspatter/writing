@@ -1,0 +1,23 @@
+\begin{frame} \frametitle{\vspace*{0.5cm}DUS-induced lung hemorrhage is not a new problem}
+  {\small%
+    \begin{itemize}%
+    \item Lung Hemorrhage (LH) is the only known bioeffect of non-contrast DUS%
+    \item Has been shown to occur in mice, rats, pigs, rabbits, monkeys \citep{Child1990,OBrien1997a,Tarantal1994a}.%
+    \item DUS-induced LH does not appear to be a result of cavitation or heating.%
+    \item The underlying physical damage mechanism is not understood.%
+    \end{itemize}%
+    % 
+    \begin{figure}%
+      \centering%
+      \includegraphics[width=0.5\textwidth]{LungBleed2} \nocite{Miller2012}%
+    \end{figure}%
+    % 
+    \visible<2>{To gain insight into DUS-induced LH, we aim to use computational modeling and simulations to investigate DUS-lung interaction.}%
+    % 
+  }
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

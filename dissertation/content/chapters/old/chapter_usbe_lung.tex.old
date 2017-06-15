@@ -1,0 +1,93 @@
+\section{Introduction}
+Over twenty years ago, researchers first observed lung hemorrhage in
+mice exposed to lithotripter pulses \citep{Hartman1990}.  Moreover, it
+was found that this hemorrhage occured for pressure thresholds as low
+as 2 MPa, an amplitude relevant to diagnostic ultrasound, and much
+lower than those previously observed for kidney and other soft
+tissues.  These findings prompted A follow-up study to access the risk
+of pulsed Diagnostic Ultrasound (DUS)-induced hemorrohage, which found
+that DUS pulses were indeed capable of causing lung hemorrage, and
+that 10$\mu$s DUS pulses had a hemorrhage threshold amplitude of
+approximately 1 MPa \citep{Child1990}.
+
+Since the original findings of DUS-induced lung hemorrhage in mice,
+there has been considerable work on this topic primarily aimed at
+three specific ends: (1) Determining the dependence of damage
+characteristics and threholds on the subject, (2) Determining the
+dependence of damage characteristics and thresholds on the US
+properties, and (3) Investigating the damage mechanism by which the
+hemorrhage occurs.  This work is primarily aimed at the third area,
+and proposes and proposes US-induced circulation deposition in the
+lungs as a potential mechanism for DUS-induced hemorrhage.
+
+Work in the first area has sought to look at the dependence of
+DUS-induced hemorrhage on many different properties of the US subject,
+and is of importance to accessing the potential risks of US on humans.
+There have been many studies in this area, investigating the effects
+of age, species, and other test subject characteristics.  As of this
+writing, US induced lung hemorrhage has been shown in mice, pigs,
+rats, rabbits, and monkeys \citep{Baggs1996, Child1990, Dalecki1997a,
+  Dalecki1997, Frizzell1994, Frizzell2003, Harrison1995a, Holland1996,
+  Obrien1997a, Obrien2000, Obrien2001a, Obrien2001, Penney1993a,
+  Raeman1993, Raeman1996, Tarantal1994a, Zachary1995, Kramer2001,
+  Obrien2003a, Obrien2003, Obrien2005, Zachary2001a, Zachary2001}.
+\citet{Dalecki1997a} investigated the effect of age on DUS-induced
+lung hemorrhage in mice by exposing neonatal, juvenile, and adult mice
+to DUS pulses.  The study found that while while hemorrhage thresholds
+were similar in all mice, the degree of hemorrhage was much greater in
+the adult mice than in the younger subjects.  Similarly,
+\citet{Obrien2003a}, studied the age dependance of hemorrhage in pigs,
+and found that older pigs had a significantly lower hemorrhage than
+juvenile and middle-aged pigs.  In an unexpected result, the study
+also found that one lung was exposed to US and the pig was then rolled
+over and the second lung exposed, the hemorrhage threshold in the
+second lung was substantially lower thanin the first.
+
+The second area, investigating the dependance of lung hemorrhage on US
+properties, has seen the largest amount of work and is imporant for
+designing US in a way that is capable of high quality diagnostic
+imaging while minimizing any unwanted bioeffects.  Research in this
+area has looked at the dependance of hemorrohage on US waveform and
+dosimetric properties.  \citet{Zachary1995} used continuous-wave and
+pulsed-wave US in mice, rabbits, and pigs, and that found that while
+the continuous- and pulsed-wave-induced lesions appear macroscopically
+similar, they differ microscopically.  Hemorrohage induced by
+continuous wave US consisted primarily of plasma and contained some
+cells, whereas pulsed-wave induced hemorrhage was composed largely of
+cells and contained little plasma.  \citet{Raeman1996} subjected mice
+to pulsed ultrasound with varying exposure time and concluded that
+while threshold amplitudes appeared insensitive to exposure time,
+supratheshold damage increased with increasing exposure.
+% A series of studies investigated the effects US Pulse Repetition Frequency (PRF), beamwidth, pulse duration, pulse polarity, and
+% exposure duration \citep{OBrien2003a,OBrien2006b,OBrien2003,Frizzell2003,OBrien2001a,OBrien2001,OBrien2005}.
+\citet{Obrien2001} investigated the effects of US beamwidth and found that as beamwidth increased so did the incidence, surface area, and volume of hemorrhage.  It was noted that lung hemorrhage is perhaps the only known beamwidth-dependent mechanical bioeffect of US.  Evidence has also been found that increaing US pulse duration increases the liklihood of lung hemorrhage in rats \citep{Obrien2003}.
+
+
+
+
+
+\section{Problem setup and physical model}
+
+\section{Methods}
+We consider a portion of the lung's surface and the surrounding
+pleural fluid and tissue, which is treated as 2D viscous, compressible
+fluid system.  The lung is modeled as air and the surrounding
+tissue/fluid as water.  To simulate the problem we use a square
+computational domain containing a sinusoidally perturbed water-air
+interface !!FIGURE HERE OF LUNG MODEL SCHEMATIC!!.  The initially
+perturbed interface is subjected to a pressure wave and allowed to
+evolve in time.
+
+\subsection{Numerical implementation}
+The compressible Navier-Stokes equations of fluid dynamics are solved
+in the domain.  Transport equations are solved in advection form to
+capture the interface and prevent pressure oscillations.  A fifth
+order finite-volume weighted essentially non-oscillatory (WENO) scheme
+with a Harten-Lax-van Leer (HLL) Riemann solver is implemented to
+solve in space.  A 4th order adaptive Runge-Kutta method is used for
+time marching.  To generated the incoming pressure wave and eliminate
+reflections at left boundary, time-dependent, characteristic boundary
+conditions are implemented \citep{Thompson1987}.  Zero-gradient
+boundary conditions are imposed at the top, bottom, and right-side of
+the domain.
+

@@ -1,0 +1,65 @@
+},\nonumber\\%
+=&\orderof{\abs{\bs{T}}\left(\frac{\abs{\rho^-}}{\abs{\rho^+}}\right)^2}.%
+\end{align}
+For our water-air interface, we evaluate equation
+\eqref{eq:baroclinic_air_water} to find that the ratio of baroclinic
+vorticity generation in air to that in water would be of order
+$\orderof{10^2}$. While this result considers vorticity generation in
+pure air and water, as opposed to the mixed fluid region relevant to
+this work, it provides a useful upper bound on the change we expect in
+the vorticity across the interface. Additionally, this result suggests
+that for the mixed water-air region, where the strongest density
+gradient exists, vorticity generation is likely to occur in areas with
+a lower volume fraction of water.
+
+\subsection{Considerations of circulation}
+In order to verify our analyses numerically we will consider not the
+vorticity generation, but rather the circulation as a function of
+time. As circulation is a global quantity of vorticity integrated over
+a region, it is more practical to compare to our numerical
+experiments. The expressions previously obtained for estimates of
+vorticity generation can be integrated in space to obtain integral
+expressions for circulation generation. As the expressions derived
+were approximate and spatially independent, we expect that the
+approximate vorticity relationships found in this section will remain
+relevant in considerations of the circulation.  For instance, based on
+the results of equation \eqref{eq:vorticity_comparison} we expect the
+baroclinic circulation generation to be $\orderof{10^2}$ larger than
+the compressible and advective terms toward the end of interaction
+between the interface and the acoustic compression.
+
+To access this, we integrate equation \eqref{eq:vorticity_euler} over
+the half-domain, $A_R$, to get
+\begin{align} \label{eq:circulation_generation}
+  \left(\frac{\partial \Gamma}{\partial t}\right)_{total} =%
+  \left(\frac{\partial \Gamma}{\partial t}\right)_{compressible} + \left(\frac{\partial \Gamma}{\partial t}\right)_{baroclinic} - \left(\frac{\partial \Gamma}{\partial t}\right)_{advective},
+\end{align}
+%
+Each term will be analyzed separately to determine the individual
+physical contributions to circulation. Here
+%
+\addtocounter{equation}{-1}
+\begin{subequations}\label{eq:circulation_generation_components}%
+  \begin{align}% 
+    &\left(\frac{\partial \Gamma}{\partial t}\right)_{compressible} &=& -\int_{A_R} \vec{\omega}\left(\nabla\cdot\vec{u}\right) \, dA_R,&\\
+    &\left(\frac{\partial \Gamma}{\partial t}\right)_{baroclinic} &=& +\int_{A_R} \frac{\nabla\rho\times\nabla p}{\rho^2} dA_R,&\\
+    &\left(\frac{\partial \Gamma}{\partial t}\right)_{advective} &=& +\int_{A_R} \left(\vec{u}\cdot\nabla\right)\vec{\omega} \, dA_R.&
+  \end{align}
+\end{subequations}
+%
+
+Finally, as we expect the interface growth to be purely circulation driven
+long after all waves have left the domain, we perform dimensional
+analysis to find a scaling law for the corresponding interface
+perturbation amplitude $a(t)$ as a function of circulation and time,
+\begin{align} \label{eq:intf_circ_scaling}
+  a(t) \sim \sqrt{\Gamma t}.
+\end{align}
+This proposed scaling law will be compared to the late time dynamics
+of the interface, after the acoustic wave has left the domain in
+Section \ref{subsubsec:amplitude_dependence}.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../prelim"
+%%% End:

@@ -1,0 +1,98 @@
+\chapter{Bubble Dynamics}   \label{chap:BubbleDynamics}%
+\section[Keller-Miksis]{Keller-Miksis Equation for Spherical, Compressible Bubble Dynamics}
+All equations presented for bubble dynamics are dimensionless, where the following dimensionless bars can be used:
+%
+
+\begin{center}
+
+\begin{minipage}{.32\textwidth}
+$We = \frac{R_0 \, p_\infty}{\sigma}$
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+$Re = \frac{R_0 \, \sqrt{\rho_\mathcal{L} p_\infty}}{\mu_\mathcal{L}}$
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+$C = c_\mathcal{L} \, \sqrt{\rho_\mathcal{L} p_\infty}$
+\end{minipage}
+\vspace*{.5cm}
+\begin{minipage}{.32\textwidth}
+$Eu = 1$
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+$p_v = \frac{p_v^*}{p_\infty}$
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+$t = \frac{t^*}{R_0}\sqrt{\frac{p_\infty}{\rho_\mathcal{L}}}$.
+\end{minipage}
+
+\end{center}
+
+%
+
+Or, alternately
+
+%
+\begin{center}
+\begin{minipage}{.32\textwidth}
+$We = \frac{R_0 \, \rho_\mathcal{L} c_\mathcal{L}^2}{\sigma}$
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+$Re = \frac{R_0 \, \rho_\mathcal{L} c_\mathcal{L}}{\mu_\mathcal{L}}$
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+$C = 1$
+\end{minipage}
+\vspace*{.5cm}
+\begin{minipage}{.32\textwidth}
+$Eu = \frac{p_\infty}{\rho_\mathcal{L} c_\mathcal{L}^2}$
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+$p_v = \frac{p_v^*}{\rho_\mathcal{L} c_\mathcal{L}^2}$
+\end{minipage}
+\begin{minipage}{.32\textwidth}
+$t = t^*\frac{c_\mathcal{L}}{R_0}$.
+\end{minipage}
+\end{center}
+%
+\begin{align}\label{eq:keller}
+  \left(1-\frac{\dot{R}}{C}\right) R \ddot{R} + \frac{3}{2}\left(1-\frac{\dot{R}}{3 C}\right) \dot{R}^2%&& \nonumber\\ 
+     = \left(1+\frac{\dot{R}}{C}\right) \left[p_B- (Eu-p_v(T_\infty)+p_a) -     \frac{R}{C}\dot{p}_a\right] +\frac{R}{C} \dot{p}_B,
+\end{align}
+%
+where the pressure at bubble wall is 
+%
+\begin{align}\label{eq:bubble_pressure}
+  p_B = \left(Eu-p_v(T_\infty)+\frac{2}{We}\right)\left(\frac{R_{eq}}{R}\right)^{3\gamma}-\frac{2}{We}\frac{R_{eq}}{R} -\frac{4}{Re}\frac{\dot{R}}{R},
+\end{align}
+%
+and
+%
+\begin{align}\label{eq:bubble_pressure_dot}
+  \dot{p}_B = -3\gamma \left(Eu-p_v(T_\infty)+\frac{2}{We}\right)\left(\frac{R_{eq}}{R}\right)^{3\gamma+1}\dot{R}+\frac{2}{We}\frac{\dot{R}}{R^2}
+ -\frac{4}{Re}\left(\frac{\ddot{R}}{R}-\frac{\dot{R}}{R}\right).
+\end{align}
+
+Hence, for the sake of numerically solving this equation we can show that $\ddot{R}$, the acceleration at the the bubble wall is
+
+\begin{align}\label{eq:bubble_accleration}
+  \ddot{R} =&\left[R-\frac{1}{C}(\dot{R}{R}+4 Re)\right]^{-1}\nonumber \\ 
+            &\left\{-\frac{3}{2}\left(1-\frac{\dot{R}}{3 C}\right) \dot{R}^2 + \left(1+\frac{\dot{R}}{C}\right) \left[p_B- (Eu-p_v(T_\infty)+p_a) -  \frac{R}{C}\dot{p}_a\right] \right.\\
+            &\left.+\frac{1}{C} \left(-3\gamma\left(Eu-p_v+\frac{2}{We}\right)\left(\frac{R_{eq}}{R}\right)^{3\gamma}\dot{R}+\frac{2}{We}\frac{\dot{R}}{R}+\frac{4}{Re}\dot{R}^2\right)\right\}\nonumber
+\end{align}
+\subsection{Voigt Viscoelasticity}
+In order to add Voigt type viscoelasticity to the bubble model additional elastic stress terms must be included in the expression for the pressure at the bubble wall \eqref{eq:bubble_pressure} and the addition its derivative \eqref{eq:bubble_pressure_dot}.
+
+Accordingly the above equations now become,
+
+\begin{align}\label{eq:bubble_pressure_V}
+ p_B = \left(Eu-p_v(T_\infty)+\frac{2}{We}\right)\frac{1}{R^{3\gamma}}-\frac{2}{We}\frac{1}{R} -\frac{4}{Re}\frac{\dot{R}}{R}-\frac{4}{3 Ca}\left(1-\frac{1}{R^3}\right).
+\end{align}
+\begin{align}\label{eq:bubble_pressure_dot_V}
+  \dot{p}_B = -3\gamma \left(Eu-p_v(T_\infty)+\frac{2}{We}\right)\frac{\dot{R}}{R^{3\gamma+1}}+\frac{2}{We}\frac{\dot{R}}{R^2}
+ -\frac{4}{Re}\left(\frac{\ddot{R}}{R}-\frac{\dot{R}}{R}\right)-\frac{4}{3 Ca}\left(1+\frac{3\dot{R}}{R^4}\right).
+\end{align}
+\begin{align}\label{eq:bubble_accleration_V}
+  \ddot{R} =&\left[R-\frac{1}{C}(\dot{R}{R}+4 Re)\right]^{-1}\nonumber \\ 
+            &\left\{-\frac{3}{2}\left(1-\frac{\dot{R}}{3 C}\right) \dot{R}^2 + \left(1+\frac{\dot{R}}{C}\right) \left[p_B- (Eu-p_v(T_\infty)+p_a) -  \frac{R}{C}\dot{p}_a\right] \right.\\
+            &\left.+\frac{1}{C} \left((Eu-p_v+\frac{2}{We})(-3\gamma\frac{\dot{R}}{R^{3\gamma}})+\frac{2}{We}\frac{\dot{R}}{R}+\frac{4}{Re}\dot{R}^2-\frac{4}{3 Ca}\left(R+\frac{3\dot{R}}{R^3}\right)\right)\right\}\nonumber
+\end{align}

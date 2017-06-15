@@ -1,0 +1,17 @@
+\section*{Mechanical Index}
+\begin{align*}
+  MI = \frac{P_{PRPA}}{\sqrt{f_c}}
+\end{align*}
+
+\begin{itemize}
+\item The mechanical index is a metric designed to measure cavitation
+  damage.
+\item It was designed for cavitation in water.
+\item FDA mandates that MI must stay below 1.9.
+\end{itemize}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:

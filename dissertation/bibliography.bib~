@@ -1,0 +1,56 @@
+@article{Abgrall1996,
+abstract = {A new numerical scheme for computing multicomponent flows is presented. It is able to handle strong shocks, is pressure oscillation free through the contact discontinuities, and guarantees the posi{\_}tivity of mass fractions. Some numerical experiments on shock tubes indicate the convergence to the correct weak solution. Comparisons with classical finite volume schemes are also proposed.},
+author = {Abgrall, R{\'{e}}mi},
+doi = {10.1006/jcph.1996.0085},
+file = {:home/awesome/Documents/Mendeley/Abgrall/1996/Abgrall{\_}1996{\_}How to Prevent Pressure Oscillations in Multicomponent Flow Calculations A Quasi Conservative Approach{\_}Journal of Computati.pdf:pdf},
+issn = {00219991},
+journal = {Journal of Computational Physics},
+month = {apr},
+number = {1},
+pages = {150--160},
+title = {{How to Prevent Pressure Oscillations in Multicomponent Flow Calculations: A Quasi Conservative Approach}},
+url = {http://www.sciencedirect.com/science/article/pii/S0021999196900856 http://linkinghub.elsevier.com/retrieve/pii/S0021999196900856},
+volume = {125},
+year = {1996}
+}
+@article{Beig2015,
+abstract = {An accurate treatment of material interfaces in compressible multiphase flows poses important challenges for high-resolution numerical methods. Although high-order interface-capturing schemes have been used to accurately simulate gas/liquid interfaces with the Euler equations, these methods can result in temperature spikes at material discontinuities. While this phenomenon is not problematic for Euler simulations, it gives rise to numerical errors when heat conduction is included. In this work, we identify the source of these errors and propose a methodology to prevent their occurrence for various models used to represent gas/liquid interfaces in compressible flows based on a “single-fluid” formulation, in which interfaces are represented by discontinuities in the material properties. Our focus lies in materials (gases and liquids primarily, but also solids) that can be described by a stiffened equation of state, though our approach is generalizable to other equations. We show that numerical approaches that prevent pressure oscillations at interfaces may generate temperature errors, which affect the energy (and pressure) through the heat conduction term. We demonstrate that the material properties entering the equation of state must be computed according to suitable transport equations in conservative or non-conservative forms; the pressure and temperature must be calculated based on the appropriate properties. To verify the analysis and compute problems with gas/liquid interfaces of relevance, we develop a three-dimensional, high-order accurate, solution-adaptive finite difference framework. In particular, we show that temperatures and pressures may be significantly overestimated in calculations of shock-induced bubble collapse in water if temperature errors are not prevented.},
+author = {{Alahyari Beig}, Shahaboddin and Johnsen, Eric},
+doi = {10.1016/j.jcp.2015.09.018},
+file = {:home/awesome/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Alahyari Beig, Johnsen - 2015 - Maintaining interface equilibrium conditions in compressible multiphase flows using interface capturing.pdf:pdf},
+issn = {00219991},
+journal = {Journal of Computational Physics},
+month = {dec},
+pages = {548--566},
+title = {{Maintaining interface equilibrium conditions in compressible multiphase flows using interface capturing}},
+url = {http://linkinghub.elsevier.com/retrieve/pii/S0021999115006117},
+volume = {302},
+year = {2015}
+}
+@misc{Anderson1990,
+address = {New York},
+annote = {Includes bibliographical references (p. 639-644).
+
+Compressible flow -- Integral forms of the conservation equations for inviscid flows -- One-dimensional flow -- Oblique shock and expansion waves -- Quasi-one-dimensional flow -- Differential conservation equations for inviscid flows -- Unsteady wave motion -- General conservation equations revisited -- Linearized flow -- Conical flow -- Numerical techniques for steady supersonic flow -- Time-marching technique -- Three-dimensional flow -- Transonic flow -- Hypersonic flow -- Properties of high-temperature gases -- High-temperature flows.},
+author = {Anderson, John David.},
+isbn = {0070016739},
+keywords = {Fluid dynamics.,Gas dynamics.},
+publisher = {McGraw-Hill},
+series = {McGraw-Hill series in aeronautical and aerospace engineering},
+title = {{Modern compressible flow: with historical perspective}},
+url = {http://mirlyn.lib.umich.edu/Record/004118687 CN  - QA 911 .A61 1990},
+year = {1990}
+}
+@article{Bayliss1939,
+author = {Bayliss, L. E. and Robertson, G. W.},
+doi = {10.1113/expphysiol.1939.sp000792},
+issn = {00335541},
+journal = {Quarterly Journal of Experimental Physiology and Cognate Medical Sciences},
+month = {mar},
+number = {1},
+pages = {27--47},
+title = {{THE VISCO-ELASTIC PROPERTIES OF THE LUNGS}},
+url = {http://doi.wiley.com/10.1113/expphysiol.1939.sp000792},
+volume = {29},
+year = {1939}
+}

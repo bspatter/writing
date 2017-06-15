@@ -1,0 +1,123 @@
+\section{Area statistics randomizations}
+%
+\subsection{Bathymetry}
+For each of $N$ Monte Carlo sample runs, the bathymetry profile is a
+function of range $r$, depth $z$, and is determined through a
+stochastic process represented by $\xi$.  
+\begin{align*}
+  D_n(r; \xi) = D_\mu(r) + D_\sigma(r,\xi_n(r)).%
+\end{align*}
+Where $n=0,1,2,...,N$. $D_\mu$ is the best estimate bathymetry profile
+based on available databases. $D_\sigma(r,z;\xi)$ is the stochastic
+portion of the sound speed profile and $\xi_n$ is a random event. The
+random portion of the sound speed profile $D_\sigma$ is defined based
+on the work of \cite{Lermusiaux2010}, and is dependent upon local
+depth, normalized slope, and a global parameter $\epsilon$
+representing relative deviation from the best guess (e.g. 1\%, 2\%, 3\%),
+\begin{align*}
+  D_\sigma(r,z)=D_mu(r)\epsilon\hat{S}(x,y)\xi,
+\end{align*}
+where $\hat{S}$ is local slope normalized by the maximum slope for the
+best guess bathymetry profile.
+\begin{align*}
+  \hat{S}(r)=\frac{\left|\nabla D_\my(r)\right|}{max(\left|\nabla D(r\right|)},
+\end{align*}
+such that $\hat{S}(x,y)\subseteq [0,1]$.
+
+\begin{align*}
+  D_n(r; \xi) = D_\mu(r) + D_\sigma(r,\xi_n).%
+\end{align*}
+
+
+
+%
+\subsection{Sound speed profile}
+For each of $N$ Monte Carlo sample runs, the sound speed profile
+$c = c(r,z;\xi)$ is a function of range $r$, depth $z$, and is
+determined through a stochastic process represented by $\xi$.
+\begin{align*}%
+  c_n(r,z;\xi) = c_\mu(r,z) + c_\sigma(r,z;\xi_n)%
+\end{align*}%
+Where $n=0,1,2,...,N$. $c_\mu$ is the best estimate sound speed
+profile, which is calculated as the month-averaged velocity profile at
+a given location $(r,z)$. $c_\sigma(r,z;\xi)$ is the stochastic
+portion of the sound speed profile and $\xi_n$ is a random event.
+
+At each range of interest, $c_\mu$ is obtained by finding the average
+averaging 1 sound speed profile per month over an $M$ month
+timespan. Monthly profiles are obtained from GDEM (Generalized Digital
+Environment Model), part of Oceanographic and Atmospheric Master
+Library (OAML). Unique sound speed profiles are obtained at
+approximately 30 arcminute intervals based on the resolution limits of
+the database. For the sake of implementing range-dependence in the
+sound speed profiles, these 30 arcminute intervals are converted to
+approximately $56$ km. Note that while this is not strictly accurate
+as the conversion is spatially dependent, it is reasonable at sea
+level.
+
+To calculate $c_\sigma(r,z;\xi_n)$ empirical orthogonal functions are
+used to randomize the sound speed profile for each Monte Carlo sample
+calculation. At a given range, the sound speed variation at each fixed depth can
+be thought of an independent variable, such that the value of that
+sound speed calculated for each month represents a new observation of
+that variable. Hence, at each range, a matrix $\mcbs{C}$ is
+constructed such that each column of $\mcbs{C}$ constitutes a single
+sound speed profile taken at $D$ constant depths from a each of the
+$M$ months considered. Such that we have $D$ random variables, each
+with $M$ observations and $\mcbs{C}$ is of dimensions $D \times M$
+(rows $\times$ columns). The covariance matrix of $\mcbs{C}^\intercal$ is
+constructed
+\begin{align*}
+  \mcbs{X} = \frac{\left(\mcbs{C}-\mcbs{M}_\mu\right) \left(\mcbs{C}-\mcbs{M}_\mu\right)^\intercal}{M-1}.
+\end{align*}
+Here $\mcbs{M}_\mu$ is a matrix with the dimensions equal to that of
+$\mcbs{C}$, for which each column is $c_\mu$, a $D \times 1$ vector
+containing the row average of $\mcbs{C}$. We solve
+\begin{align*}
+  \mcbs{X}\mbbs{v}_i = \lambda_i\mbbs{v}_i
+\end{align*}
+to find the eigenvalues $\lambda_i$ and corresponding right
+eigenvectors $\mbbs{v}_i$ of $\mcbs{X}$. Each of the random sound
+speed profiles will be constructed from the mean sound speed profile
+$c_\mu$, and a sum over $S$ randomly weighted orthogonal
+eigenfunctions. We define $S$ as the number of eigenfunctions
+necessary to capture 95\% of the variance in the sample sound speed
+profiles, such that $S$ is the minimum integer which satisfies
+\begin{align*}
+  0.95\leq\frac{\sum_{j=1}^S \lambda_j}{\sum_{j=1}^\infty \lambda_j}.
+\end{align*}
+
+Hence the random component of each of the $n^{\text{th}}$ sound speed
+profiles is defined as
+\begin{align*}
+  c_{\sigma,n}(r,z;\xi) = \sum_{j=1}^S \xi_{j,n} \sqrt{\lambda_j(r)}\mbbs{v}_j(r,z),
+\end{align*}
+where random event $\xi_{j,n}$ is sampled from a Gaussian distribution
+centered at $0$ with unit variance. Thus for the $n^{\text{th}}$ sample calculation, the 
+randomized sound speed profile at a range-depth location $(r,z)$ is described by
+\begin{align*}
+  c_n(r,z;\xi) = c_\mu(r,z) + \sum_{j=1}^S \xi_{j,n} \sqrt{\lambda_j(r)}\mbbs{v}_j(r,z).
+\end{align*}
+
+
+
+
+% A matrix of
+% eigenvectors $\mcbs{V}$ is constructed such that the $i^{th}$ column
+% is $\mbbs{v}_i$, where $i$ is ordered from largest to smallest
+% eigenvalue such that $\lambda_i>\lambda_{i+1}$.
+
+% \begin{align*}
+%   PC=\mcbs{V} \left(\mcbs{C} - \mcbs{M}_\mu\right)^\intercal,
+% \end{align*}
+% where $\mcbs{M}_\mu$ is a matrix with the dimensions of $\mcbs{C}$,
+% for which each column is the row average of $\mcbs{C}$. 
+
+% \begin{align*}
+%   \mcbs{C}_{rand} = \left( \bs{xi}^\intercal \left(PC \mcbs{V}^\intercal\right)\right)^\intercal
+% \end{align*}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

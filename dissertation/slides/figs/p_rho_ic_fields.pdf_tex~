@@ -1,0 +1,84 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'p_rho_ic_fields.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{577.29699516bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.8921339)%
+    \put(0,0){\includegraphics[width=\unitlength]{p_rho_ic_fields.pdf}}%
+    \put(0.02157143,0.85444507){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$60\ell$}}}%
+    \put(0.02157143,0.76274585){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$50\ell$}}}%
+    \put(0.02157143,0.67433814){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$40\ell$}}}%
+    \put(0.02157143,0.59763141){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$30\ell$}}}%
+    \put(0.02157143,0.50142299){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$20\ell$}}}%
+    \put(0.02157143,0.4195158){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$10\ell$}}}%
+    \put(0.03921833,0.32200724){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0\ell$}}}%
+    \put(-0.00230059,0.24010005){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$-10\ell$}}}%
+    \put(-0.00230059,0.14737901){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$-20\ell$}}}%
+    \put(0.05623665,0.07126251){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Pressure $(p / [\rho c^2]_{air})$}}}%
+    \put(0.58554487,0.07126251){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Density ($\rho /  \rho_{air})$}}}%
+    \put(0.47087155,0.85174092){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$60\ell$}}}%
+    \put(0.47087155,0.7600417){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$50\ell$}}}%
+    \put(0.47087155,0.67163399){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$40\ell$}}}%
+    \put(0.47087155,0.59492726){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$30\ell$}}}%
+    \put(0.47087155,0.49871884){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$20\ell$}}}%
+    \put(0.47087155,0.4168117){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$10\ell$}}}%
+    \put(0.48851845,0.31930312){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0\ell$}}}%
+    \put(0.4469995,0.23739589){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$-10\ell$}}}%
+    \put(0.4469995,0.14467482){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$-20\ell$}}}%
+    \put(0.43279548,0.12898143){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ell$}}}%
+    \put(0.8792031,0.12898143){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ell$}}}%
+    \put(0.10290919,0.38250366){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$y$}}}%
+    \put(0.15067077,0.34350027){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x$}}}%
+    \put(0.04240901,0.00775068){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$-p_a$}}}%
+    \put(0.25584695,0.00528769){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0$}}}%
+    \put(0.4360336,0.00775068){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_a$}}}%
+    \put(0.52612689,0.0040734){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$1$}}}%
+    \put(0.69344302,0.00528769){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$424$}}}%
+    \put(0.91407965,0.00528769){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$847$}}}%
+  \end{picture}%
+\endgroup%

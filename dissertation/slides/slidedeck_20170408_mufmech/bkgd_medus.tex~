@@ -1,0 +1,50 @@
+\begin{frame}%
+  \frametitle{\vspace*{0.5cm}Background on medical ultrasound}
+  \begin{minipage}{\textwidth}
+    \begin{minipage}{0.45\textwidth}%
+      \begin{figure}%
+        \centering%
+        Diagnostic\\%
+        % \includegraphics[width=0.8\textwidth]{./figs/ultrasound_example}%
+        \begin{tikzpicture}
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {
+            \includegraphics[trim={0 0 0 1cm},clip=true,width=0.8\textwidth]{./figs/ultrasound_example}
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+            \node[font=\tiny,right] at (0.02,0.03) {\textcolor{white}{by: W. Moroder  }};%
+          \end{scope}%  
+        \end{tikzpicture}%
+      \end{figure}%
+    \end{minipage}%
+    %
+    \begin{minipage}{0.45\textwidth}%
+      \visible<1>{
+        \begin{figure}%
+          \centering%
+          Therapeutic\\%
+          \begin{tikzpicture}%
+            \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.8\textwidth]{./figs/lithotripsy}};%
+            \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+              \node[font=\tiny,right] at (0.55,0.05) {\textcolor{white}{biology-forums.com}};%
+            \end{scope}%  
+          \end{tikzpicture}%
+        \end{figure}% 
+      }
+    \end{minipage}%
+  \end{minipage}%
+
+  {\small%
+    \begin{itemize}%
+    \item High frequency (MHz) sound waves travel into the body and scatter at material interfaces.%
+    \item Acoustic energy is converted to kinetic via cavitation or dissipated as heat.%
+    \end{itemize}%
+    \vspace*{4pt}%
+    \begin{center}%
+      \visible<2->{I focus on Diagnostic Ultrasound (DUS) bioeffects and relevant physics.}%
+    \end{center}%
+  }%
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: ../main
+%%% End:

@@ -1,0 +1,21 @@
+\section{Additional Data}
+\subsection{US case data}
+
+\begin{figure}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figs/appendix/amplitude_res_study}
+    \caption{Interface amplitude $a(t)$}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figs/appendix/res-study_Circulation_t1000_02-Mar-2017}
+    \caption{Circulation $\Gamma(t)$}
+  \end{subfigure}
+  \caption{Interface amplitude and circulation histories are presented for increasing resolution $50, 75,$ and $100$ cells per domain width/dimensionless length scale $\ell$}
+\end{figure}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

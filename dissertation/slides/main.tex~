@@ -1,0 +1,101 @@
+\input{include/Preamble.tex}
+\embedfile{\jobname}
+\embedfile{include/Preamble.tex}
+\embedfile{circ_calcs.m}
+\embedfile{pressure_field.mat} %.mat pressure field for 2D advected interface w/ 1 micropascal trapezoidal wave at t=99
+
+% My commands
+\newcommand{\orderof}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
+
+\begin{document}
+%\setbeamercolor{background canvas}{bg=AliceBlue} 
+%\input{include/TitleSlide.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slides %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame} \frametitle{Since last time}
+
+  \begin{itemize}
+  \item Worked on paper
+    \begin{itemize}
+      \item Completed long draft of analysis (for thesis)
+      \item Completed results
+    \end{itemize} \vfill
+  \item Attempted to verify analysis of circulation in air vs water \vfill
+  \item Considered transmission coefficient, density ratio, as a function of volume fraction \vfill
+  \item Ran Lagrange point run to see if arclength $s(t)$ of interface goes as $\sqrt{\Gamma t}$ - run failed
+    \begin{itemize}
+      \item Is this worth trying by post-processing $s(t)$ with $y_0$?
+    \end{itemize}  \vfill
+  \item Ran half-domain run, which may be needed to deal with asymmetry  \vfill
+  \item Checked post-wave pressure error for 2D advected interface $p_{error}=\orderof{10^-{11}}$
+  \end{itemize}
+\end{frame}
+
+\begin{frame} \frametitle{Vorticity generation vs $y_0$ across interface}
+%See circ_calcs.m (attached)
+{\scriptsize
+  \begin{align}%
+    \label{eq:baroclinic_air_water}%
+    \frac{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{air\quad}}{\norm{\frac{\nabla\rho\times\nabla p}{\rho^2}}_{water}}%
+    =&\orderof{\abs{\boldsymbol{T}}\left(\frac{\abs{\rho^-}}{\abs{\rho^+}}\right)^2}%
+    \approx 357
+  \end{align}
+  \vspace*{-.5cm}
+  %
+  \begin{figure}
+    \hfill
+    \includegraphics[width=.45\textwidth]{./figs/vorticity_vs_y0} \hfill
+    \includegraphics[width=.45\textwidth]{./figs/circ_y0_dist}
+    \hfill
+  \end{figure}
+  %
+  \vspace*{-.5cm}
+  \begin{itemize}
+    \item 97\% of circulation appears in fluid with $y_0<0.5$
+    \item Computed circulation ratio from air($y_0<0.1$) to water($y_0>0.9$) is $\approx 27$
+  \end{itemize}
+}
+\end{frame}
+
+
+
+\begin{frame} \frametitle{For next time}
+  \begin{itemize}
+  \item Keep working on paper
+    \begin{itemize}
+    \item Discussion, conclusion, plots
+    \item Trim excess
+    \end{itemize}  \vfill
+
+  \item Maybe evaluate $\omega/\rho$.  \vfill
+  \item Update prelim based on new analyses? \vfill
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% \section{Citations}
+% \bibliography{mybib}
+% \bibliographystyle{authordate1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% \begin{frame} \vspace{\fill} \begin{center} \Huge 
+%     Thanks a lot!\\ \vspace{\fill} Questions? 
+%   \end{center} \vspace{\fill} \end{frame} 
+
+
+\end{document}
+
+
+
+
+
+
+% Template Created by Brandon Patterson - awesome@umich.edu
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

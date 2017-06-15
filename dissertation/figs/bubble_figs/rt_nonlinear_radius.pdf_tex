@@ -1,0 +1,75 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'rt_nonlinear_radius.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{645.90297852bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.24868102)%
+    \put(0,0){\includegraphics[width=\unitlength]{rt_nonlinear_radius.pdf}}%
+    \put(0.09017025,0.01902888){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.09017025,0.07166837){\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.09017025,0.12430785){\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.09017025,0.17694734){\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0.09017025,0.22958682){\makebox(0,0)[lb]{\smash{4}}}%
+    \put(0.04618157,0.03249084){\rotatebox{90}{\makebox(0,0)[lb]{\smash{Nondimensional
+
+Radius, R(t) / R(0) }}}}%
+    \put(0.10204014,-0.22984781){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.39555667,-0.22984781){\makebox(0,0)[lb]{\smash{5}}}%
+    \put(0.68288001,-0.22984781){\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.97639778,-0.22984781){\makebox(0,0)[lb]{\smash{15}}}%
+    \put(0.05262591,-0.21204328){\makebox(0,0)[lb]{\smash{−100}}}%
+    \put(0.06501167,-0.16985428){\makebox(0,0)[lb]{\smash{−50}}}%
+    \put(0.09133141,-0.12779472){\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.07894565,-0.08560603){\makebox(0,0)[lb]{\smash{50}}}%
+    \put(0.06655989,-0.04354553){\makebox(0,0)[lb]{\smash{100}}}%
+    \put(0.02295148,-0.18533649){\rotatebox{90}{\makebox(0,0)[lb]{\smash{Nondimensional
+Input Pressure}}}}%
+    \put(0.42407024,-0.2557805){\makebox(0,0)[lb]{\smash{Nondimensional Time}}}%
+    \put(0.41491883,0.00030655){\makebox(0,0)[lb]{\smash{Nondimensional Time}}}%
+  \end{picture}%
+\endgroup%

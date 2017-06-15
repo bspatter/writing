@@ -1,0 +1,60 @@
+Michigan Matlab @ home
+
+1. Download Matlab from the ME repository and install using given keys.
+
+2. Put license.dat into licenses folder in the matlab root.
+
+3. Change license.dat to:
+SERVER localhost 0 1709
+USE_SERVER
+
+4. Change network.lic to:
+SERVER localhost 0 1709
+USE_SERVER
+
+5. Go to hosts file (/etc/hosts in linux or see "http://en.wikipedia.org/wiki/Hosts_(file)" for other systems.
+Below the line that looks like "127.0.0.1 localhost": 
+add the followingline: "127.0.0.1 	localhost LICENSE_SERVER"
+
+6. Open ssh tunnel for the two needed ports to whatever computer you have access to that actually has access to the license (ie, your lab computer).
+In linux it will look something like:
+"ssh -f -x -L 1709:license-matlab-research.engin.umich.edu:1709 -L 20008:license-matlab-research.engin.umich.edu:20008 username@LabComputer.engin.umich.edu sleep 60;
+
+7. Provide your password when requested.  (or setup passwordless ssh for your personal machine to your work machine as explained here: "http://www.linuxproblem.org/art_9.html"
+
+8. Launch matlab within 60 seconds (or whatever you used as your sleep command). 
+at terminal $ matlab -desktop
+
+
+
+
+
+
+I use the following shell script and launcher to make this easier:
+
+shell script: runmatlab.sh
+## >>
+#!/bin/sh
+
+ssh -f -x -L 1709:license-matlab-research.engin.umich.edu:1709 -L 20008:license-matlab-research.engin.umich.edu:20008 username@MyLabComputer.engin.umich.edu sleep 30
+
+nohup matlab -desktop -hgVersion 2
+##
+
+
+Ubuntu launcher file: matlab.desktop
+## >>
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Icon=/usr/share/icons/matlab.png
+Name=MATLAB R2014a
+Comment=Start MATLAB - The Language of Technical Computing
+Exec=sh /home/brandon/Gears/runmatlab
+Terminal=false
+Categories=Development;
+StartupNotify=true
+StartupWMClass=sun-awt-X11-XFramePeer
+X-Ayatana-Desktop-Shortcuts=New_Window;
+##
+

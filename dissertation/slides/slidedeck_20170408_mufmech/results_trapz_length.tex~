@@ -1,0 +1,30 @@
+\begin{frame}\frametitle{ \vspace*{0.5cm} Results: Dependence on the length of the wave}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/interface_multi-lag}
+    \includegraphics[width=0.48\textwidth]{../figs/lung_figs/circulation_multi-lag_fixed}
+  \end{figure}
+  \begin{itemize}
+  \item Changing wave width changes time when expansion hits interface
+  \end{itemize}
+
+  The length of the wave strongly effects the vorticity deposited and
+  thus the long-term dynamics of the interface.
+  %
+  \note{ To Do: Remove
+    un-neccessary lines, $15\lambda$,
+    Mauro's Questions:\\
+    (1) Is there a way to non-dimensionalize this show that the
+    transition of the physics occurs between $L = 20 - 30 \lambda$.
+    (1A): This essentially boils down to figuring out the speed of the
+    interface evolution and modeling the time at which the
+    phase-inversion will occur.\\Maybe I should subtract
+    $\Delta L_{lag}$ to see this better, or divide $\gamma$ by
+    $a(t=t_{phase-reversal})^n$ or $\Delta L_{Lag}^n$.\\
+    (2) What is the Reynolds number?
+  }
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

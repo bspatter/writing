@@ -1,0 +1,79 @@
+\begin{frame}
+  \vfill
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.25\textheight]{./include/figs/CoE-ME-vert} \hfill
+    \includegraphics[height=0.25\textheight]{./include/figs/mcubed_logo} \hfill
+    \includegraphics[height=0.25\textheight]{./include/figs/NIH_logo_white}\hfill
+  \end{figure}
+  \vfill
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.25\textheight]{./include/figs/grfp_logo} \hfill
+    \includegraphics[height=0.25\textheight]{./include/figs/onr_logo} 
+  \end{figure}
+  \vfill
+\end{frame}
+%%
+%%
+
+\begin{frame} \frametitle{My work has focuses on two very different problem areas of acoustics.}
+  \begin{minipage}{0.48\textwidth}
+    \begin{figure}
+      Acoustic uncertainty in the ocean \vspace*{4pt}\\
+      \centering
+      \includegraphics[width=\textwidth]{./figs/bathmap}
+    \end{figure}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \begin{figure}
+      \centering
+      Ultrasound bioeffects \vspace*{4pt}\\
+      \includegraphics[width=\textwidth]{./figs/ultrasound_example}
+    \end{figure}
+  \end{minipage}
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{\textit{Past work}: Efficient estimation of the probability density function of transmission loss in uncertain ocean environments}
+{\small
+\vspace*{0.25cm}
+Transmission Loss, $TL=20log_{10}\left(\frac{p_{source}}{p_{receiver}}\right)$, is useful for naval applications.
+\vspace*{0.25cm}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{./figs/ocean_0}
+\end{figure}
+TL uncertainty is important for those making decisions based on TL,
+but traditional methods are slow and expensive.  \hl{Add features to
+  ocean} }
+\end{frame}
+%%
+%%
+\begin{frame} \frametitle{\textit{Past work}: We developed a computationally efficient way of computing TL in uncertain environments}
+  \begin{figure}\hfill
+    \includegraphics[height=0.3\textheight]{./figs/as_ocean_schematic}\hfill
+    \visible<2->{\includegraphics[height=0.32\textheight]{./figs/as_field}}\hfill
+    \visible<3->{\includegraphics[height=0.32\textheight]{./figs/as_subfield}}\hfill
+  \end{figure}
+  \vspace{-0.7cm}
+  \begin{figure}
+    \visible<4->{\includegraphics[height=0.3\textheight]{./figs/as_hist}}\hfill
+    \visible<5->{\includegraphics[height=0.3\textheight]{./figs/as_mc_tlpdf}}\hfill
+    \visible<6->{\includegraphics[height=0.32\textheight]{./figs/tl_success_field_labeled}}\hfill
+  \end{figure}
+  \vspace{-0.5cm}
+  {\footnotesize
+    \visible<7->{
+    \begin{itemize}
+    \item Engineering level accurate $\left(L_1\text{-error}<0.5\right)$ in 93\% of test cases in bottom reflecting environments. \vspace*{-4pt}
+    \item $\approx \orderof{10^{-6}}$ the cost of 1000-sample Monte Carlo Methods.
+    \end{itemize}
+  }
+  }
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

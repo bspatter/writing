@@ -1,0 +1,52 @@
+\section*{Numerical treatment of the initial interface}
+
+
+\section*{Theoretical vs simulated reflection coefficients}
+
+
+\begin{itemize}
+\item Put contour plots of pressure here at t = 1, 10, 20, 50, 100 (or whatever)
+\item Put plots of pressure (p vs y \@ center-line) after reflection from boundary here.
+\item Calculate theoretical and experimental pressure reflection coefficients
+\item Calculation $\boldsymbol{R}=p_R/p_I=(-p_{reflected}+p_{atm})/(p_a-p_atm)=((69.15+101325/p_scale)/(71.42-0.714285714285714))\approx0.988$
+\end{itemize}
+
+
+To ensure that the numerical implementation of the interface is sufficiently sharp as to reflect the dynamics of a discontinuous interface, the simulated acoustic reflection coefficient $\boldsymbol{T}_S$ was calculated for the case of the $10$ MPa trapezoidal wave for varying thickness parameter delta $\delta$ and compared to the theoretical acoustic reflection coefficient $\boldsymbol{T}$, where 
+
+\begin{align*}
+  \boldsymbol{T}=\frac{2\left(\rho c\right)_{air}}{\left(\rho c\right)_{air}+\left(\rho c\right)_{water}}
+\end{align*}
+
+
+The prescribed interface thickness parameter (typically $\delta = 0.08\lambda$) was used to determine the initial volume fraction and density condition where the a distance parameter from the interface is defined as 
+\begin{align*}
+  d = \frac{\delta +y(x)_{interface} -y}{2\delta}.
+\end{align*}
+and the initial Volume fraction is written as 
+\begin{align*}
+  y_0 = %
+  \begin{cases}
+    1,\\%
+    exp\left(log\left(10^{-16}\right)\abs{d}^8\right),\\%
+    0,%
+  \end{cases}%
+\end{align*}
+
+such that $d$ is normalized within the mixed air-water region.
+
+
+\includegraphics[width=0.5\textwidth]{./figs/lung_figs/delta_R}
+\includegraphics[width=\textwidth]{./figs/lung_figs/p_snapshots}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./figs/lung_figs/p_centerline_t25}
+  \caption{Center-line pressure at t=25. At maximum, 0.1\% of the wave is reflected back into the domain.}
+\end{figure}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

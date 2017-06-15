@@ -1,0 +1,13 @@
+\begin{frame}\frametitle{Convergence tests}
+  \begin{figure}
+    \centering
+    \includegraphics[height=\0.4\textheight]{./figs/interface_convergence}
+    \includegraphics[height=\0.4\textheight]{./figs/circulation_convergence}
+  \end{figure}
+\textcolor{blue}{50 pts / $\lambda$}, \qquad \textcolor{orange}{100 pts / $\lambda$} \qquad \textcolor{yellow}{200 pts / $\lambda$}
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

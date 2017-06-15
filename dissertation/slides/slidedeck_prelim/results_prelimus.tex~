@@ -1,0 +1,32 @@
+\begin{frame}\frametitle{\vspace*{0.5cm}We simulated and US-pulse impinging on a water-air interface}
+  \begin{minipage}{0.62\textwidth}
+    \begin{minipage}{\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.47\textwidth]{../figs/lung_figs/p0_vs_t_us}%
+      \end{figure}
+    \end{minipage}
+  % 
+    \begin{minipage}{\textwidth}
+      \begin{figure}
+        \centering \def\svgwidth{0.48\textwidth} {\footnotesize
+          \import{../figs/lung_figs/}{usbe_lung_schematic3.pdf_tex}
+          \hfill%
+        }
+        \includegraphics[width=0.48\textwidth]{../figs/lung_figs/usbe_model_schematic}
+      \end{figure}
+    \end{minipage}
+  \end{minipage}
+  % 
+  \hfill
+  %
+  \begin{minipage}{0.36\textwidth}
+    \movie[externalviewer]{\adjincludegraphics[trim={{0.32\width} 0 {0.32\width} 0 },clip=true,height = 0.7\textheight]{./figs/still.jpg}}{./figs/rmawave_1_10000000.0_0.03_45.0_0.0_1.0_1.0_100_100_blue.avi}
+  \end{minipage}
+  % 
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

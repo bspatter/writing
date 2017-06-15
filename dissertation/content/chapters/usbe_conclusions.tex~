@@ -1,0 +1,59 @@
+The objectives of this part of the presented dissertation work are (1)
+to develop models for use in the study of diagnostic ultrasound wave
+interactions within tissue and (2) to perform studies to investigate
+the physics and fluid mechanics potentially relevant to specific
+biological effects of diagnostic ultrasound.
+
+The following work was performed to accomplish the first objective:
+
+\begin{itemize}
+\item \textbf{A model for spherical bubble dynamics in tissue, treated as a
+    Voigt viscoelastic medium, was developed.}\\
+  \begin{itemize}
+  \item Viscoelasticity
+  \item Experimental ultrasound waves used.
+  \end{itemize}
+
+\item \textbf{A novel model of an US pulse driven alveolus was developed.}\\
+  \begin{itemize}
+  \item 
+  \end{itemize}
+
+\end{itemize}
+
+
+\section{US Bubble Conclusions}
+\begin{itemize}
+
+\item I calculated the cavitation dynamics of bubbles in a
+  viscoelastic media driven by experimentally measured ultrasound pulses
+  with known biological effects.
+\item Calculated cavitation metrics in a theoretical viscoelastic
+  media correlate strongly with experimentally observed bioeffects.
+\item Better mechanical characterization of tissue is needed,
+  particularly at the time and length scales of cavitation and
+  ultrasound.
+\item Cavitation dynamics and bioeffects thresholds depend on
+  frequency and elasticity.
+\item Accepted thresholds for Inertial cavitation in water are not
+  likely to apply directly to bioeffects.
+\end{itemize}
+
+
+
+\section{US Lung Conclusions}
+\begin{itemize}
+\item A model of an US pulse driven alveolus was developed.
+\item The dynamics of an alveolar wall driven by $1.5$ MHz ultrasound
+  pulses of $1, 2.5,$ and $5$ MPa amplitudes were simulated.
+\item Interfaces were shown to continue straining after interacting
+  with the pulse as a result of US-generated baroclinic vorticity. This
+  occurred on timescales less than those expected between pulses for KHz
+  PRF.
+\item Viscous stresses were also computed.
+\item Computed stresses and strains were compared to expected values
+  from the literature.
+\end{itemize}
+
+
+\Recommendations for future work

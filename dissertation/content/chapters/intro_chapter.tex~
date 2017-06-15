@@ -1,0 +1,184 @@
+The purpose of this introduction is to set the stage for the proposed
+dissertation research. The problems we approach in this work are all
+problems of interest, current to the field of Acoustics. Broadly,
+acoustics is the study of sound. In practice, this study is not
+limited to just the kinds of sound that can be heard by humans, but
+rather any molecular scale vibrations traveling throughout a media. As
+sounds both natural and man-made are ubiquitous, it is a topic that
+has intrigued man for quite some and attracted much attention and
+study. As such, we have gained not only an understand the physical
+nature of sound, but have also learned to harness it as a
+tool. Because sound waves travel reflect, transmit, and scatter in a
+mathematically describable way, they are ideally suited for gathering
+information in certain situations. Because they carry mechanical
+energy that can be focused, concentrated, and in some instances
+converted into other types of energy, such as heat, they can also be a
+powerful tool for physically altering an environment. In some
+applications of interest, attempts to use acoustics to gather
+information, can unintentionally lead to physical modification of the
+system, such is the case when \ac{DUS} for medical imaging leads to
+unintended biological effects, or ultrasound bioeffects as we will
+refer to them from here on out.
+
+Many problems of contemporary acoustic interest present challenges
+that make them difficult to investigate completely through direct
+experimentation. Some problems, such as certain ultrasound bioeffects,
+often involve physical processes that occur over such small length and
+time scales that they cannot be directly observed. When these
+phenomena are replicated in simplified lab experiments, as they
+frequently are, physical quantities of interest, like stress, are not
+always readily measurable. Other problems may call for experiments
+that are prohibitively costly and time-intensive, as is often the case
+in underwater and ocean acoustics experiments which can require long
+cruises with extensive personnel and equipment. Furthermore, in
+complex acoustic environments like the ocean or human body, we rarely
+have sufficient information to precisely and accurately describe the
+system of interest without a high degree of uncertainty. In instances
+such as these, where direct experimentation is infeasible or unable to
+provide the desired information, carefully designed numerical
+experiments can be incredibly useful for providing insight into the
+problem at hand. 
+
+The unifying theme of the work presented here is the use of
+computation to approach modern problems in acoustics. The two main
+areas of research considered are \acf{US} bioeffects and underwater
+acoustic uncertainty. In the first part of this work, we investigate
+two problems related to biological effects of medical
+\ac{US}. Specifically, we simulate physics associated with \ac{CEUS}
+and \ac{DUS} of the lung, which have both been shown to be capable of
+causing hemorrhage in mammals, in order to investigate the damage
+mechanism behind each. In the second part of this work we develop and
+test area statistics, a computationally efficient method for
+estimating the \ac{PDF} of acoustic \ac{TL} in uncertain ocean
+environments, which is useful in naval applications. As these areas
+are appreciably different, we will refer the reader to later portions
+of this document and to the authors relevant submitted and published
+works for more detailed introduction and background on each problem.
+
+% %\subsection{\ac{US} background}
+% Diagnostic \ac{US} has proven to be among the safest and most powerful
+% medical imaging tools currently available and its use has become
+% ubiquitous throughout modern medicine. The basic physical principle
+% underlying this technology the scattering of sound at material
+% interfaces. In practice, high-frequency, typically MHz range, acoustic
+% waves and pulses are created at the surface of the body using a
+% piezoelectric \ac{US} transducer. These vibrations propagate via an
+% acoustic coupling medium from the transducer into the tissue and
+% scatter whenever they encounter a change in the material properties of
+% the medium. More simply, some of the sound echoes whenever it moves
+% from one tissue to another, or hits a cavity in the body. These echoes
+% are then picked up by a receiver and recorded. The strength and timing
+% of these echoes allow for real-time imaging of the scattering surface.
+
+% While clinical \ac{US} is generally incredibly safe there are
+% specific instances during which \ac{US} can interact with tissue in
+% such a way that it physically alters tissue. These effects to the body
+% are referred to as \ac{US} bioeffects. While the entire field of
+% therapeutic \ac{US} is based around intentionally causing
+% bioeffects in a way that is beneficial to the patient, diagnostic
+% \ac{US} is a different story. Bioeffects that occur during
+% diagnostic \ac{US} typically take the form of unintended tissue
+% damage or cell death. Depending on the type of physical damage
+% mechanism responsible, these bioeffects are classified into two
+% groups, thermal and non-thermal. The first group, thermal bioeffects
+% are characterized by deposition of acoustic energy into tissue as
+% heat. At the cellular and molecular scales, this can lead to the
+% release of highly reactive free radicals, protein denaturation, and
+% ultimately tissue damage and death. Little else will be said about
+% thermal bioeffects, as the the bioeffects problems of interest to this
+% work fall into the non-thermal category. The bulk of known non-thermal
+% bioeffects are attributed to acoustically-induced cavitation.  
+
+% Acoustic cavitation is the phenomenon by which gas nano and
+% microbubbles, called cavitation nuclei, are cyclically grown by low
+% pressures within the \ac{US} field and then collapsed high
+% pressures within the field. When the bubble dynamics during collapse
+% are dominated by the inertia of the surrounding fluid, it is called
+% \ac{IC}. \ac{IC} is typically violent and results in the
+% bubble collapsing to a fraction of its original size. There are
+% several possible damage mechanisms associated with \ac{IC} that may be
+% responsible for observed \ac{US} bioeffects. Upon collapse, the
+% pressure and temperature within the bubbles spike, often reaching
+% billions of pascals and thousands of Kelvin respectively. Due to the
+% pressure difference between the vapor/gas mixture within the bubble at
+% collapse and the surrounding media, the collapsed bubble can emit a
+% powerful shock wave which can be damaging to the bubbles
+% surroundings. When cavitation is triggered near a rigid surface, the
+% bubble can collapse in a radially asymmetric fashion causing a high
+% speed ``re-entrant'' jet of liquid to impinge upon the surface,
+% effectively striking the surface with a liquid hammer \hl{CITE}. If
+% cavitation occurs at an appropriate distance from a non-rigid surface,
+% such as soft tissue boundaries and blood vessel walls, the jet can
+% impinge away from the surface, potentially invaginating the surface
+% \citep{Brujan2011}. \ac{CEUS}, which uses
+% contrast-agent microbubbles injected into patients bloodstream to act
+% as additional scattering surfaces. These microbubbles act as
+% cavitation nuclei and have been associated with a variety of different
+% forms of cellular death and damage.
+
+% This proposal presents past work in which we simulate ultrasonically
+% induced cavitation of contrast agent microbubbles in soft tissue
+% \citep{Patterson2012} (See Chapter \ref{ch:usbe_bubble}).  We simulate
+% experimentally measured \ac{US} waves obtained by \cite{Miller2008b}
+% perturbing microbubbles in a Voigt viscoelastic soft tissue
+% \cite[]{Yang2005}. The calculated cavitation dynamics and theoretical
+% inertial cavitation thresholds \citep{Flynn1982,Apfel1982} are
+% compared with bioeffects thresholds associated with each \ac{US}
+% pulse, as defined by the observation of kidney hemorrhage in rats
+% after exposure to CEUS by \cite{Miller2008b}. While the results were
+% generally dependent on US, gas, and tissue properties, it was found
+% that the inertial cavitation thresholds were lower than observed
+% bioeffects thresholds.
+
+% Another non-thermal \ac{US} bioeffect of interest is \ac{DUS}-induced
+% \ac{LH}, which is the only known bioeffect of non-contrast \ac{DUS}
+% known to occur in mammals. Despite the fact that this phenomenon was
+% first observed in mice over twenty years ago \citep{Child1990}, the
+% underlying physical damage mechanisms remain unknown. Research has
+% shown that thermal damage mechanisms are unlikely as \ac{DUS}-induced
+% lung lesions do not appear similar to those induced by heat
+% \citep{Zachary2006}. Furthermore, cavitation mechanisms do not appear
+% to be responsible, as the severity of \ac{DUS}-induced \ac{LH} in mice
+% increased under raised hydrostatic pressure \citep{OBrien2000} and was
+% unaffected by the introduction of \ac{US} contrast agents into
+% subjects. Both of these results are inconsistent with what is expected
+% of \ac{IC}-induced bioeffects. Works by \cite{Tjan2007,Tjan2008} model
+% the evolution of an inviscid, free surface subjected to a Gaussian
+% velocity potential and find that this can lead to the ejection of
+% liquid droplets. They go on to say that \ac{DUS} of the lung may
+% similarly lead to the ejected of droplets capable of puncturing the
+% air-filled sacs within the lung. We propose another possible damage
+% mechanism, that \ac{DUS} pulses torque tissue-air interfaces around
+% alveoli, fragile air-sacs within the lungs. This deposits vorticity, a
+% measure of local fluid rotation, in the surrounding fluid which drives
+% deformation and ultimately hemorrhage of the thin alveolar walls.
+
+% The concept of vorticity driven interface deformation has been
+% extensively studied within the context of the \ac{RM}, which occurs
+% when a traveling pressure wave, typically a shock, encounters a
+% perturbed interface between fluids of different density. Note that the
+% \ac{RM} is not a true instability, as the interface does not exhibit
+% exponential growth. When this occurs vorticity is generated along the
+% interface.
+
+% As can be seen from the
+% vorticity generation equation,
+% \begin{align} \label{eq:vorticity}
+% \frac{\partial \vec{\omega}}{\partial t}+\left(\vec{u}\cdot\nabla\right)\vec{\omega} = 
+% \left(\vec{\omega\cdot\nabla}\right)\vec{u} - \vec{\omega}\left(\nabla\cdot\vec{u}\right)%
+% +\frac{\nabla\rho\times\nabla p}{\rho^2} + \nabla\times\left(\frac{\nabla\cdot\tau}{\rho}\right)%
+% +\nabla\times\left(\frac{\vec{B}}{\rho}\right)%
+% \end{align}
+
+
+% Computations of acoustic transmission loss are of practical interest in a variety of naval applications.
+
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../prelim"
+%%% End:

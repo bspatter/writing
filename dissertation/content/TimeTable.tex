@@ -1,0 +1,80 @@
+\newpage
+\part{Time Table}
+\clearpage
+\thispagestyle{empty}
+\KOMAoptions{paper=A1,pagesize}
+\recalctypearea
+\begin{landscape}
+\begin{figure}[ftbp]
+\begin{center}
+\hspace*{-13cm}
+%
+\begin{tikzpicture}%[width=.9\textwidth]
+\begin{ganttchart}[y unit title=0.6cm, y unit chart=0.75cm,
+vgrid,hgrid,
+time slot format=isodate,
+%today=2014-05-20,
+%progress=<number>,
+title label anchor/.style={below=-1.6ex},
+title left shift=.05,
+title right shift=-.05,
+title height=1,
+bar/.append style={fill=blue},
+bar incomplete/.append style={fill=gray!50},%
+group incomplete/.append style={draw=black,fill=gray!50},%
+bar height=1.0,
+bar top shift = 0.0,
+group right shift=0.06,
+group top shift=0.0,
+group height=1.0,
+%inline,
+]{2014-05-19}{2014-10-31}
+\gantttitlecalendar{year, month, day, week=21, weekday} \\
+\ganttnewline
+\ganttgroupc[ForestGreen]{1}{Acoustic Uncertainty}{2014-05-19}{2014-10-31}\\
+\ganttbarc[ForestGreen]{0}{Setup RAMGEO}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[ForestGreen]{0}{Discuss Goals with Dowling}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[ForestGreen]{0}{Refine eng. param. selection algorithm}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[ForestGreen]{0}{Test area stat. in Downslope env.}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[ForestGreen]{0}{Test area stat. up to $f_s=1.0$kHz}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[ForestGreen]{0}{Produce Manuscript and submit to JASA}{2014-05-21}{2014-06-03} \\%
+\ganttnewline
+%
+\ganttgroupc[cyan]{1}{Educational Tool}{2014-05-19}{2014-10-31}\\%
+\ganttbarc[cyan]{0}{Write equation terms in words }{2014-05-21}{2014-06-03} \\%
+\ganttbarc[cyan]{0}{Temporally Color-code eqn by largest factor}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[cyan]{0}{Add dynamically changing bar}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[cyan]{0}{Create Documentation}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[cyan]{0}{Host on NanoHUB}{2014-05-21}{2014-06-03} \\%
+\ganttnewline
+%
+\ganttgroupc[CarnationPink]{1}{Lung}{2014-05-19}{2014-10-31}\\%
+\ganttbarc[CarnationPink]{0}{Find analytical form of Doug's Waves}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[CarnationPink]{0}{Import waves into c++ code at BC's}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[CarnationPink]{0}{Fix the vol. frac. jump bug}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[CarnationPink]{0}{Simulate lung for Dougs waves}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[CarnationPink]{0}{Analyze surface stability and shear}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[CarnationPink]{0}{Write JASA abstract}{2014-06-16}{2014-06-23} \\%
+\ganttnewline
+%
+\ganttgroupc[MidnightBlue]{1}{Histotripsy}{2014-05-19}{2014-10-31}\\%
+\ganttbarc[MidnightBlue]{0}{Get wave data from Eli}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[MidnightBlue]{0}{Become functional with Mauro's Code}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[MidnightBlue]{0}{Read Ando and Lit. to understand bubble cloud models}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[MidnightBlue]{0}{Determine which bubble models are suitable}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[MidnightBlue]{0}{Implement 2D bubble cloud model in Mauro's code}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[MidnightBlue]{0}{Implement Time-dependent BC's in bubble cloud model}{2014-05-21}{2014-06-03} \\%
+\ganttbarc[MidnightBlue]{0}{Dissertation Proposal Exam}{2014-05-21}{2014-06-03} \\%
+%
+\end{ganttchart}
+\end{tikzpicture}
+%
+\end{center}
+%\caption{Gantt Chart}%
+\end{figure}
+\end{landscape}
+\newpage
+
+\clearpage
+\KOMAoptions{paper=letter,pagesize}
+\recalctypearea

@@ -1,0 +1,64 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'brouillette_fig3_mod.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{566.5227368bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.47418968)%
+    \put(0,0){\includegraphics[width=\unitlength]{brouillette_fig3_mod.pdf}}%
+    \put(0.0732244,0.30928346){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{Incident
+wave}}}%
+    \put(-0.00277184,0.13359337){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Interface}}}%
+    \put(0.44304286,0.08498764){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\Gamma$}}}%
+    \put(0.68554436,0.05646251){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$x$}}}%
+    \put(0.2518913,0.20722258){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\nabla \rho$}}}%
+    \put(0.15204081,0.22334752){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_1$}}}%
+    \put(0.16419699,0.01953132){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\rho_2<rho_1$}}}%
+    \put(0.23606658,0.39942702){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\nabla p$}}}%
+    \put(0.56091172,0.24687315){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\Gamma$}}}%
+  \end{picture}%
+\endgroup%

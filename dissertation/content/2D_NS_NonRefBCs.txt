@@ -1,0 +1,5 @@
+\section{Non-Reflecting BC's for 2D, compressible Navier Stokes (Shahab's Equations)}
+Starting with conservative form:
+\begin{align}
+\frac{\partial \tilde{U}}{\partial t}
+\end{align}
