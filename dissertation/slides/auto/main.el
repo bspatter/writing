@@ -15,10 +15,10 @@
     "./slidedeck/asa_boston_2017_titleslide"
     "./slidedeck/bkgd_lung"
     "./slidedeck/hypo_lung_new"
-    "./slidedeck/governing_eq"
-    "./slidedeck/methods_computation"
     "./slidedeck/bkgd_waves"
     "./slidedeck/2017-03-09_acoustic_vorticity_conclusions"
+    "./slidedeck/governing_eq"
+    "./slidedeck/methods_computation"
     "./slidedeck/backup_slides"
     "./slidedeck/convergence")
    (TeX-add-symbols
@@ -31,15 +31,12 @@
     "diff"
     "svgwidth")
    (LaTeX-add-labels
-    "fig:trapz_scp_t1000_unscaled"
-    "fig:alveolar_schematic"
     "fig:problem_schematic"
     "fig:alveolar_histology"
     "fig:tauxy_snapshot_A50_a03"
     "fig:tauxy_snapshot_A50_a10"
     "fig:tauxy_snapshot_A50_a30"
     "fig:strain_multi-pa_a30"
-    "fig:pa_dependence_strain"
     "fig:trapz_interface_t1000")
    (LaTeX-add-bibliographies
     "../../../literature/library"))

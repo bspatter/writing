@@ -25,12 +25,13 @@
 \usepackage{soul,xcolor}
 \usepackage{import}
 \usepackage{relsize}
-\usepackage{tikz}
+\usepackage{tikz,pgfplots}
 \usepackage[makeroom]{cancel}
 \usepackage{multimedia}
 \usepackage{subcaption}
 \usepackage{comment}
 \usepackage{nicefrac}
+\usepackage{tcolorbox}
 %\usepackage{media9}
 \usetikzlibrary{positioning,shadows.blur}
 
@@ -77,17 +78,19 @@
   \vskip-5pt 
   \leavevmode
   \begin{center}
-    \vspace*{-0.5cm}
+    \vspace*{-0.75cm}
   \hbox{%
   \begin{beamercolorbox}[wd=0.85\paperwidth,ht=0.35cm,dp=1.35ex]{White}%
     \raggedright
-    \vspace*{-.25cm}
+%    \vspace*{-.25cm}
+    \parbox{\textwidth}{
     {\normalsize \insertframetitle} %\small{\insertframetitle}
+    }
   \end{beamercolorbox}
   % \hspace*{1em}{\normalsize \insertframetitle} %\small{\insertframetitle}
   }%
   \end{center}
-  \vspace*{-0.75cm}
+ % \vspace*{-0.75cm}
 }
 \def\newblock{\hskip .11em plus .33em minus .07em}
 

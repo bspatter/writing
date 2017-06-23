@@ -17,8 +17,8 @@
 
 \makeatletter
 % This is used for crossing out terms in an equation, but it works, but causes weird syntax errors when compiling that borks the terminal
- \let\my@cancelto\cancelto %copy over the original cancelto command
- \newcommand<>{\cancelto}[2]{\alt#3{\my@cancelto{#1}{#2}}{\mathrlap{#2}\phantom{\my@cancelto{#1}{#2}}}}
+\let\my@cancelto\cancelto %copy over the original cancelto command
+\newcommand<>{\cancelto}[2]{\alt#3{\my@cancelto{#1}{#2}}{\mathrlap{#2}\phantom{\my@cancelto{#1}{#2}}}}
 % redefine the cancelto command, using \phantom to assure that the
 % result doesn't wiggle up and down with and without the arrow
 \makeatother
@@ -44,82 +44,111 @@
         box/.style    = { %rounded corners = 5pt,
           align           = left,
           font            = \sffamily\bfseries\large,
-          text width      = 4cm, 
+          text width      = 5.5cm, 
           blur shadow     = {shadow blur steps = 15} },    
-        minimum height  = 0.6\textwidth
+        minimum height  = 0.4\textwidth
       }
-
       \node [box,
       fill         = pink, 
       text         = black,] 
       (T)
-      {\quad Tissue \vspace{0.6\textwidth}\\%
+      {\quad Tissue \vspace{0.2\textwidth}\\%
         \includegraphics[width=\textwidth]{./figs/ultrasound_example_transparent}
       };
-
-      \node [box, right  = 0cm of T, fill = blue!20!white]
-      (A)
-      {\quad Air \\ \vspace{\textwidth} \quad };
+      \node [box, right  = 0cm of T, fill = blue!20!white] (A)
+      {\quad Air \vspace*{0.65\textwidth}\\ \quad 
+      };
     \end{tikzpicture}
   \end{figure}
+  \pause
+  We want to understand the dynamics of this problem
+\end{frame}
+% \begin{frame}
+%   \begin{tikzpicture}
+%     \tikz \fill[fill=black!20] 
+%     plot[mark=triangle*,mark options={color=black,rotate=180}] 
+%     file{plots/pgfmanual-sine.table} |- (0,0);
+%   \end{tikzpicture}
+% \end{frame}
+% 
+% 
+\begin{frame}
+  \vfill
+  \textbf{Hypothesis:}\\Ultrasound waves generate baroclinic vorticity at gas-liquid interfaces, driving the interface deformation\\
+  \vfill
+  \pause
+  \invisible<1>{
+    Aims:
+    \begin{enumerate}
+    \item Test hypothesis \vspace{0.25cm} \pause%
+    \item Simulate alveoli-like, gas-liquid interfaces driven by \textbf{clinically relevant} ultrasound waves \vspace{0.25cm} \pause%
+    \item Calculate interface stresses and strains and compare with expected alveolar failure thresholds \vspace{0.25cm}%
+    \end{enumerate}
+  } \vfill
 \end{frame}
 % 
-\begin{frame} \frametitle{\mbox{\textit{Past work:} Acoustic waves are capable of deforming gas-liquid interfaces}}
-  \begin{figure}
-    \centering
-    \begin{subfigure}{0.48\textwidth}
-      \def\svgwidth{\textwidth}
-      \import{../figs/avpaper_figs/}{trapezoidal_wave_asa_schematic.pdf_tex}%
-    \end{subfigure}
-    \begin{subfigure}{0.48\textwidth}
-      \includegraphics[width=\textwidth]{../figs/lung_figs/snapshots_density_t1_t300}
-    \end{subfigure}
-  \end{figure}
-  A trapezoidal acoustic waves caused significant deformations of an
-  almost flat air-water interfaces. Linear acoustics couldn't explain
-  this.
-\end{frame}
-\begin{frame} \frametitle{\mbox{\textit{Past work:} Acoustic waves are capable of deforming gas-liquid interfaces}}
-  \begin{figure}
-    \centering
-    \captionsetup[subfigure]{labelformat=empty}
-    \begin{subfigure}[b]{0.45\textwidth}
-      \includegraphics[width=\textwidth]{./figs/vorticity_snapshots_asa}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-      \includegraphics[width=\textwidth]{../figs/avpaper_figs/s_t1000_24-May-2017}
-      \caption{\label{fig:trapz_scp_t1000_unscaled} Interface arc length: $s(t) \sim \Gamma(t) t^{\nicefrac{1}{2}}$}
-    \end{subfigure}
-    % \begin{subfigure}{0.45\textwidth}
-    %   \includegraphics[height=0.8\textwidth]{./figs/lung_figs/scp_t1000_24-May-2017}
-    %   \caption{\label{fig:trapz_scp_t1000_scaled} Vortex strength scaling: $\frac{s(t)}{\Gamma(t)} \frac{p_a}{\rho c}$}
-    % \end{subfigure}
-  \end{figure}
-  Vorticity drives deformation in a mathematically describable wave.
-\end{frame}
-
-\begin{frame}
-\vfill
- \textbf{Hypothesis:}\\Ultrasound waves generate baroclinic vorticity at gas-liquid interfaces, driving the interface deformation\\
-\vfill
-\pause
-\invisible<1>{
- Aims:
- \begin{enumerate}
- \item Test hypothesis \vspace{0.25cm}%
- \item Calculate approximate interface stresses and strains for clinically relevant ultrasound waves \vspace{0.25cm}%
- \item Compare calculated stresses and strains with expected alveolar failure thresholds  \vspace{0.25cm}%
- \end{enumerate}
-} \vfill
-\end{frame}
-
-
 \input{./slidedeck/hypo_lung_new}
 % 
-\begin{frame}
-  \frametitle{Ultrasound driven alveoli are modeled as compressible fluids.}
+\begin{frame} \frametitle{\mbox{\textit{Past work:} Acoustic waves are capable of deforming gas-liquid interfaces}}
+  \begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \only<1>{
+      \begin{subfigure}[b]{0.32\textwidth}
+        \def\svgwidth{\textwidth}
+        \import{../figs/avpaper_figs/}{trapezoidal_wave_asa_schematic.pdf_tex}%
+        \vspace*{0.5cm}%
+        \caption{Input pressure}
+      \end{subfigure}
+    }
+    \only<2->{
+      \begin{subfigure}[b]{0.33\textwidth}
+        % \includegraphics[height=0.8\textwidth]{../figs/avpaper_figs/a0_t1000_24-May-2017}
+        % \includegraphics[height=0.8\textwidth]{../figs/avpaper_figs/intf_amp_t1000_24-May-2017}
+        \includegraphics[width=\textwidth]{../figs/avpaper_figs/intf_amp_t1000_asa_23-Jun-2017}
+        \vspace*{0.5cm}%
+        \caption{ $a(t) \sim t^{\nicefrac{3}{5}}$}
+      \end{subfigure}
+    }
+    ~
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+          \includegraphics[width=\textwidth]{./figs/snapshots_density_t1_t300_asa}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\scriptsize,align=left,right] at (0.1,0.92){{\textcolor{white}{Water}}};%
+          \node[font=\scriptsize,align=left,right] at (0.1,0.5){{Air}};%
+        \end{scope}%
+      \end{tikzpicture}
+      \caption{Density}
+    \end{subfigure}
+    ~
+    % \hspace*{-0.85cm}
+    \begin{subfigure}[b]{0.3\textwidth}
+      % \hspace*{-0.85cm}
+      \includegraphics[width=0.84\textwidth]{./figs/vorticity_snapshots_asa_noax}%
+      \vspace*{0.125cm}%
+      \caption{Vorticity}
+    \end{subfigure}
+  \end{figure}
   \only<1>{
+  A trapezoidal acoustic waves caused significant deformations of an
+  almost flat air-water interfaces. Linear acoustics couldn't explain
+  this.%
+  }
+  \only<2>{
+  Interface deformation can be mathematically described in terms of vorticity, $\omega = \nabla \times \boldsymbol{u}$.
+  }
+  \vfill
+  \scalebox{.5}{\scriptsize Patterson, B., \& Johnsen, E. (2016). Dynamics of an acoustically driven liquid-gas interface. J. Acoust. Soc. Am.}
+\end{frame}
+% 
+\begin{frame}
+  \frametitle{\vspace*{0.25cm}Ultrasound driven alveoli are modeled as compressible fluids.}
+  \only<1-2>{
     \vspace*{0.5cm}
+    \captionsetup[subfigure]{labelformat=empty,justification=centering}
     \begin{figure}
       \centering
       % \begin{subfigure}[b]{0.3\textwidth}
@@ -136,16 +165,18 @@
         {\small
           \import{../2016_acoustic_vorticity/figs/lung_figs/}{Alveolus_US_zoom_only_diagram.pdf_tex} \hfill%
         }
-        \caption{\label{fig:alveolar_schematic} Physical problem schematic }
-      \end{subfigure}
-      % 
-      \begin{subfigure}[b]{0.69\textwidth}
-        \centering \def\svgwidth{\textwidth} {\footnotesize
-          \import{../2016_acoustic_vorticity/figs/lung_figs/}{usbe_model_schematic_domain_tall.pdf_tex}
-          \hfill%
-        }
-        \caption{\label{fig:problem_schematic} Domain and model problem schematic.}
-      \end{subfigure}
+        \caption{\mbox{Physical problem schematic}}
+      \end{subfigure}%
+      %
+      \visible<2>{%
+        \begin{subfigure}[b]{0.69\textwidth}%
+          \centering \def\svgwidth{\textwidth} {\footnotesize%
+            \import{../2016_acoustic_vorticity/figs/lung_figs/}{usbe_model_schematic_domain_tall.pdf_tex}%
+            \hfill%
+          }%
+          \caption{\label{fig:problem_schematic} Domain and model problem schematic.}%
+        \end{subfigure}%
+      }%
     \end{figure}
     {\tiny
       [By Jpogi (Own work) [CC BY-SA 4.0
@@ -154,12 +185,12 @@
     }
   }
   % 
-  \only<2->{
+  \only<3->{
     % \scriptsize{
     %   % \begin{align*}
-            %   %             p(y,t_0) = p_a\sin{\left(2\pi f\frac{\left[y-\left(Y_{wave}+L_{wave}\right)\right]}{c}\right)}\exp{\left(-\frac{\left(\left[y-\left(Y_{wave}+L_{wave}/2\right)\right]c\right)^2}{FWHM/\left(2\sqrt{2\ln{\left(2\right)}} \right)}\right)}.%
-            %   %           \end{align*}
-            %         }
+    %   %   p(y,t_0) = p_a\sin{\left(2\pi f\frac{\left[y-\left(Y_{wave}+L_{wave}\right)\right]}{c}\right)}\exp{\left(-\frac{\left(\left[y-\left(Y_{wave}+L_{wave}/2\right)\right]c\right)^2}{FWHM/\left(2\sqrt{2\ln{\left(2\right)}} \right)}\right)}.%
+    %   % \end{align*}
+    % }
     \begin{figure}
       \centering
       \captionsetup[subfigure]{labelformat=empty}
@@ -191,12 +222,10 @@
 \end{frame}
 % 
 % 
-\input{./slidedeck/governing_eq}
-\input{./slidedeck/methods_computation}
 % 
 % 
 \begin{frame}
-  \frametitle{\vspace*{0.25cm} The theoretical interface dynamics are simulated}
+  \frametitle{\vspace*{0.25cm} The interface dynamics are simulated}
   \vspace*{0.5cm}
   Ex: Ultrasound pulse: $f=1.5$ MHz, $p_a=5$ MPa; Interface:$a_0=0.3\ell$.
   \begin{figure}
@@ -237,45 +266,209 @@
   {\Large Is the ultrasound-induced interface deformation driven by baroclinic vorticity?}
   \vfill
 \end{frame}
-%
-\begin{frame}\frametitle{The ultrasound pulse deposits vorticity at the interface}
-  %\includegraphics[width=0.8\textwidth]{./figs/vorticity_t1_t10_rmawave_1_5000000.0_0.1_45.0_0.0_1.0_1.0_50_100}
-  \includegraphics[width=0.25\textwidth]{./figs/vorticity_t1_rmawave_1_5000000,0_0,1_45,0_0,0_1,0_1,0_50_100}
-  \includegraphics[width=0.25\textwidth]{./figs/vorticity_t20_rmawave_1_5000000,0_0,1_45,0_0,0_1,0_1,0_50_100}
-  \begin{itemize}
-  \item Vorticity snapshot 
-  \end{itemize}
-\end{frame}
 % 
-% 
-\begin{frame}\frametitle{Baroclinic vorticity is driving the
-    deformation after the passage of the wave}
-  \begin{itemize}
-  \item Plot of circulation vs time for 10 MPa wave
-  \item Plot of s(t)/Gamma(t) for both trapezoidal and US pulse waves
-  \end{itemize}
-\end{frame}
-% 
-% 
-\begin{frame}\frametitle{The specific case of interest}
-  \begin{itemize}
-  \item $a_0 = 0.03, 0.1, 0.3\ell$
-  \item $p_a = 1, 2.5, 5$ MPa
-  \end{itemize}
-\end{frame}
-% 
-% 
-\begin{frame}\frametitle{The approximate viscous stress is calculated}
-  $\tau_{xy}(x,y,t) = \mu\left(\frac{du}{dy}+ \frac{dv}{dx}\right)$, \qquad$p_a = 5$ MPa
+\begin{frame}
+  \frametitle{\vspace*{0.5cm}Baroclinic vorticity is driving the deformation after the wave passes}
+  Consider an air-water interface driven by a $10$ MPa ultrasound pulse
   \begin{figure}
+    \centering
+    \vfill
+    \captionsetup[subfigure]{labelformat=empty}
+    \begin{subfigure}[b]{0.3\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+          \includegraphics[height=\textwidth]{./figs/vorticity_t1_rmawave_1_5000000,0_0,1_45,0_0,0_1,0_1,0_50_100}
+          \includegraphics[height=0.99\textwidth]{./figs/other_vorticity_plot}
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\scriptsize,align=left,right] at (0.1,0.9){{$t=1$}};%
+          \node[font=\scriptsize,align=left,right] at (0.55,0.9){{$t=20$}};%
+        \end{scope}%
+      \end{tikzpicture}
+      \caption{Vorticity}
+    \end{subfigure}
+    \hfill
+    \visible<2->{%
+    \begin{subfigure}[b]{0.32\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+          \includegraphics[width=\textwidth]{./figs/trapz_us_amp_comparison_A10_waveend_asa}
+          %\includegraphics[width=\textwidth]{./figs/trapz_us_amp_comparison_A10_waveend}
+        };%
+        % \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        %   \node[font=\scriptsize,align=left,right] at
+        %   (0.2,0.9){{$t=1$}};%
+        % \end{scope}%
+      \end{tikzpicture}
+      \caption{Interface growth $a(t)/a_0$}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.32\textwidth}
+      \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+          \includegraphics[width=\textwidth]{./figs/trapz_us_circ_comparison_A10_waveend_t0_t60_asa}
+        };%
+        % \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        %   \node[font=\scriptsize,align=left,right] at
+        %   (0.2,0.9){{$t=20$}};%
+        % \end{scope}%
+      \end{tikzpicture}
+      \caption{Circulation, $\Gamma = \int_{A_R} \omega dA$}
+    \end{subfigure}
+    }
+  \end{figure}
+  Interface amplitude grows as $\approx t^{\nicefrac{3}{5}}$, at late times independently of the driving waveform\\
+%  - Same order of magnitude circulation is deposited
+\end{frame}
+%
+\begin{comment}
+  \begin{frame}%
+    \frametitle{The ultrasound pulse deposits baroclinic vorticity at
+      the interface}%
+    % \includegraphics[width=0.8\textwidth]{./figs/vorticity_t1_t10_rmawave_1_5000000.0_0.1_45.0_0.0_1.0_1.0_50_100}
+    \vspace*{1cm}
+    \begin{figure}
+      \centering \vfill
+      \captionsetup[subfigure]{labelformat=empty}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+            \includegraphics[width=\textwidth]{./figs/vorticity_t1_rmawave_1_5000000,0_0,1_45,0_0,0_1,0_1,0_50_100}
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north
+              west)}]%
+            \node[font=\scriptsize,align=left,right] at
+            (0.2,0.9){{$t=1$}};%
+          \end{scope}%
+        \end{tikzpicture}
+        \caption{During the wave}
+      \end{subfigure}
+      \hspace*{1cm}
+      \begin{subfigure}[b]{0.3\textwidth}
+        \begin{tikzpicture}
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+            \includegraphics[width=0.91\textwidth]{./figs/other_vorticity_plot}
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north
+              west)}]%
+            \node[font=\scriptsize,align=left,right] at
+            (0.2,0.9){{$t=20$}};%
+          \end{scope}%
+        \end{tikzpicture}
+        \caption{After the wave}
+      \end{subfigure}
+    \end{figure}
+  \end{frame}
+% 
+% 
+  \begin{frame}
+    \frametitle{\vspace*{0.5cm}Baroclinic vorticity deforms
+      ultrasound-driven interfaces}
+    Comparing the $10$ MPa ultrasound pulse and trapezoidal waves:
+    \begin{figure}
+      \centering \vfill
+      \captionsetup[subfigure]{labelformat=empty}
+      \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \begin{tikzpicture}
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+            \includegraphics[width=\textwidth]{./figs/trapz_us_amp_comparison_A10_waveend}
+          };%
+          % \begin{scope}[x={(image.south east)},y={(image.north
+          %   west)}]%
+          %   \node[font=\scriptsize,align=left,right] at
+          %   (0.2,0.9){{$t=1$}};%
+          % \end{scope}%
+        \end{tikzpicture}
+        \caption{Interface growth $a(t)/a_0$}
+      \end{subfigure}
+      ~
+      \begin{subfigure}[b]{0.48\textwidth}
+        \begin{tikzpicture}
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+            \includegraphics[width=\textwidth]{./figs/trapz_us_circ_comparison_A10_waveend_t0_t60}
+          };%
+          % \begin{scope}[x={(image.south east)},y={(image.north
+          %   west)}]%
+          %   \node[font=\scriptsize,align=left,right] at
+          %   (0.2,0.9){{$t=20$}};%
+          % \end{scope}%
+        \end{tikzpicture}
+        \caption{Circulation, $\Gamma = \int_{A_R} \omega dA$}
+      \end{subfigure}
+    \end{figure}
+    - Interface amplitude grows as $\approx t^{\nicefrac{3}{5}}$ independent of waveform\\
+    - Same order of magnitude circulation is deposited
+  \end{frame}
+\end{comment}
+
+% 
+% 
+\begin{frame}
+  % So far, this hasn't been very relevant to clinical ultrasound
+\end{frame}
+% 
+% 
+\begin{frame}\frametitle{\vspace*{0.5cm}Now let's consider the more clinically relevant cases}
+  \hspace*{0.22cm}Wave and interface perturbation amplitudes are varied.%
+  \begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+      \includegraphics[width=0.9\textwidth]{./figs/us_pulse_amps_dim}
+      \caption{Ultrasound Pulses}
+    \end{subfigure}
+    \hspace*{0.5cm}
+    \visible<2>{%
+    \begin{subfigure}[b]{0.35\textwidth}%
+      \begin{tikzpicture}%
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+          \includegraphics[width=0.5\textwidth]{./figs/us_intf_amps_dim}%
+        };%
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+          \node[font=\small,align=right,left] at (0.0,1){{$\ell$}};%
+          \node[font=\small,align=right,left] at (0.0,0.75){{$\ell/2$}};%
+          \node[font=\small,align=right,left] at (0.0,0.5){{$0$}};%
+          \node[font=\small,align=right,left] at (0.0,0.25){{$-\ell/2$}};%
+          \node[font=\small,align=right,left] at (0.0,0){{$-\ell$}};%
+          \node[font=\small,align=right,left] at (0.15,-0.02){{$0$}};%
+          \node[font=\small,align=right,left] at (1.1,-0.04){{$\ell$}};%
+        \end{scope}%
+      \end{tikzpicture}%
+      \caption{\quad Interface initial conditions}%
+    \end{subfigure}%
+    }%
+  \end{figure}%
+  \vspace*{-0.25cm}%
+  \begin{itemize}%
+  \item Assume typical alveolar diameter $\ell = 200 \mu$m \citep{Ochs2004} \vspace*{4pt}%
+  \item Pulse amplitudes, $p_a = 1, 2.5, 5$ MPa;\,\, frequency, $f = 1.5$ MHz  \vspace*{4pt}%
+    \visible<2>{%
+  \item Interface perturbation amplitudes $a_0 = 0.03\ell, 0.10\ell, 0.30\ell$  \vspace*{4pt}%
+  }%
+  \end{itemize}
+\end{frame}
+% 
+% 
+\begin{frame}\frametitle{\vspace*{0.5cm}The inferred viscous stress is calculated}
+  \begin{center}
+    $\tau_{xy}(x,y,t) = \mu\left(\frac{\partial u}{\partial y}+ \frac{\partial v}{\partial x}\right)$,
+    \qquad$p_a = 5$ MPa
+  \end{center}
+  \begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
       \begin{tikzpicture}%
         \node[anchor=south west,inner sep=0] (image) at (0,0) {
-          \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a03_t005_tauxy_snapshots}
+          \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a03_t005_tauxy_snapshots_dim}
         };%
         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-          \node[font=\small,right] at (0.3,0.9) {$\tau_{xy}$ (Pa)};%
+          \node[font=\small,right] at (0.2,0.9) {$\tau_{xy}$ (Pa)};%
+          \node[font=\small,right] at (0.2,0.25) {$t = 2.9 \mu$s };%
         \end{scope}%  
       \end{tikzpicture}%
       \caption{\label{fig:tauxy_snapshot_A50_a03} $a_0 = 0.03\ell$}
@@ -284,10 +477,11 @@
     \begin{subfigure}[b]{0.3\textwidth}
       \begin{tikzpicture}%
         \node[anchor=south west,inner sep=0] (image) at (0,0) {
-          \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a10_t005_tauxy_snapshots}
+          \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a10_t005_tauxy_snapshots_dim}
         };%
         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-          \node[font=\small,right] at (0.3,0.9) {$\tau_{xy}$ (Pa)};%
+          \node[font=\small,right] at (0.2,0.9) {$\tau_{xy}$ (Pa)};%
+          \node[font=\small,right] at (0.2,0.25) {$t = 2.9 \mu$s };%
         \end{scope}%  
       \end{tikzpicture}%
       \caption{\label{fig:tauxy_snapshot_A50_a10} $a_0 = 0.1\ell$}
@@ -296,84 +490,96 @@
     \begin{subfigure}[b]{0.3\textwidth}
       \begin{tikzpicture}%
         \node[anchor=south west,inner sep=0] (image) at (0,0) {
-          \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a30_t500_tauxy_snapshots}
+          \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a30_t500_tauxy_snapshots_dim}
         };%
         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-          \node[font=\small,right] at (0.3,0.9) {$\tau_{xy}$ (Pa)};%
+          \node[font=\small,right] at (0.2,0.9) {$\tau_{xy}$ (Pa)};%
+          \node[font=\small,right] at (0.2,0.25) {$t = 2.9 \mu$s };%
         \end{scope}%  
       \end{tikzpicture}%
       \caption{\label{fig:tauxy_snapshot_A50_a30} $a_0 = 0.3\ell$}
     \end{subfigure}
     % 
   \end{figure}
-  Maximum calculated viscous stresses are far below expected stress
-  failure thresholds $80$ kPa for alveolar walls, but the comparison
-  isn't perfect.
+  \begin{itemize}
+  \item Viscous shear stresses are concentrated at the interface
+  \item The maximum shear stress, occurs approximately when the peak negative pressure hits the interface
+  \end{itemize}
 \end{frame}
-
-
-\begin{frame}\frametitle{The approximate viscous stress is calculated}
-  $\tau_{xy}(x,y,t) = \mu\left(\frac{du}{dy}+ \frac{dv}{dx}\right)$, \qquad$p_a = 5$ MPa
+% 
+% 
+\begin{frame}\frametitle{\vspace*{0.5cm}The inferred viscous stress is calculated}
+  \begin{center}
+    $\tau_{xy}(x,y,t) = \mu\left(\frac{\partial u}{\partial y}+ \frac{\partial v}{\partial x}\right)$,
+    \qquad$a_0 = 0.3\ell$ MPa
+  \end{center}
   \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \begin{subfigure}{0.5\textwidth}
-      \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a30_tauxy_27-Feb-2017}
+      \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a30_tauxy_dim_15-Jun-2017}
     \end{subfigure}
     % \caption{$a_0 = 0.3\ell$ MPa}
   \end{figure}
-  Maximum calculated viscous stresses are far below expected stress
-  failure thresholds $80$ kPa for alveolar walls, but the comparison
-  isn't perfect.
+  \vspace*{-0.25cm}
+  \begin{itemize}
+  \item Maximum calculated shear stress, $\approx 50$ Pa 
+  \item $\approx$ alveolar wall stress failure criterion, $8$ kPa \citep{West1991}
+  \end{itemize}
 \end{frame}
-
-
 % 
 % 
-\begin{frame}\frametitle{The interface strain is calculated}
+\begin{frame}\frametitle{\vspace*{0.5cm}The interface strain is calculated}
+  \begin{center}
+    $\varepsilon(t) = \frac{s(t)-s_0}{s_0},    \qquad s = \text{arclength of interface}$
+  \end{center}
   \begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
     \centering
     % \begin{subfigure}[b]{0.49\textwidth}
     %   \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a03_strain_08-Mar-2017}
     %   \caption{\label{fig:strain_multi-pa_a03} $a_0 = 0.03\ell$}
     % \end{subfigure}
     % ~ 
-    % \begin{subfigure}[b]{0.49\textwidth}
-    %   \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a10_strain_08-Mar-2017}
-    %   \caption{\label{fig:strain_multi-pa_a10} $a_0 = 0.1\ell$}
-    % \end{subfigure}
-    % ~ 
-    \begin{subfigure}[b]{0.49\textwidth}
-      \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a30_strain_08-Mar-2017}
+    \begin{subfigure}[b]{0.45\textwidth}
+      \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a10_strain_15-Jun-2017_dim}
+      \caption{\label{fig:strain_multi-pa_a30} $a_0 = 0.1\ell$}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.45\textwidth}
+      \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a30_strain_15-Jun-2017_dim}
       \caption{\label{fig:strain_multi-pa_a30} $a_0 = 0.3\ell$}
     \end{subfigure}
-    % 
-    % \caption{To illustrate the dependence of the interface strain on the
-    % pulse amplitude, the linear strain is plotted as a function of
-    % time for $t\leq500$ for $p_a=1, 2.5,$ and $5$ MPa pulses. Each plot
-    % shows $\varepsilon$ for a different initial
-    % condition. In Figures \subref{fig:strain_multi-pa_a03},
-    % \subref{fig:strain_multi-pa_a10}, and
-    % \subref{fig:strain_multi-pa_a30} $a_0=0.03\ell,\, 0.1\ell,$ and
-    % $0.3\ell$ respectively.}
-    \label{fig:pa_dependence_strain}
   \end{figure}
-
+  \vspace*{-0.25cm}
   \begin{itemize}
-  \item $s(t)$ for $p_a = 1, 2.5, 5$ MPa for $a_0 = 0.3\ell$
-  \item $s(t)$ for $p_a = 2.5$ MPa for $a_0 = 0.03\ell, 0.1\ell, 0.3\ell$
+  \item Strain increases with increasing $p_a$ and $a_0$
+  \item For $a_0=0.3\ell$ and $p_a = 1, 2.5,$ and $5$ MPa maximum strains, at $t \approx 300\mu$s, are $\varepsilon =-0.01, -0.05,$ and $0.38$ respectively.
+  \item $\approx$ alveolar strain failure criterion, $\varepsilon = ?$.
   \end{itemize}
 \end{frame}
 % 
 % 
-\begin{frame}\frametitle{Discussion of results}
+\begin{frame}\frametitle{Discussion and conclusions}%
+  \vfill
   \begin{itemize}
-  \item A single pulse is sufficient to appreciably strain an air-water interface and may similarly strain air-tissue interfaces
-  \item Circulation from subsequent pulses could add up.
-  \item Physical effects such as elasticity and viscosity that don't
-    effect the dynamics here, may plan an important role, so a better
-    description of these properties would be useful.
+  \item A single ultrasound pulse is sufficient to appreciably strain
+    an air-water interface via baroclinic vorticity.\vfill
+  \item Newtonian viscous stress alone is not likely to cause
+    hemorrhage.\vfill  
+  \item Circulation from subsequent pulses could add up.\vfill
+  \item Better characterization of mechanical properties (e.g, elasticity, viscosity) is needed.\vfill
   \end{itemize}
+  \vfill
 \end{frame}
+% 
+% 
+% \begin{frame}\frametitle{Conclusions}%
+%   \vfill
+%   \begin{itemize}
+%   \item I need to finish these slides
+%   \end{itemize}
+%   \vfill
+% \end{frame}
 % 
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -622,6 +828,50 @@
   % 
   \input{./slidedeck/2017-03-09_acoustic_vorticity_conclusions}
   % 
+
+  \begin{frame} \frametitle{\mbox{\textit{Past work:} Acoustic waves are capable of deforming gas-liquid interfaces \citep{Patterson2016}}}
+    \begin{figure}
+      \centering
+      \begin{subfigure}[b]{0.48\textwidth}
+        \def\svgwidth{\textwidth}
+        \import{../figs/avpaper_figs/}{trapezoidal_wave_asa_schematic.pdf_tex}%
+      \end{subfigure}
+      \hfill
+      \begin{subfigure}[b]{0.48\textwidth}
+        \begin{tikzpicture}
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+            \includegraphics[width=0.8\textwidth]{../figs/lung_figs/snapshots_density_t1_t300}
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+            \node[font=\scriptsize,align=left,right] at (0.1,0.92){{\textcolor{white}{Water}}};%
+            \node[font=\scriptsize,align=left,right] at (0.1,0.5){{Air}};%
+          \end{scope}%
+        \end{tikzpicture}
+      \end{subfigure}
+    \end{figure}
+    A trapezoidal acoustic waves caused significant deformations of an
+    almost flat air-water interfaces. Linear acoustics couldn't explain
+    this.
+  \end{frame}
+  \begin{frame} \frametitle{\mbox{\textit{Past work:} Acoustic waves are capable of deforming gas-liquid interfaces}}
+    \begin{figure}
+      \centering
+      \captionsetup[subfigure]{labelformat=empty}
+      \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./figs/vorticity_snapshots_asa}
+      \end{subfigure}
+      % \begin{subfigure}[b]{0.45\textwidth}
+      %   \includegraphics[width=\textwidth]{../figs/avpaper_figs/s_t1000_24-May-2017}
+      %   \caption{\label{fig:trapz_scp_t1000_unscaled} Interface arc length: $s(t) \sim \Gamma(t) t^{\nicefrac{1}{2}}$}
+      % \end{subfigure}
+      \begin{subfigure}[b]{0.45\textwidth}
+        % \includegraphics[height=0.8\textwidth]{../figs/avpaper_figs/a0_t1000_24-May-2017}
+        \includegraphics[height=0.8\textwidth]{../figs/avpaper_figs/intf_amp_t1000_24-May-2017}
+        \caption{ $a(t) \sim t^{\nicefrac{3}{5}}$}
+      \end{subfigure}
+    \end{figure}
+    Vorticity drives deformation in a mathematically describable wave.
+  \end{frame}
 \end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -672,6 +922,8 @@
 
 
 % Backup slides
+\input{./slidedeck/governing_eq}
+\input{./slidedeck/methods_computation}
 \input{./slidedeck/backup_slides}
 \input{./slidedeck/convergence}
 

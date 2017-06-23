@@ -44,11 +44,13 @@
     "import"
     "relsize"
     "tikz"
+    "pgfplots"
     "cancel"
     "multimedia"
     "subcaption"
     "comment"
-    "nicefrac")
+    "nicefrac"
+    "tcolorbox")
    (TeX-add-symbols
     "beginbackup"
     "backupend"

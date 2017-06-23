@@ -12,46 +12,78 @@ The following work was performed to accomplish the first objective:
 \begin{itemize}
 \item \textbf{A model for spherical bubble dynamics in viscoelastic soft tissue was developed.}\\
   In this work, the dynamics of ultrasound contrast agents driven by
-  pulsed ultrasound was simulated. Tissue was treated as a Voigt type
-  viscoelastic material with properties based on those accepted in the
-  relevant literature. In a novel contribution to this area,
-  experimental ultrasound waves with known bioeffects amplitude
-  thresholds \citep{Miller2008b} were used to drive the bubble
-  dynamics.
+  pulsed ultrasound was simulated \citep{Patterson2012}. Tissue was
+  treated as a Voigt type viscoelastic material with properties based
+  on those accepted in the relevant literature. In a novel
+  contribution to this area, experimental ultrasound waves with known
+  bioeffects amplitude thresholds \citep{Miller2008b} were used to
+  drive the bubble dynamics.
 
 \item \textbf{A novel model of an ultrasound pulse driven alveolus was developed.}\\
-  An ultrasound pulse driven alveolus was modeled as a compressible
-  fluid system consisting of an acoustic wave in water propagating at
-  an air-water interface. Using dimensional analysis, it was shown
-  that this model is appropriate for studying the dynamics that occur
-  during the ultrasound-alveolar interaction, and for at least a brief
-  period thereafter. This appears to be the first model of
-  diagnostic-ultrasound alveolar interaction to consider the full set
-  of conservation equations for mass, momentum, and energy.
+  A model of an ultrasound pulse-driven alveolus was developed. The
+  system was modeled as a compressible fluid system consisting of an
+  acoustic wave in water propagating at a perturbed air-water
+  interface. Using dimensional analysis, it is shown that this model
+  is appropriate for studying the dynamics that occur during the
+  ultrasound-alveolar interaction, and for at least a brief period
+  thereafter. This work is unique, as the developed model appears to
+  be the first model of diagnostic-ultrasound alveolar interaction to
+  consider the full set of conservation equations for mass, momentum,
+  and energy. As a consequence of this, the developed model is able to
+  capture nonlinear phenomena that cannot be explained by linear
+  acoustics.
 \end{itemize}
 
 
 To accomplish the second objective, the presented models were used to
-simulate the physics of the relevant problems. With regards to
-ultrasound-driven cavitation of contrast agent microbubbles in a
-viscoelastic, soft tissue-like media, the following conclusions were
-drawn:
+simulate the physics of the relevant problems. 
+
+With regards to ultrasound-driven cavitation of contrast agent
+microbubbles in a viscoelastic, soft tissue-like media -- simulations
+of spherical ultrasound contrast agents driven by experimentally
+generated pulse waveforms were performed. The following conclusions
+were drawn:
 \begin{itemize}
 \item Calculated cavitation metrics in a theoretical viscoelastic
-  media correlate strongly with experimentally observed bioeffects.
-\item Better mechanical characterization of tissue is needed,
-  particularly at the time and length scales of cavitation and
-  ultrasound.
+  media correlate strongly with experimentally observed
+  bioeffects. Simulation results for the maximum dimensionless bubble
+  radius $R_{max}/R_0$, a measure of the violence of a cavitation
+  event, were classified based on whether or not the waveform was
+  known to cause kidney hemorrhage in mice during contrast-enhanced
+  ultrasound, in a previous study \citep{Miller2008}. From a plot of
+  $R_{max}/R_0$ vs \ac{US} frequency it can be seen there are clear
+  regimes in which bioeffects do and do not occur. The observed peak
+  rarefaction amplitude pressure and likely the cavitation threshold
+  rise with increasing frequency.
 \item Cavitation dynamics and bioeffects thresholds depend on
-  frequency and elasticity.
-\item Accepted thresholds for Inertial cavitation in water are not
-  likely to apply directly to bioeffects.
+  elasticity. Within the simulations, a range of elasticity values
+  were considered for the media surrounding the bubble. It was found
+  that increasing the elasticity could either enhance or diminish the
+  strength of the simulated bubble response, based on standard
+  cavitation metrics. The effect of elasticity was found to depend on
+  the waveform of the driving \ac{US} pulse.
+\item Previously established thresholds for inertial cavitation in
+  water, $T_{max} = 5000$ K and $R_{max}/R_0 = 2$
+  \citep{Apfel1991,Yang2005}, are not likely to apply directly to
+  bioeffects. Based on the results of this study, these thresholds do
+  not correspond to cases in which bioeffects were observed. Moreover,
+  observed bioeffects thresholds for $R_{max}/R_0$ were shown to have
+  strong frequency dependence. It seems unlikely that bioeffects
+  thresholds are independent of cavitation thresholds, but rather that
+  these thresholds are not generally valid for ultrasonically driven
+  cavitation in a viscoelastic media.
+\item Better mechanical characterization of tissue is needed. Existing
+  values and models for the mechanical properties and behavior of
+  tissue are incomplete. There is particularly little information
+  available for stresses and strains that occur on the length and time
+  scales relevant to cavitation and ultrasound.
 \end{itemize}
 
-
-
-
-\section{US Lung Conclusions}
+In the interest of studying \ac{DUS}-induced lung hemorrhage, a two
+part study was performed. Using variants on the aforementioned model
+of an ultrasound-driven alveolus, the first study aimed to physically
+describe the dynamics of acoustically-driven gas-liquid interfaces,
+such as those that exist in the alveoli of the lungs.
 \begin{itemize}
 \item A model of an US pulse driven alveolus was developed.
 \item The dynamics of an alveolar wall driven by $1.5$ MHz ultrasound
