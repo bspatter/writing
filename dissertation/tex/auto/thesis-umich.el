@@ -4,7 +4,7 @@
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("report" "letterpaper" "10pt" "twoside" "12pt" "oneside")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("acronym" "printonlyused") ("color" "usenames" "dvipsnames") ("hyperref" "pagebackref=true")))
+                     '(("acronym" "printonlyused") ("tocloft" "titles") ("color" "usenames" "dvipsnames") ("hyperref" "pagebackref=true")))
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
@@ -35,6 +35,8 @@
     "fancyhdr"
     "multicol"
     "changepage"
+    "tocloft"
+    "titlesec"
     "color"
     "hyperref")
    (TeX-add-symbols
@@ -133,13 +135,15 @@
     "listofillustrations"
     "listofprograms"
     "listofappendices"
+    "secapp"
     "listofabbreviations"
     "listofacronyms"
     "listofsymbols"
     "insertabstract"
     "hideabstractpagenumber"
-    "showbstractpagenumber"
-    "abstractpage")
+    "showabstractpagenumber"
+    "abstractpage"
+    "oldpartcommand")
    (LaTeX-add-environments
     "code"))
  :latex)

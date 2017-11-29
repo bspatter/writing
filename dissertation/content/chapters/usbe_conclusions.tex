@@ -1,101 +1,492 @@
-The objectives of this part of the presented dissertation work are (1)
-to develop models for use in the study of diagnostic ultrasound wave
-interactions within tissue and (2) to perform studies to investigate
-the physics and fluid mechanics potentially relevant to specific
-biological effects of diagnostic ultrasound. These objectives were
-pursued for two motivating problems, bioeffects resulting from
-ultrasound-induced cavitation of contrast agent microbubbles, and
-diagnostic ultrasound-induced lung hemorrhage.
+Two problems within the area of diagnostic ultrasound bioeffects
+motivate the work of this thesis presented up to this point. For the
+first problem, we study the dynamics of ultrasonically driven
+microbubbles as it relates to \ac{CEUS}-induced bioeffects. For the
+second problem, we study the physics of acoustic wave interactions with
+gas-liquid interfaces, as it relates \ac{DUS}-induced lung hemorrhage.
+The two primary objectives of this work are:
+\begin{enumerate}
+\item To develop computational models of the aforementioned \ac{US}
+  bioeffects problems.
+\item To perform numerical experiments using these computational
+  models to gain insight into the physics and fluid mechanics
+  underlying \ac{DUS} bioeffects in the context of \ac{CEUS} and
+  \ac{DUS} of the lung.
+\end{enumerate}
+\section{Summary of key contributions and findings}
+\subsection{Bubble Dynamics of Contrast Enhanced Ultrasound and Related Bioeffects}
+To accomplish the first objective in the context of \ac{CEUS} and
+related cavitation bioeffects, we developed \textbf{a model of a
+  contrast agent microbubble subjected to a \ac{DUS} pulse within a
+  compressible, viscoelastic soft tissue \citep{Patterson2012}}, based
+on the works of \cite{Keller1980,Yang2005}. As such, the bubble is
+modeled as a spherically symmetric ideal gas body. The surrounding
+tissue is modeled as a compressible, Voigt viscoelastic material with
+properties relevant to soft tissues based on the literature. The
+ultrasound wave is modeled as a uniform change in the pressure
+immediately surrounding the bubble. In a novel contribution to the
+field, experimentally measured ultrasound waveforms, with known
+bioeffects thresholds \citep{Miller2008b} were used to drive the
+bubble.
 
-The following work was performed to accomplish the first objective:
-
-\begin{itemize}
-\item \textbf{A model for spherical bubble dynamics in viscoelastic soft tissue was developed.}\\
-  In this work, the dynamics of ultrasound contrast agents driven by
-  pulsed ultrasound was simulated \citep{Patterson2012}. Tissue was
-  treated as a Voigt type viscoelastic material with properties based
-  on those accepted in the relevant literature. In a novel
-  contribution to this area, experimental ultrasound waves with known
-  bioeffects amplitude thresholds \citep{Miller2008b} were used to
-  drive the bubble dynamics.
-
-\item \textbf{A novel model of an ultrasound pulse driven alveolus was developed.}\\
-  A model of an ultrasound pulse-driven alveolus was developed. The
-  system was modeled as a compressible fluid system consisting of an
-  acoustic wave in water propagating at a perturbed air-water
-  interface. Using dimensional analysis, it is shown that this model
-  is appropriate for studying the dynamics that occur during the
-  ultrasound-alveolar interaction, and for at least a brief period
-  thereafter. This work is unique, as the developed model appears to
-  be the first model of diagnostic-ultrasound alveolar interaction to
-  consider the full set of conservation equations for mass, momentum,
-  and energy. As a consequence of this, the developed model is able to
-  capture nonlinear phenomena that cannot be explained by linear
-  acoustics.
-\end{itemize}
-
-
-To accomplish the second objective, the presented models were used to
-simulate the physics of the relevant problems. 
-
-With regards to ultrasound-driven cavitation of contrast agent
-microbubbles in a viscoelastic, soft tissue-like media -- simulations
-of spherical ultrasound contrast agents driven by experimentally
-generated pulse waveforms were performed. The following conclusions
-were drawn:
+  To accomplish the second objective, \textbf{we performed simulations
+    of bubble dynamics for bubbles driven by several experimentally
+    measured \ac{US} pulses in soft tissue with variable material
+    parameters including viscosity and elasticity}. Ultrasound waves
+  with frequencies ranging from $1.5$ to $7.5$ MHz and \acs{PRPA}
+  ranging from less than $1$ to greater than $6$ MPa were used. For
+  each frequency, the threshold \ac{PRPA} associated with the onset of
+  bioeffects (specifically, glomerular kidney hemorrhage in rats) was
+  known \citep{Miller2008b}. Metrics associated with the simulated
+  cavitation and bubble dynamics were related to the ultrasound
+  parameters and bioeffects thresholds and the following four conclusions
+  were drawn:
 \begin{itemize}
 \item Calculated cavitation metrics in a theoretical viscoelastic
-  media correlate strongly with experimentally observed
-  bioeffects. Simulation results for the maximum dimensionless bubble
-  radius $R_{max}/R_0$, a measure of the violence of a cavitation
-  event, were classified based on whether or not the waveform was
-  known to cause kidney hemorrhage in mice during contrast-enhanced
-  ultrasound, in a previous study \citep{Miller2008}. From a plot of
-  $R_{max}/R_0$ vs \ac{US} frequency it can be seen there are clear
-  regimes in which bioeffects do and do not occur. The observed peak
-  rarefaction amplitude pressure and likely the cavitation threshold
-  rise with increasing frequency.
+  media correlate with experimentally observed bioeffects. Simulation
+  results for the maximum dimensionless bubble radius $R_{max}/R_0$, a
+  measure of the violence of a cavitation event, were classified based
+  on whether or not the waveform was known to cause kidney hemorrhage
+  in rats subject to \ac{CEUS} in a previous study
+  \citep{Miller2008b}. From a plot of $R_{max}/R_0$ (a common
+  cavitation metric) vs \ac{US} frequency, it is clear that for a
+  given frequency there are distinct regimes in which bioeffects do
+  and do not occur. Explicitly, it was observed that above a certain
+  threshold values of $R_{max}/R_0$ and \ac{PRPA}, bioeffects always
+  occurred, below a different set of threshold values they did not
+  occur. These bioeffects thresholds increased with increasing
+  frequency, and it is likely that the inertial cavitation thresholds
+  increased in a similar fashion.
 \item Cavitation dynamics and bioeffects thresholds depend on
-  elasticity. Within the simulations, a range of elasticity values
-  were considered for the media surrounding the bubble. It was found
-  that increasing the elasticity could either enhance or diminish the
-  strength of the simulated bubble response, based on standard
-  cavitation metrics. The effect of elasticity was found to depend on
-  the waveform of the driving \ac{US} pulse.
-\item Previously established thresholds for inertial cavitation in
+  elasticity, though the relationship is not trivial. Within the
+  simulations, tissue elasticity ranged from $5$ to $1000$ kPa. It was
+  found that increasing the elasticity could either enhance or
+  diminish the strength of the simulated bubble response, based on
+  standard cavitation metrics. For kilopascal order values of
+  elasticity, the bubble dynamics mimicked those expected for an
+  identical experiment in water. The effect of elasticity was
+  found to depend on the waveform of the driving \ac{US} pulse. With
+  the bubble response showing a greater deviation from that expected
+  in water, for higher amplitude and increasingly nonlinear wave.
+\item While never intended to accurately represent cavitation in
+  tissue, previously established thresholds for inertial cavitation in
   water, $T_{max} = 5000$ K and $R_{max}/R_0 = 2$
-  \citep{Apfel1991,Yang2005}, are not likely to apply directly to
-  bioeffects. Based on the results of this study, these thresholds do
+  \citep{Apfel1991,Flynn1975a}, are not equivalent to bioeffects
+  thresholds. Based on the results of this study, these thresholds do
   not correspond to cases in which bioeffects were observed. Moreover,
   observed bioeffects thresholds for $R_{max}/R_0$ were shown to have
   strong frequency dependence. It seems unlikely that bioeffects
   thresholds are independent of cavitation thresholds, but rather that
-  these thresholds are not generally valid for ultrasonically driven
+  these thresholds need to be adjusted for ultrasonically driven
   cavitation in a viscoelastic media.
-\item Better mechanical characterization of tissue is needed. Existing
-  values and models for the mechanical properties and behavior of
-  tissue are incomplete. There is particularly little information
-  available for stresses and strains that occur on the length and time
-  scales relevant to cavitation and ultrasound.
+\item Here, we perform a parameter sweep of several uncertain values,
+  such as elasticity and bubble size demonstrate that deviations of
+  these parameters, within a range of reasonable values, can lead to
+  significantly different results in the simulated dynamics. However,
+  better characterization of tissue and bubble properties is
+  needed. Existing values and viscoelastic constitutive models for the
+  mechanical properties and behavior of tissue are incomplete. There
+  is particularly little information available for stresses and
+  strains that occur on the length and time scales relevant to
+  cavitation and ultrasound.
 \end{itemize}
 
-In the interest of studying \ac{DUS}-induced lung hemorrhage, a two
-part study was performed. Using variants on the aforementioned model
-of an ultrasound-driven alveolus, the first study aimed to physically
-describe the dynamics of acoustically-driven gas-liquid interfaces,
-such as those that exist in the alveoli of the lungs.
+\subsection{Diagnostic Ultrasound-induced lung hemorrhage
+  and acoustically driven gas-liquid interfaces}
+To accomplish the first objective, \textbf{a novel model of an
+  ultrasound pulse-driven alveolus was developed.} An ultrasonically
+driven alveolus is modeled as a 2D compressible fluid system. The
+alveolus is modeled as air and the surrounding tissue as water, with a
+sinusoidally perturbed interface between the two. The ultrasound wave
+is treated as an acoustic wave existing initially in water, which is
+then allowed to propagate toward the interface. As such the overall
+computational model system consists of a rectangular domain containing
+an acoustic wave in water propagating toward a perturbed air
+interface. Using dimensional analysis, it is shown that this model is
+appropriate for studying the dynamics that occur during the
+ultrasound-alveolar interaction, and for at least a brief period
+thereafter. This work is unique, as the developed model appears to be
+the first model of diagnostic-ultrasound alveolar interaction to
+consider the nonlinear conservation equations for mass, momentum, and energy. As
+a consequence of this, the developed model is able to capture
+nonlinear phenomena that cannot be explained by linear acoustics, but
+which we show are important to the system dynamics.
+
+In pursuit of the second objective, the model described above was used
+in a two-part study: \textbf{First, numerical experiments of perturbed
+  gas-liquid interfaces driven by trapezoidal acoustic waves were
+  performed and studied to describe the fundamental fluid dynamics of
+  an acoustically driven gas-liquid interface.} Acoustic parameters
+such as the peak pressure amplitude and wave duration (length) are
+varied and their effect on the system dynamics, particularly with
+regards to vorticity and interface perturbation growth, is
+studied. Using dimensional analysis we develop mathematical
+relationships to describe the response of the interface to the
+trapezoidal acoustic wave.  \textbf{Second, we simulate alveoli-like
+  perturbed liquid gas-interfaces, driven by ultrasound pulse
+  waveforms.} Peak acoustic pressure amplitude and initial
+perturbation amplitude (which corresponds to geometry) are varied to
+study the dynamics for a range of parameters relevant to diagnostic
+lung ultrasound. Computed interfacial stresses and strains are
+compared with alveolar failure criteria. The following five
+conclusions are drawn with regard to acoustically driven gas-liquid
+interfaces and \ac{DUS}-induced lung hemorrhage.
 \begin{itemize}
-\item A model of an US pulse driven alveolus was developed.
-\item The dynamics of an alveolar wall driven by $1.5$ MHz ultrasound
-  pulses of $1, 2.5,$ and $5$ MPa amplitudes were simulated.
-\item Interfaces were shown to continue straining after interacting
-  with the pulse as a result of US-generated baroclinic vorticity. This
-  occurred on timescales less than those expected between pulses for KHz
-  PRF.
-\item Viscous stresses were also computed.
-\item Computed stresses and strains were compared to expected values
-  from the literature.
+\item Acoustically generated baroclinic vorticity may be capable of
+  appreciably deforming perturbed liquid-gas interfaces. For the cases
+  studied here, this was due to the substantial acoustic pressure
+  difference over a short length (megapascals over millimeters), and
+  the nearly discontinuous density profile of the interface. Although
+  the rise from and return to ambient pressures associated with
+  acoustic waves suggests that net vorticity deposited should be zero,
+  such an argument overlooks the transient nature of the process,
+  namely the fact that the baroclinic torque may drive the interface
+  throughout the wave-interface interaction, such that the density
+  gradient is non-constant.
+\item Initially smooth interface perturbations, driven by residual
+  baroclinic vorticity may experience asymptotic power-law growth. The
+  rate of this growth depends on the circulation density at the point
+  in time when the direction of the bubble and spike (interfacial
+  peaks and troughs) velocity can no longer be explained by linear
+  acoustics, necessitating a description of the dynamics which
+  captures the effects of vorticity.
+\item Changes in the acoustic waveform that have little effect on the
+  interface dynamics during the wave-interface interaction, may have a
+  significant long-term effect on the evolution of the interface
+  through the residual vorticity deposited at the interface.
+\item \ac{US} pulses with diagnostically relevant parameters may be
+  capable of inducing significant deformation of gas-liquid interfaces
+  through the generation of baroclinic vorticity at interface
+  perturbations. Gas-liquid interfaces driven by $1.5$ MHz \ac{DUS}
+  pulses with \ac{PRPA}s ranging from $1$ to $5$ MPa were found to
+  deform long after the passage of the wave. For the $5$ MPa waves,
+  observed interfacial strains were reached as high as 38\%, far
+  greater than 8\% expected strain failure thresholds for alveolar
+  walls \cite{Belete2010}. This deformation occurred over a period of
+  fewer than $300~\mu$s, which is less the time period between pulses
+  for a typical \ac{DUS} pulse repetition frequency of 1 kHz.
+  Furthermore, based on dimensional arguments, it was found that the
+  baroclinic vorticity driving the deformation is likely to persist
+  over multiple milliseconds ($\ell^2/\nu=\orderof{\mbox{ms}}$),
+  suggesting that the use of many subsequent pulses, as is the case
+  for clinical \ac{DUS}, may result in an accumulation of vorticity,
+  and thus greater interfacial strain.
+\item Newtonian viscous stresses alone are not likely to be
+  responsible for \ac{DUS}-induced lung hemorrhage. The largest
+  estimated viscous stresses observed were on the order of tens of
+  pascals and were multiple orders of magnitude beneath expected
+  stress failure thresholds.
 \end{itemize}
 
+\section{Overall conclusions}
+Beyond the specific problems of interest studied in this thesis, we
+consider the bigger picture of using computational modeling and
+numerical experiments to study \ac{US} bioeffects problems. With
+regard to this theme, the following two conclusions are drawn based on
+the cumulative efforts presented in this thesis:
+\begin{itemize}
+\item Computational modeling can play a unique and useful role in
+  investigating the physics that underlies ultrasound bioeffects. The
+  purpose of computational studies such as those presented here is to
+  gain insight which can be useful for supplementing, explaining, and
+  guiding experiments. When used as a supplement to experimental
+  techniques computational models can provide estimates of difficult
+  to measure physical quantities that may play an important role in
+  the occurrence of the biological effects such as elevated
+  temperature and pressure in a collapsing bubble, as Chapter
+  \ref{ch:usbe_bubble}. Additionally computational models can be
+  useful when trying to answer questions that cannot be readily
+  treated through modern experimental methods. For instance
+  \ac{DUS}-induced lung hemorrhage cannot be directly observed in real
+  time through modern medical imaging techniques due to the structural
+  complexity of the lung and surrounding tissues and the small spatial
+  and time scales associated with the hemorrhage. Partly as a
+  consequence of this, the mechanism driving the hemorrhage is still
+  unknown. However, potential physical damage mechanisms can be
+  discovered and studied through computational modeling. This is the
+  case in Chapters \ref{ch:usbe_lung} and \ref{ch:usbe_lung_bio}, in
+  which acoustically-generated baroclinic vorticity induced strain is
+  shown to occur at alveoli-like gas-liquid interfaces. This possible
+  damage mechanism has not been previously considered. And while this
+  mechanism cannot be confirmed numerically, it highlights the
+  importance of nonlinearity in the problem, an aspect of the physics
+  that is often ignored and worthy of further study.
+  \begin{comment}
+    The potential of computational modeling to answer questions of
+    ultrasound bioeffects can only be realized if the models
+    themselves hold at least qualitatively true to reality within the
+    regimes of interest, which leads us to our next conclusion.
+  \end{comment}
+
+\item Based on the cumulative results of this part of the
+  dissertation, we conclude that for computational modeling of
+  ultrasound bioeffects to be optimally useful for research purposes,
+  there is a necessity for more accurate physical characterizations of
+  tissue than are currently available. And secondarily, for these
+  models to ever be clinically useful for predicting individual
+  occurrence of bioeffects, they will likely need to be adapted on a
+  case-by-case basis. The models developed and used in this thesis are
+  justified for their stated regimes based accepted data available at
+  the time of their creation. However, it is widely known that soft
+  tissues are complex media which exhibit a wide variety of physical
+  properties that are not well characterized in all regimes. Physical
+  properties such as elasticity, viscosity, and stress-strain
+  relationships can vary widely depending on variable physical state
+  of tissue (e.g., stress, strain, strain rate, temperature, degree of
+  hydration, etc...). Reported values for these properties vary
+  widely in the literature and are frequently unavailable entirely for
+  the regimes of interest to many ultrasound bioeffects problems. For
+  example, repeatedly experimentally validated viscoelastic models for
+  soft tissues subject to strain rates of the order of those
+  associated with inertial cavitation are rather hard to come by in
+  this author's experience. In spite of this scarcity of information,
+  the dynamics of the \ac{US} bioeffects problems can be highly
+  dependent on these poorly characterized parameters, as in the case
+  of the elasticity-dependent cavitation bubble dynamics of Chapter
+  \ref{ch:usbe_bubble}. Furthermore, there are certain aspects of
+  these problems that can vary widely from person to person, and as
+  such for computational models to be of clinical use for predicting
+  or estimating ultrasound bioeffects they will likely need to be
+  adapted for these variations. For instance, in our consideration of
+  diagnostic lung ultrasound in Chapters \ref{ch:usbe_lung} and
+  \ref{ch:usbe_lung_bio}, we neglect the attenuation of the wave that
+  would realistically occur before it enters the lungs. This
+  attenuation depends on the thickness of the thoracic wall and as can
+  be readily observed in any populated area, human geometries vary
+  significantly between individuals. As such, two different people subject to
+  identical \ac{DUS} pulses for diagnostic lung imaging may experience
+  very different degrees of biological effects. If the models
+  developed here are to be used in the future, it will be important to
+  adapt them for the specific problem of interest based on the best
+  available data at the time.
+\end{itemize}
 
 \section{Recommendations for future work}
+In this section, we offer suggestions for which some of the works of
+this thesis may be improved upon or expanded. With the end goals of
+increasing the relevance of this dissertation work to the motivating
+problems and applications and better understanding the underlying
+physics, the suggested strategies for advancing the works of this
+thesis can be generally summarized into a broad three-part
+strategy. First, advance the computational model by adding physical
+phenomena neglected here for fundamental study and problem
+tractability, but which may be of relevance to the motivating problem
+or application. Second, where possible, use experimental data as part
+of the initial problem setup, such as experimentally measured acoustic
+waves or physical geometries. Third, perform simulations which attempt
+to computationally replicate experimental studies or portions thereof
+and compare results. For example, parametric studies with variable
+ultrasound parameters could examine trends and dependencies which
+have already been observed experimentally, such as the difference in
+thresholds pressures with varying exposure duration. Where sensible,
+use the resulting information gained from the numerical experiments to
+look for new insight into the cause of the observed trends. In the
+remainder of this section there is a short piece with more specific
+recommendations for future work related to the study of \ac{CEUS}
+bioeffects as in Chapter \ref{ch:usbe_bubble} and a more extensive
+piece focusing on extending the work of Chapters \ref{ch:usbe_lung}
+and \ref{ch:usbe_lung_bio}.
+
+\subsection{Extending and improving the study of bubble dynamics at
+  capillary breaching thresholds}
+As the work of Chapter \ref{ch:usbe_bubble} was published several
+years before the writing of this thesis, it is perhaps unsurprising
+that the author's labmates and colleagues have already extended areas
+of that work significantly. Specifically, bubble dynamics models that
+account for heat and mass flux and incorporate more robust
+viscoelastic constitutive models have been developed
+\citep{Gaudron2015,Warnez2015,Barajas2017}. By combining these
+advanced bubble models with the experimentally measured \ac{US} pulses
+and bioeffects thresholds featured in Chapter \ref{ch:usbe_bubble}, it
+may be possible to obtain a better understanding of the relationship
+between the cavitation dynamics and observed bioeffects
+thresholds. Specifically one could look for qualitative changes in the
+bubble dynamics behavior that happens at or around the \ac{PRPA}
+thresholds associated with the onset of hemorrhage. Though our work
+considers contrast agent microbubbles after their shells have
+ruptured, one could extend this work by also incorporating the
+effects of the protein and lipid coatings that surround \ac{CEUS}
+microbubbles, as was done by \cite{Marmottant2005}. While these
+suggestions extend the work by advancing the spherically symmetric
+bubble model, none of the proposed recommendations thus far captures
+3D effects which may also be of importance. Along these lines, one
+could use the basic problem setup, driving pressure waves, and initial
+conditions from Chapter \ref{ch:usbe_bubble} to design direct
+numerical simulation experiments, solving appropriate forms of the
+equations for conservation of mass, momentum, and energy with a
+relevant constitutive relationship and equation of state for closure.
+
+\subsection{Extending and improving the physical model of \ac{DUS} lung-interaction}
+One of the directions upon which one could build upon the work of
+Chapters \ref{ch:usbe_lung} and \ref{ch:usbe_lung_bio} is to increase
+the relevance to actual physical lung ultrasound. In the design of our
+model, the consider an idealized problem setup with a well defined
+interface and waveform. This is well suited for the type of
+fundamental studies that are performed in this dissertation, because
+various parameters carefully controlled and the dependence of the
+dynamics on each can be isolated. Additionally, results from the
+simplified model are more generalizable than those obtained from a
+more realistic setup which would inherently require more specified,
+unique geometries and waveforms. However, there is value in aiming to
+increase the relevance of the model to the physical problem and there
+are a variety of areas upon which our model could be made more
+realistic and relevance to the motivating problem, by adjust the model
+system's physics and geometry. Here we discuss a few of the
+limitations of the present work in this regard and offer suggestions
+for ways to overcome these limitations and extend and improve the
+current work.
+\subsubsection{Improving the lung model}
+\begin{itemize}
+\item \textbf{Inclusion of presently neglected physical mechanisms}\\
+  In the introduction to the present work we present conservation
+  equations \ref{eq:intro_conservation} for mass momentum and energy
+  and then perform dimensional analysis to justify neglecting various
+  physical effects during the time and spacial scales of interest to
+  the studies performed here, and in Appendix
+  \ref{sec:elasticity_appendix} we go one step further modeling the
+  elastic and inertial forces at the interface to show that elasticity
+  is of relatively little importance for the problems we
+  consider. However, we note within this work that two of these
+  effects, viscosity and elasticity, are likely to be more important
+  if considering longer time scales, over which viscosity will
+  dissipate energy and elastic forces will increase with increasing
+  strain. These effects may be considered by adding the appropriate
+  terms to the equations of motion that are solved here. While the
+  ideal constitutive equation to relate the stress and strain is not
+  well known for ultrasonic regimes, there has been work in this area
+  that could be integrated into the existing framework and built
+  upon. \cite{Lanir1983} developed a viscoelastic constitutive model
+  relating the alveolar membrane and its liquid interface to the bulk
+  tissue properties and later \cite{Kowe1986} and \cite{Denny2000}
+  built upon this, developing alveolar finite element models. As these
+  effects are completely excluded in the present work, any reasonable
+  extension in this direction is likely to help generate solutions
+  that are closer to the physical reality, particularly over the
+  longer timescales associated with typical diagnostic imaging
+  exposure durations.
+\item \textbf{Use of realistic alveolar geometries} In the present
+  work, the morphology of the alveolar wall is approximated as a
+  smooth sinusoidal perturbation between fluids. However, as was
+  illustrated in Figure \ref{fig:alveolar_histology}, the true
+  morphology is far more complicated. This relevance of this work to
+  mammalian \ac{DUS} could greatly be improved by building a problem
+  geometry based on a histological cross-section of alveolar tissue,
+  which can be obtained at micron-resolution using microfocal X-ray
+  \cite[]{Litzlbauer2006}. These images could then be used to define
+  an initial volume fraction field based on the brightness of each
+  pixel. This could be further extended to 3D by using the methods
+  described by \cite{Parameswaran2009}. While the numerical methods
+  used in this work are too computationally expensive to be practical
+  for geometries such as this over the timescales of interest,
+  experiments such as this would be useful for investigating the
+  mechanism by which hemorrhage propagates into successive layers of
+  alveoli.
+\end{itemize}
+
+
+\subsubsection{Improving the ultrasound model}
+\begin{itemize}
+\item \textbf{Experimentally measured \ac{US} pulse waveforms}\\
+  The ultrasound pulse used in the work presented in Chapter
+  \ref{ch:usbe_lung_bio} was a simplified waveform consisting of a
+  sinusoidal wave modulated by a Gaussian envelope. Consequently,
+  certain potentially important features of experimental ultrasound
+  waveforms, such as nonlinearity and the resulting high pressure
+  gradients, are not captured. By using experimentally measured
+  waveforms to drive the problem, the effects of these features can be
+  studied. This would also aid in the comparison of numerical and
+  experimental results, which will be discussed in more detail at the
+  end of this section.
+
+\item \textbf{Simulations over clinically relevant timescales, with
+    multiple pulses}\\Research suggests that the total number of
+  pulses (\ac{PRF} $\times$ \ac{ED}) used in \ac{DUS} of the lung has
+  a significant effect on \ac{US}-induced hemorrhage
+  \citep{OBrien2005,OBrien2001a}. And the results of Section
+  \ref{subsubsec:transient} suggest that circulation deposition and
+  therefore interfacial strain and perturbation growth may be
+  controllable using multiple carefully designed pulses. However, the
+  current computational model of an ultrasound-driven alveolus is too
+  computationally expensive to simulate multiple \ac{US} pulses at a
+  realistic \ac{PRF} (e.g, $\sim 1$ KHz). This problem is in large
+  part a consequence of the highly variable length and timescales that
+  exist in \ac{DUS} of the lung. First, we consider the difference in
+  length scales between the alveolus ($\orderof{10^{-4}}$ m) and the
+  physical length of the acoustic wave ($\orderof{10^{-3}}$
+  m). Because the acoustic wave begins in the domain, the domain must
+  be sufficiently large enough to capture it entirely and allow it to
+  leave without significant boundary effects. However, to also capture
+  the dynamics of the interface, it is necessary to use sufficiently
+  high resolution, particularly within portion of the domain
+  containing the interface, which often changes considerably over the
+  course of a simulation. Second, we consider the difference in
+  timescales between the wave-interface interaction ($\sim\mu$s) and
+  the amount of time between pulses, over which the interface is
+  expected to continually evolve ($\sim$ms). Such that even using an
+  adaptive timestep obeying the Courant-Friedrichs-Lewy condition
+  ($\mbox{CFL} = \frac{\boldsymbol{u}_{max}\Delta t}{\Delta x}\leq
+  0.5$), the problem must run for many timesteps (typically
+  $\sim{10^5}$ for a $300 \mu$ s simulation) due to the high spacial
+  resolution. Thus we have a large domain, at high resolution, running
+  for many timesteps, and hence a computationally expensive problem,
+  which in practice takes weeks to months of real-time to simulate.
+  
+  To decrease the computational cost of the simulation in a way that
+  simultaneously allows for the use of multiple ultrasound pulses we
+  suggest implementing time-dependent boundary conditions to prescribe
+  the incoming acoustic wave and prevent reflections. This could be
+  done using the methods described by
+  \cite{Thompson1987a,Thompson1990a}. The dynamic creation of the
+  acoustic waves at the boundary, such that they do not need to be
+  prescribed in the initial domain, would allow the computational
+  domain to be shortened by the length of the wave at the very
+  least. Furthermore, because these boundaries can be designed to be
+  strongly non-reflective, the need for the stretched grid at the top
+  and bottom of the domain is removed. As such, the overall domain
+  size may be decreased by as much as tenfold in the vertical
+  direction, greatly reducing the computational costs. Additionally, a
+  time-dependent boundary formulation would allow for the creation of
+  waves at late times, such that multiple pulses could be simulated.
+
+  The implementation of the suggested time-dependent boundary
+  conditions \ac{DG} spatial schemes is technically difficult. While
+  it is possible to adapt these techniques \citep{Toulopoulos2011}, it
+  is recommended that if this course of research is undergone, one
+  might consider other numerical techniques suitable for these
+  problems, such as \ac{WENO} methods. While these methods lack
+  certain advantages of \ac{DG} (e.g., compact stencil), they offer
+  benefits such as being more readily developed for the solution of
+  the Navier-Stokes equations, if one wished to add viscosity to the
+  problem, as suggested above.
+
+\item \textbf{Comparison of computational and experimental results}\\
+  In order to test the hypotheses proposed within this thesis, there
+  is a need for fundamental liquid-gas interface experiments with
+  waveforms relevant to \ac{DUS}. Once an theoretical explanation of
+  the fluid mechanics of these interface problems (as is offered in
+  this thesis) is experimentally validated, simulations closer to
+  reality should be performed. While the studies and simulations
+  performed as part of this dissertation work do not occur over the
+  typical timescales associated with \ac{DUS}-induced lung hemorrhage,
+  by implementing the previous suggestions we can begin to simulate
+  something much closer to the typical experimental setups used to
+  study this problem. As was done for \ac{CEUS} in Chapter
+  \ref{ch:usbe_bubble}, simulated dynamics can be compared to
+  experimental results. To further study the feasibility of the
+  proposed physical mechanism underlying \ac{DUS}-induced lung
+  hemorrhage: baroclinic vorticity driven strain of the alveolar wall,
+  one could begin to more rigorously study the dependence of the
+  vortex dynamics and associated strain on ultrasonic parameters for
+  which the hemorrhage dependence is already well understood. The
+  dependence of lung hemorrhage on a variety of ultrasonic parameters
+  (e.g., pulse repetition frequency, pulse duration, effective dose,
+  pulse frequency, exposure duration) been studied extensively. The
+  dependence of baroclinic vorticity-induced strain on these
+  parameters has not been rigorously investigated. One could go a long
+  way toward supporting or ruling out the proposed damage mechanism by
+  comparing the relationships between these parameters and hemorrhage
+  to relationships between these parameters and simulated vorticity
+  dynamics and strain.
+\end{itemize}
+
+

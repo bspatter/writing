@@ -10,7 +10,7 @@
     "Cavalcante2005"
     "Child1990"
     "Fraley1986"
-    "Haast1987"
+    "Haas1987"
     "Hawley1989"
     "HenrydeFrahan2015"
     "HenrydeFrahan2015b"

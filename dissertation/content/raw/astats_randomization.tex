@@ -1,5 +1,12 @@
 \section{Area statistics randomizations}
+\addcontentsline{loa}{section}{\protect\numberline{\thesection}\Sectionname}
 %
+This appendix is meant largely to serve for personal reference and
+serves to explain some of the finer points of the Monte Carlo
+randomization techniques used in Chapter
+\ref{ch:astats}. Specifically, some of the details useful in
+replicating or programming the bathymetry and sound speed
+randomization are detailed herein.
 \subsection{Bathymetry}
 For each of $N$ Monte Carlo sample runs, the bathymetry profile is a
 function of range $r$, depth $z$, and is determined through a
@@ -41,19 +48,17 @@ determined through a stochastic process represented by $\xi$.
 Where $n=0,1,2,...,N$. $c_\mu$ is the best estimate sound speed
 profile, which is calculated as the month-averaged velocity profile at
 a given location $(r,z)$. $c_\sigma(r,z;\xi)$ is the stochastic
-portion of the sound speed profile and $\xi_n$ is a random event.
-
-At each range of interest, $c_\mu$ is obtained by finding the average
+portion of the sound speed profile and $\xi_n$ is a random event. At
+each range of interest, $c_\mu$ is obtained by finding the average
 averaging 1 sound speed profile per month over an $M$ month
-timespan. Monthly profiles are obtained from GDEM (Generalized Digital
-Environment Model), part of Oceanographic and Atmospheric Master
-Library (OAML). Unique sound speed profiles are obtained at
-approximately 30 arcminute intervals based on the resolution limits of
-the database. For the sake of implementing range-dependence in the
-sound speed profiles, these 30 arcminute intervals are converted to
-approximately $56$ km. Note that while this is not strictly accurate
-as the conversion is spatially dependent, it is reasonable at sea
-level.
+timespan. Monthly profiles are obtained from private
+databases. %GDEM (Generalized Digital Environment Model), part of Oceanographic and Atmospheric Master Library (OAML).
+% Unique sound speed profiles are obtained at approximately 30 arcminute
+% intervals based on the resolution limits of the database. For the sake
+% of implementing range-dependence in the sound speed profiles, these 30
+% arcminute intervals are converted to approximately $56$ km. Note that
+% while this is not strictly accurate as the conversion is spatially
+% dependent, it is reasonable at sea level.
 
 To calculate $c_\sigma(r,z;\xi_n)$ empirical orthogonal functions are
 used to randomize the sound speed profile for each Monte Carlo sample

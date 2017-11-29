@@ -1,146 +1,511 @@
-The purpose of this introduction is to set the stage for the rest of
-this dissertation part and the research presented herein. Here I will
-establish the merit and relevance of the presented work. The problems
-approached here apply to a variety of active areas of study and modern
-applications within the fields of acoustics and fluids, though the
-primary focus and motivation of this work, is better understand the
-physics related to specific biological effects of
-\ac{DUS}. Accordingly, I describe the driving physical mechanisms of
-interest to these problems, which are studied. The framework from
-which I approach these problems by modeling tissue as a compressible
-fluid system is also discussed. Finally, an overview of the goals and
-contributions of this thesis are presented.
+In this chapter we establish the merit and relevance of the presented
+work. The problems approached here apply to a variety of active areas
+of study and modern applications within the fields of acoustics and
+fluid mechanics, though the primary focus and motivation of this work
+is to better understand the underlying physics of specific biological
+effects of \ac{DUS}. An understanding of the physical mechanisms
+underlying \ac{DUS} bioeffects is necessary for evidence-based
+regulation. Accordingly, we describe the driving physical mechanisms
+of interest in these problems. We also discuss the specific problems
+we will be approaching and the framework we use to approach
+them. Finally, an overview of the goals and contributions of this part
+of the thesis are presented.
 
-\section{A physical description of sound}
-Sounds are molecular-scale vibrations traveling through a
-medium. Atoms and molecules perturbed or displaced collide with
-neighboring atoms and molecules, which collide with their neighbors
-and so on. In this way, mechanical energy propagates as a wave, away
-from the initial perturbation location, through any gas, liquid, or
-solid medium. This is the basic mechanism by which sound moves through
-all matter whether it be the tissues in human body, the water in the
-oceans, or the plasma in the stars. Through years of study and
-experimentation, man has gained a deep understanding for the physical
-behavior of sound and has learned to harness it as a tool, leading to
-high-impact advancements throughout \ac{STEM} in areas ranging from
-climate change to structural health monitoring and diagnostic and
-therapeutic medicine. While much of our basic understanding of sound
-has come from the theoretical study of sound propagating through a
-constant, infinite, homogeneous medium, there is no such medium in
-reality, and many of the interesting physical questions and real
-world applications of sound are concerned with the scenarios in which
-sound acts to physically alter the medium through which it is
-traveling.
+\section{A physical description of sound as it relates to this work}
+Sounds are vibrations traveling through a medium. Parcels of material
+perturbed or displaced collide with their neighbors, which
+collide with their neighbors and so on. In this way, mechanical energy
+propagates as a wave at a finite speed, away from the initial
+perturbation location, through any gas, liquid, or solid medium. This
+is the basic mechanism by which sound moves through all matter whether
+it be the tissues in the human body, the water in the oceans, or the
+plasma in the stars.
 
-The focus of this part of thesis is on problems in which sound travels
-between multiple media in such a way that the media themselves are
-physically changed or affected. Typically, when sound traveling in one
-medium encounters another medium, a portion of the acoustic energy is
-transmitted into the new medium, while the remainder is reflected
-and scattered back into medium from which the sound originated. In
+The scientific study of sound, in all its many forms, is what we refer
+to as \emph{acoustics}. Through years of study and experimentation,
+mankind has gained a deep understanding of the physical behavior of
+sound and has learned to harness it as a tool, leading to high-impact
+advancements throughout \ac{STEM} in areas ranging from climate change
+(by monitoring the ocean's acoustic properties) to structural health
+monitoring and diagnostic and therapeutic medicine. Much of our basic
+understanding of sound has come from the theoretical study of sound
+passively propagating through a constant, infinite, homogeneous
+medium. However, in reality no such medium exists and sound is not
+always passive. Indeed many of the interesting physical questions and
+real-world applications of interest to modern acousticians are
+concerned with the scenarios in which sound is traveling through a
+complicated medium which it sometimes physically alters. In this
+thesis, we hope to advance the study of acoustics by studying a few of
+these scenarios.
+
+The focus of this part of the thesis is on problems in which sound
+travels between multiple media and causes a physical change in the
+system as it travels. Typically, when sound traveling in one medium
+encounters another medium, a portion of the acoustic energy is
+transmitted into the new medium, while the remainder is reflected and
+scattered back into the medium from which the sound originated. In
 most cases, this results in little change in the media themselves,
 however, in some instances, acoustic energy can be converted into
 other forms of energy such as kinetic or thermal, resulting in bulk
-motion or heating of the media respectively. An example of this is a
-gas-vapor bubble within water or tissue driven by an acoustic wave. As a result
-of rising and falling acoustic pressure the bubble may oscillate or
-collapse, changing the temperature or pressure within the bubble and
-driving the motion of the surrounding medium. Another example is the
-dissipation of acoustic energy as heat through viscous mechanisms,
-resulting in a temperature rise in a viscous medium with an acoustic
-field. The resulting thermal or physical stresses associated with the
-heating or movement of the media may result in a physical change (eg.,
-phase change) or chemical change (eg., denaturation of proteins in
-tissue). The ability of acoustic waves to physically alter a media is
-of particular interest to the field of medical ultrasound, in which it
-is relevant to both safety concerns in the context of diagnostic
-sonography and engineering concerns in the context of therapeutic
-\ac{US}.
+motion or heating of the media. Conversion of energy such as this is
+often consequence of nonlinearity in the system, which can arise from
+physical properties of the system such as a liquid-gas interface, or
+from sufficiently strong acoustic waves
+($Acoustic\, pressure / [density \cdot sound\, speed^2] \nll 1$). An
+example of acoustic energy becoming kinetic as a result of a
+nonlinearity in the physical system is a gas-vapor bubble within water
+or tissue driven by an acoustic wave. As a result of rising and
+falling acoustic pressure, the bubble may oscillate or collapse,
+changing the temperature and pressure, and driving the motion within
+the bubble and the surrounding medium. The absorption of acoustic
+energy into the medium as heat resulting in a temperature rise (due to
+localized compression) in a viscous medium is an example of an effect
+that can be particularly important for strong, nonlinear acoustic
+waves. Additionally, localized compression/rarefaction due to strong
+nonlinear acoustic waves can result in an increase in localized sound
+speed, causing waves to sharpen into shocks, introducing further
+nonlinearity. In any case, the resulting thermal or physical stresses
+associated with the heating or movement of the media may result in
+physical (e.g., phase transition) or chemical (e.g., protein
+denaturation) changes. The ability of acoustic waves to physically
+alter a medium is of particular interest and relevance to the field of
+medical ultrasound, in which such alteration is relevant to both
+safety concerns in the context of diagnostic sonography and
+engineering concerns in the context of therapeutic \ac{US}.
 
-\section{Ultrasound in medicine and biological effects}
-The use of ultrasound in medicine dates back to the 1940s, when
-Austrian neurologist Dr. Karl Theodore Dussik attempted to use
-transmission ultrasound to outline the ventricles of the brain
-\citep{Dussik1942,Singh2007}. Since then the abilities and use of
-\ac{US} have expanded greatly and the technology has proven to be a
-powerful tool for noninvasive therapies and safe, real-time diagnostic
-imaging. Consequently, the use of \ac{US} has become ubiquitous
-throughout modern medicine.
+\acresetall
+\section{Ultrasound in medicine and biological effects} % 
+\ac{US} refers to sounds or vibrations with frequencies beyond that
+audible to the human ear, typically $>20$ kHz. The use of \ac{US} in
+medicine dates back to the 1940s when Austrian neurologist Dr. Karl
+Theodore Dussik attempted to use transmission ultrasound to outline
+the ventricles of the brain \citep{Dussik1942,Singh2007}. Since then
+the abilities and use of \ac{US} have expanded greatly and the
+technology has proven to be a powerful tool for noninvasive therapies
+and safe, real-time diagnostic imaging
+\citep{Dalecki2004}. Consequently, the use of \ac{US} has become
+ubiquitous throughout modern medicine. The bulk of the present work
+will focus on \ac{DUS}, which is routinely used for noninvasive
+imaging of a range of soft tissues including muscles, tendons, organs,
+glands and neonatal fetuses.
 
-For context, I will explain the basic physical processes that occur
-during \ac{US} procedures. In practice, high-frequency, typically MHz
-range, acoustic waves and pulses are created at the surface of the
-body using a piezoelectric \ac{US} transducer. These vibrations, or
-acoustic waves, propagate via an impedance matching, acoustic coupling
-medium from the transducer into the tissue. Once in the tissue, a
-portion sound scatters at material interfaces within the body, where
-acoustic impedance changes, or more simply, some of the sound echoes
-whenever it moves from one tissue to another, or encounters a cavity
-in the body. This scattering of sound is the basic physical principle
-that makes the use of ultrasound for diagnostic imaging possible. In
-\ac{DUS}, scattered echoes are picked up by a receiver, recorded, and
-processed. The strength and timing of these echoes are used to
-generate a real-time image of the scattering surface. This passage of
-acoustic waves through tissue does not typically directly alter or
-affect the tissues structures or processes and the use of ultrasound
-for imaging is typically considered safe and noninvasive. Despite
-this, this process is not entirely passive. When energy from
-ultrasound is converted to kinetic or thermal energy, within tissue,
-it can physically alter or damage that tissue through a variety of
-mechanisms. These effects to the body are referred to as \ac{US}
-bioeffects. In therapeutic applications, \ac{US} is used to
-intentionally cause desirable bioeffects that are beneficial to the
-patient. In the case of diagnostic ultrasound, bioeffects are
-generally undesirable side effects that are avoided if
-possible. Ultrasound bioeffects have motivated extensive research for
-use in the development of effective guidelines and regulations for the
-development and use of safe \ac{US} technologies and
-procedures. 
+For context, we explain the basic physical processes that occur during
+\ac{US} procedures. In practice, high-frequency, typically MHz-range,
+acoustic waves and pulses are created at the surface of the body using
+a piezoelectric \ac{US} transducer. These acoustic waves, propagate
+via an impedance matching, acoustic coupling medium from the
+transducer into the tissue. Once in the tissue, a portion of the sound
+scatters at material interfaces within the body, or more simply, some
+of the sound echoes whenever it moves from one tissue to another or
+encounters a cavity in the body. More precisely put, a portion of the
+sound is reflected when it encounters a change in the acoustic
+impedance, defined as the product of the density and sound speed of
+the medium. This scattering of sound is the basic physical principle
+that makes ultrasound for diagnostic imaging possible. In \ac{DUS},
+some of the reflected sounds encounter a receiver. This receiver is
+typically also a piezoelectric transducer, and much like the process
+of generating the wave, but in reverse, the receiver is vibrated and
+converts the acoustic signal to a series of electrical pulses. The
+signal is amplified, recorded, transmitted to an ultrasound scanner or
+another computer where it is processed. The strength of the received
+signal is indicative of the impedance mismatch at the reflective
+surface and is indicated as brightness in an ultrasound image. The
+timing of the receipt of the reflected signal across the receiver is
+determined by the shape of the reflecting surface. By processing this
+information, a real-time image of the reflecting surface is
+generated. An example ultrasound image of a fetus is shown in Figure
+\ref{fig:fetus_example}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.65\textwidth]{./figs/intro_figs/ultrasound_example}
+  \caption[An example diagnostic ultrasound image of a featus at 12
+  weeks in a sagittal scan.]{An example diagnostic ultrasound image of
+    a featus at 12 weeks in a sagittal scan. Author Wolgang Moroder
+    [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0),
+    via Wikimedia Commons]}
+  \label{fig:fetus_example}
+\end{figure}
+
+The passage of acoustic waves of diagnostically relevant amplitudes
+through tissue does not typically permanently alter or affect the
+tissues structures or processes and the use of ultrasound for imaging
+is typically considered safe and noninvasive. However, the passage of
+acoustic waves through a medium is not entirely passive under all
+circumstances \citep{Nyborg2001}. When energy from ultrasound is
+converted to kinetic or thermal energy, within a tissue, it can
+physically alter or damage that tissue through a variety of mechanisms
+\citep{OBrien2007}. These effects are referred to as \ac{US}
+bioeffects and can be beneficial or detrimental depending on their
+exact nature. In therapeutic applications, \ac{US} is used to
+deliberately cause desirable bioeffects that are beneficial to the
+patient. \ac{DUS} is typically designed to minimize interaction
+between the acoustic field and tissue \citep{Dalecki2004} (as per
+United States Food and Drug Administration Regulation), and bioeffects
+are generally undesirable side effects that are avoided if
+possible. Ultrasound bioeffects have motivated extensive research into
+the development of effective guidelines and regulations for safe
+\ac{US} technologies and procedures.
 
 A large portion of past research into ultrasound bioeffects has
 focused on determining what types of \ac{US} bioeffects exist, and
 under what circumstances they occur. This work has shown that
 bioeffects may take on a variety of different forms, depending on the
-\ac{US} parameters and type of tissue exposed. Various kinds of
-hemorrhage and cell death are among the most common forms of \ac{US}
-bioeffects. In gaseous tissues such the lung and intestines,
-ultrasonically induced hemorrhage has been
-observed. \cite{Lehmann1953} and \cite{Miller1994} observed abdominal
-petechial hemorrhage as a result of unfocused ultrasound in mice. And
-\cite{Child1990} found hemorrhage in mouse lungs after the animal was
-exposed to lithotripter pulses. Numerous other studies have been
-performed on the topic of US-induced lung hemorrhage and a much deeper
-review can be found in chapters \ref{ch:usbe_lung} and
-\ref{ch:usbe_lung_bio}. Pulsed ultrasound of the heart has been shown
-to be capable of inducing cardiac contractions in frogs and mice
-\citep{Dalecki1993,MacRobbie1997}. Cell death has been observed in
-liver, kidney, and heart as a result of \ac{CEUS}, which uses
-injections of contrast microbubbles as additional scattering surfaces
-\cite{Skyba1998, Miller2008a}. In this thesis I will use computational
-models to investigate bioeffects resulting from \ac{CEUS} and
-\ac{DUS}-induced lung hemorrhage.
+\ac{US} parameters and type of tissue exposed
+\citep{NCRP2002}. Various kinds of hemorrhage and cell death are among
+the most common forms of \ac{US} bioeffects. In tissues containing
+gases such as the lung and intestines, ultrasonically induced
+hemorrhage has been observed. \cite{Lehmann1953} and \cite{Miller1994}
+observed abdominal petechial hemorrhage as a result of unfocused
+ultrasound in mice. And \cite{Child1990} found hemorrhage in mouse
+lungs after the animal was exposed to lithotripter pulses. Numerous
+other studies have been performed on the topic of US-induced lung
+hemorrhage and a much deeper review is given in chapters
+\ref{ch:usbe_lung} and \ref{ch:usbe_lung_bio}. Pulsed ultrasound of
+the heart has been shown to be capable of inducing cardiac
+contractions in frogs and mice \citep{Dalecki1993,MacRobbie1997}. Cell
+death has been observed in liver, kidney, and heart tissue as a result
+of \ac{CEUS}, which uses injections of microbubbles as
+additional scatterers for image contrast\cite{Skyba1998, Miller2008a}.
+
+\subsection{Physical mechanisms of ultrasound bioeffects and problem
+  description} \label{sec:bioeffects_mechanisms}%
+Depending on the type of physical damage mechanism responsible,
+\ac{US} bioeffects are classified into two groups, thermal and
+non-thermal \citep{Dalecki2004}. While both thermal and non-thermal
+bioeffects may occur simultaneously, one or the other is often
+dominant. The first group, thermal bioeffects, are characterized by
+deposition of acoustic energy into tissue as heat and are often a
+result of therapeutic, rather than diagnostic, ultrasound. This
+heating can lead to a variety of deleterious effects including the
+release of highly reactive free radicals, protein denaturation at the
+molecular level, and death at the cellular level, ultimately causing
+tissue damage or death. As an example, one class of therapeutic
+\ac{US}, known as \ac{HIFU} uses strong, concentrated acoustic waves
+to intentionally convert acoustic energy to heat through viscous
+dissipation and thermal diffusion. \ac{HIFU} is typically at MHz order
+frequencies and intensities up to 10,000 W/cm$^2$. \ac{HIFU} is used
+to raise the temperature of unwanted tissues such as fat or cancer to
+the point of destruction via thermal necrosis
+\citep{Escoffre2016}. Little else will be said about thermal
+bioeffects, as the bioeffects of interest here fall into the
+non-thermal category. Non-thermal bioeffects are attributed to a
+variety of physical phenomena including acoustic radiation force,
+radiation torque, and acoustic streaming, though the bulk of
+non-thermal bioeffects are commonly associated with acoustic
+cavitation, which is the most widely studied non-thermal mechanism
+\citep{Dalecki2004}. For certain bioeffects, such as \ac{DUS}-induced
+lung hemorrhage, the underlying physical mechanisms are largely
+unknown.
+
+The work of this thesis is primarily motivated by \ac{DUS} bioeffects.
+\ac{DUS} bioeffects tend to be a result of mechanical processes and
+typically take the form of hemorrhage, tissue damage or cell
+death. Unlike some bioeffects that occur as a result of therapeutic
+\ac{US}, \ac{DUS} bioeffects are unintentional and a represent a
+potential safety concern. Hence in this thesis we seek to develop a
+better understanding of two particular \ac{DUS} bioeffects problems,
+\begin{enumerate}
+\item The first problem is motivated by \ac{CEUS} and the associated
+  cavitation-induced biological effects, which include hemorrhage and
+  cell death in a variety of forms (e.g., cell death and/or
+  hemorrhage in the heart, kidney, muscle, etc...)
+  \citep{Miller2008a}. We pursue of a better understanding of the
+  relationship between \ac{US} thresholds associated with bioeffects
+  and the physical dynamics of the system. To this end we take a novel
+  approach, combining experimentally measured ultrasound and
+  bioeffects thresholds with modeling and simulation. We model the
+  problem of an ultrasound contrast agent microbubble subjected to an
+  experimentally measured ultrasound pulse and simulate relevant
+  bubble dynamics. Calculated cavitation dynamics are related to known
+  bioeffects and thresholds, associated with properties of the driving
+  waveforms.
+\item The second problem we consider is that of \ac{DUS}-induced lung
+  hemorrhage. As the underlying physical mechanism that drives the
+  hemorrhage is not clearly understood \citep{OBrien2007}, we aim to
+  gain a better conceptual understanding of the physics at play. To
+  accomplish this, we develop a unique model of the interaction
+  between an alveolus and an acoustic wave, traveling in soft
+  tissue. The alveolar wall is modeled as an air-water interface,
+  driven by trapezoidal and ultrasound pulse-like acoustic waves. We
+  analyze the dynamics of the system to describe the interface
+  evolution mathematically. Where possible we compare calculated
+  stress and strain estimates of the interface with alveolar failure
+  criteria for disruption of endothelial and epithelial tissues.
+\end{enumerate}
+
+Given these bioeffects problems, we will now provide a brief overview
+of what is known about the physical mechanisms of \ac{CEUS} cavitation
+bioeffects and \ac{DUS}-induced lung hemorrhage. We will also include
+a description of a proposed mechanism for \ac{DUS}-induced alveolar
+hemorrhage.
+
+\subsubsection{Cavitation of ultrasound contrast agent
+  microbubbles} \label{subsec:bioeffects_mechanisms_ceus}%
+Acoustic cavitation is the phenomenon by which gas nano and
+microbubbles, called cavitation nuclei, are cyclically grown by low
+pressures and collapsed by high pressures of the field. When the
+bubble dynamics during collapse are dominated by the inertia of the
+surrounding fluid, the process is called \ac{IC}. \ac{IC} is typically violent,
+with the bubble rapidly collapsing to a fraction of its original size
+resulting in calculated internal pressures ranging from $100$ to
+$7000$ MPa and temperatures from $1000$ to $20 000$ K
+\citep{Flynn1982}. There are several possible damage mechanisms
+associated with \ac{IC} that may be responsible for observed \ac{US}
+bioeffects. Due to the pressure difference between the vapor/gas
+mixture within the bubble at collapse and the surrounding medium, the
+collapsed bubble can emit a powerful shock wave that can be damaging
+to the bubble's surroundings. When cavitation is triggered near a
+rigid surface, the bubble can collapse in a radially asymmetric
+fashion causing a high-speed ``re-entrant'' jet of liquid to impinge
+upon the surface, effectively striking the surface with a liquid
+hammer. If cavitation occurs at an appropriate distance from a
+non-rigid surface, such as soft tissue boundaries and blood vessel
+walls, the jet can impinge away from the surface, potentially
+invaginating the surface \citep{Brujan2011}. The resulting stresses
+and strains can result in structural damage. Figure
+\ref{fig:intro_cavitation_schematic} schematically illustrates
+potential cavitation damage mechanisms within a blood vessel.
+\begin{figure}
+  \centering
+  \def\svgwidth{0.9\textwidth}
+  \import{./figs/intro_figs/}{Cavitation_schematic.pdf_tex} \hfill%
+  \caption[Schematic of possible ultrasound bioeffects
+  mechanisms]{Schematic of possible cavitation-induced ultrasound
+    bioeffects mechanisms. (Left) A microbubble within a blood vessel
+    interacts with an ultrasound pulse. (Middle) Subsequently, the
+    bubble undergoes cavitation. (Right) A variety of possible
+    cavitation bubble dynamics scenarios are potential bioeffects
+    damage mechanisms (from top to bottom): a). Bubble expansion
+    beyond the radius of a surrounding blood vessel. b.) A cavitation
+    jet away from the wall of a surrounding blood vessel or tissue
+    surface causes the surface to invaginate. c.) A cavitation jet of
+    high speed liquid strikes a vessel or tissue wall. d.) A shock
+    wave created by the bubble collapse encounters nearby tissue.}
+  \label{fig:intro_cavitation_schematic}
+\end{figure}
+
+While \ac{IC} does not typically occur during non-contrast \ac{DUS},
+it is of concern during \ac{CEUS}, which uses contrast-agent
+microbubbles injected into patients' bloodstreams to act as additional,
+strong scatterers. The high acoustical impedance mismatch between the
+gas microbubbles and the surrounding soft tissues allows for high
+contrast imaging and can be used to ultrasonically image blood flow,
+which is useful for diagnosing heart valve problems, liver lesions,
+and more \citep{Claudon2013,Rognin2008}. However, the use of contrast
+agent microbubbles can also have potential deleterious side
+effects. These microbubbles can act as cavitation nuclei and the
+resulting cavitation has been associated with a variety of different
+forms of cellular death and damage. The precise ultrasonic thresholds
+for which cavitation and bioeffects occur have been a topic of intense
+study and are not completely physically described. Furthermore, the
+exact physical mechanisms through which cavitation causes bioeffects
+are also not clearly understood \citep{Barnett1994}.
+
+As a result of the potential for cavitation-related \ac{US}
+bioeffects, the United States Food and Drug Administration called for
+a metric to quantify cavitation dosage and predict likely cavitation
+damage from ultrasound. As bioeffects are typically attributed to
+\ac{IC}, efforts to predict cavitation damage considered the
+likelihood of \ac{IC} based on theoretical calculations of free gas
+bubbles in water. In the case of acoustic cavitation, the likelihood
+of damage depends on the duration of peak negative pressure
+experienced by a cavitation nucleus, with longer interactions
+depositing more energy into the nucleus, and thus having a greater
+likelihood of inducing \ac{IC} and bioeffects. The duration of the
+\ac{PRPA} is inversely related to the \ac{US}
+frequency. \cite{Holland1989} demonstrated that the threshold
+\ac{PRPA} needed to trigger \ac{IC}, defined based on a maximum bubble
+temperature $\geq5000$K, depended on the size of the cavitation
+nucleus. Smaller cavitation nucleii, must overcome greater surface
+tension effects in order to cavitate, with the Laplace pressure
+scaling inversely with the radius of the nucleus. Furthermore, as the
+initial radius of a nucleus increases, the inertia of the surrounding
+fluid that it must be overcome also increases \citep{AiumS72000}. Thus
+\cite{Holland1989} illustrated that for a given frequency there is an
+optimal nucleus size for triggering \ac{IC}. Based on these
+calculations and corrections for heat dissipation in tissue the
+\ac{MI} was created as a measure of ultrasound-induced cavitation
+related bioeffects and defined as
+\begin{align}
+  \text{MI} = \frac{P_{r.3}}{\sqrt{f_c}},
+\end{align}
+where $P_{r.3}$ is the \ac{PRPA} derated by $0.3$ dB/MHz-cm (a soft
+tissue attenuation coefficient) and $f_c$ is the center frequency
+\cite{Apfel1991}. As the \ac{MI} was originally created based on
+theoretical thresholds for inertial cavitation in water, the derated
+\ac{PRPA} was used to account for \emph{in vivo} attenuation, however
+the effects of tissue's elastic properties are not accounted for by
+this metric, and because the cavitation dynamics are expected to
+change from tissue-to-tissue a more robust evidence-based metric would
+be useful. The United States \ac{FDA} mandates that MI$\leq1.9$ for
+diagnostic ultrasound, though \ac{US} bioeffects have been observed at
+\ac{MI} below this in the case of \ac{DUS} of mammalian lungs
+\citep{OBrien2007,FDA1997}.
+
+\subsubsection{Ultrasound-induced lung hemorrhage}
+The second \ac{US} bioeffects topic of interest in this thesis is
+\ac{DUS}-induced \ac{LH}. In the relevant literature, this is also
+sometimes referred to more specifically as \ac{PCH}. This phenomenon
+was first discovered in mice over twenty years ago by \cite{Child1990}
+and has since been shown to occur in a variety of other mammals
+including rats, pigs, rabbits, and monkeys \citep{OBrien1997a,
+  Miller2012, Tarantal1994a}. Research into this phenomenon has
+focused on three main areas: (1) Determining the physical mechanism of
+the hemorrhage; (2) Understanding how the occurrence and severity of
+the hemorrhage depend on the ultrasonic properties (frequency,
+amplitude, waveform, etc...); and (3) Understanding how the occurrence
+and severity of the hemorrhage depend on the characteristics of
+ultrasound subject (species, age, anesthesia, etc...). The work in
+this thesis pertains primarily to the first of these three areas.
+
+Despite extensive previous research into \ac{DUS}-induced \ac{LH}, the
+underlying physical mechanisms are still not well
+understood. Furthermore, past work has shown that common \ac{US}
+bioeffects mechanisms do not explain the observed injuries. Thermal
+damage mechanisms appear unlikely to be the primary source of damage
+as \ac{DUS}-induced lung lesions do not appear similar to those
+induced by heat \citep{Zachary2006}. Furthermore, cavitation
+mechanisms do not appear to be responsible, as the severity of
+\ac{DUS}-induced \ac{LH} in mice increased under raised hydrostatic
+pressure \citep{OBrien2000} and was unaffected by the introduction of
+\ac{US} contrast agents into both rats and mice subject to lung \ac{US}
+\citep{Raeman1997,OBrien2004}. Both of these results are inconsistent
+with what is expected of \ac{IC}-induced bioeffects. More recent work
+by \cite{Miller2016a,Miller2016} investigating acoustical radiation surface
+pressure as a potential damage mechanism found that the pressures
+expected in pulsed ultrasound were likely too low to completely
+explain the observed hemorrhage on their own. \cite{Simon2012} found
+that atomization and fountaining occurred at tissue-air interfaces
+subjected to \ac{HIFU} and suggested that this could potentially
+happen at diagnostic levels as well. Similarly, works by
+\cite{Tjan2007,Tjan2008} model the evolution of an inviscid, free
+surface subjected to a Gaussian velocity potential and find that this
+can lead to the ejection of liquid droplets. They go on to say that
+\ac{DUS} of the lung may similarly lead to the ejected of droplets
+capable of puncturing the air-filled sacs within the lung. The problem
+of \ac{US}-lung interaction is the central motivation of chapters
+\ref{ch:usbe_lung} and \ref{ch:usbe_lung_bio}. As such, a far more
+in-depth literature review is provided in these chapters.
+
+%\subsubsection{Acoustically driven fluid-fluid interfaces}
+\paragraph{Proposed mechanism for \ac{DUS}-induced lung hemorrhage: vorticity-driven strain of the alveolar walls}
+In this thesis we propose yet another potential physical mechanism for
+causing \ac{DUS} induced lung hemorrhage, and as such we now provide
+the relevant background. The physical problem underlying interactions
+between ultrasound waves and the various tissue and fluid layers of
+the body is that of a mechanical wave traveling in one medium
+encountering a second medium of differing physical properties. As was
+previously explained, this can result in acoustic energy being
+converted into motion or heat. In the case of the bubble, the relevant
+manifestation of this was cavitation. Another manifestation of this is
+the growth of perturbations at fluid-fluid interfaces as a result of
+non-uniform velocity gradients that occur at the driven
+interface. Another way of thinking of this is in terms of baroclinic
+vorticity, or localized fluid rotation, generated by the misalignment
+of interface density gradients and mechanical wave pressure
+gradients. In this dissertation we propose that (1) ultrasound-induced
+baroclinic vorticity may drive the growth of perturbations at liquid-gas
+interfaces such as those of the alveoli and (2) this perturbation
+growth leads to alveolar strain with possible hemorrhage. In the
+remaining portion of the section, we discuss in greater detail the
+underlying physics at play here and some of the past work that has
+been done to understand it.
+
+There has been extensive past research into the physics that underlies
+mechanical waves interacting with and accelerating fluid-fluid
+interfaces. Much of this work has investigated regimes outside those
+of acoustic interests, including applications in fusion energy and
+astrophysics. \cite{Taylor1950} predicted that, for an interface
+between two fluids of different densities, if the fluid was
+accelerated normal to the interface in the heavy-to-light direction,
+perturbations at the interface would grow. That is to say that a
+``bubble'' of light fluid penetrates the heavy fluid, and a ``spike''
+of heavy fluid penetrates the light fluid. This is known as the
+\ac{RTI}. A similar topic of past study is the \ac{RMI}, which occurs
+when a perturbed fluid-fluid interface is instantaneously accelerated
+by a shock, causing the interface perturbation to grow
+\citep{Brouillette2002,Drake2006}. This growth is driven by a sheet of
+baroclinic vorticity deposited along the interface as a result of
+misalignment between the pressure gradient across the shock and the
+density gradient across the perturbed interface. This physical
+mechanism, by which misaligned gradients create a torque on fluid
+particles generating vorticity, can be thought of in terms of a
+hydrostatic balance upon a particle. Pressure gradients result in
+acceleration of the flow that is inversely proportional to
+density. When these two gradients are misaligned, the result is a
+shearing effect or velocity differential on the fluid and vorticity is
+generated \citep{Heifetz2015}. A graphical explanations of baroclinic
+vorticity generation, adapted from \citep{Heifetz2015} is shown in
+Figure \ref{fig:usbe_lung_baroclinic_schematic}.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{./figs/intro_figs/baroclinic_schematic} \hfill
+  \caption[Schematic of baroclinic torque]{Schematic of baroclinic
+    torque. From \cite{Heifetz2015}. A force balance upon
+    a particle subject to perpendicular pressure and density gradients
+    illustrates baroclinic torque on a fluid particle.}
+  \label{fig:usbe_lung_baroclinic_schematic}
+\end{figure}
+Analytically, baroclinic vorticity generation can be shown by taking
+the curl of the conservation of momentum equation for a fluid with
+variable density. It is worth noting that it is a second order,
+nonlinear effect and cannot be explained by traditional linear
+acoustics in a uniform medium.
+
+The physics of the classical \ac{RMI} are fairly well understood. The
+classical \ac{RMI} setup consists of a planar shock impinging normally
+upon the peaks and troughs of a sinusoidal interface. The interface is
+accelerated non-uniformly such that counter-rotating vortices are
+generated across the interface. This drives peaks and troughs of the
+interface to accelerate in opposing directions, normal to the
+peak/trough surface. Much like in the case of the \ac{RTI}, this too
+results in light fluid penetrating the heavy fluid and vice versa. For
+the case of a wave moving from a light fluid into a heavy one, the
+peaks and troughs of the interface accelerate away from one another,
+growing the interface perturbation. For the case of a wave moving from
+a heavy fluid into a lighter fluid, the peaks and troughs interface
+initially accelerate toward one another. They then pass each other,
+inverting the phase of the interface perturbation, and continue moving
+in opposite directions, growing the perturbation amplitude. This
+process is illustrated in Figure \ref{fig:rmi_schematic}, which has
+been adapted from \cite{Brouillette2002}. This work proposes that
+similar physics occur at ultrasonically driven air-tissue interfaces
+within the lungs. Much greater detail regarding the proposed mechanism
+is provided in Chapters \ref{ch:usbe_lung} and \ref{ch:usbe_lung_bio}.
+\begin{figure}
+  \centering
+  \def\svgwidth{0.9\textwidth}
+  \import{./figs/intro_figs/}{brouillette_fig3_mod.pdf_tex} \hfill%
+  \caption[Schematic of the \acl{RMI} for a heavy-light
+  interface]{Schematic of the \acl{RMI} for a heavy-light
+    interface. Adapted from \cite{Brouillette2002}. The initial
+    condition (left), circulation post wave-interface interaction
+    (center), and perturbation growth (right) are shown.}
+  \label{fig:rmi_schematic}
+\end{figure}
+
 
 \section{Tissue as a compressible fluid system}
 To investigate \ac{CEUS} and \ac{DUS}-induced lung hemorrhage,
-throughout this dissertation I will be modeling the relevant physical
+throughout this dissertation we model the relevant physical
 problems of ultrasound in human tissue as compressible, multiphase
-fluid systems. In this section I will attempt justify this general
+fluid systems. In this section we attempt to justify this general
 approach and explain some of the applicable assumptions and
 implications.
 
-The underlying governing equations upon which each of our models are
-based are the general conservation equations for mass, momentum, and
-energy for a fluid,
+The underlying governing equations upon which our models are based are
+the general conservation equations for mass, momentum, and energy for
+a fluid,
 \begin{subequations} \label{eq:intro_conservation}             
   \begin{align}
     \frac{\partial \rho}{\partial t} + \nabla\cdot\left(\rho\bs{u}\right) =& 0,\\%
-    \rho\frac{D \bs{u}}{D t} =& \nabla\cdot\bs{\tau}+\bs{g},\\%
-    \frac{\partial E}{\partial t} + \nabla\cdot\left(E \bs{u}\right) =& \rho\left(\bs{g}\cdot\bs{u}\right) + \nabla\cdot\left(\bs{\tau u}\right) + \nabla\cdot\bs{q},%
+    \rho\frac{D \bs{u}}{D t} =& \nabla\cdot\bs{\tau}+\rho\bs{g},\\%
+    \frac{\partial E}{\partial t} + \nabla\cdot\left(E \bs{u}\right) =& \rho\left(\bs{g}\cdot\bs{u}\right) + \nabla\cdot\left(\bs{u \cdot \tau}\right) + \nabla\cdot\bs{q},%
   \end{align}
 \end{subequations}
 where $\rho$ is density, $\bs{u}$ is the flow velocity vector, $t$ is
-time, $\bs{\tau}$ is the stress tensor, which is a second order
-tensor. $\bs{g}$ is the body force vector,
+time, $\bs{\tau}$ is the stress tensor, $\bs{g}$ is the body force vector,
 $E = \rho \left(e + \frac{1}{2}\left[\bs{u}\cdot\bs{u}\right]\right)$
 is the total energy defined as the sum of the kinetic energy per unit
 mass $\frac{1}{2}\left(\bs{u}\cdot\bs{u}\right)$ and the internal
@@ -153,168 +518,180 @@ differently depending on the particular problem and model. Details on
 the appropriate equations of state used to relate pressure and energy,
 constitutive equations used to relate stress and strain, and boundary
 conditions are described in greater detail in sections
-\ref{subsec:usbe_bubble_model} and \ref{subsec:governing_equations}.
+\ref{subsec:usbe_bubble_model} and \ref{sec:methods}.
 
 To consider what physical effects are at play during diagnostic
-ultrasound, both contrast-enhanced and of the lung, I consider the
-basic physical scenario of each of these problems. That is an acoustic
-wave travels through a multiphase medium consisting of soft tissue and
-gas. Soft tissues are viscoelastic materials, i.e., they exhibiting
-solid and fluid like behaviors, i.e, viscous and elastic effects may
-be simultaneously at play. These tissues include blood as well as
-lung, liver, and kidney tissue, which are relevant to the motivations
-of this thesis. The multiphase component of these problems suggests
-that gas-liquid/gas-viscoelastic interface phenomena such as surface
+ultrasound, both contrast-enhanced and of the lung, we consider the
+basic physical scenario of each of these problems: an acoustic wave
+traveling through a multiphase medium consisting of soft tissue and
+gas. Soft tissues are viscoelastic materials, i.e., they exhibit solid
+and fluid like behaviors simultaneously under different types of
+forcing, i.e, viscosity, elasticity, and relaxation may all be
+simultaneously at play. These tissues include blood as well as lung,
+liver, and kidney tissue, which are relevant to the motivations of
+this thesis. The multiphase nature of these problems suggests that
+gas-liquid/gas-viscoelastic interface phenomena such as surface
 tension may also be of some relevance. As fluid motion is expected,
-inertial effects will likely be of importance. Additionally, as
-ultrasonic heating is a known source of biological effects, I consider
-this possibility as well. And for completeness, since the vast
-majority of ultrasound procedures do not occur on the International
-Space Station, I consider the effects of gravity too. In the following
-two sessions, I introduce dimensional analysis to assess the relative
-importance of each of these physical phenomena for the problems we
-approach in this part of the thesis.
+inertial effects are likely to be of importance. Additionally, as
+ultrasonic heating is a known source of biological effects, we
+consider heat transfer and thermal mechanisms as well. And for
+completeness, since the vast majority of ultrasound procedures do not
+occur on the International Space Station, we consider the effects of
+gravity too. In the following, we introduce dimensional analysis to
+assess the relative importance of each of these physical phenomena for
+the problems we approach in this part of the thesis.
 
-\subsection{Dimensional analysis and assumptions for Contrast Enhanced Ultrasound}
+\subsection{Dimensional analysis and assumptions for Contrast-Enhanced Ultrasound}
 \ac{CEUS}-related bioeffects are generally attributed to a process
 called \ac{IC} in which a bubble or void within a fluid collapses
 rapidly. This can result in high temperatures, pressures, stresses,
 strains, and strain rates within the surrounding fluid. More details
-about this process and its relationship to \ac{US} bioeffects will be
+about this process and its relationship to \ac{US} bioeffects are
 provided in Section \ref{subsec:bioeffects_mechanisms_ceus}. In this
-work, I consider the problem of a single \ac{US} pulse impinging upon
-a contrast agent microbubble, initially at rest within a viscoelastic
-soft tissue. For the sake of justification I consider a typical
-case here. In Chapter \ref{ch:usbe_bubble} a more in-depth
-analysis, specific to the work presented, is performed. Consider an
+work, we consider the problem of a single \ac{US} pulse interacting
+with a contrast agent microbubble, initially at rest within a
+viscoelastic soft tissue. For the sake of justification we consider a
+typical case here. In Chapter \ref{ch:usbe_bubble} a more in-depth
+analysis, specific to the work presented here, is performed. Consider an
 ultrasound pulse of clinically relevant frequency $f = 3$ MHz and
-\ac{PRPA}$=p_a = 1$ MPa. The soft tissue is treated as a Voigt
-type viscoelastic material as in \citep{Yang2005} and has a nominal
-density of $\rho = 1000$ kg/m$^3$, an elastic modulus ranging from $G = 10$ kPa to $1$
-MPa, and a viscosity of $\mu = 0.015$ Pa s. Surface tension will be
-based on water such that $S = 0.056$ N/m. Consider a
-characteristic velocity of $u = \sqrt{p_a/\rho} = 31.6$ m/s. Note
-that the physical properties of soft tissue vary widely and are poorly
-characterized, particularly at the strain rates associated with
-cavitation. As a characteristic length scale, I use a typical
-bubble size such that equilibrium radius is $R_0 = 1\mu$m.
+\ac{PRPA}$=p_a = 1$ MPa. The soft tissue is treated as a Voigt type
+viscoelastic material, as in \cite{Yang2005}, and has a nominal
+density $\rho = 1000$ kg/m$^3$, an elastic modulus from $G = 5$ kPa to
+$1$ MPa, and a dynamic viscosity $\mu = 0.015$ Pa$\,$s, and
+corresponding kinematic viscosity $\nu=\mu/\rho=1.5\times 10^{-5}$
+m$^2$/s. Surface tension is based on that of blood, such that
+$S = 0.056$ N/m \citep{Apfel1991}. Note that the physical properties
+of soft tissue vary widely and are poorly characterized, particularly
+at the strain rates associated with cavitation. Based on the work of
+\cite{Patterson2012} we define a characteristic velocity of
+$u = \sqrt{p_a/\rho} = 31.6$ m/s, which corresponds to a change in
+radius over a period of free oscillation. As a characteristic length
+scale, we use a typical bubble size such that equilibrium radius is
+$R_0 = 1\mu$m.
 
-Based on this setup I perform dimensional analysis to assess the
+Based on this setup we perform dimensional analysis to assess the
 relative importance of each of the potentially relevant physical
 mechanisms to the problem of acoustically-driven cavitation in soft tissue:\\
 
-\noindent\textit{Viscosity:} To access the relevance of viscosity I consider a
-Reynolds Number, which is defined as $Re = \rho u R_0/\mu=2.1$ and is
-a measure ratio of inertial to viscous forces in a flow. A Reynolds
-number of order unity, suggests that viscous effects
-are non-negligible relative to inertia and cannot be neglected.\\
+\noindent\textit{Viscosity:} To assess the relevance of viscosity we
+consider the Reynolds Number, which is the ratio of inertial to
+viscous forces within a flow and is defined as
+$Re = \rho u R_0/\mu=2.1$. A Reynolds number of order unity, suggests
+that inertia is on the order
+of viscous forces, and hence cannot be neglected.\\
 
-\noindent\textit{Heat transfer and thermal effects:} In consideration of the
-role of heat transfer, I calculate a characteristic time scale for
-heat transfer $t_{thermal}=R_0^2/\alpha$, where $\alpha$ is the
-thermal diffusivity, which is $\alpha = 0.143\times10^{-6}$ m$^2$/s in
-water such that $t_{thermal} = 7 \mu$s. This is compared to the
-approximate timescale for a spherical vapor bubble to collapse to its
-minimum radius, neglecting surface tension, which is approximately
-$t_{collapse} = 0.915\sqrt{\rho R_0^2 / p_a} = 29$ ns
-\citep{Brennen2003}. Note that the form of the equation presented here
-is for the case where the vapor pressure in the bubble $p_v$ is much
-smaller than the driving pressure $p_a$, which is true for
-ultrasonically driven cavitation. Here, $t_{collapse}<<t_{thermal}$, suggesting that minimal heat transfer
-will occur during the collapse. This is perhaps unsurprising, as heat
-transfer is generally regarded as a much slower process than
-\ac{IC}. In any case, heat transfer into and out of the bubble will be
-neglected in relevant analysis.\\
+\noindent\textit{Heat transfer and thermal effects:} The Prandtl
+number is the ratio of momentum diffusivity to thermal diffusivity and
+is defined as $Pr = \nu/\alpha = 105.6$. The calculated $Pr$ is large
+relative to $Re$ and suggests that the effects of thermal diffusivity
+are dominated by momentum diffusivity. We infer that that minimal heat
+transfer occurs over the course of the collapse and as such it is neglected in our model.\\
+% In consideration of the role of heat transfer, we calculate the
+% relevant number, which characteristic length scale of thermal
+% boundary layer growth over the course of a bubble collapse and
+% compare it with the characteristic length scale of collapse. The
+% length scale of the collapse is simply the equilibrium radius
+% $R_0$. The characteristic length scale of the thermal boundary layer
+% is, $l_{thermal}=\sqrt{\alpha_w t_{collapse}} = 0.13 \mu$m, where
+% $\alpha_w$ is the thermal diffusivity of water $1.43\times10^{-8}$
+% m$^2$/s, and $t_{collapse} = 0.915\sqrt{\rho R_0^2 / p_{atm}} = 91$
+% ns \citep{Brennen2003} for a spherical bubble, neglecting surface
+% tension. This also assumes that the vapor pressure in the bubble
+% $p_v$ is much smaller than the driving pressure, which is true for
+% ultrasonically driven cavitation. As $l_{thermal}\ll R_0$, we infer
+% that that minimal heat transfer occurs over the course of the
+% collapse and as such it is neglected in our model.\\
 
-\textit{Surface Tension:} The Weber number is defined as
-$We = \rho u^2 R_0/S = 17.9$ and represents the ratio of surface tension
-to inertial forces in the flow. The calculated $We$ suggests that
-surface tension at the bubble wall is not negligibly small when the
-bubble is at its equilibrium radius. Additionally, I note that the
-effects of surface tension may have an even greater effect during
-collapse when the bubble radius may decrease by an order of magnitude
-or more. Hence surface tension will not be neglected.\\
+\noindent\textit{Surface Tension:} The Weber number is the ratio of inertial to
+surface tension forces in the flow and is defined as
+$We = \rho u^2 R_0/S = 17.9$. The calculated $We$ is large relative to
+$Re$, but not so much as to suggest that the effects of surface
+tension at the bubble wall are negligible, even when the bubble is at its
+equilibrium radius. Additionally, we note that the effects of surface
+tension may have an even greater effect during collapse when the
+bubble radius may decrease by an order of magnitude
+or more. Hence surface tension is not neglected.\\
 
-\noindent\textit{Elasticity:} The Cauchy number is defined as
-$Ca = \rho u^2 / G = 1 - 100$ for the range of elastic moduli
-considered (i.e., $1000$ - $5$ kPa). Based on this the effects of elasticity are not expected
-to be particularly important to the bubble dynamics for the tissues of
-$kPa$ order elasticity, though this is expected to change for stiffer
-tissues. Accordingly, elasticity will be included
-in the cavitation bubble model.\\
+\noindent\textit{Elasticity:} The Cauchy number is a measure of the
+ratio of elastic to inertial forces and is defined as
+$Ca = \rho u^2 / G = 1 - 200$ for the range of elastic moduli
+considered (i.e., $5$ kPa - $1$ MPa). Based on this the effects of
+elasticity are not expected to be particularly important to the bubble
+dynamics for the tissues of kPa order elasticity, though this is
+expected to change for stiffer tissues. Additionally, we note that our
+work considers a Voigt type viscoelastic model, which is important as
+the microsecond timescales associated with cavitation can effect the
+relative importance of viscous and elastic forces. Accordingly, elasticity is included in the cavitation bubble model.\\
 
-\noindent\textit{Gravity:} The Froude number is defined as
-$Fr = u/\sqrt{g R_0}=10^4$ and is a measure of the ratio of inertial to
-gravitational forces, or more generally, any applicable body
-forces. The calculated Froude number suggests that gravitational and
-buoyancy effects are minimal relative to inertia and will be neglected
-for the sake of this analysis. This is of particular importance
-because it allows us to consider the case of a radially symmetric
-collapse, which greatly simplifies the problem.\\
+\noindent\textit{Gravity:} The Froude number is the ratio
+of inertial to gravitational forces, or more generally, any applicable
+body forces within a flow, and is defined as
+$Fr = u/\sqrt{g R_0}=10^4$, where is the gravitational constant
+$g=9.81$ m/s$^2$. The calculated Froude number is much larger than
+$Re$ and suggests that gravitational and buoyancy effects are minimal
+relative to inertia and is neglected for the sake of this
+analysis. This is of particular importance because, for a homogeneous
+medium, it allows us to consider the case of a spherically symmetric collapse, which greatly simplifies the problem.\\
 
-In summary, based on the dimensional analysis performed, I will
-consider axially symmetric bubble dynamics in a Voigt-Viscoelastic
-medium with surface tension. The effects of gravity and heat transfer
-will be neglected.
+In summary, based on the dimensional analysis performed, we consider
+spherically symmetric bubble dynamics in a Voigt-Viscoelastic medium
+with surface tension. The effects of gravity and heat transfer are
+neglected.
 
-\subsection{Dimensional analysis and assumptions for acoustically driven alveolus}%
+\subsection{Dimensional analysis and assumptions for an acoustically
+  driven alveolus}%
 \label{sec:lung_assumptions}%
-The work presented work is specifically interested in the problem of
-an ultrasound pulse impinging upon an alveolus within an adult human
-lung. To access the relevant physical mechanisms here in order to
-layout the logic for my assumptions and approach, I present a general
-case relevant to the motivating problem of lung ultrasound. A more
-comprehensive justification and analysis, specific to the work
-presented can be found in chapters \ref{ch:usbe_lung} and
+In this section, we focus on the problem of an ultrasound pulse or
+physically similar acoustic wave impinging upon an alveolus within an
+adult human lung. To assess the relevant physical mechanisms here in
+order to layout the logic for our assumptions and approach, we present
+a general case relevant to the motivating problem of lung
+ultrasound. A more comprehensive justification and analysis, specific
+to the work presented can be found in chapters \ref{ch:usbe_lung} and
 \ref{ch:usbe_lung_bio}. Consider an ultrasound pulse with central
-frequency $f = 3 MHz$, and amplitude $p_a = 1$ MPa, which are within
+frequency $f = 3$ MHz, and amplitude $p_a = 1$ MPa, which are within
 the expected parameter range based on past research
-\citep{Miller2015a}. I will use the mean diameter of a typical adult
-human alveolus as a characteristic length scale length scale
-$\ell_A = 200 \mu$m \citep{Ochs2004}. The alveolus is treated as being
-filled with air such that the sound speed is $c_A=343$ m/s, the
-density is $\rho_A = 1.2$ kg/m$^3$, the kinematic viscosity is
-$\nu_A = 16.6 \mu$ m$^2$/s, and no elasticity is present in the
-alveolar interior. The surrounding soft-tissue is treated as
+\citep{Miller2015a}. We use the mean diameter of a typical adult human
+alveolus as a characteristic length scale length scale
+$\ell_A = 200 \mu$m \citep{Ochs2004}. The alveolus is treated as air
+at 37$^\circ$ such that the sound speed is $c_A = 353$ m/s, the
+density is $\rho_A = 1.14$ kg/m$^3$, the kinematic viscosity is
+$\nu_A = 16.6\times 10^{-6}$ m$^2$/s, and no elasticity is present in
+the alveolar interior. The surrounding soft-tissue is treated as
 water-like, but with elasticity such that the sound speed is
-$c_T=1500$ m/s, the density is $\rho_T=1000$ kg/m$^3$, the viscosity is
-$\nu_T = 0.7 \mu$m$^2$/s and the elastic modulus is $G = 5$ kPa
-\citep{Cavalcante2005}. I use a characteristic velocity
-$u_a = \sqrt{p_a/\rho_A}$. Based on the physical problem described here I
-use dimensional analysis to access the relative importance of
-potentially relevant physical mechanisms:\\
+$c_T=1500$ m/s, the density is $\rho_T=1000$ kg/m$^3$, the kinematic
+viscosity is $\nu_T = 0.7 \times 10^{-6}$ m$^2$/s and the elastic
+modulus of the alveolar wall is $G = 5$ kPa \citep{Cavalcante2005}. We
+use a characteristic velocity $u_T = \sqrt{p_a/\rho_T}=31.6$ m/s, a
+convenient scale based on the wave and tissue properties. Based on the
+physical problem described here we use dimensional analysis to access
+the relative importance of potentially relevant physical mechanisms:\\
 
-\noindent\textit{Viscosity:} In consideration of effects of viscosity of the
-dynamics of the system during the ultrasonic interface, I calculate a
-viscous length scale on either side of the interface such that
-$\sigma_{vA}=\sqrt{\nu_A/2\pi f}=0.94 \mu$m and
-$\sigma_{vT}=\sqrt{\nu_T/2\pi f}=0.19 \mu$m. On either side of the
-interface $\sigma_v << \ell$ such that the viscous layer is small
-compared to the flow geometry during the ultrasonic interactions. In
-recognition that the viscous layer may grow in time, after the passage
-of the acoustic wave, according to $\sigma_{v}(t)\sim\sqrt{\nu t}$ we
-calculate that for a $1$ kHz \ac{PRF}, the viscous layer may grow
-between subsequent pulses to $\orderof{\ell}$ in the alveolar airspace
-and $\orderof{0.1\ell}$ in the surrounding tissue. Hence viscosity can
-be neglected for sufficiently early times, and I will do so in the
-model for simplicity. I will not consider times later than
-$\approx300 \mu$s to maintain reasonable accuracy of our inviscid
-assumption. The applicability of this assumption in practical lung
-ultrasound is aided by the fact that even higher frequencies are
-sometimes used in clinical application (e.g., typical frequencies may be $f = 5$ MHz in adults and $12$ MHz in newborns) \cite{Lichtenstein2009}.\\
+\noindent\textit{Viscosity:} In consideration of effects of viscosity, we calculate the Reynold's Number $Re = u_T \ell / \nu_T = 9035$, which suggests that the inertial forces dominate the viscous forces. Additionally, in consideration of late time effects, we calculate
+the approximate viscous boundary layer thickness at $t_{final}$, the
+time at the end of the simulated period such that
+$l_{viscous}=\sqrt{\nu_{water} t_{final}} \approx
+20~\mu$m. Furthermore, typical acoustic viscous boundary layer
+thicknesses for MHz frequency ultrasound are $\lesssim1~\mu$m. As
+$l_{viscous}/\ell\ll1$, the viscous boundary layer is expected to
+remain far less than either a typical alveolar diameter or the length
+scales associated with relevant geometrical structures of the
+perturbed interface at the end of our baseline simulations (described
+in Chapters \ref{ch:usbe_lung} and \ref{ch:usbe_lung_bio}). Hence we
+exclude the effects of viscosity in our calculations.\\
 
-\noindent\textit{Heat transfer and thermal effects:} I use similar arguments to
+\noindent\textit{Heat transfer and thermal effects:} We use similar arguments to
 those used for viscous effects in consideration of thermal
 effects. The thermal length scale is defined as
-$\sigma_\kappa=\sqrt{\kappa/\pi f \rho C_p}$, where the $C_p$ is the
+$l_{thermal}=\sqrt{\kappa/\pi f \rho C_p}$, where the $C_p$ is the
 specific heat and $\kappa$ is the thermal conductivity. In air
-$C_{pA}=1005$ J/Kg K and $\kappa_A=0.027$ W/m K and in Water
-$C_{pT}=1005$ J/Kg K and $\kappa_T=0.49$ W/m K. Hence
-$\sigma_{\kappa A} = 0.3 \mu$m and $\sigma_{\kappa T} = 1.5 \mu$m. On
-either side of the interface, $\sigma_\kappa << \ell$ such that the
-thermal boundary layer is small relative to the characteristic length
-of the flow. Hence I will neglect heat transfer in my approach to this
-problem moving forward.\\
+$C_{pA}=1005$ J/Kg K and $\kappa_A=0.027$ W/m K and in tissue (based
+on water) $C_{pT}=1005$ J/Kg K and $\kappa_T=0.49$ W/m K. Hence
+$l_{thermal,A} = 0.3 \mu$m and $l_{thermal,T} = 1.5~\mu$m. For
+both fluids, on either side of the interface, $l_{thermal}/\ell \ll 1$
+such that the thermal boundary layer is small relative to the
+characteristic length of the flow. Hence we neglect heat transfer in
+our approach to this problem moving forward.\\
 
 \noindent\textit{Surface Tension:} The role of surface tension in the alveoli
 is critical to healthy respiratory function. Alveoli secrete pulmonary
@@ -322,374 +699,178 @@ surfactant, which lowers the surface tension at the alveolar surface,
 helping prevent airway collapse and easing the re-inflation of alveoli
 during breathing. As a result of this surfactant, alveolar surface
 tension is far below that of water and has been reported as $S_A = 9$
-mN/m \citep{Schurch1976}. Hence I define an acoustic Weber number as
-$We = p_a\ell/S_A = 22222$. This suggests that forces due to surface
-tension are small relative to the acoustic pressure at the
-interface. Based on this, I will neglect surface tension in my
+mN/m \citep{Schurch1976}. Hence we define our Weber Number as
+$We = \rho_T u_T^2 \ell/S_A = 22222$. This suggests that forces due to
+surface tension are small relative to the acoustic pressure at the
+interface. Based on this, we neglect surface tension in our
 analysis as well.\\
 
-\noindent\textit{Elasticity:} To assess the expected impact of elasticity on
-the system I define an acoustic Cauchy number $Ca = \rho_T u_a^2/G$
-which becomes the ratio of the acoustic pressure to the elasticity
-$p_a/G = 200$. This suggests that the effects of elastic effects will
-be dominated by the acoustic pressure during the wave-interface
-interaction within the tissue. Within the alveolar air space, there is
-no elasticity and the Cauchy number is infinite. Based on this, I will
-neglect elasticity in my model. Additional calculations considering the relevance of this assumption at later times, after the passage of the wave will be provided in Chapter \ref{ch:usbe_lung_bio}.\\
+\noindent\textit{Elasticity:} To assess the expected importance of elasticity to
+the system we define a Cauchy number $Ca = \rho_T u_a^2/G$ which
+becomes the ratio of the acoustic pressure to the elasticity
+$ Ca = p_a/G = 200$. This suggests that elastic effects are dominated
+by the acoustic pressure during the wave-interface interaction within
+the tissue. Within the alveolar air space, there is no elasticity and
+the Cauchy number is infinite. Based on this, we neglect elasticity in
+our model. Additional calculations considering the relevance of this
+assumption at later times, after the passage of
+the wave are provided in Appendix \ref{sec:elasticity_appendix}.\\
+
 
 \noindent\textit{Gravity:} The importance of gravity is assessed based on a
-Froude number calculation
-$Fr= u_a / \sqrt{g \ell} =\sqrt{ p_a/ \rho g \ell} = 714$. This
+Froude number calculation $Fr= u_T / \sqrt{g \ell} = 714$. This
 suggests that gravitational forces are small relative to inertia, and
-will be neglected. Another reasonable justification for neglecting
+can be neglected. Another reasonable justification for neglecting
 gravity is that the orientation of the model problem in space is
-arbitrary and as a 2D model I treat the flow as existing in a plane
-that is orthogonal to gravitational forces and thus not unaffected by
-gravity.
+arbitrary and as a 2D model we treat the flow as existing in a plane
+that is orthogonal to gravitational forces and thus not affected by
+gravity.\\
+
+In summary, based on the dimensional analysis performed, we consider
+an acoustically-driven, perturbed, water-air interface. The effects of
+viscosity, elasticity, surface tension, gravity, and heat transfer are
+neglected.
 
 \subsection{Limitations} 
-Before proceeding I would like to acknowledge that the simplifications
-and assumptions made in the previous sections, while justified in the
-specified regimes, do deviate from the true physical systems. The
-purpose of these simplifications is to make the relevant problems
-tractable with the available resources (computational, intellectual,
-financial, temporal, etc...). There are many limitations to described
-model systems that result in aspects of the true physics that are not
-captured. In both \ac{CEUS} and in ultrasound-alveoli interactions,
-the presented dimensional analysis is based on tissue properties such
-as viscosity and elasticity and behavior that are poorly characterized
-in both nature and quantity. Additionally the analysis performed here
-is for reference cases within the relevant range, and certain
-dependencies, such as the frequency dependence of sound speed in bulk
-lung tissue, are not captured here. Furthermore, actual tissues are
-highly heterogeneous and may be characterized by a wide range of
-physical length scales. Despite these limitations, the purpose of this
-work is to gain insight into the approximate physics applicable to
-these problems, which hopefully this approach achieves.
-
-
-\section{Physical mechanisms of ultrasound bioeffects} \label{sec:bioeffects_mechanisms}%
-%
-Depending on the type of physical damage mechanism responsible,
-\ac{US} bioeffects are classified into two groups, thermal and
-non-thermal. The first group, thermal bioeffects are characterized by
-deposition of acoustic energy into tissue as heat and are often a
-result of therapeutic, rather than diagnostic, ultrasound. This
-heating can lead to a variety of deleterious effects including the
-release of highly reactive free radicals and protein denaturation at
-the molecular level and protein denaturation and death at the cellular
-level, ultimately causing tissue damage or death. As an example, one
-class of therapeutic \ac{US}, know as \ac{HIFU} uses of strong,
-concentrated acoustic fields, to intentionally convert acoustic energy
-to heat through viscous dissipation. This is used to raise the
-temperature of unwanted tissues such as fat or cancer to destroy
-it. Little else will be said about thermal bioeffects, as the
-bioeffects problems of interest to this work fall into the non-thermal
-category. Non-thermal bioeffects are attributed to a variety of
-physical phenomena including acoustic radiation force, radiation
-torque, and acoustic streaming though the bulk of non-thermal
-bioeffects are commonly associated with acoustical cavitation, which
-is the most widely studied non-thermal mechanisms
-\citep{Dalecki2004}. For certain bioeffects, such as \ac{DUS}-induced
-lung hemorrhage, the physical mechanisms is largely unknown.
-
-The bioeffects that are of motivation and interest to this thesis are
-those that can result from \ac{DUS}, which are unintentional
-and a represent a potential safety concern. \ac{DUS} bioeffects tend
-to be a result of mechanical processes and typically take the form of
-hemorrhage, tissue damage or cell death. 
-
-\subsection{Cavitation of ultrasound contrast agent
-  microbubbles} \label{subsec:bioeffects_mechanisms_ceus}%
-Acoustic cavitation is the phenomenon by which gas nano and
-microbubbles, called cavitation nuclei, are cyclically grown by low
-pressures within the \ac{US} field and collapsed high pressures within
-the field. When the bubble dynamics during collapse are dominated by
-the inertia of the surrounding fluid, it is called Inertial Cavitation
-\ac{IC}. \ac{IC} is typically violent and results in the bubble
-collapsing to a fraction of its original size. There are several
-possible damage mechanisms associated with \ac{IC} that may be
-responsible for observed \ac{US} bioeffects. Upon collapse, the
-pressure and temperature within the bubbles spike, often reaching
-billions of pascals and thousands of Kelvin respectively. Due to the
-pressure difference between the vapor/gas mixture within the bubble at
-collapse and the surrounding media, the collapsed bubble can emit a
-powerful shock wave which can be damaging to the bubbles
-surroundings. When cavitation is triggered near a rigid surface, the
-bubble can collapse in a radially asymmetric fashion causing a high
-speed ``re-entrant'' jet of liquid to impinge upon the surface,
-effectively striking the surface with a liquid hammer. If cavitation
-occurs at an appropriate distance from a non-rigid surface, such as
-soft tissue boundaries and blood vessel walls, the jet can impinge
-away from the surface, potentially invaginating the surface
-\citep{Brujan2011}. Figure \ref{fig:intro_cavitation_schematic}
-schematically illustrates potential cavitation damage mechanisms
-within a blood vessel.
-\begin{figure}
-  \centering
-  \def\svgwidth{0.9\textwidth}
-  \import{./figs/intro_figs/}{Cavitation_schematic.pdf_tex} \hfill%
-    \caption{A schematic illustration of ultrasound induced cavitation
-    and potential bioeffects damage mechanisms (from top to bottom):
-    a). Bubble expansion beyond the radius of a surrounding blood
-    vessel. b.) A cavitation jet away from the wall of a surrounding
-    blood vessel or tissue surface causes the surface to
-    invaginate. c.) A cavitation jet of high speed liquid strikes a
-    vessel or tissue wall. d.) A shock wave created by the bubble
-    collapse encounters nearby tissue.}
-  \label{fig:intro_cavitation_schematic}
-\end{figure}
-
-As a result of the potential for cavitation-related \ac{US} bioeffects
-the United States Food and Drug Administration called for a metric to
-predict likely cavitation damage from ultrasound. As bioeffects are
-typically attributed to \ac{IC}, efforts to predict cavitation damage
-considered the likelihood of \ac{IC} based on theoretical calculations
-of free gas bubbles in water. In the case of acoustic cavitation, this
-depends on the duration of peak negative pressure experienced by a
-cavitation nucleus, with longer interactions depositing more energy
-into the nucleus, and thus having a greater likelihood inducing
-\ac{IC}. The duration of the \ac{PRPA} is inversely related to the
-\ac{US} frequency. \cite{Holland1989} demonstrated that the threshold
-\ac{PRPA} needed to trigger \ac{IC}, defined based on a maximum bubble
-temperature $\geq5000$K, depended on the size of the cavitation
-nucleus. Smaller cavitation nucleii, must overcome greater surface
-tension effects in order to cavitate, with the Laplace pressure
-scaling inversely with the radius of the nucleus. Furthermore, as
-initial radius a nucleus increases, the inertia of the surrounding
-fluid that must be overcome also increases\cite{AiumS72000}. Thus
-\cite{Holland1989} illustrated that for a given frequency their is an
-optimal nucleus size for triggering \ac{IC}. Based on these
-calculations and corrections for heat dissipation in tissue the
-\ac{MI} was created as a measure of ultrasound induced cavitation
-related bioeffects and defined as
-\begin{align}
-  MI = \frac{P_{r.3}}{\sqrt{f_c}},
-\end{align}
-where $P_{r.3}$ is the \ac{PRPA} derated by $0.3$ dB/MHz-cm and
-$f_c$ is the center frequency \cite{Apfel1991}. The United States
-\ac{FDA} mandates that $MI\leq1.9$ for diagnostic imaging, though
-\ac{US} bioeffects have been observed at \ac{MI} below this in case
-of \ac{DUS} of mammalian lungs.
-
-While \ac{IC} does not typically occur during non-contrast \ac{DUS},
-it is of concern during \ac{CEUS}, which uses contrast-agent
-microbubbles injected into patients bloodstream to act as additional
-scattering surfaces. This allows for high contrast imaging and can be
-used to ultrasonically image blood flow, which is useful for
-diagnosing heart valve problems, liver lesions, and more
-\citep{Claudon2013,Rognin2008}. However, the use of contrast agent
-microbubbles can also have potential deleterious side effects. These
-microbubbles can act as cavitation nuclei and the resulting cavitation
-has been associated with a variety of different forms of cellular
-death and damage. The precise ultrasonic thresholds for which
-cavitation and bioeffects occur have been a topic of intense study and
-are not completely physically described. Furthermore, the exact
-physical mechanisms through which cavitation causes bioeffects are
-also not clearly understood \citep{Barnett1994}.
-
-\subsection{Ultrasound-induced lung hemorrhage}
-The second \ac{US} bioeffects topic of interest to this thesis is
-\ac{DUS}-induced \ac{LH}. In the relevant literature this is also
-sometimes referred to more specifically as \ac{PCH}. This phenomenon was first
-discovered in mice over twenty years ago by \cite{Child1990} and
-has since been shown to occur in a variety of other mammals including
-rats, pigs, rabbits, and monkeys \cite{OBrien1997a, Miller2012,
-  Tarantal1994a}. Research into this phenomena has been in three main
-areas: (1) Determining the physical mechanism of the hemorrhage; (2)
-Understanding how the occurrence and severity of the hemorrhage on the
-ultrasonic properties (frequency, amplitude, waveform, etc...); and
-(3) Understanding how the occurrence and severity of the hemorrhage depend on
-the characteristics of ultrasound subject (species, age, anesthesia,
-etc...). The work in this thesis pertains primarily to the first of these
-three areas.
-
-Despite extensive previous research into \ac{DUS}-induced \ac{LH}, the
-underlying physical mechanisms are still not well
-understood. Furthermore, past work has shown that common \ac{US}
-bioeffects mechanisms do not explain the observed injuries. Thermal
-damage mechanisms appear unlikely to be the primary source of damage
-as \ac{DUS}-induced lung lesions do not appear similar to those
-induced by heat \citep{Zachary2006}. Furthermore, cavitation
-mechanisms do not appear to be responsible, as the severity of
-\ac{DUS}-induced \ac{LH} in mice increased under raised hydrostatic
-pressure \citep{OBrien2000} and was unaffected by the introduction of
-\ac{US} contrast agents into subjects. Both of these results are
-inconsistent with what is expected of \ac{IC}-induced bioeffects. More
-recent work by \cite{Miller2016} investigating acoustical radiation
-surface pressure as a potential damage mechanism found that the
-pressures expected in pulsed ultrasound were likely too low to
-completely explain the observed hemorrhage on their
-own. \cite{Simon2012} found that atomization and fountaining occurred
-at tissue-air interfaces subjected to \ac{HIFU} and suggested that
-this could potentially happen at diagnostic levels as well. Similarly,
-works by \cite{Tjan2007,Tjan2008} model the evolution of an inviscid,
-free surface subjected to a Gaussian velocity potential and find that
-this can lead to the ejection of liquid droplets. They go on to say
-that \ac{DUS} of the lung may similarly lead to the ejected of
-droplets capable of puncturing the air-filled sacs within the
-lung. The problem of \ac{US}-lung interaction is the central
-motivation of chapters \ref{ch:usbe_lung} and
-\ref{ch:usbe_lung_bio}. As such, a far more in-depth literature review
-will be provided in these chapters. 
-
-\subsubsection{Driven fluid-fluid interfaces}
-The physical problem underlying interactions between ultrasound waves
-and the various tissue and fluid layers of the body is that of a
-mechanical wave traveling in one fluid encountering a second fluid of
-differing physical properties. As was previously explained, this can
-result in acoustic energy being converted into motion or heat. In the
-case of the bubble, the relevant manifestation of this was
-cavitation. Another manifestation of this is the growth of
-perturbations at fluid-fluid interfaces as a result of non-uniform
-velocity gradients that occur at the driven interface. Another way of
-thinking of this is in terms of baroclinic vorticity, or localized
-fluid rotation, generated by the misalignment of interface density
-gradients and mechanical wave pressure gradients. In this dissertation
-I propose baroclinic vorticity-driven strain as a potential physical
-mechanism for ultrasound induced alveolar hemorrhage. In the
-remaining portion of section I discuss in greater detail the
-underlying physics at play here and some of the past work that has
-been done to understand it.
-
-There has been extensive past research into the physics that underlies
-interactions between mechanical waves, acceleration, and fluid-fluid
-interfaces. Much of this research is motivated by applications in
-fusion energy and astrophysics and accordingly has sought to
-investigate regimes outside of those of acoustic
-interests. \cite{Taylor1950} predicted that for an interface between
-two fluids of different density, if the fluid was accelerated normal
-to the interface in the heavy-to-light direction, perturbations at the
-interface would grow. That is to say that a ``bubble'' of light fluid
-penetrates the heavy fluid, and a ``spike'' of heavy fluid penetrates
-the light fluid. This is known as the \ac{RTI}. A similar topic of
-past study is the \ac{RMI}, which occurs when a perturbed fluid-fluid
-interface is instantaneously accelerated by a shock, causing the
-interface perturbation to grow \citep{Brouillette2002,Drake2006}. This
-growth is driven by a sheet of baroclinic vorticity deposited along
-the interface as a result of misalignment between the pressure
-gradient across the shock and the density gradient across the
-perturbed interface. This physical mechanism by which these misaligned
-gradients create a torque on fluid particles and generate vorticity
-can be thought of in terms of a hydrostatic balance upon a
-particle. Pressure gradients result in acceleration of the flow that
-is inversely proportional to density. When these two gradients are
-misaligned, the result is a shearing effect on the fluid and vorticity
-is generated \citep{Heifetz2015}. A graphical explanations of
-baroclinic vorticity generation is shown in Figure
-\ref{fig:usbe_lung_baroclinic_schematic}, which has been adapted from \citep{Heifetz2015}.
-\begin{figure}
-  \centering
-  \includegraphics[width=0.9\textwidth]{./figs/intro_figs/baroclinic_schematic} \hfill
- \caption[A schematic of baroclinic torque]{From
-    \cite{Heifetz2015}. A hydrostatic force balance upon a particle
-    subject to perpendicular pressure and density gradients
-    illustrates baroclinic torque on a fluid particle.}
-  \label{fig:usbe_lung_baroclinic_schematic}
-\end{figure}
-Analytically, baroclinic vorticity generation can be shown by taking
-the curl of the conservation of momentum equation for a compressible
-fluid. It is worth noting that it is a nonlinear effect and cannot be
-explained by traditional linear acoustics.
-
-The physics of the classic \ac{RMI} are fairly well understood. For
-the classical \ac{RMI} setup a planar shock impinges normally upon the
-peaks and troughs of a sinusoidal interface. The interface is
-accelerated non-uniformly counter-rotating vorticies are generated
-across the interface. This drives peaks and troughs of the interface
-to accelerate in the opposite direction. Much like in the case of the
-\ac{RTI}, this too results in light fluid penetrating the
-heavy fluid and vice versa. For the case of a wave moving from a light
-fluid into a heavy one, the peaks and troughs of the interface
-accelerate away from one another, growing the interface perturbation
-perturbation. For the case of a wave moving from a heavy fluid to a
-lighter fluid, the peaks and troughs interface initially accelerate
-toward one another. They then pass each other, inverting the phase of
-the interface perturbation, and continue moving in opposite
-directions, growing the perturbation amplitude. This process is
-illustrated in Figure \ref{fig:rmi_schematic}, which has been adapted
-from \cite{Brouillette2002}. This work proposes that similar physics
-occur at ultrasonically driven air-tissue interfaces within the lungs.
-\begin{figure}
-  \centering
-  \def\svgwidth{0.9\textwidth}
-  \import{./figs/intro_figs/}{brouillette_fig3_mod.pdf_tex} \hfill%
-  \caption[A schematic view of the \acl{RMI} instability for a
-  heavy-light interface]{Adapted from \cite{Brouillette2002}. The
-    \ac{RMI} for a heavy-light interface is illustrated. The initial
-    condition (left), circulation post wave-interface interaction
-    (center), and perturbation growth (right) are shown.}
-  \label{fig:rmi_schematic}
-\end{figure}
+Before proceeding we would like to acknowledge that the
+simplifications and assumptions made in the previous sections, while
+justified in the specified regimes, do deviate from the true physical
+systems in many situations. The purpose of these simplifications is to
+make the relevant problems tractable with the available resources
+(computational, intellectual, financial, temporal, etc...). In both
+\ac{CEUS} and in ultrasound-alveoli interactions, the presented
+dimensional analysis is based on tissue properties such as viscosity
+and elasticity and behavior that are poorly characterized in both
+nature and quantity. Additionally, the analysis performed here is for
+reference cases within the relevant range, and certain dependencies,
+such as the frequency dependence of sound speed in bulk lung tissue,
+are not captured here. Furthermore, actual tissues are often
+characterized by a wide range of physical length scales ranging from
+submicron to meter and are heterogeneous at both micro and
+macroscopic scales. Despite these limitations, the models developed
+remain valid in the specified regimes by presented dimensional
+analysis. As such, for cavitation in locally homogeneous Voigt
+viscoelastic soft tissues with kPa order elasticity and otherwise
+water-like physical properties (e.g., viscosity, surface tension,
+density, sound speed) we expect the computed dynamics to be
+representative of what one would expect in the real world. Similarly
+for gas-liquid and gas-tissue interfaces with kPa order elasticity and
+otherwise water-like physical properties, driven by ultrasound waves
+with diagnostically relevant parameters of the order of those stated,
+we expect that over the timescales of interest ($\sim100 \mu$s) the
+dynamics are appropriately represented. The purpose of this work is to
+gain insight into the approximate physics applicable to these problems
+only within the valid regimes for which the models were designed.
  
 \section{Thesis overview}
 This part of the thesis presents work studying the physics of two
 problems relevant to ultrasound bioeffects: 1) Cavitation of
 ultrasound contrast agents microbubbles in human tissue, and 2)
-\ac{DUS} of the lung. For each problem, a computational model is
-developed and used to simulate the relevant dynamics in order to make
-conclusions about the physics that may be relevant to the observed
-biological effect.
+\ac{DUS}-induced hemorrhage of the lung. For each problem, the
+objectives of this thesis are to
+\begin{enumerate}
+\item Develop a computational model to simulate the problem.
+\item Perform simulations to gain new insights into the relevant
+  physics of \ac{CEUS} and diagnostic lung ultrasound.
+\item Use the results of the simulations to develop and test new
+  hypothesis and when possible make conclusions about the physics and
+  its relevance to the \ac{US} bioeffects.
+\end{enumerate}
 
-In Chapter \ref{ch:usbe_bubble}, I simulate the cavitation bubble
+Upon pursuit of the above objectives, the novel contributions made
+throughout this thesis are summarized as follows:
+\begin{itemize}
+\item A novel approach to investigating \ac{CEUS} related bioeffects
+  is taken, combining simulations of bubble dynamics in a soft
+  tissue-like viscoelastic medium, with experimentally measured
+  ultrasound waveforms and known bioeffects thresholds.
+\item Calculated cavitation dynamics are related to known bioeffects
+  thresholds associated with the experimentally measured \ac{US}
+  inputs.
+\item Further evidence is offered to suggest that existing \ac{IC}
+  thresholds may not be well suited for viscoelastic media.
+\item A novel model of an ultrasound-driven alveolus is developed.
+\item It is demonstrated that acoustic waves interacting with
+  perturbed liquid-gas interfaces may generate sufficient baroclinic
+  vorticity to drive appreciable interface deformation. These
+  deformations are a result of nonlinear processes and cannot be
+  described by purely linear acoustics.
+\item Vorticity-driven perturbation growth of gas-liquid interfaces
+  perturbations is shown to exhibit power-law behavior and scale with
+  interfacial circulation density.
+\item It is shown that because the morphology of the interface is
+  changing during the wave-interface interaction, vorticity deposition
+  depends on the transient form of the wave, and consequently so does
+  the long-term growth (or lack thereof) of the interface perturbation.
+\item Approximate stresses and strains associated ultrasound-driven
+  gas-liquid interfaces are calculated. These quantities are compared
+  with established alveolar failure criteria to conclude that, while
+  ultrasound-induced viscous stress in the lung is unlikely to cause
+  hemorrhage, there is a potential for vorticity-driven alveolar wall
+  strain that may be related to hemorrhage.
+\end{itemize}
+A more detailed chapter-by-chapter summary of the work and conclusions
+of this thesis is provided below.
+
+In Chapter \ref{ch:usbe_bubble}, we simulate the cavitation bubble
 dynamics of contrast agent microbubbles in soft tissue
 \citep{Patterson2012}. Experimentally measured \ac{US} waves with
 known bioeffects occurrence and thresholds are used
-\cite{Miller2008b}.  A parametric study is performed, relating
+\citep{Miller2008b}.  A parametric study is performed, relating
 ultrasound and tissue parameters to calculated cavitation bubble
 dynamics. The soft tissue is modeled as a Voigt viscoelastic medium
 based on the work of \cite{Yang2005}. The calculated cavitation
 dynamics and theoretical inertial cavitation thresholds
 \citep{Flynn1982,Apfel1982} are compared with bioeffects thresholds
 associated with each \ac{US} pulse, as defined by the observation of
-kidney hemorrhage in rats after exposure to CEUS by
-\cite{Miller2008b}. While the results were generally dependent on
-\ac{US}, gas, and tissue properties, it was found that the theoretical
-inertial cavitation thresholds were lower than observed bioeffects
-thresholds. It is shown that these thresholds correlate strongly to
-calculated metrics of cavitation, such as dimensionless maximum radius
+kidney hemorrhage in rats exposed to CEUS by \cite{Miller2008b}. While
+the results were generally dependent on \ac{US}, gas, and tissue
+properties, it was found that the theoretical inertial cavitation
+thresholds were lower than observed bioeffects thresholds. It is shown
+that these thresholds correlate strongly to calculated metrics of
+cavitation, such as dimensionless maximum radius
 $R_{max}/R_{equilibrium}$ and that this correlation is lost when
 simply looking at the dimensional maximum bubble size $R_{max}$, which
 is not a cavitation metric.
 
-In Chapter \ref{ch:usbe_lung}, I develop a model of an
+In Chapter \ref{ch:usbe_lung}, we develop a model of an
 ultrasonically-driven alveolus as a compressible, multi-phase fluid
 system. This model is used to study the fundamental problem of an
-acoustically-driven perturbed liquid-air interface. I demonstrate that
-under the assumptions presented in Section \ref{sec:lung_assumptions},
-strong acoustic waves of appropriate waveform are capable of
-generating sufficient baroclinic vorticity to appreciably deform the
-interface. The dependence of this deformation on the amplitude and
-temporal characteristics of the wave is studied. It is demonstrated
-that the deformation rate scales with the amount of circulation per
-unit arc length of the interface. It is also shown that the amount of
-circulation deposited by the wave is heavily dependent on the
-deformation that occurs during the wave-interface interaction, and
-therefore depends on the transient properties of the wave.
+acoustically-driven perturbed liquid-air interface. We demonstrate
+that under the assumptions presented in Section
+\ref{sec:lung_assumptions}, trapezoidal acoustic waves of sufficient
+pressure amplitude are capable of generating enough baroclinic
+vorticity to appreciably deform the interface. The dependence of this
+deformation on the amplitude and temporal characteristics of the wave
+is studied. It is demonstrated that the deformation rate scales with
+the amount of circulation per unit length of the interface. It is
+also shown that the amount of circulation deposited by the wave is
+heavily dependent on the deformation that occurs during the
+wave-interface interaction, and therefore depends on the transient
+properties of the wave.
 
 In Chapter \ref{ch:usbe_lung_bio}, the work of the previous chapter is
-extended to increase its relevance to clinical \ac{US}. The model used
-in the previous chapter is used to calculate the stresses and strains
-induced by\ac{US} pulses on perturbed liquid-gas, similar to those of
-the alveolus. These calculated stresses and strains are compared to
-accepted failure criteria. It is shown that viscous stresses are small
-compared to expected failure thresholds. However it is also shown that
-strains at gas-liquid interfaces such as those of the lungs, driven by
-acoustically-generated vorticity, may be sufficient to drive
-hemorrhage for sufficiently strong ultrasound pulses. This work
-concludes that while vorticity may be a possible mechanism for driving
-\ac{DUS}-introduced lung hemorrhage, additional work will need to be
-completed that accounts for multiple pulses as well as physical
+extended to increase its relevance to clinical \ac{DUS}. The
+previously developed model of an ultrasound-driven alveolus is
+modified and used to simulate a perturbed liquid-gas driven by an
+ultrasound pulse with diagnostically relevant parameters. We calculate
+approximate stresses and strains at the interface and compare to
+accepted alveolar failure criteria. It is shown that viscous stresses
+are small compared to expected failure thresholds. However, it is also
+shown that strains at gas-liquid interfaces such as those of the
+lungs, driven by acoustically-generated vorticity, may be sufficient
+to drive hemorrhage for sufficiently strong ultrasound pulses. This
+work concludes that while vorticity may be a possible mechanism for
+driving \ac{DUS}-introduced lung hemorrhage, additional work needs to
+be completed to account for multiple pulses as well as physical
 effects of elasticity and viscosity in order fully understand the role
 of vorticity in this problem.
 
-In the final chapter \ref{ch:usbe_conclusions} of Part
-\ref{part:ultrasound_bioeffects} of this dissertation, I summarize
+In the final chapter \ref{ch:usbe_conclusions} of Part I of this dissertation, we summarize
 the main conclusions takeaways and accomplishments of this work. I
-Also make recommendations for future work to overcome the limitations
+also make recommendations for future work to overcome the limitations
 of the presented research and extend this work to address relevant
 problems within the field.
-
 
 % If the conservation  equations were kept separate
 \begin{comment}

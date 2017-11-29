@@ -7,40 +7,9 @@
   }
   \vfill
 \end{frame}
+\input{./slidedeck/governing_eq_unabridged}
 
-\begin{frame}%
 
-  {\small%
-    \textbf{Argument against viscosity - viscous length scales}\\
-    $\nu_{w}=0.7$ $\mu$m$^2$/s,\qquad
-    $\nu_{a}=16.6 \mu$m$^2$/s,\qquad
-    $f_c=\orderof{10^6}$Hz\\
-    $\sqrt{\nu_{air}/f_c}=4\mu$ m $=\orderof{10^{-6}} << L_{\text{alveolus}}=\orderof{10^{-4}}$\\ \vspace*{4pt}
-    $\sqrt{\nu_{air,ND}t} \approx0.5 < a(t)-a_0\approx4$ at $t=1000$\\ \vspace*{4pt}  
-    Therefore the scale of the viscous effect is smaller than the scale of the problem we are looking at, but may be important at late times.\\
-  }    
-  % 
-  \vspace*{0.25cm}
-  \textbf{{\small Dimensional Numbers}}
-  {\small
-    \begin{itemize}
-    \item Let $\lambda_{alveolus}=100 \mu$ m, $u_0=c_{air}=343$ m, $v_0=<\dot{a(t)}>\approx0.65$ m/s, $u_{intf}(t=20)=12.8$ m/s, $G=1$ kPa %\cite{Roan2011}
-    \item $\lambda_{alveolus}=100 \mu$ m, $u_0=c_{air}=343$ m, $v_0=<\dot{a(t)}>\approx0.65$ m/s
-    \item $t=1 \rightarrow t_{dim}=0.292 \mu$ s
-    \end{itemize}
-  }
-  % 
-  \vspace*{0.25cm}
-  \textbf{{\small Dimensionless Numbers}}
-  {\small
-    \begin{itemize}
-    \item $Fr=\frac{u_0}{\sqrt{g_0 \lambda}}\approx11000$
-    \item $Fr=\frac{v_0}{\sqrt{g_0 \lambda}}\approx21$
-    \item $Ca=\frac{\rho u_{intf}^2}{G_{Alv}} = 163$
-    \end{itemize}
-  }
-  % 
-\end{frame}
 
 \begin{frame}\frametitle{\vspace*{0.5cm}Interface treatment}
   {\small
@@ -88,6 +57,1250 @@
   
   
 \end{frame}
+\begin{frame}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.22\textwidth]{./figs/circulation_multi-lag_nomarks_01-Jun-2017}%
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/interface_multi-lag_01-Jun-2017}%
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/a0_t1000_24-May-2017}%
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/alveolar_sac}%
+    ~
+  \end{figure}
+  \begin{figure}
+    \centering
+    \def\svgwidth{0.22\textwidth}%
+    \import{./figs/}{p0_vs_t_us_general.pdf_tex}%
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A10,25,50_a03_strain_15-Jun-2017_dim}
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A10,25,50_a10_strain_15-Jun-2017_dim}
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A10,25,50_a30_strain_15-Jun-2017_dim}
+  \end{figure}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A10_a03,10,30_strain_15-Jun-2017_dim}
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A25_a03,10,30_strain_15-Jun-2017_dim}
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A50_a03,10,30_strain_15-Jun-2017_dim}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A10,25,50_a03_tauxy_07-Mar-2017_dim}
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A10,25,50_a10_tauxy_07-Mar-2017_dim}
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A10,25,50_a30_tauxy_07-Mar-2017_dim}
+  \end{figure}
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A10_a3,10,30_tauxy_27-Feb-2017_dim}
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A25_a3,10,30_tauxy_27-Feb-2017_dim}
+    ~
+    \includegraphics[width=0.22\textwidth]{./figs/rmawave_1_A50_a3,10,30_tauxy_27-Feb-2017_dim}
+  \end{figure}
+\end{frame}
+
+%
+%
+\begin{frame}
+  \begin{figure}
+  \vspace*{-0.5cm}
+  \centering
+  \begin{subfigure}[b]{0.9\textwidth}
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=\textwidth]{./figs/rmawave_1_A10_a03_t500_rho_snapshots_printable}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\small,right] at (0.06,0.9) {\textcolor{white}{$\rho(x,y)$}};%
+        \node[font=\small,right] at (0.7,0.9) {\textcolor{white}{(a) $a_0=0.03\ell$}};%
+        \node[font=\small,right] at (0.06,0.14) {\colorbox{airgray}{$t = 0.6~\mu$s}};% t/(\ell c_{air})=1
+        \node[font=\small,right] at (0.26,0.14) {\colorbox{airgray}{$t = 6.0~\mu$s\quad}};%t/(\ell c_{air})=10
+        \node[font=\small,right] at (0.475,0.14) {\colorbox{airgray}{$t = 60~\mu$s\quad}};%t/(\ell c_{air})=100
+        \node[font=\small,right] at (0.685,0.14) {\colorbox{airgray}{$t = 288~\mu$s\quad}};%t/(\ell c_{air})=500
+      \end{scope}%  
+    \end{tikzpicture}%
+    \phantomcaption
+    \label{fig:rho_snapshot_03}
+    % \caption{\label{fig:rho_snapshot_03} $a_0 = 0.03\ell$}
+  \end{subfigure}
+  % 
+  \begin{subfigure}[b]{0.9\textwidth}
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=\textwidth]{./figs/rmawave_1_A10_a10_t500_rho_snapshots}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\small,right] at (0.06,0.9) {\textcolor{white}{$\rho(x,y)$}};%
+        \node[font=\small,right] at (0.7,0.9) {\textcolor{white}{(b) $a_0=0.1\ell$}};%
+        \node[font=\small,right] at (0.06,0.14) {\colorbox{airgray}{$t = 0.6~\mu$s}};% t/(\ell c_{air})=1
+        \node[font=\small,right] at (0.26,0.14) {\colorbox{airgray}{$t = 6.0~\mu$s\quad}};%t/(\ell c_{air})=10
+        \node[font=\small,right] at (0.475,0.14) {\colorbox{airgray}{$t = 60~\mu$s\quad}};%t/(\ell c_{air})=100
+        \node[font=\small,right] at (0.685,0.14) {\colorbox{airgray}{$t = 288~\mu$s\quad}};%t/(\ell c_{air})=500
+      \end{scope}%  
+    \end{tikzpicture}%
+    \phantomcaption
+    \label{fig:rho_snapshot_10}
+    % \caption{\label{fig:rho_snapshot_10} $a_0 = 0.1\ell$}
+  \end{subfigure}
+  % 
+  \begin{subfigure}[b]{0.9\textwidth}
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=\textwidth]{./figs/rmawave_1_A10_a30_t500_rho_snapshots}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\small,right] at (0.06,0.9) {\textcolor{white}{$\rho(x,y)$}};%
+        \node[font=\small,right] at (0.7,0.9) {\textcolor{white}{(c) $a_0=0.3\ell$}};%
+        \node[font=\small,right] at (0.06,0.14) {\colorbox{airgray}{$t = 0.6~\mu$s\quad}};% t/(\ell c_{air})=1
+        \node[font=\small,right] at (0.26,0.14) {\colorbox{airgray}{$t = 6.0~\mu$s\quad}};%t/(\ell c_{air})=10
+        \node[font=\small,right] at (0.475,0.14) {\colorbox{airgray}{$t = 60~\mu$s\quad}};%t/(\ell c_{air})=100
+        \node[font=\small,right] at (0.685,0.14) {\colorbox{airgray}{$t = 288~\mu$s\quad}};%t/(\ell c_{air})=500
+      \end{scope}%  
+    \end{tikzpicture}%
+    \phantomcaption
+    \label{fig:rho_snapshot_30}
+    % \caption{\label{fig:rho_snapshot_30} $a_0 = 0.3\ell$}
+  \end{subfigure}
+  \caption[Evolution of the interface for $p_a=1$ MPa ultrasound
+  wave]{Evolution of the interface for $p_a=1$ MPa ultrasound
+    wave. Density contours at $t=0.6, 6, 60,$ and $288~\mu$s for
+    initial perturbation amplitudes \subref{fig:rho_snapshot_03}
+    $a_0 = 0.03\ell$, \subref{fig:rho_snapshot_10} $a_0 = 0.1\ell$,
+    and \subref{fig:rho_snapshot_30} $a_0 = 0.3\ell$.}
+  \label{fig:rho_snapshots_A10}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+  \vspace*{-0.5cm}
+  \centering
+  \begin{subfigure}[b]{0.9\textwidth}
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=\textwidth]{./figs/rmawave_1_A50_a03_t500_rho_snapshots}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\small,right] at (0.06,0.9) {\textcolor{white}{$\rho(x,y)$}};%
+        \node[font=\small,right] at (0.7,0.9) {\textcolor{white}{(a) $a_0=0.03\ell$}};%
+        \node[font=\small,right] at (0.06,0.14) {\colorbox{airgray}{$t = 0.6~\mu$s\quad}};% t/(\ell c_{air})=1
+        \node[font=\small,right] at (0.26,0.14) {\colorbox{airgray}{$t = 6.0~\mu$s\quad}};%t/(\ell c_{air})=10
+        \node[font=\small,right] at (0.475,0.14) {\colorbox{airgray}{$t = 60~\mu$s\quad}};%t/(\ell c_{air})=100
+        \node[font=\small,right] at (0.685,0.14) {\colorbox{airgray}{$t = 288~\mu$s\quad}};%t/(\ell c_{air})=500
+      \end{scope}%  
+    \end{tikzpicture}%
+    \caption{\label{fig:rho_snapshot_A50_a03} $a_0 = 0.03\ell$}
+  \end{subfigure}
+  % 
+  \begin{subfigure}[b]{0.9\textwidth}
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=\textwidth]{./figs/rmawave_1_A50_a10_t500_rho_snapshots}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\small,right] at (0.06,0.9) {\textcolor{white}{$\rho(x,y)$}};%
+        \node[font=\small,right] at (0.7,0.9) {\textcolor{white}{(b) $a_0=0.1\ell$}};%
+        \node[font=\small,right] at (0.06,0.14) {\colorbox{airgray}{$t = 0.6~\mu$s\quad}};% t/(\ell c_{air})=1
+        \node[font=\small,right] at (0.26,0.14) {\colorbox{airgray}{$t = 6.0~\mu$s\quad}};%t/(\ell c_{air})=10
+        \node[font=\small,right] at (0.475,0.14) {\colorbox{airgray}{$t = 60~\mu$s\quad}};%t/(\ell c_{air})=100
+        \node[font=\small,right] at (0.685,0.14) {\colorbox{airgray}{$t = 288~\mu$s\quad}};%t/(\ell c_{air})=500
+      \end{scope}%  
+    \end{tikzpicture}%
+    \caption{\label{fig:rho_snapshot_A50_a10} $a_0 = 0.1\ell$}
+  \end{subfigure}
+  % 
+  \begin{subfigure}[b]{0.9\textwidth}
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=\textwidth]{./figs/rmawave_1_A50_a30_t500_rho_snapshots}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\small,right] at (0.06,0.9) {\textcolor{white}{$\rho(x,y)$}};%
+        \node[font=\small,right] at (0.7,0.9) {\textcolor{white}{(c) $a_0=0.3\ell$}};%
+        \node[font=\small,right] at (0.06,0.14) {\colorbox{airgray}{$t = 0.6~\mu$s\quad}};% t/(\ell c_{air})=1
+        \node[font=\small,right] at (0.26,0.14) {\colorbox{airgray}{$t = 6.0~\mu$s\quad}};%t/(\ell c_{air})=10
+        \node[font=\small,right] at (0.475,0.14) {\colorbox{airgray}{$t = 60~\mu$s\quad}};%t/(\ell c_{air})=100
+        \node[font=\small,right] at (0.685,0.14) {\colorbox{airgray}{$t = 288~\mu$s\quad}};%t/(\ell c_{air})=500
+      \end{scope}%  
+    \end{tikzpicture}%
+    \caption{\label{fig:rho_snapshot_A50_a30} $a_0 = 0.3\ell$}
+  \end{subfigure}
+  % 
+  \caption[Evolution of the interface for $p_a=5$ MPa ultrasound
+  wave]{Evolution of the interface for $p_a=5$ MPa ultrasound
+    wave. Density contours at $t=0.6, 6, 60,$ and $288~\mu$s for
+    initial perturbation amplitudes \subref{fig:rho_snapshot_03}
+    $a_0 = 0.03\ell$, \subref{fig:rho_snapshot_10} $a_0 = 0.1\ell$,
+    and \subref{fig:rho_snapshot_30} $a_0 = 0.3\ell$.}
+  \label{fig:rho_snapshots_A50}
+\end{figure}
+  
+\end{frame}
+
+
+\begin{frame}
+  \begin{figure}
+  \captionsetup[subfigure]{labelformat=empty}
+  \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=\textwidth]{./figs/rmawave_1_A50_a03_t005_tauxy_snapshots_dim_printable}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\small,right] at (0.2,0.9) {$\tau_{xy}$ (Pa)};%
+        \node[font=\small,right] at (0.2,0.25) {$t = 2.9~\mu$s };%
+      \end{scope}%  
+    \end{tikzpicture}%
+    \caption{\label{fig:tauxy_snapshot_A50_a03} $a_0 = 0.03\ell$}
+  \end{subfigure}
+  ~ 
+  \begin{subfigure}[b]{0.3\textwidth}
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=\textwidth]{./figs/rmawave_1_A50_a10_t005_tauxy_snapshots_dim_printable}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\small,right] at (0.2,0.9) {$\tau_{xy}$ (Pa)};%
+        \node[font=\small,right] at (0.2,0.25) {$t = 2.9~\mu$s };%
+      \end{scope}%  
+    \end{tikzpicture}%
+    \caption{\label{fig:tauxy_snapshot_A50_a10} $a_0 = 0.1\ell$}
+  \end{subfigure}
+  ~ 
+  \begin{subfigure}[b]{0.3\textwidth}
+    \begin{tikzpicture}%
+      \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=\textwidth]{./figs/rmawave_1_A50_a30_t500_tauxy_snapshots_dim_printable}
+      };%
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+        \node[font=\small,right] at (0.2,0.9) {$\tau_{xy}$ (Pa)};%
+        \node[font=\small,right] at (0.2,0.25) {$t = 2.9~\mu$s };%
+      \end{scope}%  
+    \end{tikzpicture}%
+    \caption{\label{fig:tauxy_snapshot_A50_a30} $a_0 = 0.3\ell$}
+  \end{subfigure}
+  \caption[Evolution of the viscous stress field for the $p_a=5$ MPa
+  wave]{Evolution of the viscous stress field for the $p_a=5$ MPa
+    wave. Contour plots of the Newtonian viscous stress $\tau_{xy}$ in
+    Pascals are shown for each initial perturbation amplitude, at
+    $t=5$, near the point when the maximum stress occurs. In Figures
+    \subref{fig:tauxy_snapshot_A50_a03},
+    \subref{fig:tauxy_snapshot_A50_a10}, and
+    \subref{fig:tauxy_snapshot_A50_a30} $a_0=0.03\ell,\, 0.1\ell,$ and
+    $0.3\ell$ respectively.  }
+  \label{fig:tauxy_snapshots}
+  % 
+\end{figure}
+
+\end{frame}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Slides %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \input{./slidedeck/partone}
+% \input{./slidedeck/pastwork_astats}
+%\input{./slidedeck/bkgd_medus}
+% \input{./slidedeck/bkgd_dus}
+% \input{./slidedeck/pastwork_bubble}
+% \input{./slidedeck/parttwo}
+% \input{./slidedeck/bkgd_lung}
+% % 
+% \begin{frame}\frametitle{}
+%   {\Large Fundamental physical problem:\vspace*{0.2cm}\\ An acoustic wave
+%     interacting with a tissue-air interface}
+%   \vspace*{-0.65cm}
+%   \captionsetup[subfigure]{labelformat=empty}
+%   \begin{figure}
+%     \centering
+%     \begin{tikzpicture}
+%       \tikzset{%
+%         box/.style    = { %rounded corners = 5pt,
+%           align           = left,
+%           font            = \sffamily\bfseries\large,
+%           text width      = 5.5cm, 
+%           blur shadow     = {shadow blur steps = 15} },    
+%         minimum height  = 0.5\textwidth
+%       }
+%       \node [box,
+%       fill         = pink, 
+%       text         = black,] 
+%       (T)
+%       {\quad \vspace*{0.5cm} Tissue\\ \vspace{-0.1\textwidth}%\\%
+%         \hspace*{\fill}
+%         \includegraphics[width=0.8\textwidth,angle=-30,origin=c]{./figs/ultrasound_example_transparent_better}
+%       };
+%       \node [box, right  = 0cm of T, fill = blue!20!white] (A)
+%       {\quad Air \vspace*{0.65\textwidth}\\ \quad
+%       };
+%       \visible<3->{ \draw[<->, line width=1mm] (1,0) -- (2.5,-0.9) node[at start] {\quad\qquad$\nabla p$};}
+%       \visible<4->{ \draw[->, line width=1mm] (4,1) -- (2,1) node[at start] {\qquad$\nabla \rho$};}
+%     \end{tikzpicture}
+%   \end{figure}
+%   \pause
+%   \only<1-4>{We want to understand the dynamics of this problem}
+%   \only<5->{\textbf{Hypothesis:} Ultrasound waves create baroclinic vorticity at gas-liquid interfaces, leading to deformation.}
+% \end{frame}
+% %
+% % \begin{frame}\frametitle{}
+% %   {\Large Fundamental physical problem:\vspace*{0.25cm}\\ An acoustic wave
+% %     interacting with a tissue-air interface}
+% %   \captionsetup[subfigure]{labelformat=empty}
+% %   \begin{figure}
+% %     \centering
+% %     \begin{tikzpicture}
+% %       \tikzset{%
+% %         box/.style    = { %rounded corners = 5pt,
+% %           align           = left,
+% %           font            = \sffamily\bfseries\large,
+% %           text width      = 5.5cm, 
+% %           blur shadow     = {shadow blur steps = 15} },    
+% %         minimum height  = 0.4\textwidth
+% %       }
+% %       \node [box,
+% %       fill         = pink, 
+% %       text         = black,] 
+% %       (T)
+% %       {\quad Tissue \vspace{0.2\textwidth}\\%
+% %         \includegraphics[width=\textwidth]{./figs/ultrasound_example_transparent_better}
+% %       };
+% %       \node [box, right  = 0cm of T, fill = blue!20!white] (A)
+% %       {\quad Air \vspace*{0.65\textwidth}\\ \quad 
+% %       };
+% %  %     \draw [scale=0.5, domain=0:2*pi,smooth, variable=\y,blue!20!white, ultra thick] plot ({sin(\y r)},{\y});      
+% % %      \fill [scale=0.5, domain=0:2*pi,smooth, variable=\y,blue!20!white, ultra thick, right = 0cm of T] (1,0) plot({sin(\y r)},{\y}) (0,0);
+% % %      -- cycle;
+% %     \end{tikzpicture}
+% %   \end{figure}
+% %   \pause
+% %   We want to understand the dynamics of this problem
+% % \end{frame}
+
+% % \begin{frame}
+% %   \begin{tikzpicture}
+% %     \tikz \fill[fill=black!20] 
+% %     plot[mark=triangle*,mark options={color=black,rotate=180}] 
+% %     file{plots/pgfmanual-sine.table} |- (0,0);
+% %   \end{tikzpicture}
+% % \end{frame}
+% % 
+% % 
+% \begin{frame}
+%   \vfill
+%   \textbf{Hypothesis:}\\Ultrasound waves generate baroclinic vorticity at gas-liquid interfaces, driving the interface deformation\\
+%   \vfill
+%   \pause
+%   \invisible<1>{
+%     Aims:
+%     \begin{enumerate}
+%     \item Test hypothesis \vspace{0.25cm} \pause%
+%     \item Simulate alveoli-like, gas-liquid interfaces driven by \textbf{clinically relevant} ultrasound waves \vspace{0.25cm} \pause%
+%     \item Calculate interface stresses and strains and compare with expected alveolar failure thresholds \vspace{0.25cm}%
+%     \end{enumerate}
+%   } \vfill
+% \end{frame}
+% % 
+% \input{./slidedeck/hypo_lung_new}
+% % 
+% % 
+% \begin{frame}
+%   \frametitle{\vspace*{0.25cm}Ultrasound driven alveoli are modeled as compressible fluids.}
+%   \only<1-3>{
+%     \vspace*{0.5cm}
+%     \captionsetup[subfigure]{labelformat=empty,justification=centering}
+%     \begin{figure}
+%       \centering
+%       % \begin{subfigure}[b]{0.3\textwidth}
+%       %   \includegraphics[width=\textwidth]{./figs/lung_figs/alveolar_sac}
+%       %   %   \caption{A histological cross section of alveoli. [By Jpogi (Own work) [CC BY-SA 4.0
+%       %   (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia
+%       %   Commons]}
+%       % \end{subfigure}
+
+%       \begin{subfigure}[b]{0.3\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{../figs/lung_figs/alveolar_sac}
+%         \vspace*{0.5cm}
+%         \visible<2->{
+%         \def\svgwidth{\textwidth}
+%         {\small
+%           \import{../2016_acoustic_vorticity/figs/lung_figs/}{Alveolus_US_zoom_only_diagram.pdf_tex} \hfill%
+%         }
+%         \caption{\mbox{Physical problem schematic}}
+%       }%
+%       \end{subfigure}%
+%       %
+%       \visible<3->{%
+%         \begin{subfigure}[b]{0.69\textwidth}%
+%           \centering \def\svgwidth{\textwidth} {\footnotesize%
+%             \import{../2016_acoustic_vorticity/figs/lung_figs/}{usbe_model_schematic_domain_tall.pdf_tex}%
+%             \hfill%
+%           }%
+%           \caption{\label{fig:problem_schematic} Domain and model problem schematic.}%
+%         \end{subfigure}%
+%       }%
+%     \end{figure}
+%     {\tiny
+%       [By Jpogi (Own work) [CC BY-SA 4.0
+%       (http://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia
+%       Commons]
+%     }
+%   }
+%   % 
+%   \only<4->{
+%     % \scriptsize{
+%     %   % \begin{align*}
+%     %   %   p(y,t_0) = p_a\sin{\left(2\pi f\frac{\left[y-\left(Y_{wave}+L_{wave}\right)\right]}{c}\right)}\exp{\left(-\frac{\left(\left[y-\left(Y_{wave}+L_{wave}/2\right)\right]c\right)^2}{FWHM/\left(2\sqrt{2\ln{\left(2\right)}} \right)}\right)}.%
+%     %   % \end{align*}
+%     % }
+%     \begin{figure}
+%       \centering
+%       \captionsetup[subfigure]{labelformat=empty}
+%       \begin{subfigure}[b]{0.4\textwidth}
+%         \includegraphics[width=\textwidth]{../figs/lung_figs/p0_vs_t_us}
+%         \vspace*{0.75cm}
+%         \caption{\label{fig:alveolar_histology} Ultrasound pulse
+%           waveform}
+%       \end{subfigure}
+%       \hfill
+%       \begin{subfigure}[b]{0.55\textwidth}
+%         \centering
+%         \def\svgwidth{\textwidth}%
+%         {\scriptsize \import{./figs/}{p_rho_ic_fields.pdf_tex}}%
+%         \caption{Initial Condition}
+%       \end{subfigure}
+%     \end{figure}
+%   }
+%   % 
+%   % \caption[A schematic view of the physical and model
+%   % problems]{\protect\subref{fig:alveolar_schematic} illustrates the
+%   % physical problem of interest, an ultrasound wave traveling into
+%   % the lung and impinging upon the first alveolus it
+%   % encounters. \subref{fig:problem_schematic} model problem,
+%   % consisting of an acoustic wave impinging from water onto a
+%   % sinusoidally interface with air. The left image shows the entire
+%   % domain and the right zooms in on the area around the interface.}
+%   % \label{fig:schematics}
+% \end{frame}
+% % 
+% % 
+% % 
+% % 
+% \begin{frame}
+%   \frametitle{\vspace*{0.25cm} The interface dynamics are simulated}
+%   \vspace*{0.25cm}%
+%   Ex: Ultrasound pulse: $f=1.5$ MHz, $p_a=5$ MPa%; Interface:$a_0=0.3\ell$.
+%   \vspace*{0.25cm}%
+%   \begin{figure}
+%     \centering
+%     \begin{subfigure}[b]{0.9\textwidth}
+%       \begin{tikzpicture}
+%         \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%           \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a30_t500_rho_snapshots}
+%         };%
+%         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%           \node[font=\scriptsize,align=left,right] at (0.06,0.92){{\textcolor{white}{Wave hits}}};%
+%           \node[font=\scriptsize,align=left,right] at (0.06,0.86){{\textcolor{white}{interface}}};%
+%           \node[font=\scriptsize,right] at (0.27,0.92){{\textcolor{white}{Wave leaves}}};%
+%           \node[font=\scriptsize,right] at (0.27,0.86){{\textcolor{white}{interface}}};%
+%         \end{scope}%
+%       \end{tikzpicture} 
+%     \end{subfigure}
+%   \end{figure}
+%   \begin{center}
+%     \begin{minipage}{0.75\linewidth}
+%       The interface evolves long after the wave has passed.\vspace*{0.25cm}\\%
+%       \pause
+%       Linear acoustics can't explain this. Is it vorticity driven?
+%     \end{minipage}
+%   \end{center}
+% \end{frame}
+% \begin{frame} \frametitle{\mbox{\textit{Past work:} Acoustic waves are capable of deforming gas-liquid interfaces}}
+%   \begin{figure}
+%     \captionsetup[subfigure]{labelformat=empty}
+%     \centering
+%     \only<1>{
+%       \begin{subfigure}[b]{0.32\textwidth}
+%         \def\svgwidth{\textwidth}
+%         \import{../figs/avpaper_figs/}{trapezoidal_wave_asa_schematic.pdf_tex}%
+%         \vspace*{0.5cm}%
+%         \caption{Input pressure}
+%       \end{subfigure}
+%     }
+%     \only<2->{
+%       \begin{subfigure}[b]{0.33\textwidth}
+%         % \includegraphics[height=0.8\textwidth]{../figs/avpaper_figs/a0_t1000_24-May-2017}
+%         % \includegraphics[height=0.8\textwidth]{../figs/avpaper_figs/intf_amp_t1000_24-May-2017}
+%         \includegraphics[width=\textwidth]{../figs/avpaper_figs/intf_amp_t1000_asa_23-Jun-2017}
+%         \vspace*{0.5cm}%
+%         \caption{ $a(t) \sim t^{\nicefrac{3}{5}}$}
+%       \end{subfigure}
+%     }
+%     ~
+%     \begin{subfigure}[b]{0.3\textwidth}
+%       \begin{tikzpicture}
+%         \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%           \includegraphics[width=\textwidth]{./figs/snapshots_density_t1_t300_asa}
+%         };%
+%         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%           \node[font=\scriptsize,align=left,right] at (0.1,0.92){{\textcolor{white}{Water}}};%
+%           \node[font=\scriptsize,align=left,right] at (0.1,0.5){{Air}};%
+%         \end{scope}%
+%       \end{tikzpicture}
+%       \caption{Density}
+%     \end{subfigure}
+%     ~
+%     % \hspace*{-0.85cm}
+%     \begin{subfigure}[b]{0.3\textwidth}
+%       % \hspace*{-0.85cm}
+%       \includegraphics[width=0.84\textwidth]{./figs/vorticity_snapshots_asa_noax}%
+%       \vspace*{0.125cm}%
+%       \caption{Vorticity}
+%     \end{subfigure}
+%   \end{figure}
+%   \only<1>{
+%   A trapezoidal acoustic waves caused significant deformations of an
+%   almost flat air-water interfaces. Linear acoustics couldn't explain
+%   this.%
+%   }
+%   \only<2>{
+%   Interface deformation can be mathematically described in terms of vorticity, $\omega = \nabla \times \boldsymbol{u}$.
+%   }
+%   \vfill
+%   \scalebox{.5}{\scriptsize Patterson, B., \& Johnsen, E. (2016). Dynamics of an acoustically driven liquid-gas interface. J. Acoust. Soc. Am.}
+% \end{frame}
+
+
+% % 
+% % 
+% % \begin{frame}
+% %   \vfill
+% %   \textbf{Hypothesis:}\\Ultrasound waves generate baroclinic vorticity at gas-liquid interfaces, driving the interface deformation\\
+% %   \vfill
+% %   Aims:
+% %   \begin{enumerate}
+% %   \item Test hypothesis \vspace{0.25cm}%
+% %   \end{enumerate}
+% %   \vfill
+% %   \pause
+% %   {\Large Is the ultrasound-induced interface deformation driven by baroclinic vorticity?}
+% %   \vfill
+% % \end{frame}
+% % 
+% \begin{frame}
+%   \frametitle{\vspace*{0.5cm}Baroclinic vorticity is driving the deformation after the wave passes}
+%   \vspace*{-0.25cm}%
+%   Consider an air-water interface driven by a $10$ MPa ultrasound pulse
+%   \begin{figure}
+%     \centering
+%     \vfill
+%     \captionsetup[subfigure]{labelformat=empty}
+%     \begin{subfigure}[b]{0.3\textwidth}
+%       \centering
+%       \begin{tikzpicture}
+%         \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%           \includegraphics[height=\textwidth]{./figs/vorticity_t1_rmawave_1_5000000,0_0,1_45,0_0,0_1,0_1,0_50_100}
+%           \includegraphics[height=0.99\textwidth]{./figs/other_vorticity_plot}
+%         };%
+%         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%           \node[font=\scriptsize,align=left,right] at (0.1,0.9){{$t=1$}};%
+%           \node[font=\scriptsize,align=left,right] at (0.55,0.9){{$t=20$}};%
+%         \end{scope}%
+%       \end{tikzpicture}
+%       \caption{Vorticity}
+%     \end{subfigure}
+%     \hfill
+%     \visible<2->{%
+%     \begin{subfigure}[b]{0.32\textwidth}
+%       \centering
+%       \begin{tikzpicture}
+%         \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%           \includegraphics[width=\textwidth]{./figs/trapz_us_amp_comparison_A10_waveend_asa}
+%           %\includegraphics[width=\textwidth]{./figs/trapz_us_amp_comparison_A10_waveend}
+%         };%
+%         % \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%         %   \node[font=\scriptsize,align=left,right] at
+%         %   (0.2,0.9){{$t=1$}};%
+%         % \end{scope}%
+%       \end{tikzpicture}
+%       \caption{Interface growth $a(t)/a_0$}
+%     \end{subfigure}
+%     ~
+%     \begin{subfigure}[b]{0.32\textwidth}
+%       \begin{tikzpicture}
+%         \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%           \includegraphics[width=\textwidth]{./figs/trapz_us_circ_comparison_A10_waveend_t0_t60_asa}
+%         };%
+%         % \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%         %   \node[font=\scriptsize,align=left,right] at
+%         %   (0.2,0.9){{$t=20$}};%
+%         % \end{scope}%
+%       \end{tikzpicture}
+%       \caption{Circulation, $\Gamma = \int_{A_R} \omega dA$}
+%     \end{subfigure}
+%     }
+%   \end{figure}
+%   \visible<2->{%
+%   Interface amplitude grows as $\approx t^{\nicefrac{3}{5}}$, at late times independently of the driving waveform\\
+%   }
+% %  - Same order of magnitude circulation is deposited
+% \end{frame}
+% %
+% \begin{comment}
+%   \begin{frame}%
+%     \frametitle{The ultrasound pulse deposits baroclinic vorticity at
+%       the interface}%
+%     % \includegraphics[width=0.8\textwidth]{./figs/vorticity_t1_t10_rmawave_1_5000000.0_0.1_45.0_0.0_1.0_1.0_50_100}
+%     \vspace*{1cm}
+%     \begin{figure}
+%       \centering \vfill
+%       \captionsetup[subfigure]{labelformat=empty}
+%       \begin{subfigure}[b]{0.3\textwidth}
+%         \centering
+%         \begin{tikzpicture}
+%           \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%             \includegraphics[width=\textwidth]{./figs/vorticity_t1_rmawave_1_5000000,0_0,1_45,0_0,0_1,0_1,0_50_100}
+%           };%
+%           \begin{scope}[x={(image.south east)},y={(image.north
+%               west)}]%
+%             \node[font=\scriptsize,align=left,right] at
+%             (0.2,0.9){{$t=1$}};%
+%           \end{scope}%
+%         \end{tikzpicture}
+%         \caption{During the wave}
+%       \end{subfigure}
+%       \hspace*{1cm}
+%       \begin{subfigure}[b]{0.3\textwidth}
+%         \begin{tikzpicture}
+%           \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%             \includegraphics[width=0.91\textwidth]{./figs/other_vorticity_plot}
+%           };%
+%           \begin{scope}[x={(image.south east)},y={(image.north
+%               west)}]%
+%             \node[font=\scriptsize,align=left,right] at
+%             (0.2,0.9){{$t=20$}};%
+%           \end{scope}%
+%         \end{tikzpicture}
+%         \caption{After the wave}
+%       \end{subfigure}
+%     \end{figure}
+%   \end{frame}
+% % 
+% % 
+%   \begin{frame}
+%     \frametitle{\vspace*{0.5cm}Baroclinic vorticity deforms
+%       ultrasound-driven interfaces}
+%     Comparing the $10$ MPa ultrasound pulse and trapezoidal waves:
+%     \begin{figure}
+%       \centering \vfill
+%       \captionsetup[subfigure]{labelformat=empty}
+%       \begin{subfigure}[b]{0.48\textwidth}
+%         \centering
+%         \begin{tikzpicture}
+%           \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%             \includegraphics[width=\textwidth]{./figs/trapz_us_amp_comparison_A10_waveend}
+%           };%
+%           % \begin{scope}[x={(image.south east)},y={(image.north
+%           %   west)}]%
+%           %   \node[font=\scriptsize,align=left,right] at
+%           %   (0.2,0.9){{$t=1$}};%
+%           % \end{scope}%
+%         \end{tikzpicture}
+%         \caption{Interface growth $a(t)/a_0$}
+%       \end{subfigure}
+%       ~
+%       \begin{subfigure}[b]{0.48\textwidth}
+%         \begin{tikzpicture}
+%           \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%             \includegraphics[width=\textwidth]{./figs/trapz_us_circ_comparison_A10_waveend_t0_t60}
+%           };%
+%           % \begin{scope}[x={(image.south east)},y={(image.north
+%           %   west)}]%
+%           %   \node[font=\scriptsize,align=left,right] at
+%           %   (0.2,0.9){{$t=20$}};%
+%           % \end{scope}%
+%         \end{tikzpicture}
+%         \caption{Circulation, $\Gamma = \int_{A_R} \omega dA$}
+%       \end{subfigure}
+%     \end{figure}
+%     - Interface amplitude grows as $\approx t^{\nicefrac{3}{5}}$ independent of waveform\\
+%     - Same order of magnitude circulation is deposited
+%   \end{frame}
+% \end{comment}
+
+% % 
+% % 
+% \begin{frame}
+%   % So far, this hasn't been very relevant to clinical ultrasound
+% \end{frame}
+% % 
+% % 
+% \begin{frame}\frametitle{\vspace*{0.5cm}Now let's consider the more clinically relevant cases}
+%   \hspace*{0.22cm}Wave and interface perturbation amplitudes are varied.%
+%   \begin{figure}
+%     \captionsetup[subfigure]{labelformat=empty}
+%     \centering
+%     \begin{subfigure}[b]{0.5\textwidth}
+%       \includegraphics[width=0.9\textwidth]{./figs/us_pulse_amps_dim}
+%       \caption{Ultrasound Pulses}
+%     \end{subfigure}
+%     \hspace*{0.5cm}
+%     \visible<2>{%
+%     \begin{subfigure}[b]{0.35\textwidth}%
+%       \begin{tikzpicture}%
+%         \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%           \includegraphics[width=0.5\textwidth]{./figs/us_intf_amps_dim}%
+%         };%
+%         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%           \node[font=\small,align=right,left] at (0.0,1){{$\ell$}};%
+%           \node[font=\small,align=right,left] at (0.0,0.75){{$\ell/2$}};%
+%           \node[font=\small,align=right,left] at (0.0,0.5){{$0$}};%
+%           \node[font=\small,align=right,left] at (0.0,0.25){{$-\ell/2$}};%
+%           \node[font=\small,align=right,left] at (0.0,0){{$-\ell$}};%
+%           \node[font=\small,align=right,left] at (0.15,-0.02){{$0$}};%
+%           \node[font=\small,align=right,left] at (1.1,-0.04){{$\ell$}};%
+%         \end{scope}%
+%       \end{tikzpicture}%
+%       \caption{\quad Interface initial conditions}%
+%     \end{subfigure}%
+%     }%
+%   \end{figure}%
+%   \vspace*{-0.25cm}%
+%   \begin{itemize}%
+%   \item Assume typical alveolar diameter $\ell = 200 \mu$m \citep{Ochs2004} \vspace*{4pt}%
+%   \item Pulse amplitudes, $p_a = 1, 2.5, 5$ MPa;\,\, frequency, $f = 1.5$ MHz  \vspace*{4pt}%
+%     \visible<2>{%
+%   \item Interface perturbation amplitudes $a_0 = 0.03\ell, 0.10\ell, 0.30\ell$  \vspace*{4pt}%
+%   }%
+%   \end{itemize}
+% \end{frame}
+% % 
+% % 
+% \begin{frame}\frametitle{\vspace*{0.5cm}The inferred viscous stress is calculated}
+%   \begin{center}
+%     $\tau_{xy}(x,y,t) = \mu\left(\frac{\partial u}{\partial y}+ \frac{\partial v}{\partial x}\right)$,
+%     \qquad$p_a = 5$ MPa
+%   \end{center}
+%   \vspace*{-0.25cm}%
+%   \begin{figure}
+%     \captionsetup[subfigure]{labelformat=empty}
+%     \centering
+%     \begin{subfigure}[b]{0.3\textwidth}
+%       \begin{tikzpicture}%
+%         \node[anchor=south west,inner sep=0] (image) at (0,0) {
+%           \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a03_t005_tauxy_snapshots_dim}
+%         };%
+%         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%           \node[font=\small,right] at (0.2,0.9) {$\tau_{xy}$ (Pa)};%
+%           \node[font=\small,right] at (0.2,0.25) {$t = 2.9 \mu$s };%
+%         \end{scope}%  
+%       \end{tikzpicture}%
+%       \caption{\label{fig:tauxy_snapshot_A50_a03} $a_0 = 0.03\ell$}
+%     \end{subfigure}
+%     ~ 
+%     \begin{subfigure}[b]{0.3\textwidth}
+%       \begin{tikzpicture}%
+%         \node[anchor=south west,inner sep=0] (image) at (0,0) {
+%           \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a10_t005_tauxy_snapshots_dim}
+%         };%
+%         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%           \node[font=\small,right] at (0.2,0.9) {$\tau_{xy}$ (Pa)};%
+%           \node[font=\small,right] at (0.2,0.25) {$t = 2.9 \mu$s };%
+%         \end{scope}%  
+%       \end{tikzpicture}%
+%       \caption{\label{fig:tauxy_snapshot_A50_a10} $a_0 = 0.1\ell$}
+%     \end{subfigure}
+%     ~ 
+%     \begin{subfigure}[b]{0.3\textwidth}
+%       \begin{tikzpicture}%
+%         \node[anchor=south west,inner sep=0] (image) at (0,0) {
+%           \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A50_a30_t500_tauxy_snapshots_dim}
+%         };%
+%         \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%           \node[font=\small,right] at (0.2,0.9) {$\tau_{xy}$ (Pa)};%
+%           \node[font=\small,right] at (0.2,0.25) {$t = 2.9 \mu$s };%
+%         \end{scope}%  
+%       \end{tikzpicture}%
+%       \caption{\label{fig:tauxy_snapshot_A50_a30} $a_0 = 0.3\ell$}
+%     \end{subfigure}
+%     % 
+%   \end{figure}
+%   \vspace*{-0.25cm}%
+%   \begin{itemize}
+%   \item Viscous shear stresses are concentrated at the interface
+%   \item The maximum shear stress, occurs approximately when the peak negative pressure hits the interface
+%   \end{itemize}
+% \end{frame}
+% % 
+% % 
+% \begin{frame}\frametitle{\vspace*{0.5cm}The inferred viscous stress is calculated}
+%   \begin{center}
+%     $\tau_{xy}(x,y,t) = \mu\left(\frac{\partial u}{\partial y}+ \frac{\partial v}{\partial x}\right)$,
+%     \qquad$a_0 = 0.3\ell$ MPa
+%   \end{center}
+%   \begin{figure}
+%     \captionsetup[subfigure]{labelformat=empty}
+%     \begin{subfigure}{0.5\textwidth}
+%       \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a30_tauxy_dim_15-Jun-2017}
+%     \end{subfigure}
+%     % \caption{$a_0 = 0.3\ell$ MPa}
+%   \end{figure}
+%   \vspace*{-0.25cm}
+%   \begin{itemize}
+%   \item Maximum calculated shear stress, $\approx 50$ Pa 
+%   \item $\approx$ alveolar wall stress failure criterion, $8$ kPa \citep{West1991}
+%   \end{itemize}
+% \end{frame}
+% % 
+% % 
+% \begin{frame}\frametitle{\vspace*{0.5cm}The interface strain is calculated}
+%   \vspace*{-0.15cm}%
+%   \begin{center}
+%     $\varepsilon(t) = \frac{s(t)-s_0}{s_0},    \qquad s = \text{arclength of interface}$
+%   \end{center}
+%   \vspace*{-0.25cm}%
+%   \begin{figure}
+%     \captionsetup[subfigure]{labelformat=empty}
+%     \centering
+%     % \begin{subfigure}[b]{0.49\textwidth}
+%     %   \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a03_strain_08-Mar-2017}
+%     %   \caption{\label{fig:strain_multi-pa_a03} $a_0 = 0.03\ell$}
+%     % \end{subfigure}
+%     % ~ 
+%     \begin{subfigure}[b]{0.45\textwidth}
+%       \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a10_strain_15-Jun-2017_dim}
+%       \caption{\label{fig:strain_multi-pa_a30} $a_0 = 0.1\ell$}
+%     \end{subfigure}
+%     ~
+%     \begin{subfigure}[b]{0.45\textwidth}
+%       \includegraphics[width=\textwidth]{../figs/lung_figs/rmawave_1_A10,25,50_a30_strain_15-Jun-2017_dim}
+%       \caption{\label{fig:strain_multi-pa_a30} $a_0 = 0.3\ell$}
+%     \end{subfigure}
+%   \end{figure}
+%   \vspace*{-0.35cm}
+%   \begin{itemize}
+%   \item Strain increases with increasing $p_a$ and $a_0$
+%   \item For $a_0=0.3\ell$ and $p_a = 1, 2.5,$ and $5$ MPa maximum strains, at $t \approx 300\mu$s, are $\varepsilon =-0.01, -0.05,$ and $0.38$ respectively.
+%   \item $\approx$ alveolar strain failure criterion, $\varepsilon = ?$.
+%   \end{itemize}
+% \end{frame}
+% % 
+% % 
+% \begin{frame}\frametitle{Discussion and conclusions}%
+%   \vfill
+%   \begin{itemize}
+%   \item A single pulse can appreciably strain an air-water interface
+%     via baroclinic vorticity. Subsequent pulses likely to create more vorticity.\vfill
+%   \item Linear acoustics does \textbf{not} capture the dynamics of this problem.\vfill
+%   \item Newtonian viscous stress alone is not likely to cause
+%     hemorrhage.\vfill  
+% %  \item Circulation from subsequent pulses could add up.\vfill
+%   \item Better characterization and modeling of mechanical properties (e.g, elasticity, viscosity) is needed.\vfill
+%   \end{itemize}
+%   \vfill
+% \end{frame}
+% % 
+% % 
+% % \begin{frame}\frametitle{Conclusions}%
+% %   \vfill
+% %   \begin{itemize}
+% %   \item I need to finish these slides
+% %   \end{itemize}
+% %   \vfill
+% % \end{frame}
+% % 
+% % 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}%
+
+  {\small%
+    \textbf{Argument against viscosity - viscous length scales}\\
+    $\nu_{w}=0.7$ $\mu$m$^2$/s,\qquad
+    $\nu_{a}=16.6 \mu$m$^2$/s,\qquad
+    $f_c=\orderof{10^6}$Hz\\
+    $\sqrt{\nu_{air}/f_c}=4\mu$ m $=\orderof{10^{-6}} << L_{\text{alveolus}}=\orderof{10^{-4}}$\\ \vspace*{4pt}
+    $\sqrt{\nu_{air,ND}t} \approx0.5 < a(t)-a_0\approx4$ at $t=1000$\\ \vspace*{4pt}  
+    Therefore the scale of the viscous effect is smaller than the scale of the problem we are looking at, but may be important at late times.\\
+  }    
+  % 
+  \vspace*{0.25cm}
+  \textbf{{\small Dimensional Numbers}}
+  {\small
+    \begin{itemize}
+    \item Let $\lambda_{alveolus}=100 \mu$ m, $u_0=c_{air}=343$ m, $v_0=<\dot{a(t)}>\approx0.65$ m/s, $u_{intf}(t=20)=12.8$ m/s, $G=1$ kPa %\cite{Roan2011}
+    \item $\lambda_{alveolus}=100 \mu$ m, $u_0=c_{air}=343$ m, $v_0=<\dot{a(t)}>\approx0.65$ m/s
+    \item $t=1 \rightarrow t_{dim}=0.292 \mu$ s
+    \end{itemize}
+  }
+  % 
+  \vspace*{0.25cm}
+  \textbf{{\small Dimensionless Numbers}}
+  {\small
+    \begin{itemize}
+    \item $Fr=\frac{u_0}{\sqrt{g_0 \lambda}}\approx11000$
+    \item $Fr=\frac{v_0}{\sqrt{g_0 \lambda}}\approx21$
+    \item $Ca=\frac{\rho u_{intf}^2}{G_{Alv}} = 163$
+    \end{itemize}
+  }
+  % 
+\end{frame}
+\input{./slidedeck/convergence}
+
+
+
+% \begin{comment}
+%   % 
+%   \input{./slidedeck/bkgd_waves}
+
+%   \begin{frame}
+%     \frametitle{\vspace*{0.5cm}The model is adapted for acoustically-driven gas-liquid interfaces}
+%     \begin{figure}
+%       \centering
+%       \centering%
+%       \begin{subfigure}[b]{0.53\textwidth}
+%         \centering
+%         \def\svgwidth{\textwidth}%
+%         \import{../figs/avpaper_figs/}{shock_2_ultrasound_logic.pdf_tex}%
+%         \vspace*{2cm}
+%         \caption{Design of the trapezoidal waveform}
+%       \end{subfigure}
+%       \begin{subfigure}[b]{0.46\textwidth}
+%         \centering
+%         \def\svgwidth{\textwidth}
+%         {\footnotesize
+%           \import{../figs/avpaper_figs/}{p0_vs_y.pdf_tex}%
+%         }
+%         \caption{Acoustic pressure waveform}
+%       \end{subfigure}
+%     \end{figure}
+%     A trapezoidal wave is used to capture features of both the ultrasound pulse and the shock wave.
+%   \end{frame}
+
+
+%   % 
+%   % 
+%   \begin{frame} \frametitle{\vspace*{0.25cm}Problem setup remains otherwise unchanged}
+%     \vspace*{0.5cm}
+%     \begin{figure}
+%       \centering \def\svgwidth{0.6\textwidth} {\footnotesize
+%         \import{../2016_acoustic_vorticity/figs/lung_figs/}{usbe_model_schematic_domain_tall.pdf_tex}
+%       }
+%       \caption{\label{fig:problem_schematic} Domain and model problem
+%         schematic.}
+%     \end{figure}
+%   \end{frame}
+%   % 
+%   % 
+%   \begin{frame}
+%     \frametitle{The theoretical interface dynamics are calculated for trapezoidal waves of varying amplitude $p_a=5, 7.5, 10,$ and $12.5$ MPa.} 
+%     \begin{figure}
+%       \centering
+%       \begin{subfigure}[b]{0.6\textwidth}
+%         \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/snapshots_density_t1}
+%         \caption{$p_a = 10$ MPa.}
+%       \end{subfigure}
+%       \only<1>{
+%         \begin{subfigure}[b]{0.35\textwidth}
+%           \centering
+%           \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/trapz10_intf_schematic}%
+%           \caption{$0\leq t \leq 25$.}
+%         \end{subfigure}
+%       }
+%       \only<2>{
+%         \begin{subfigure}[b]{0.35\textwidth}
+%           \centering
+%           \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/trapz10_intf_t1000}%
+%           \caption{$0\leq t \leq 1000$.}
+%         \end{subfigure}
+%       }
+%     \end{figure}
+
+%   \end{frame}
+%   % 
+%   % 
+%   \begin{frame}%
+%     \frametitle{It is shown that baroclinic vorticity is capable of deforming the interface long after the wave has passed.}%
+%     \begin{figure}
+%       \centering
+%       \begin{subfigure}[b]{0.6\textwidth}
+%         \includegraphics[width=0.98\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/vorticity_snapshot_mat}
+%         \caption{$p_a = 10$ MPa.}
+%       \end{subfigure}
+%       \only<1>{
+%         \begin{subfigure}[b]{0.35\textwidth}
+%           \centering
+%           $\Gamma = \int_{A_r} \omega dA_r$
+%           \includegraphics[height=0.9\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/trapz10_circ_schematic.pdf}%
+%           \caption{$0\leq t \leq 25$.}
+%           \hfill
+%         \end{subfigure}
+%       }
+%       \only<2>{
+%         \begin{subfigure}[b]{0.35\textwidth}
+%           \centering
+%           $\Gamma = \int_{A_r} \omega dA_r$
+%           \includegraphics[height=0.9\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/Gamma_t1000_28-Oct-2016}%
+%           \caption{$0\leq t \leq 1000$.}
+%           \hfill
+%         \end{subfigure}
+%       }
+%     \end{figure}
+%   \end{frame}
+%   % 
+%   % 
+%   \begin{frame}
+%     \frametitle{The interface perturbation appears to grow asymptotically.}
+%     \begin{minipage}{0.45\textwidth}
+%       \begin{figure}
+%         \centering
+%         \begin{subfigure}[t]{\textwidth}
+%           \centering
+%           \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/a0_t1000_23-Dec-2016}
+%           \caption*{\label{fig:trapz_interface_t1000} Constant scaling:
+%             $a(t)/a_0$}
+%         \end{subfigure}
+%       \end{figure}
+%     \end{minipage}
+%     ~
+%     \begin{minipage}{0.45\textwidth}
+%       \only<2->{
+%         From dimensional analysis:
+%         \begin{align*}
+%           a(t) &\sim f\left(\Gamma, s,\ell,c\right)\\
+%           \text{We suspect}\\
+%           a(t) &\sim f\left(\frac{\Gamma}{s},\ell,c\right),\\
+%           \text{such that}\\
+%           \frac{a(t)}{\ell} &\sim \left(\frac{\Gamma}{s c}\right)\left(\frac{c}{\ell}t\right)^n
+%         \end{align*}
+%       }
+%     \end{minipage}
+
+
+
+%   \end{frame}
+%   % 
+%   % 
+%   \begin{frame}
+%     \frametitle{The interface perturbation amplitude grows approximately as $t^{3/5}$ and scales with the linear circulation density $\Gamma_0/s_0$.}
+%     \begin{figure}
+%       \centering
+%       \begin{subfigure}[t]{0.45\textwidth}
+%         \centering
+%         \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/a0_t1000_23-Dec-2016}
+%         \caption{\label{fig:trapz_interface_t1000} Constant scaling: $a(t)/a_0$}
+%       \end{subfigure}
+%       ~
+%       \begin{subfigure}[t]{0.45\textwidth}
+%         \centering
+%         \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/intf_amp_t1000_23-Dec-2016}
+%         \caption{Vortex strength scaling: $a(t)/\left(\frac{\Gamma_0}{s_0}\frac{\ell}{c}\right)$}
+%       \end{subfigure}
+%     \end{figure}
+%     The perturbation amplitude curves collapse by:\\
+%     (1) Syncing the time of the phase inversion\\ 
+%     (2) Scaling by $\Gamma / s$ at the time when circulation dominates the wave.
+%   \end{frame}
+%   % 
+%   % 
+  \begin{frame}
+    \frametitle{The interface arc length per unit circulation $s(t)/\Gamma(t)$ grows approximately as $t^{1/2}$ and scales with wave amplitude $p_a$.}
+    \begin{figure}
+      \centering
+      \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/s_t1000_14-Feb-2017}
+        \caption{\label{fig:trapz_interface_t1000} Constant scaling: $s(t)/\ell$}
+      \end{subfigure}
+      ~
+      \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=0.8\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/scp_t1000_23-Dec-2016}
+        \caption{Vortex strength scaling: $\frac{s(t)}{\Gamma(t)}\frac{p_a}{\rho c}$}
+      \end{subfigure}
+    \end{figure}
+  \end{frame}
+  % 
+  % 
+  \begin{frame}
+    \frametitle{The circulation deposited and therefore late time perturbation growth depend heavily on time-dependent wave features}
+    \begin{figure}
+      \centering
+      \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/interface_multi-lag}
+        \caption{$a(t)/a_0$}
+      \end{subfigure}
+      \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{../2016_acoustic_vorticity/figs/lung_figs/circulation_multi-lag_fixed}
+        \caption{$\Gamma(t)$}
+      \end{subfigure}
+      \begin{flushleft}
+        {\footnotesize
+        The interface amplitude (left) and circulation (right) histories
+        for waves of varying total length $L$ and elevated static pressure
+        duration between the expansion and compression. Here we show
+        results for $L=45\ell$ (blue), $L=35\ell$ (orange), $L=30\ell$
+        (yellow), $L=20\ell$ (purple), $L=15\ell$ (green), $L=10\ell$
+        (light blue)
+      }
+      \end{flushleft}
+      \label{fig:trapz_circ_interface_multi-lag}
+    \end{figure}
+  \end{frame}
+  
+  \input{./slidedeck/2017-03-09_acoustic_vorticity_conclusions}
+  % 
+
+%   \begin{frame} \frametitle{\mbox{\textit{Past work:} Acoustic waves are capable of deforming gas-liquid interfaces \citep{Patterson2016}}}
+%     \begin{figure}
+%       \centering
+%       \begin{subfigure}[b]{0.48\textwidth}
+%         \def\svgwidth{\textwidth}
+%         \import{../figs/avpaper_figs/}{trapezoidal_wave_asa_schematic.pdf_tex}%
+%       \end{subfigure}
+%       \hfill
+%       \begin{subfigure}[b]{0.48\textwidth}
+%         \begin{tikzpicture}
+%           \node[anchor=south west,inner sep=0] (image) at (0,0) {%
+%             \includegraphics[width=0.8\textwidth]{../figs/lung_figs/snapshots_density_t1_t300}
+%           };%
+%           \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+%             \node[font=\scriptsize,align=left,right] at (0.1,0.92){{\textcolor{white}{Water}}};%
+%             \node[font=\scriptsize,align=left,right] at (0.1,0.5){{Air}};%
+%           \end{scope}%
+%         \end{tikzpicture}
+%       \end{subfigure}
+%     \end{figure}
+%     A trapezoidal acoustic waves caused significant deformations of an
+%     almost flat air-water interfaces. Linear acoustics couldn't explain
+%     this.
+%   \end{frame}
+%   \begin{frame} \frametitle{\mbox{\textit{Past work:} Acoustic waves are capable of deforming gas-liquid interfaces}}
+%     \begin{figure}
+%       \centering
+%       \captionsetup[subfigure]{labelformat=empty}
+%       \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=\textwidth]{./figs/vorticity_snapshots_asa}
+%       \end{subfigure}
+%       % \begin{subfigure}[b]{0.45\textwidth}
+%       %   \includegraphics[width=\textwidth]{../figs/avpaper_figs/s_t1000_24-May-2017}
+%       %   \caption{\label{fig:trapz_scp_t1000_unscaled} Interface arc length: $s(t) \sim \Gamma(t) t^{\nicefrac{1}{2}}$}
+%       % \end{subfigure}
+%       \begin{subfigure}[b]{0.45\textwidth}
+%         % \includegraphics[height=0.8\textwidth]{../figs/avpaper_figs/a0_t1000_24-May-2017}
+%         \includegraphics[height=0.8\textwidth]{../figs/avpaper_figs/intf_amp_t1000_24-May-2017}
+%         \caption{ $a(t) \sim t^{\nicefrac{3}{5}}$}
+%       \end{subfigure}
+%     \end{figure}
+%     Vorticity drives deformation in a mathematically describable wave.
+%   \end{frame}
+% \end{comment}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% % \begin{frame}  
+% %   \centering
+% %   \begin{center}
+% %     {\LARGE EXTRA SLIDES}\\
+% %   \end{center}
+% % \end{frame}
+% % \input{./slidedeck/pastwork_bubble}
+% % \input{./slidedeck/parttwo}
+% % \input{./slidedeck/bkgd_waves}
+% % \input{./slidedeck/blank}
+% % \input{./slidedeck/aim}
+% % \input{./slidedeck/hypo_lung}
+% % \input{./slidedeck/setup_lung}
+% % \input{./slidedeck/results_prelimus}
+% % \input{./slidedeck/trapzwave}
+% % \input{./slidedeck/governing_eq}
+% % \input{./slidedeck/methods_computation}
+% % \input{./slidedeck/methods_basecase}
+% % \input{./slidedeck/results_trapz_qualitative}
+% % \input{./slidedeck/results_trapz_early_interface}
+% % \input{./slidedeck/results_trapz_late_interface}
+% % \input{./slidedeck/results_vorticity_contours}
+% % \input{./slidedeck/results_trapz_circ_deposition}
+% % \input{./slidedeck/results_trapz_late_interface_circ}
+% % \input{./slidedeck/results_trapz_length}
+% % \input{./slidedeck/analysis_baro_oom}
+% % \input{./slidedeck/results_volumefrac}
+% % \input{./slidedeck/results_postus}
+% % \input{./slidedeck/results_uswave}
+% % \input{./slidedeck/prelim_conclusions}
+% % \input{./slidedeck/partthree}
+% % \input{./slidedeck/future_fluids}
+% % \input{./slidedeck/future_us}
+% % \input{./slidedeck/pastwork_astats}
+% % 
+% %% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+
+
+% % Backup slides
+% \input{./slidedeck/governing_eq}
+% \input{./slidedeck/methods_computation}
+% \input{./slidedeck/backup_slides}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% % \begin{frame} \vspace{\fill} \begin{center} \Huge 
+% %     Thanks a lot!\\ \vspace{\fill} Questions? 
+% %   \end{center} \vspace{\fill} \end{frame} 
 
 
 %%% Local Variables:

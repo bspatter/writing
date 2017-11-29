@@ -1,4 +1,19 @@
-\title[]{Applications of computation in acoustics:\\Ultrasound bioeffects and transmission loss uncertainty}
+%% Some customizations, based on https://tex.stackexchange.com/questions/22346/how-to-customize-titlepage-in-beamer
+
+% \defbeamertemplate*{title page}{customized}[1][]
+% {
+% %  \usebeamerfont{title}\inserttitle\par
+% %  \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+% %  \bigskip
+%  % \usebeamerfont{author}\insertauthor\par
+% %  \usebeamerfont{institute}\insertinstitute\par
+% %  \usebeamerfont{date}\insertdate\par
+%   \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+% }
+
+
+%%
+\title[]{Applications of Computation in Acoustics:\\Ultrasound Bioeffects \&\\ Underwater Transmission Loss Uncertainty}
 \author[] {}
 
 \institute[]{}
@@ -6,64 +21,79 @@
 
 
 \begin{frame} %\vspace{1cm}
-\titlepage \vspace{-2.50cm}
-\centering
-\begin{columns}
-\column{.25\textwidth}
+  \vspace*{1cm}
+  %\titlepage \vspace{-2.50cm}
 
-%\begin{figure}\vspace*{1.3cm} \centering \includegraphics[width=.70\columnwidth]{include/figs/MichiganSeal} \end{figure}
-\column{.5\textwidth} \begin{center}
-%
-\normalsize{Brandon Patterson} \vspace{12pt} \\ 
-%
-\footnotesize{Scientific Computing and Flow Physics Lab} \vspace{4pt}\\
-\footnotesize{University of Michigan, Ann Arbor} \vspace{4pt} \\
-\scriptsize{$^1$Department of Mechanical Engineering} \vspace{4pt} \\
-%\scriptsize{$^2$Department of Radiology} \vspace{4pt}
-\end{center}
-\column{.25\textwidth}
-\vspace*{.15cm}
-%\begin{figure} \vspace*{1.3cm} \centering \includegraphics[width=.70\columnwidth]{include/figs/MElogo} \end{figure}
-\end{columns}
-%\vspace{.25cm}
-\begin{center}
-%
-%
-%%%%%%%%%%%%%%%%%%%   Put Date Here   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\footnotesize {\today} \vspace{-.1cm}
-%
-%
-\end{center}
+  {
+    %\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6} %% UNCOMMENT IF NOT IN PREAMPLE
+    \setbeamercolor{title}{fg=white, bg=darkpowderblue}
+  \begin{beamercolorbox}[sep=8pt,center,wd=\paperwidth,ht=0.3\textheight,dp=0.045\textheight]{title}
+    \usebeamerfont{title}\inserttitle\par%
+  \end{beamercolorbox}
+  }
+  \centering
+  \begin{columns}
+    \column{.25\textwidth}
+    
+    % \begin{figure}\vspace*{1.3cm} \centering \includegraphics[width=.70\columnwidth]{include/figs/MichiganSeal} \end{figure}
+    \column{.5\textwidth}
+    \begin{center}
+      % 
+      \normalsize{A \emph{dissertation defense} by:\\Brandon Patterson} \vspace{16pt} \\ 
+      % 
+      \footnotesize{Scientific Computing and Flow Physics Lab} \vspace{4pt}\\
+      \footnotesize{University of Michigan, Ann Arbor} \vspace{4pt}\\
+      \scriptsize{Department of Mechanical Engineering} \vspace{4pt}\\
+      % \scriptsize{$^2$Department of Radiology} \vspace{4pt}
+    \end{center}
+    \column{.25\textwidth}
+    \vspace*{.15cm}
+    % \begin{figure} \vspace*{1.3cm} \centering \includegraphics[width=.70\columnwidth]{include/figs/MElogo} \end{figure}
+  \end{columns}
+  \vspace{.25cm}
+  \begin{center}
+    % 
+    % 
+    %%%%%%%%%%%%%%%%%%% Put Date Here   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \footnotesize {\today} \vspace{-.1cm}
+    \footnotesize {October 31, 2017} \vspace{-.1cm}
+    % 
+    % 
+  \end{center}
 
 
 
-%
-%
-%%%%%%%%%%%%%%%%%%%   FUNDING SOURCE OR CONFERENCE IMAGES BELOW ( L | C | R )   %%%%%%%%%%%%%%%%%%%%
-\begin{minipage}{\textwidth}
-\hspace*{.5cm}
-\begin{minipage}{.3\textwidth}
-\begin{center} 
-\begin{figure}
-	\centering
-		%\includegraphics[width=.4\textwidth]{include/figs/NIH_logo}
-%	\label{fig:NIH_logo_blue}
-\end{figure}
-\end{center}
-\end{minipage}
-\begin{minipage}{.3\textwidth}
-\begin{center} 
-\begin{figure}
-	\centering
-%		\includegraphics[width=.8\textwidth]{include/figs/nsfgrfp}
-	\label{fig:NSF_logo_blue}
-\end{figure}
-\end{center}
-\end{minipage}
-\begin{minipage}{.3\textwidth}
-\begin{center} 
-
-\end{center}
-\end{minipage}
-\end{minipage}
+  % 
+  % 
+  %%%%%%%%%%%%%%%%%%% FUNDING SOURCE OR CONFERENCE IMAGES BELOW ( L | C | R )   %%%%%%%%%%%%%%%%%%%%
+  \begin{minipage}{\textwidth}
+    \hspace*{.5cm}
+    \begin{minipage}{.3\textwidth}
+      \begin{center} 
+        \begin{figure}
+          \centering
+          % \includegraphics[width=.4\textwidth]{include/figs/NIH_logo}
+          %	\label{fig:NIH_logo_blue}
+        \end{figure}
+      \end{center}
+    \end{minipage}
+    \begin{minipage}{.3\textwidth}
+      \begin{center} 
+        \begin{figure}
+          \centering
+          % \includegraphics[width=.8\textwidth]{include/figs/nsfgrfp}
+          \label{fig:NSF_logo_blue}
+        \end{figure}
+      \end{center}
+    \end{minipage}
+    \begin{minipage}{.3\textwidth}
+      \begin{center} 
+        
+      \end{center}
+    \end{minipage}
+  \end{minipage}
 \end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

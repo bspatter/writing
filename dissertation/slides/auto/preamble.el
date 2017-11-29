@@ -4,7 +4,7 @@
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("beamer" "11pt")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("babel" "english") ("caption" "center") ("adjustbox" "export") ("cancel" "makeroom")))
+                     '(("babel" "english") ("caption" "center") ("adjustbox" "export") ("cancel" "makeroom") ("hyphenat" "none") ("enumitem" "shortlabels")))
    (add-to-list 'LaTeX-verbatim-environments-local "semiverbatim")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
@@ -40,7 +40,6 @@
     "adjustbox"
     "embedfile"
     "soul"
-    "xcolor"
     "import"
     "relsize"
     "tikz"
@@ -50,8 +49,14 @@
     "subcaption"
     "comment"
     "nicefrac"
-    "tcolorbox")
+    "tcolorbox"
+    "hyphenat"
+    "tabu"
+    "xparse"
+    "enumitem")
    (TeX-add-symbols
+    '("Diff" 1)
+    '("orderof" 1)
     "beginbackup"
     "backupend"
     "RR"
@@ -66,12 +71,20 @@
     "po"
     "meanint"
     "SoulColor"
+    "plus"
+    "minus"
+    "timesx"
+    "equals"
+    "diff"
+    "btVFill"
     "newblock"
     "ring")
    (LaTeX-add-environments
     "tablehere"
     "figurehere")
    (LaTeX-add-counters
-    "framenumbervorappendix"))
+    "framenumbervorappendix")
+   (LaTeX-add-saveboxes
+    "fminipagebox"))
  :latex)
 

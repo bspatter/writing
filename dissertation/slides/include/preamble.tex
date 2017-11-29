@@ -1,3 +1,6 @@
+\PassOptionsToPackage{dvipsnames}{xcolor} %avoid option clash with tikz, b/c tikz already loads xcolor: https://tex.stackexchange.com/questions/51488/option-clash-with-xcolor-and-tikz
+
+
 \documentclass[11pt]{beamer} %Add 'handout' in the options for printing
 
 \usepackage{beamercolorthemewolverine}
@@ -7,7 +10,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{mathtools}
 \usepackage{commath}
-\usepackage{amssymb,amscd,amsfonts,amsbsy}
+\usepackage{amscd,amsfonts,amsbsy}
 \usepackage{enumerate}
 \usepackage{epsfig}
 \usepackage{pgfpages}
@@ -22,7 +25,8 @@
 \usepackage[export]{adjustbox}
 \usepackage{embedfile}
 \usepackage{caption}
-\usepackage{soul,xcolor}
+\usepackage{soul}
+%\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{import}
 \usepackage{relsize}
 \usepackage{tikz,pgfplots}
@@ -32,11 +36,14 @@
 \usepackage{comment}
 \usepackage{nicefrac}
 \usepackage{tcolorbox}
+\usepackage{pgfplots}
+
+
 %\usepackage{media9}
 \usetikzlibrary{positioning,shadows.blur}
-
-
-
+\usepackage[none]{hyphenat}
+%\usepackage{transparent}
+\usepackage{tabu}
 
 %Setup note page
 \setbeamertemplate{note page}[plain]
@@ -72,31 +79,28 @@
 
 %---------------------------------------------------------------------------
 %\setbeamercolor{mycolor}{fg=White,bg=White}
+\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
 \setbeamercolor{alerted text}{fg=red} 
-\setbeamertemplate{frametitle}
-{
-  \vskip-5pt 
-  \leavevmode
-  \begin{center}
-    \vspace*{-0.75cm}
-  \hbox{%
-  \begin{beamercolorbox}[wd=0.85\paperwidth,ht=0.35cm,dp=1.35ex]{White}%
-    \raggedright
-%    \vspace*{-.25cm}
-    \parbox{\textwidth}{
-    {\normalsize \insertframetitle} %\small{\insertframetitle}
-    }
-  \end{beamercolorbox}
-  % \hspace*{1em}{\normalsize \insertframetitle} %\small{\insertframetitle}
-  }%
-  \end{center}
- % \vspace*{-0.75cm}
-}
-\def\newblock{\hskip .11em plus .33em minus .07em}
+\setbeamertemplate{frametitle}%
+{%
+%  \vskip{-5pt}%
+  \leavevmode%
+  \begin{center}%
+    \vspace*{-0.5cm}%
+    \hbox{%
+      \begin{beamercolorbox}[wd=0.9\paperwidth,ht=1.5ex,dp=0ex]{White}%
+        \raggedright%
+        \parbox{0.95\textwidth}{\normalsize \textbf{\textcolor{darkpowderblue}{\insertframetitle}}}% %\small{\insertframetitle}
+      \end{beamercolorbox}%
+      % \hspace*{1em}{\normalsize \insertframetitle} %\small{\insertframetitle}
+    }%
+  \end{center}%
+}%
+\def\newblock{\hskip .11em plus .33em minus .07em}%
 
-\setbeamertemplate{headline}{}
+\setbeamertemplate{headline}{}%
 
-\setbeamercovered{dynamic}
+\setbeamercovered{dynamic}%
 
 
 \newcommand{\RR}{{\mathbb{R}}}
@@ -110,7 +114,6 @@
 \newcommand{\vs}{\vskip 0.5cm}
 \newcommand{\po}{{\partial\Omega}}
 \newcommand{\meanint}{{\int{\mkern-19mu}-}}
-%\newcommand{\orderof}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
 \def\ring{\mathaccent"0017 }
 
 \definecolor{AliceBlue}{RGB}{240,248,255}
@@ -130,6 +133,53 @@
 
 
 
+% My commands
+\newcommand{\orderof}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
+\newcommand{\plus}{\raisebox{.2\height}{\scalebox{.8}{+}}}
+\newcommand{\minus}{\raisebox{.2\height}{\scalebox{.8}{-}}}
+\newcommand{\timesx}{\raisebox{.2\height}{\scalebox{.8}{\times}}}
+\newcommand{\equals}{\raisebox{.25\height}{\scalebox{0.9}{=}}}
+\renewcommand{\CancelColor}{\color{red}} %change cancel color to red
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+% \newcommand{\mycbox}[1]{\tikz{\path[draw=#1,fill=#1] (0,0) rectangle (1cm,1cm);}}
+
+
+\makeatletter
+% redefine the cancelto command, using \phantom to assure that the result doesn't wiggle up and down with and without the arrow
+% This is used for crossing out terms in an equation, but it works, but causes weird syntax errors when compiling that borks the terminal
+\let\my@cancelto\cancelto %copy over the original cancelto command
+\newcommand<>{\cancelto}[2]{\alt#3{\my@cancelto{#1}{#2}}{\mathrlap{#2}\phantom{\my@cancelto{#1}{#2}}}}
+\makeatother
+
+
+% Defines a minipage with a box around it, fminipage: https://tex.stackexchange.com/questions/88616/fbox-around-type-area
+\usepackage{xparse}
+\newsavebox{\fminipagebox}
+\NewDocumentEnvironment{fminipage}{m O{\fboxsep}}
+ {\par\kern#2\noindent\begin{lrbox}{\fminipagebox}
+  \begin{minipage}{#1}\ignorespaces}
+ {\end{minipage}\end{lrbox}%
+  \makebox[#1]{%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+    \fbox{\usebox{\fminipagebox}}%
+    \kern\dimexpr-\fboxsep-\fboxrule\relax
+  }\par\kern#2
+ }
+
+\definecolor{airgray}{HTML}{DDDDDD}
+
+
+% Fix enumerate: https://tex.stackexchange.com/questions/165757/enumerate-with-arabic-numbers-and-right-parentheses
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate, 1]{1.)}
+\setitemize{label=\usebeamerfont*{itemize item}%
+  \usebeamercolor[fg]{itemize item}
+  \usebeamertemplate{itemize item}}
+
+
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+
 %\usepackage{media9}%
 %\newcommand{\includemovies}[3]{%
 %\includemedia[%
@@ -145,7 +195,6 @@
 %}%
 %]{}{StrobeMediaPlayback.swf}%
 %}
-
 
 
 %%% Local Variables:

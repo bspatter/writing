@@ -1,13 +1,15 @@
 % Author: Brandon Patterson
-% Description: Dissertation proposal document
+% Description: Dissertation
 %
 %
 % Use the University of Michigan thesis class.
-\documentclass{./tex/thesis-umich}
+\documentclass[submit]{./tex/thesis-umich}
 
 
 % Title of the thesis
-\title{Applications of computation in acoustics: ultrasound bioeffects and underwater transmission loss uncertainty}
+% \title{Applications of computation in acoustics: ultrasound bioeffects and underwater transmission loss uncertainty}
+%\title{Computational investigations of ultrasound bioeffects and related physics}
+\title{Acoustically-driven fluid interfaces with applications to diagnostic ultrasound bioeffects}
 
 
 
@@ -21,19 +23,19 @@
 \year=\the\year
 
 % Frontispiece
-%\frontispiece{\includegraphics[width=4in]{./Images/frontispiece.pdf}}
+\frontispiece{\includegraphics[width=4in]{./figs/placeholder.pdf}}
 
 % Default style for front pages
 \frontpagestyle{1}
 
 %% Dedication
-%\include{./Content/Dedication}
+\dedication{\include{./content/Dedication}}
 
 %% Acknowledgments
-%\include{./Content/Acknowledgements}
+\acknowledgments{\include{./content/Acknowledgments}}
 % This command sets the width of the acknowledgments area as a fraction
 % of the total width of the text area.
-%\acknowledgmentswidth{0.8}
+\acknowledgmentswidth{0.8}
 
 %% Preface
 %\preface[2]{ %
@@ -52,21 +54,22 @@ Professor J. Brian Fowlkes
 \chair{Eric Johnsen}
 
 %% What deliverable requirement does this fill
-\deliverable{Dissertation proposal}
+\deliverable{Dissertation}
 
 % Commands to hide or show lists of figures, tables, etc.
-\hidelistoftables
-\hidelistofprograms
-\hidelistofappendices
-\hidelistoffigures
-\hidelistofabbreviations
+% \hidelistoftables
+ \hidelistofprograms
+% \hidelistofappendices
+% \hidelistoffigures
+% \hidelistofabbreviations
+% \hidededication
 
-%\showlistoftables
+\showlistoftables
 %\showlistofprograms
-%\showlistofappendices
-%\showlistofabbreviations
+\showlistofappendices
+\showlistofabbreviations
 \showlistoffigures
-
+\showacknowledgments
 
 
 %% Definition of any abbreviations used.
@@ -78,7 +81,7 @@ Professor J. Brian Fowlkes
 \abstract{\input{./content/abstract}}
 \hideabstractpagenumber
 
-\usepackage{fullpage}
+%\usepackage{fullpage}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{natbib}
@@ -88,25 +91,27 @@ Professor J. Brian Fowlkes
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{tikz}
 \usepackage{pgfgantt}
-\usepackage{typearea}
-\usepackage{abstract}
-\usepackage{verbatim}
-\usepackage{tabularx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{embedfile}
-\usepackage{import}
-\usepackage[normalem]{ulem}
+%\usepackage{typearea}
+\usepackage{booktabs}
+\usepackage{abstract} \usepackage{verbatim} \usepackage{tabularx}
+\usepackage{caption} \usepackage{subcaption} \usepackage{embedfile}
+\usepackage{import} \usepackage[normalem]{ulem}
+\usepackage[toc,page]{appendix} \usepackage{titlesec}
+
 
 % My commands
 \newcommand{\ganttgroupc}[5][none]{\ganttgroup[group/.append style={draw=black, fill=#1}, group incomplete/.append style={draw=black,fill=#1!50}, progress=#2]{#3}{#4}{#5}}
 \newcommand{\ganttbarc}[5][none]{\ganttbar[bar/.append style={draw=black, fill=#1}, bar incomplete/.append style={draw=black,fill=#1!50}, progress=#2]{#3}{#4}{#5}}
 \newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\mcbs}[1]{\boldsymbol{\mathcal{#1}}}
+\newcommand{\mbbs}[1]{\boldsymbol{\mathbf{#1}}}
 \newcommand{\del}[0]{\nabla}
 \newcommand{\orderof}[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
 \newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
 \newcommand{\norm}[1]{\ensuremath{\left\Vert#1\right\Vert}}
 \newcommand{\plus}{\raisebox{.2\height}{\scalebox{.8}{+}}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
 
 %% Declare math operators
 \DeclareMathOperator{\sech}{sech}
@@ -121,15 +126,32 @@ Professor J. Brian Fowlkes
 \DeclareMathOperator{\arccsch}{arcCsch}
 \DeclareMathOperator{\arccoth}{arcCoth}  
 
+% New table columns
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
 % Create a snapshot of dependencies and place in .dep file
 \RequirePackage{snapshot}
 
 % Embed files
-\input{./embed_files}
-\embedfile{./main.tex}
+%\input{./embed_files}
+\embedfile{main.tex}
 
 % Setup latexdiff
 \input{./tex/diff_preamble.tex}
+
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\captionsetup{subrefformat=parens}
 
 
 %% DOCUMENT AREA
@@ -141,53 +163,94 @@ Professor J. Brian Fowlkes
 
 %Abstract
 %\include{./content/abstract}
-\chapter{Introduction} \label{ch:Introduction}
-\input{./content/chapters/intro_chapter}
 \acresetall
 
 % % US Bioeffects
 \part{Ultrasound bioeffects} \label{part:ultrasound_bioeffects}
-\input{./content/chapters/usbe_intro}
+%\input{./content/chapters/usbe_intro}
+
+
+\chapter{Introduction} \label{ch:Introduction}
+\input{./content/chapters/introduction}
+% \input{./content/chapters/intro_chapter}
+% \acresetall
 
 % % US Bioeffects: 2012 Jasa Paper
-\chapter{\textit{Past work:} Theoretical microbubble Dynamics at capillary breaching thresholds}   \label{ch:usbe_bubble}%
+\chapter{Theoretical microbubble Dynamics at capillary breaching thresholds}   \label{ch:usbe_bubble}%
 %\input{./content/chapters/usbe_bubble_abstract}
-\input{./content/chapters/usbe_bubble_key}
-% \input{./content/chapters/usbe_bubble_chapter}
+%\input{./content/chapters/usbe_bubble_key}
+\input{./content/chapters/usbe_bubble_chapter}
 \acresetall
 % %
-%
+% Acoustically-driven gas-liquid interfaces
+
+
 % US Bioeffects: DUS-induced Lung Hehorrage work
-\chapter{\textit{Current work:} Diagnostic Ultrasound Induced Lung Hemorrhage} \label{ch:usbe_lung}
-\input{./content/chapters/usbe_lung_abstract}
-\input{./content/chapters/usbe_lung_intro}
-\input{./content/chapters/usbe_lung_methods}
-\input{./content/chapters/usbe_lung_analysis}
-%\input{./content/chapters/usbe_lung_analysis_diff}
-\input{./content/chapters/usbe_lung_results}
-\input{./content/chapters/usbe_lung_conclusions}
-\input{./content/chapters/usbe_lung_future}
-%\input{./content/chapter/usbe_lung_chapter}
+\chapter{Growth of liquid-gas interfacial perturbations driven by acoustic waves} \label{ch:usbe_lung}%
+\input{./content/chapters/usbe_lung_paper_chapter}
+%\input{./content/chapters/usbe_lung_chapter}
+% \input{./content/chapters/usbe_lung_abstract} \acresetall
+% \input{./content/chapters/usbe_lung_intro}
+% \input{./content/chapters/usbe_lung_methods}
+% \input{./content/chapters/usbe_lung_analysis}
+% %\input{./content/chapters/usbe_lung_analysis_diff}
+% \input{./content/chapters/usbe_lung_results}
+% \input{./content/chapters/usbe_lung_conclusions}
+% \input{./content/chapters/usbe_lung_future}
+
+
+\acresetall
+\chapter{Pulsed ultrasound-induced stresses and strains at gas-liquid interfaces} \label{ch:usbe_lung_bio}%
+\input{./content/chapters/usbe_lung_bio}
+
 \acresetall
 
+\chapter{Conclusions} \label{ch:usbe_conclusions}
+\include{./content/chapters/usbe_conclusions}
 
+\part{Underwater Acoustic Uncertainty} \label{part:uw_uncertainty}
 % TL uncertainty: Area statistics
-\part{Estimating transmission loss uncertainty in uncertain ocean environments.}
+\chapter{Past work: Efficient estimation of the probability density
+  function of transmission loss in uncertain ocean environments via
+  area statistics}
+% \input{./content/chapters/asuq_astats_key}
+\input{./content/chapters/asuq_astats_abstract}
+\input{./content/chapters/asuq_astats_intro}
+\input{./content/chapters/asuq_astats_methods}
+\input{./content/chapters/asuq_astats_results}
+\input{./content/chapters/asuq_astats_conclusions}
 
-\chapter{\textit{Past work:} Efficient estimation of the probability density function of transmission loss in uncertain ocean environments via area statistics}
-\input{./content/chapters/asuq_astats_key}
-%\input{./content/chapters/asuq_astats_abstract}
-% \input{./content/chapters/asuq_astats_intro}
-% \input{./content/chapters/asuq_astats_methods}
-% \input{./content/chapters/asuq_astats_results}
-% \input{./content/chapters/asuq_astats_conclusions}
-\acresetall
+
+
+\appendix
+\begin{appendices}
+  \chapter{Appendices for Chapter 3}%\ref{ch:usbe_lung}}
+  \input{./content/appendices/vorticity_paper_appendices}
+  \chapter{Appendices for Chapter 4}%\ref{ch:usbe_lung}}
+  \input{./content/appendices/usbe_lung_bio_paper_appendices}
+  \chapter{Random Pieces}
+  \include{./content/raw/astats_randomization}
+  \begin{comment}
+    \include{./content/raw/vorticity_distribution} % Moved into VORTICITY PAPER APPENDICES
+    \include{./content/raw/circulation_interface_intro} % REMOVED
+    \include{./content/raw/vorticity_objective} % REMOVED
+    \include{./content/raw/convergence} % MOVED INTO VORTICITY PAPER APPENDICES
+    \include{./content/raw/mechanical_index} % PARTIALLY MOVED INTO INTRODUCTION
+    \include{./content/raw/circulation_model} % REMOVED
+    \include{./content/raw/dimensionless_numbers} % REMOVED
+    \include{./content/raw/reflections} % WRAPPED INTO VORTICITY PAPER APPENDICES
+    \include{./content/raw/additional_data} % WRAPPED INTO LUNG BIO APPENDICES
+  \end{comment}
+
+
+\end{appendices}
 
 %% Using AIAA bibliography.
 \bibliographystyle{./tex/myauthordate2}
+
 % Give this command the relative path to the .bib file.
 %\bibliography{../../literature/library}
-\bibliography{../../literature/library}
+\bibliography{library}
 
 
 \end{document}

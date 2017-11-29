@@ -1,39 +1,49 @@
-\begin{frame} \frametitle{\vspace*{0.25cm} Shock-driven fluid-fluid interfaces have been studied extensively}
-  {\small
-    \hfill%
-    \begin{figure}
-      \centering
-      \begin{tikzpicture}%
-        \node[anchor=south west,inner sep=0] (image) at (0,0) {
-          \def\svgwidth{0.6\textwidth}%
-          \import{../figs/lung_figs/}{brouillette_fig3_mod_compact.pdf_tex}\hfill%
-        };%
-        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-          \node[font=\tiny,right] at (0.15,-0.05) {\textcolor{black}{Adapted from \cite{Brouillette2002}}};%
-        \end{scope}%  
-      \end{tikzpicture}%
-      \hfill
-      \centering
-      \begin{tikzpicture}%
-        \node[anchor=south west,inner sep=0] (image) at (0,0) {
-          \includegraphics[height=0.5\textheight]{../figs/lung_figs/baroclinic_schematic_vertical}%
-        };%
-        \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-          \node[font=\tiny,right] at (0.05,-0.05) {\textcolor{black}{Adapted from \cite{Heifetz2015}}};%
-        \end{scope}%  
-      \end{tikzpicture}%
-    \end{figure}
-    \hfill
-    \begin{itemize}
-    \item Shocks deposit baroclinic vorticity at perturbed fluid-fluid interfaces \citep{Drake2006}.
-    \item This vorticity drives the interface perturbation to grow.
-    \item This is the Richtymyer-Meshkov ``instability''.
-    \item Acoustic waves are different. They interact over a finite time-scale.
-    %\item This problem is not well studied for acoustic waves.
+\begin{frame}
+  \frametitle{Shock-driven fluid-fluid interfaces have been studied extensively}
+  \vspace*{-0.25cm}
+  {\small \hfill%
+    \begin{fminipage}{1.0\linewidth}
+      \begin{figure}
+        \centering
+        \begin{tikzpicture}%
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {
+            \def\svgwidth{0.6\textwidth}%
+            \import{../figs/lung_figs/}{brouillette_fig3_mod_compact.pdf_tex}\hfill%
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north
+              west)}]%
+            \node[font=\tiny,right] at (0.15,-0.05)
+            {\textcolor{black}{Adapted from \cite{Brouillette2002}}};%
+          \end{scope}%
+        \end{tikzpicture}%
+        \hfill \centering
+        \begin{tikzpicture}%
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {
+            \includegraphics[height=0.5\textheight]{../figs/lung_figs/baroclinic_schematic_vertical}%
+          };%
+          \begin{scope}[x={(image.south east)},y={(image.north
+              west)}]%
+            \node[font=\tiny,right] at (0.05,-0.05)
+            {\textcolor{black}{Adapted from \cite{Heifetz2015}}};%
+          \end{scope}%
+        \end{tikzpicture}%
+      \end{figure}
+    \end{fminipage}
+    %\hfill%
+    \vspace*{0.15cm}
+    \begin{itemize}[leftmargin=*]
+    \item Shocks deposit baroclinic vorticity at perturbed
+      fluid interfaces \citep{Drake2006}.\pause
+    \item This vorticity drives the interface perturbation to grow.\pause
+    \item This is the Richtymyer-Meshkov ``instability''.\pause
+    \item Acoustic waves are different. They interact over a finite
+      time-scale.
+      % \item This problem is not well studied for acoustic waves.
     \end{itemize}
   }
+
   \note{
-      {\footnotesize
+    {\scriptsize
       \begin{enumerate}
       \item Shock interaction with perturbed fluid-fluid interfaces has been studied.
       \item This is RM
@@ -57,9 +67,9 @@
         finite amount of time.
       \item And this problem isn't studies well for acoustic waves.
       \end{enumerate}
-      }
     }
-  \end{frame}
+  }
+\end{frame}
 
 %%% Local Variables:
 %%% mode: latex

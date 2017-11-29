@@ -40,6 +40,8 @@
   *{package}{xstring}     {2013/10/13 v1.7c}
   *{package}{fancyhdr}    {0000/00/00 v0.0}
   *{package}{changepage}  {2009/10/20 v1.0c}
+  *{package}{tocloft}     {2013/05/02 v2.3f}
+  *{package}{titlesec}    {2011/12/15 v2.10.0}
   *{package}{color}       {1999/02/16 v0.0}
   *{file}   {color.cfg}   {2007/01/18 v1.5}
   *{file}   {dvipsnam.def}{1999/02/16 v3.0i}
@@ -100,6 +102,7 @@
   *{package}{pgfgantt}    {2013/06/01 v4.0}
   *{package}{pgfcalendar} {0000/00/00 v0.0}
   *{file}   {pgfcalendar.code.tex}{2007/07/23 v2.10}
+  *{package}{booktabs}    {2005/04/14 v1.61803}
   *{package}{abstract}    {2009/06/08 v1.2a}
   *{package}{tabularx}    {1999/01/07 v2.07}
   *{package}{array}       {2008/09/09 v2.4c}
@@ -107,28 +110,50 @@
   *{package}{import}      {2009/03/23 v5.1}
   *{package}{ulem}        {2012/05/18 v0.0}
   *{package}{appendix}    {2009/09/02 v1.2b}
-  *{package}{titlesec}    {2011/12/15 v2.10.0}
+  *{package}{adjustbox}   {2012/05/21 v1.0}
+  *{package}{xkeyval}     {2012/10/14 v2.6b}
+  *{file}   {xkeyval.tex} {2012/10/14 v2.6b}
+  *{package}{adjcalc}     {2012/05/16 v1.1}
+  *{package}{trimclip}    {2012/05/16 v1.0}
+  *{package}{collectbox}  {2012/05/17 v0.4b}
+  *{file}   {tc-pdftex.def}{2012/05/13 v1.0}
+  *{package}{ifoddpage}   {2011/09/13 v1.0}
+  *{package}{varwidth}    {2009/03/30 v0.92;}
+  *{package}{hhline}      {1994/05/23 v2.03}
+  *{package}{ragged2e}    {2009/05/21 v2.1}
+  *{package}{everysel}    {2011/10/28 v1.2}
+  *{package}{multirow}    {0000/00/00 v0.0}
+  *{package}{totcount}    {2011/01/25 v1.2}
+  *{package}{transparent} {2007/01/08 v1.0}
+  *{package}{txfonts}     {2008/01/22 v3.2.1}
   *{package}{snapshot}    {2002/03/05 v1.14}
   *{file}   {./tex/diff_preamble.tex}{0000/00/00 v0.0}
+  *{file}   {omltxmi.fd}  {2000/12/15 v3.1}
+  *{file}   {omstxsy.fd}  {2000/12/15 v3.1}
+  *{file}   {omxtxex.fd}  {2000/12/15 v3.1}
+  *{file}   {utxexa.fd}   {2000/12/15 v3.1}
   *{file}   {ts1cmr.fd}   {1999/05/25 v2.5h}
-  *{file}   {ot1ptm.fd}   {2001/06/04 v1/ptm.}
+  *{file}   {ot1txr.fd}   {2000/12/15 v3.1}
   *{file}   {supp-pdf.mkii}{0000/00/00 v0.0}
   *{package}{epstopdf-base}{2010/02/09 v2.5}
   *{package}{grfext}      {2010/08/19 v1.1}
   *{file}   {epstopdf-sys.cfg}{2010/07/13 v1.3}
   *{package}{nameref}     {2012/10/27 v2.43}
   *{package}{gettitlestring}{2010/12/03 v1.4}
-  *{file}   {main.out}    {0000/00/00 v0.0}
-  *{file}   {main.out}    {0000/00/00 v0.0}
-  *{file}   {umsa.fd}     {2013/01/14 v3.01}
-  *{file}   {umsb.fd}     {2013/01/14 v3.01}
+  *{file}   {utxsya.fd}   {2000/12/15 v3.1}
+  *{file}   {utxsyb.fd}   {2000/12/15 v3.1}
   *{file}   {ursfs.fd}    {1998/03/24 v0.0}
-  *{file}   {./figs/placeholder.pdf}{0000/00/00 v0.0}
-  *{file}   {ts1ptm.fd}   {2001/06/04 v1/ptm.}
+  *{file}   {utxmia.fd}   {2000/12/15 v3.1}
+  *{file}   {utxsyc.fd}   {2000/12/15 v3.1}
+  *{file}   {./figs/frontispiece/brooke_nobackground.jpg}{0000/00/00 v0.0}
+  *{file}   {ts1txr.fd}   {2000/12/15 v3.1}
+  *{file}   {./content/Dedication.tex}{0000/00/00 v0.0}
+  *{file}   {./content/Acknowledgements.tex}{0000/00/00 v0.0}
+  *{file}   {./content/preface.tex}{0000/00/00 v0.0}
   *{file}   {./content/acronyms.tex}{0000/00/00 v0.0}
-  *{file}   {./content/abstract.tex}{0000/00/00 v0.0}
-  *{file}   {./content/foreword.tex}{0000/00/00 v0.0}
+  *{file}   {./content/abstract550.tex}{0000/00/00 v0.0}
   *{file}   {./content/chapters/introduction.tex}{0000/00/00 v0.0}
+  *{file}   {./figs/intro_figs/ultrasound_example.jpg}{0000/00/00 v0.0}
   *{file}   {Cavitation_schematic.pdf_tex}{0000/00/00 v0.0}
   *{file}   {./figs/intro_figs/Cavitation_schematic.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/intro_figs/Cavitation_schematic.pdf}{0000/00/00 v0.0}
@@ -149,123 +174,144 @@
   *{file}   {figs/bubble_figs/Rstarmax_F_Ca=20.pdf}{0000/00/00 v0.0}
   *{file}   {figs/bubble_figs/Rstarmax_F_Ca=0.tex}{0000/00/00 v0.0}
   *{file}   {1.pdf}       {0000/00/00 v0.0}
-  *{file}   {./content/chapters/usbe_lung_chapter.tex}{0000/00/00 v0.0}
-  *{file}   {Alveolus_US_zoom_only_diagram.pdf_tex}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/Alveolus_US_zoom_only_diagram.pdf}{0000/00/00 v0.0}
-  *{file}   {usbe_model_schematic_domain.pdf_tex}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/usbe_model_schematic_domain.pdf}{0000/00/00 v0.0}
-  *{file}   {shock_logic_schematic.pdf_tex}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/shock_logic_schematic.pdf}{0000/00/00 v0.0}
-  *{file}   {p0_vs_y.pdf_tex}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/p0_vs_y.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/snapshots_density_t1.png}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/trapz10_intf_schematic.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/trapz10_intf_t1000.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/vorticity_snapshot_mat.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/trapz10_circ_schematic.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/Gamma_t1000_28-Oct-2016.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/a0_t1000_23-Dec-2016.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/intf_amp_t1000_23-Dec-2016.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/Circulation_t1000_23-Dec-2016.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/scp_t1000_23-Dec-2016.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/interface_multi-lag.jpg}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/circulation_multi-lag_fixed.jpg}{0000/00/00 v0.0}
+  *{file}   {./content/chapters/usbe_lung_paper_chapter.tex}{0000/00/00 v0.0}
+  *{file}   {Alveolus_US_tissue_diagram_20170925.pdf_tex}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/Alveolus_US_tissue_diagram_20170925.pdf}{0000/00/00 v0.0}
+  *{file}   {usbe_model_schematic_interface_20170915.pdf_tex}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/usbe_model_schematic_interface_20170915.pdf}{0000/00/00 v0.0}
+  *{file}   {shock-us_2_trapz_labels_logic.pdf_tex}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/shock-us_2_trapz_labels_logic.pdf}{0000/00/00 v0.0}
+  *{file}   {snapshots_density_20171107.pdf_tex}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/snapshots_density_20170727.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/trapz10_intf_schematic_24-May-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/trapz10_intf_t1000_24-May-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/trapz10_bubble-spike_location_15-Sep-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/vorticity_snapshot_fixcbar_mat_25-Sep-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/vorticity_distribution_25-Sep-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/trapz10_circ_schematic_24-May-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/Gamma_t1000_24-May-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/a0_t1000_25-Sep-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/Circulation_t1000_25-Sep-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/intf_amp_t1000_25-Sep-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/s_t1000_25-Sep-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/scp_t1000_25-Sep-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/interface_multi-lag_25-Sep-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/circulation_multi-lag_legend_25-Sep-2017.pdf}{0000/00/00 v0.0}
   *{file}   {./content/chapters/usbe_lung_bio.tex}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/alveolar_sac.jpg}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/lung_surface_alveoli.pdf}{0000/00/00 v0.0}
+  *{file}   {wave_only.pdf_tex}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/wave_only.pdf}{0000/00/00 v0.0}
   *{file}   {p0_vs_t_us_general.pdf_tex}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/p0_vs_t_us_general.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/p0_vs_t_us_general.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/p0_vs_t_us_general.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A10_a03_t500_rho_snapshots.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A10_a03_t500_rho_snapshots_printable.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A10_a10_t500_rho_snapshots.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A10_a30_t500_rho_snapshots.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A25_a03_t500_rho_snapshots.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A25_a10_t500_rho_snapshots.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A25_a30_t500_rho_snapshots.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A25_a03_t500_rho_snapshots_printable.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A25_a10_t500_rho_snapshots_printable.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A25_a30_t500_rho_snapshots_printable.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A50_a03_t500_rho_snapshots.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A50_a10_t500_rho_snapshots.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A50_a30_t500_rho_snapshots.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A25_a03_t500_vorticity_snapshots.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A50_a30_t500_vorticity_snapshots.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A50_a03.tex}{0000/00/00 v0.0}
-  *{file}   {10.tex}      {0000/00/00 v0.0}
-  *{file}   {30_circulation_01-Mar-2017.png}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A10.tex}{0000/00/00 v0.0}
   *{file}   {25.tex}      {0000/00/00 v0.0}
-  *{file}   {50_a30_circulation_01-Mar-2017.png}{0000/00/00 v0.0}
+  *{file}   {50_a03_strain_15-Jun-2017_dim.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A10.tex}{0000/00/00 v0.0}
   *{file}   {25.tex}      {0000/00/00 v0.0}
-  *{file}   {50_a03_strain_08-Mar-2017.png}{0000/00/00 v0.0}
+  *{file}   {50_a10_strain_15-Jun-2017_dim.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A10.tex}{0000/00/00 v0.0}
   *{file}   {25.tex}      {0000/00/00 v0.0}
-  *{file}   {50_a10_strain_08-Mar-2017.png}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A10.tex}{0000/00/00 v0.0}
-  *{file}   {25.tex}      {0000/00/00 v0.0}
-  *{file}   {50_a30_strain_08-Mar-2017.png}{0000/00/00 v0.0}
+  *{file}   {50_a30_strain_15-Jun-2017_dim.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A10_a03.tex}{0000/00/00 v0.0}
   *{file}   {10.tex}      {0000/00/00 v0.0}
-  *{file}   {30_strain_08-Mar-2017.png}{0000/00/00 v0.0}
+  *{file}   {30_strain_15-Jun-2017_dim.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A25_a03.tex}{0000/00/00 v0.0}
   *{file}   {10.tex}      {0000/00/00 v0.0}
-  *{file}   {30_strain_08-Mar-2017.png}{0000/00/00 v0.0}
+  *{file}   {30_strain_15-Jun-2017_dim.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A50_a03.tex}{0000/00/00 v0.0}
   *{file}   {10.tex}      {0000/00/00 v0.0}
-  *{file}   {30_strain_08-Mar-2017.png}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A50_a03_t005_tauxy_snapshots.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A50_a10_t005_tauxy_snapshots.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/rmawave_1_A50_a30_t500_tauxy_snapshots.pdf}{0000/00/00 v0.0}
+  *{file}   {30_strain_15-Jun-2017_dim.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A50_a03_t005_tauxy_snapshots_dim_printable.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A50_a10_t005_tauxy_snapshots_dim_printable.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A50_a30_t500_tauxy_snapshots_dim_printable.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A10.tex}{0000/00/00 v0.0}
   *{file}   {25.tex}      {0000/00/00 v0.0}
-  *{file}   {50_a03_tauxy_07-Mar-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {50_a03_tauxy_07-Mar-2017_dim.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A10.tex}{0000/00/00 v0.0}
   *{file}   {25.tex}      {0000/00/00 v0.0}
-  *{file}   {50_a10_tauxy_27-Feb-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {50_a10_tauxy_07-Mar-2017_dim.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A10.tex}{0000/00/00 v0.0}
   *{file}   {25.tex}      {0000/00/00 v0.0}
-  *{file}   {50_a30_tauxy_27-Feb-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {50_a30_tauxy_07-Mar-2017_dim.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A10_a3.tex}{0000/00/00 v0.0}
+  *{file}   {10.tex}      {0000/00/00 v0.0}
+  *{file}   {30_tauxy_27-Feb-2017_dim.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A25_a3.tex}{0000/00/00 v0.0}
   *{file}   {10.tex}      {0000/00/00 v0.0}
-  *{file}   {30_tauxy_27-Feb-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {30_tauxy_27-Feb-2017_dim.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/rmawave_1_A50_a3.tex}{0000/00/00 v0.0}
   *{file}   {10.tex}      {0000/00/00 v0.0}
-  *{file}   {30_tauxy_27-Feb-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {30_tauxy_27-Feb-2017_dim.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/vorticity_t1_rmawave_1_10000000.tex}{0000/00/00 v0.0}
+  *{file}   {0_0.tex}     {0000/00/00 v0.0}
+  *{file}   {03_45.tex}   {0000/00/00 v0.0}
+  *{file}   {0_0.tex}     {0000/00/00 v0.0}
+  *{file}   {0_1.tex}     {0000/00/00 v0.0}
+  *{file}   {0_1.tex}     {0000/00/00 v0.0}
+  *{file}   {0_1000_100_01-Aug-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/vorticity_t20_rmawave_1_10000000.tex}{0000/00/00 v0.0}
+  *{file}   {0_0.tex}     {0000/00/00 v0.0}
+  *{file}   {03_45.tex}   {0000/00/00 v0.0}
+  *{file}   {0_0.tex}     {0000/00/00 v0.0}
+  *{file}   {0_1.tex}     {0000/00/00 v0.0}
+  *{file}   {0_1.tex}     {0000/00/00 v0.0}
+  *{file}   {0_1000_100_nocb.pdf}{0000/00/00 v0.0}
+  *{file}   {./slides/figs/trapz_us_circ_comparison_A10_waveend_t0_t60_asa_01-Aug-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./slides/figs/trapz_us_amp_comparison_A10_waveend_asa_01-Aug-2017.pdf}{0000/00/00 v0.0}
   *{file}   {./content/chapters/usbe_conclusions.tex}{0000/00/00 v0.0}
-  *{file}   {./content/chapters/asuq_astats_abstract.tex}{0000/00/00 v0.0}
-  *{file}   {./content/chapters/asuq_astats_intro.tex}{0000/00/00 v0.0}
-  *{file}   {./content/chapters/asuq_astats_methods.tex}{0000/00/00 v0.0}
-  *{file}   {./content/chapters/asuq_astats_results.tex}{0000/00/00 v0.0}
-  *{file}   {./content/chapters/asuq_astats_conclusions.tex}{0000/00/00 v0.0}
-  *{file}   {./content/raw/circulation_model.tex}{0000/00/00 v0.0}
-  *{file}   {./content/raw/dimensionless_numbers.tex}{0000/00/00 v0.0}
-  *{file}   {./content/raw/reflections.tex}{0000/00/00 v0.0}
+  *{file}   {./content/chapters/astats_chapter.tex}{0000/00/00 v0.0}
+  *{file}   {./figs/asuq_figs/patte1.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/asuq_figs/schematic_bw_dissertation.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/asuq_figs/patte3.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/asuq_figs/patte4.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/asuq_figs/patte5.pdf}{0000/00/00 v0.0}
+  *{file}   {./content/appendices/vorticity_paper_appendices.tex}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/convergence_scp_t1000_02-Jun-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {figs/appendix/amplitude_res_study.pdf}{0000/00/00 v0.0}
+  *{file}   {figs/appendix/res-study_Circulation_t1000_02-Mar-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/vorticity_vs_alpha.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/circ_alpha_dist2.pdf}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/p_snapshots.jpg}{0000/00/00 v0.0}
   *{file}   {./figs/lung_figs/delta_R.jpg}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/p_centerline_t25.pdf}{0000/00/00 v0.0}
-  *{file}   {./content/raw/mechanical_index.tex}{0000/00/00 v0.0}
-  *{file}   {./content/raw/convergence.tex}{0000/00/00 v0.0}
-  *{file}   {figs/appendix/amplitude_res_study.pdf}{0000/00/00 v0.0}
-  *{file}   {figs/appendix/res-study_Circulation_t1000_02-Mar-2017.png}{0000/00/00 v0.0}
-  *{file}   {./content/raw/circulation_interface_intro.tex}{0000/00/00 v0.0}
-  *{file}   {./content/raw/vorticity_objective.tex}{0000/00/00 v0.0}
-  *{file}   {./content/raw/vorticity_distribution.tex}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/vorticity_vs_y0.pdf}{0000/00/00 v0.0}
-  *{file}   {./figs/lung_figs/circ_y0_dist2.pdf}{0000/00/00 v0.0}
-  *{file}   {./content/raw/additional_data.tex}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/intf_amp_Aneg10.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/circ_Aneg10.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/intf_amp_sin10.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/avpaper_figs/circ_sin10.pdf}{0000/00/00 v0.0}
+  *{file}   {figs/appendix/elasticity_forces_dim.pdf}{0000/00/00 v0.0}
+  *{file}   {figs/appendix/elasticity_forces_dim_absolute.pdf}{0000/00/00 v0.0}
+  *{file}   {./content/appendices/usbe_lung_bio_paper_appendices.tex}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A10.tex}{0000/00/00 v0.0}
+  *{file}   {25.tex}      {0000/00/00 v0.0}
+  *{file}   {50_a30_circulation_01-Mar-2017.pdf}{0000/00/00 v0.0}
+  *{file}   {./figs/lung_figs/rmawave_1_A50_a03.tex}{0000/00/00 v0.0}
+  *{file}   {10.tex}      {0000/00/00 v0.0}
+  *{file}   {30_circulation_01-Mar-2017.pdf}{0000/00/00 v0.0}
   *{file}   {figs/appendix/rmawave_1_A10.tex}{0000/00/00 v0.0}
   *{file}   {25.tex}      {0000/00/00 v0.0}
   *{file}   {50_a03.tex}  {0000/00/00 v0.0}
   *{file}   {10.tex}      {0000/00/00 v0.0}
-  *{file}   {30_Interface_amplitude_02-Mar-2017.png}{0000/00/00 v0.0}
+  *{file}   {30_Interface_amplitude_02-Mar-2017.pdf}{0000/00/00 v0.0}
   *{file}   {figs/appendix/rmawave_1_A10.tex}{0000/00/00 v0.0}
   *{file}   {25.tex}      {0000/00/00 v0.0}
   *{file}   {50_a3.tex}   {0000/00/00 v0.0}
   *{file}   {10.tex}      {0000/00/00 v0.0}
-  *{file}   {30_epsilon_02-Mar-2017.png}{0000/00/00 v0.0}
+  *{file}   {30_epsilon_02-Mar-2017.pdf}{0000/00/00 v0.0}
   *{file}   {figs/appendix/rmawave_1_A10.tex}{0000/00/00 v0.0}
   *{file}   {25.tex}      {0000/00/00 v0.0}
   *{file}   {50_a03.tex}  {0000/00/00 v0.0}
   *{file}   {10.tex}      {0000/00/00 v0.0}
-  *{file}   {30_circulation_02-Mar-2017.png}{0000/00/00 v0.0}
+  *{file}   {30_circulation_02-Mar-2017.pdf}{0000/00/00 v0.0}
   *{file}   {./content/raw/astats_randomization.tex}{0000/00/00 v0.0}
-  *{file}   {main.bbl}    {0000/00/00 v0.0}
 }

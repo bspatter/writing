@@ -3,13 +3,13 @@
 %
 %
 % Use the University of Michigan thesis class.
-\documentclass{./tex/thesis-umich}
+\documentclass[submit]{./tex/thesis-umich}
 
 
 % Title of the thesis
-% \title{Applications of computation in acoustics: ultrasound bioeffects and underwater transmission loss uncertainty}
+\title{Applications of Computation in Acoustics: Ultrasound Bioeffects and Underwater Transmission Loss Uncertainty}
 %\title{Computational investigations of ultrasound bioeffects and related physics}
-\title{Acoustically-driven fluid interfaces with applications to diagnostic ultrasound bioeffects}
+%\title{Acoustically-driven fluid interfaces with applications to diagnostic ultrasound bioeffects}
 
 
 
@@ -17,13 +17,13 @@
 \author{Brandon Patterson}
 
 % Department
-\department{Mechanical Engineering}
+\department{(Mechanical Engineering)}
 
 % Year of completion
 \year=\the\year
 
 % Frontispiece
-\frontispiece{\includegraphics[width=4in]{./figs/placeholder.pdf}}
+\frontispiece{\includegraphics[width=4in]{./figs/frontispiece/brooke_nobackground}}
 
 % Default style for front pages
 \frontpagestyle{1}
@@ -32,26 +32,28 @@
 \dedication{\include{./content/Dedication}}
 
 %% Acknowledgments
-\acknowledgments{\include{./content/Acknowledgments}}
+\acknowledgments{\include{./content/Acknowledgements}}%
+
 % This command sets the width of the acknowledgments area as a fraction
 % of the total width of the text area.
-\acknowledgmentswidth{0.8}
+\acknowledgmentswidth{0.75}%
 
-%% Preface
-%\preface[2]{ %
-%}
+% Preface
+%\preface[2]{\include{./content/preface}}%
+\preface{\include{./content/preface}}%
 
 % Committee
-\committee{
-Assistant Professor Eric Johnsen, Chair \\
-Professor David R. Dowling\\%, Mechanical Engineering, University of Michigan\\
-Professor William Schultz\\%, Mechanical Engineering, University of Michigan\\
-Professor Douglas L. Miller\\%, Radiology, University of Michigan
-Professor J. Brian Fowlkes
+\committee{%
+\hspace*{12pt} Professor David R. Dowling, Co-Chair\\%, Mechanical Engineering, University of Michigan\\
+\hspace*{12pt} Associate Professor Eric Johnsen, Co-Chair\\
+\hspace*{12pt} Professor J. Brian Fowlkes\\
+\hspace*{12pt} Professor Douglas L. Miller\\%, Radiology, University of Michigan
+\hspace*{12pt} Professor William Schultz\\%, Mechanical Engineering, University of Michigan\\
 }
 
 %% Chair must be entered separately for formatting reasons.
 \chair{Eric Johnsen}
+\cochair{David R. Dowling \& Eric Johnsen}
 
 %% What deliverable requirement does this fill
 \deliverable{Dissertation}
@@ -62,11 +64,12 @@ Professor J. Brian Fowlkes
 % \hidelistofappendices
 % \hidelistoffigures
 % \hidelistofabbreviations
-\hidededication
+% \hidelistofacronyms
+% \hidededication
 
 \showlistoftables
-\showlistofprograms
-\showlistofappendices
+%\showlistofprograms
+%\showlistofappendices
 \showlistofabbreviations
 \showlistoffigures
 \showacknowledgments
@@ -78,8 +81,9 @@ Professor J. Brian Fowlkes
 }
 
 %% Some abstract text
-\abstract{\input{./content/abstract}}
-\hideabstractpagenumber
+%\abstract{\input{./content/abstract}}
+\abstract{\input{./content/abstract550}}
+\showabstractpagenumber
 
 %\usepackage{fullpage}
 \usepackage{hyperref}
@@ -92,10 +96,17 @@ Professor J. Brian Fowlkes
 \usepackage{tikz}
 \usepackage{pgfgantt}
 %\usepackage{typearea}
+\usepackage{booktabs}
 \usepackage{abstract} \usepackage{verbatim} \usepackage{tabularx}
 \usepackage{caption} \usepackage{subcaption} \usepackage{embedfile}
 \usepackage{import} \usepackage[normalem]{ulem}
-\usepackage[toc,page]{appendix} \usepackage{titlesec}
+\usepackage[toc,page]{appendix}
+%\usepackage]{appendix}
+\usepackage{titlesec}
+\usepackage{adjustbox} \usepackage{hhline} \usepackage{ragged2e} \usepackage{setspace} \usepackage{multirow}%Needed to make tables converted from word working 
+\usepackage{totcount}
+\usepackage{transparent}
+\usepackage{txfonts}
 
 
 % My commands
@@ -112,6 +123,17 @@ Professor J. Brian Fowlkes
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
 
+% Used to count references
+\newtotcounter{citnum} %From the totcount package documentation
+\def\oldbibitem{} \let\oldbibitem=\bibitem
+\def\bibitem{\stepcounter{citnum}\oldbibitem}
+
+% Used to get section names
+\let\Sectionmark\sectionmark
+\def\sectionmark#1{\def\Sectionname{#1}\Sectionmark{#1}}
+\let\Subsectionmark\subsectionmark
+\def\subsectionmark#1{\def\Subsectionname{#1}\Subsectionmark{#1}}
+
 %% Declare math operators
 \DeclareMathOperator{\sech}{sech}
 \DeclareMathOperator{\csch}{csch}
@@ -124,6 +146,16 @@ Professor J. Brian Fowlkes
 \DeclareMathOperator{\arcsech}{arcsech}
 \DeclareMathOperator{\arccsch}{arcCsch}
 \DeclareMathOperator{\arccoth}{arcCoth}  
+
+% New table columns
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Preferentially use .pdf files when other formats are available (default preference w/o this line is .png, then pdf, etc...
+\DeclareGraphicsExtensions{.pdf,.PDF,.png,.PNG,.jpg,.mps,.jpeg,.jbig2,.jb2,.JPG,.JPEG,.JBIG2,.JB2}
+
+
 
 % Create a snapshot of dependencies and place in .dep file
 \RequirePackage{snapshot}
@@ -143,21 +175,25 @@ Professor J. Brian Fowlkes
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-
+% Fix subcaptions to look like (a)
 \captionsetup{subrefformat=parens}
 
+% Black citations for cheap printing
+\hypersetup{citecolor=black}
 
 %% DOCUMENT AREA
 
 \begin{document}
-\chapter*{Foreword} \label{ch:foreword}
-\input{./content/foreword.tex}
+%\chapter*{Foreword} \label{ch:foreword}
+%\input{./content/foreword.tex}
 
 
 %Abstract
 %\include{./content/abstract}
 \acresetall
 
+\renewcommand\thepart{Part~\Roman{part}:} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WORKED FOR TOC, but broke things later
+\renewcommand\cftpartpresnum{Part~}
 % % US Bioeffects
 \part{Ultrasound bioeffects} \label{part:ultrasound_bioeffects}
 %\input{./content/chapters/usbe_intro}
@@ -169,7 +205,7 @@ Professor J. Brian Fowlkes
 % \acresetall
 
 % % US Bioeffects: 2012 Jasa Paper
-\chapter{Theoretical microbubble Dynamics at capillary breaching thresholds}   \label{ch:usbe_bubble}%
+\chapter{Theoretical microbubble dynamics at capillary breaching thresholds}   \label{ch:usbe_bubble}%
 %\input{./content/chapters/usbe_bubble_abstract}
 %\input{./content/chapters/usbe_bubble_key}
 \input{./content/chapters/usbe_bubble_chapter}
@@ -179,16 +215,8 @@ Professor J. Brian Fowlkes
 
 
 % US Bioeffects: DUS-induced Lung Hehorrage work
-\chapter{Dynamics of acoustically-driven gas-liquid interfaces} \label{ch:usbe_lung}%
-\input{./content/chapters/usbe_lung_chapter}
-% \input{./content/chapters/usbe_lung_abstract} \acresetall
-% \input{./content/chapters/usbe_lung_intro}
-% \input{./content/chapters/usbe_lung_methods}
-% \input{./content/chapters/usbe_lung_analysis}
-% %\input{./content/chapters/usbe_lung_analysis_diff}
-% \input{./content/chapters/usbe_lung_results}
-% \input{./content/chapters/usbe_lung_conclusions}
-% \input{./content/chapters/usbe_lung_future}
+\chapter{Growth of liquid-gas interfacial perturbations driven by acoustic waves} \label{ch:usbe_lung}%
+\input{./content/chapters/usbe_lung_paper_chapter}
 
 
 \acresetall
@@ -197,47 +225,55 @@ Professor J. Brian Fowlkes
 
 \acresetall
 
-\chapter{Conclusions} \label{ch:usbe_conclusions}
-\include{./content/chapters/usbe_conclusions}
+\chapter{Conclusions and future work} \label{ch:usbe_conclusions}
+\input{./content/chapters/usbe_conclusions}
 
+\acresetall
 \part{Underwater Acoustic Uncertainty} \label{part:uw_uncertainty}
 % TL uncertainty: Area statistics
-\chapter{Past work: Efficient estimation of the probability density
-  function of transmission loss in uncertain ocean environments via
-  area statistics}
-% \input{./content/chapters/asuq_astats_key}
-\input{./content/chapters/asuq_astats_abstract}
-\input{./content/chapters/asuq_astats_intro}
-\input{./content/chapters/asuq_astats_methods}
-\input{./content/chapters/asuq_astats_results}
-\input{./content/chapters/asuq_astats_conclusions}
-
+\chapter{Efficient Estimation of the Probability Density Function of Acoustic Transmission Loss in Uncertain Ocean Environments Using Area Statistics}\label{ch:astats}
+\input{./content/chapters/astats_chapter}
 
 
 \appendix
 \begin{appendices}
-  \chapter{Random Pieces}
-  \include{./content/raw/circulation_model}
-  \include{./content/raw/dimensionless_numbers}
-  \include{./content/raw/reflections}
-  \include{./content/raw/mechanical_index}
-  \include{./content/raw/convergence}
-  \include{./content/raw/circulation_interface_intro}
-  \include{./content/raw/vorticity_objective}
-  \include{./content/raw/vorticity_distribution}
-  \include{./content/raw/additional_data}
-  \include{./content/raw/astats_randomization}
+  \chapter{Appendices for Chapter 3}%\ref{ch:usbe_lung}}
+  \input{./content/appendices/vorticity_paper_appendices}
+  \chapter{Appendices for Chapter 4}%\ref{ch:usbe_lung}}
+  \input{./content/appendices/usbe_lung_bio_paper_appendices}
+  \chapter{Underwater uncertainty Monte Carlo Randomization Techniques}
+  \input{./content/raw/astats_randomization}
+
+  \begin{comment}
+    \include{./content/raw/vorticity_distribution} % Moved into VORTICITY PAPER APPENDICES
+    \include{./content/raw/circulation_interface_intro} % REMOVED
+    \include{./content/raw/vorticity_objective} % REMOVED
+    \include{./content/raw/convergence} % MOVED INTO VORTICITY PAPER APPENDICES
+    \include{./content/raw/mechanical_index} % PARTIALLY MOVED INTO INTRODUCTION
+    \include{./content/raw/circulation_model} % REMOVED
+    \include{./content/raw/dimensionless_numbers} % REMOVED
+    \include{./content/raw/reflections} % WRAPPED INTO VORTICITY PAPER APPENDICES
+    \include{./content/raw/additional_data} % WRAPPED INTO LUNG BIO APPENDICES
+    \include{./content/raw/astats_datatable} % UPDATED AND WRAPPED INTO ASTATS CHAPTER
+  \end{comment}
 
 
 \end{appendices}
 
 %% Using AIAA bibliography.
-\bibliographystyle{./tex/myauthordate2}
+\bibliographystyle{./tex/myauthordate2_custom}
+%\bibliographystyle{./patterson}
 
 % Give this command the relative path to the .bib file.
 %\bibliography{../../literature/library}
-\bibliography{library}
+\bibliography{library_custom}
+%\bibliography{library_cleaned} % To generate use "bibclean library.bib > library_cleaned.bib"
+%\bibliography{library_tooled} % To generate use "bibtool -s –'sort.format'="%N(author)" library.bib library_tooled.bib"
 
+% Snarky comment about number of bibliography references - Caught and denied by Rackham.
+% \begin{center}
+%   For those curious, this dissertation contains \total{citnum} unique references.
+% \end{center}
 
 \end{document}
 

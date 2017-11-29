@@ -1,4 +1,4 @@
-%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'Cavitation_schematic.pdf' (pdf, eps, ps)
 %%
@@ -50,13 +50,13 @@
   \makeatother%
   \begin{picture}(1,0.60550459)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Cavitation_schematic.pdf}}%
-    \put(0.0261395,0.4597858){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Ultrasound Pulse}}}%
-    \put(0.03232132,0.13323996){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Cavitation Nucleus}}}%
-    \put(0.39045284,0.35808578){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Cavitation}}}%
-    \put(0.48833644,0.55185699){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{a.) Bubble expansion}}}%
-    \put(0.46503357,0.41190877){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{b.) Jet (away from wall)}}}%
-    \put(0.50681217,0.15450362){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{c.) Jet (toward wall)}}}%
-    \put(0.5602244,0.00841731){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{d.) Shock wave}}}%
+    \put(0.02700755,0.45544552){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Ultrasound Pulse}}}%
+    \put(0.03318937,0.12889969){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Cavitation Nucleus}}}%
+    \put(0.3913209,0.3537455){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Cavitation}}}%
+    \put(0.48920449,0.54751671){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{a.) Bubble expansion}}}%
+    \put(0.46590163,0.40756849){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{b.) Jet (away from wall)}}}%
+    \put(0.50768023,0.15016335){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{c.) Jet (toward wall)}}}%
+    \put(0.56109246,0.00407704){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{d.) Shock wave}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{Cavitation_schematic.pdf}}%
   \end{picture}%
 \endgroup%

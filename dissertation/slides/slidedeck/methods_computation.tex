@@ -1,28 +1,31 @@
 \begin{frame} \frametitle{A high-order accurate computational solution strategy is invoked}
-  \begin{minipage}{0.62\textwidth}
-    \begin{itemize}
-    \item An in-house developed code is used to solve the Euler equations.
-    \item Numerical methods
+  {\small
+    \begin{minipage}{0.62\textwidth}
       \begin{itemize}
-      \item $3^{rd}$ order Discontinuous Galerkin method is used in space
-      \item $4^{th}$ order Runge-Kutta time marching
-      \item Roe Solver used for element-to-element fluxes
+        \setlength\itemsep{1em}
+      \item An in-house developed code is used to solve the Euler equations.
+      \item Numerical methods {\scriptsize \citep{HenrydeFrahan2015}}
+        \begin{itemize}
+        \item $3^{rd}$ order Discontinuous Galerkin method used in space
+        \item $4^{th}$ order Runge-Kutta time marching
+        \item Roe Solver used for fluxes
+        \end{itemize}
+      \item Acoustic waves prescribed in the domain.
+      \item Grid stretching reduces reflections.
+      \item Grid size: $\ell \times 80\ell \, (L_x \times L_y)$
       \end{itemize}
-    \item Acoustic waves are prescribed within the domain.
-    \item Grid stretching reduces reflections.
-    \item Grid size: $\ell \times 80\ell \, (L_x \times L_y)$
-    \end{itemize}
-  \end{minipage}
-  \hfill%
-  \begin{minipage}{0.34\textwidth}
-    \begin{figure}
-      \centering
-      \def\svgwidth{\textwidth}
-      {\footnotesize
-        \import{../figs/lung_figs/}{domain_bcs.pdf_tex}%
-      }
-    \end{figure}
-  \end{minipage}
+    \end{minipage}
+    \hfill%
+    \begin{minipage}{0.34\textwidth}
+      \begin{figure}
+        \centering
+        \def\svgwidth{\textwidth}
+        {\footnotesize
+          \import{../figs/lung_figs/}{domain_bcs.pdf_tex}%
+        }
+      \end{figure}
+    \end{minipage}
+  }
 \end{frame}
 %%% Local Variables:
 %%% mode: latex

@@ -1,14 +1,14 @@
 \begin{frame} \frametitle{\vspace*{0.5cm}Governing Equations}
-  \vfil\vspace*{0.5cm}
+%  \vspace*{0.5cm}
   {\small
     \hspace*{1cm}Euler equations of fluid motion
   }
   {\scriptsize
     \begin{align*}% 
-      \frac{\partial \rho}{\partial t} + \frac{\partial \left(\rho u\right)}{\partial x} + \frac{\partial \left(\rho v\right)}{\partial y} = 0,\\
-      \frac{\partial \rho u}{\partial t} + \frac{\partial}{\partial x}\left( \rho u^2+p\right)  + \frac{\partial}{\partial y}\left( \rho uv\right) = 0,\\
-      \frac{\partial \rho v}{\partial t} + \frac{\partial}{\partial x}\left( \rho uv\right)  + \frac{\partial}{\partial y}\left( \rho v^2+p\right) = 0,\\
-      \frac{\partial E}{\partial t} + \frac{\partial}{\partial x}\left[u\left(E+p\right)\right] + \frac{\partial}{\partial y}\left[v\left(E+p\right)\right] = 0,
+      \frac{\partial \rho}{\partial t} + \frac{\partial \left(\rho u\right)}{\partial x} + \frac{\partial \left(\rho v\right)}{\partial y} = 0,&&\text{Continuity}\\
+      \frac{\partial \rho u}{\partial t} + \frac{\partial}{\partial x}\left( \rho u^2+p\right)  + \frac{\partial}{\partial y}\left( \rho uv\right) = 0,&&\text{$x$-momentum}&\\
+      \frac{\partial \rho v}{\partial t} + \frac{\partial}{\partial x}\left( \rho uv\right)  + \frac{\partial}{\partial y}\left( \rho v^2+p\right) = 0,&&\text{$y$-momentum}\\
+      \frac{\partial E}{\partial t} + \frac{\partial}{\partial x}\left[u\left(E+p\right)\right] + \frac{\partial}{\partial y}\left[v\left(E+p\right)\right] = 0,&&\text{Energy}
     \end{align*}%
   }
   \vfil
@@ -20,22 +20,20 @@
       E=\frac{\rho\left(u^2+v^2\right)}{2} + \frac{p+\gamma B}{\gamma-1}.
     \end{align*}
   }
-  \vfil
-  {\small
-    \hspace*{1cm}Advection equations for $\gamma,\,B$ prevent interface pressure oscillations.
-  }
-  \scriptsize{
-    \begin{align*}
-      \frac{\partial}{\partial t}\left(\frac{\gamma B}{\gamma-1}\right)%
-      +u\frac{\partial}{\partial x}\left(\frac{\gamma B}{\gamma-1}\right)%
-      +v\frac{\partial}{\partial y}\left(\frac{\gamma B}{\gamma-1}\right)= 0,%
-      \\%
-      %
-      \frac{\partial}{\partial t}\left(\frac{1}{\gamma-1}\right)%
-      +u\frac{\partial}{\partial x}\left(\frac{1}{\gamma-1}\right)%
-      +v\frac{\partial}{\partial y}\left(\frac{1}{\gamma-1}\right)= 0%
-    \end{align*}
-  }
+  % UNCOMMENT IF NECESSARY
+  % {\small \hspace*{1cm}Advection equations for $\gamma,\,B$ prevent interface pressure oscillations.  }
+  % \scriptsize{
+  %   \begin{align*}
+  %     \frac{\partial}{\partial t}\left(\frac{\gamma B}{\gamma-1}\right)%
+  %     +u\frac{\partial}{\partial x}\left(\frac{\gamma B}{\gamma-1}\right)%
+  %     +v\frac{\partial}{\partial y}\left(\frac{\gamma B}{\gamma-1}\right)= 0,%
+  %     \\%
+  %     % 
+  %     \frac{\partial}{\partial t}\left(\frac{1}{\gamma-1}\right)%
+  %     +u\frac{\partial}{\partial x}\left(\frac{1}{\gamma-1}\right)%
+  %     +v\frac{\partial}{\partial y}\left(\frac{1}{\gamma-1}\right)= 0%
+  %   \end{align*}
+  % }
 \end{frame}
 %%% Local Variables:
 %%% mode: latex

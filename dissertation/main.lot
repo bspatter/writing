@@ -1,8 +1,16 @@
+\ttl@tocsep 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Base physical parameters representative of soft tissue used in the present study.\relax }}{29}{table.caption.34}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Base physical parameters representative of soft tissue used in the present study.\relax }}{31}{table.caption.39}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Circulation during the wave-interface interaction.\relax }}{61}{table.caption.61}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Interface amplitude growth time exponents, $\frac {a(t)}{\ell }\sim t^n$\relax }}{64}{table.caption.62}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\ttl@tocsep 
 \addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Summary of uncertain environmental parameters and their distributions}}{123}{table.caption.97}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Summary of $L_1$ error of area statistics-generated TL PDFs, compared to Monte Carlo-generated PDFs}}{137}{table.caption.101}
+\addvspace {8pt}
+\addvspace {8pt}
 \addvspace {8pt}

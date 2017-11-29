@@ -1,1 +1,14 @@
-\contentsline {chapter}{\numberline {A}Random Pieces}{111}{section*.82}
+\global \c@tocdepth 4\relax 
+\contentsline {chapter}{\numberline {A}Appendices for Chapter 3}{139}{section*.104}
+\contentsline {section}{\numberline {A.1}Order of magnitude analysis of vorticity-generation mechanisms}{139}{section.1.A.1}
+\contentsline {section}{\numberline {A.2}Convergence: interface length per unit circulation, $s(t)/\Gamma (t)$}{141}{section.1.A.2}
+\contentsline {section}{\numberline {A.3}Vorticity distribution}{142}{section.1.A.3}
+\contentsline {section}{\numberline {A.4}Numerical treatment of the initial interface}{145}{section.1.A.4}
+\contentsline {section}{\numberline {A.5}Perturbation growth for the -10 MPa trapezoidal wave}{148}{section.1.A.5}
+\contentsline {section}{\numberline {A.6}Perturbation growth for the 10 MPa sinusoidal wave}{149}{section.1.A.6}
+\contentsline {section}{\numberline {A.7}Comparison of elastic and inertial forces for the 10 MPa trapezoidal wave}{150}{section.1.A.7}
+\contentsline {chapter}{\numberline {B}Appendices for Chapter 4}{153}{section*.114}
+\contentsline {section}{\numberline {B.1}Circulation due to $1, 2.5,$ and $5$ MPa Ultrasound Pules with dependence on $p_a$ and $a_0$}{153}{section.1.B.1}
+\contentsline {section}{\numberline {B.2}Ultrasound-induced interface growth, strain, and circulation}{153}{section.1.B.2}
+\contentsline {chapter}{\numberline {C}Underwater uncertainty Monte Carlo Randomization Techniques}{156}{section*.118}
+\contentsline {section}{\numberline {C.1}Area statistics randomizations}{156}{section.1.C.1}

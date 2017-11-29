@@ -82,6 +82,7 @@
 \@umich@thesistrue
 \@umich@listoffigurestrue
 \@umich@listoftablestrue
+\@umich@listofappendicestrue
 \@umich@copyrighttrue
 
 % This declares a variable for using an index.
@@ -310,7 +311,7 @@ headheight=0.5\baselineskip]{geometry}
   % Use single-spaced lines for the title page.
   \begin{singlespace} %
     % Move down the page slightly.
-    \hbox{\vspace{0.3in}} %
+    \hbox{\vspace{1in}} %
     % Center the title page as well.
     \begin{center} %
       % Put the title itself in 1.5-spaced format.
@@ -330,7 +331,8 @@ headheight=0.5\baselineskip]{geometry}
       % 
       % 
       % Text from guidelines
-      \insertdeliverable \\submitted in partial fulfillment \\ %
+%      \insertdeliverable \ A dissertation submitted in partial fulfillment \\ %
+      A dissertation submitted in partial fulfillment \\ %
       of the requirements for the degree of \\ %
       % 
       % 
@@ -395,6 +397,7 @@ headheight=0.5\baselineskip]{geometry}
     % Vertical rubber space
     \vfill %
   \end{center} %
+\newpage
 }
 
 
@@ -411,15 +414,22 @@ headheight=0.5\baselineskip]{geometry}
 % Command for copyright page
 \newcommand*{\copyrightpage}{ %
   % Insert the titlepage formatting.
-  \ttlpg %
+  \newpage
+  \thispagestyle{empty}
+%  \ttlpg %
   % Center the page.
   \begin{center} %
     % Vertical rubber space
     \ \vfill %
     % Insert the frontispiece.
+    \insertcopyrightholder\\[1ex] %
+    % Insert my email
+    awesome@umich.edu\\[1ex] %
+    ORCID iD: 0000-0002-3748-3865\\[1ex] %
+    \vspace*{1cm} %
     \copyright \, \insertcopyrightholder \, \number\year\\[1ex] %
     % Horizontal line
-    \rule[0.5ex]{5in}{1pt} \\[1ex] %
+%    \rule[0.5ex]{5in}{1pt} \\[1ex] %
     % All rights reserved
     All Rights Reserved
     % The year of publication
@@ -679,16 +689,71 @@ headheight=0.5\baselineskip]{geometry}
 % Command to insert it
 \newcommand{\insertacknowledgments}{\@acknowledgments}
 
-% Command for page with the acknowledgments
-\newcommand*{\acknowledgmentspage}{ %
+% New command for page with the acknowledgments
+\newcommand{\acknowledgmentspage}{ %
   % Set the page formatting.
-  \frntpg %
+  %\frntpg %
+  % Whether or not to hide the page number %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMMENTED TO SHOW ABSTRACT PAGE NUMBER
+  % \if@abstract@pageno %
+  % \else %
+  % \thispagestyle{empty} %
+  % \fi %
   % Add this page to the table of contents.
-  \phantomsection\addcontentsline{toc}{chapter}{Acknowledgments}
-  % Insert the text and formatting.
-  \insertfront{\@acknowledgments %
-  }{\@acknowledgmentsstyle}{Acknowledgments}{\@acknowledgments@width}
+  \phantomsection\addcontentsline{toc}{chapter}{Acknowledgments} %
+  %
+  \normalsize %
+  % 
+  \begin{center}
+    \begin{adjustwidth}{0.12\textwidth}{0.12\textwidth}
+      % Double-spaced lines required by Rackham
+      \doublespacing %
+      % Insert the text.
+      \insertacknowledgments %
+      % \insertfront{\@acknowledgments}{\@acknowledgmentsstyle}{Acknowledgments}{\@acknowledgments@width}
+    \end{adjustwidth}
+  \end{center} %
+
+
+  %   % Extra vertical space
+  % \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+  %   % Center the title area.
+  % \begin{center} %
+  %     %   Formatting
+  %   \large \bfseries
+  %     %   Add the heading.
+  %   ACKNOWLEDGMENTS \\[5ex] %
+  %     %   Add the title of the dissertation.
+  %   \normalsize %
+  % %   \inserttitle \\[2ex] %
+  %     %   Add the word 'by'
+  % %   by \\[2ex]
+  %     %   Add the author.
+  % %   \insertauthor
+  % \end{center} %
+  %   % 
+  % \pagebreak
+  % % Insert the text in a centered minipage.
+  % \begin{center} %
+  %   {
+  %     %   Formatting
+  %   \large \bfseries
+  %     %   Add the heading.
+  %   ACKNOWLEDGMENTS \\[5ex] %
+  % }
 }
+
+
+% 
+% % Original command for page with the acknowledgments
+% \newcommand*{\acknowledgmentspage}{ %
+%   % Set the page formatting.
+%   \frntpg %
+%   % Add this page to the table of contents.
+%   \phantomsection\addcontentsline{toc}{chapter}{Acknowledgments}
+%   % Insert the text and formatting.
+%   \insertfront{\@acknowledgments %
+%   }{\@acknowledgmentsstyle}{Acknowledgments}{\@acknowledgments@width}
+% }
 
 
 %% ---- PREFACE PAGE ---------------------------------------------------
@@ -724,9 +789,10 @@ headheight=0.5\baselineskip]{geometry}
   \frntpg %
   % Add this page to the table of contents.
   \phantomsection\addcontentsline{toc}{chapter}{Preface}
+  % Doublespace
+  \doublespacing %
   % Insert the text and formatting.
-  \insertfront{\@preface %
-  }{\@prefacestyle}{Preface}{\@preface@width}
+  \insertfront{\doublespacing\@preface}{\@prefacestyle}{Preface}{\@preface@width}
 }
 
 
@@ -834,6 +900,21 @@ headheight=0.5\baselineskip]{geometry}
 
 %% ---- TABLE OF CONTENTS ----------------------------------------------
 % This sets the formatting for chapter entries in the table of contents.
+\RequirePackage[titles]{tocloft}% [titles] added to get formatting write for TOC and lists %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\@addtoreset{section}{part}
+\let\oldpartcommand\thepart
+%\renewcommand\thepart{Part~\Roman{part}~:} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WORKED FOR TOC, but broke things later
+\renewcommand\thepart{\Roman{part}~:} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% WORKED FOR TOC, but broke things later
+
+
+%\renewcommand\cftpartpresnum{Part~}
+%\settowidth\mylen{\bfseries\cftpartpresnum\cftpartaftersnum}
+%\addtolength\cftpartnumwidth{\mylen}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TRY TO MAKE APPENDICES WORK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \renewcommand*\l@part[2]{ %
   % First add some vertical space.
   \vskip 1ex plus 1pt minus 1pt
@@ -842,7 +923,41 @@ headheight=0.5\baselineskip]{geometry}
   % This sets the formatting for the chapter name and page number.
   {\textbf{#1}}{\textbf{#2}} %
   % Add some space below, too.
-  \vskip 1ex}
+  \vskip 1ex %
+  \hskip 2.1ex
+  % Add the word 'Chapter' to the table of contents.
+  {CHAPTER}\vspace{1ex} %
+%  \addtocontents{toc}{\vspace{1.3ex}{\bf Chapter}\vspace{1.3ex}} %
+}
+
+
+
+
+
+
+
+\RequirePackage{titlesec}
+
+\titleclass{\part}{top} % make part like a chapter
+\titleformat{\part}
+[display]
+{\centering\normalfont\Huge\bfseries}
+{\vspace*{3in}\thepart}
+{0pt}
+{\titlerule[0pt]}
+%{\titlerule[2pt]\vspace{1pc}\huge\MakeUppercase}
+%
+\titlespacing*{\part}{0pt}{0pt}{20pt}
+
+
+
+
+
+
+
+
+
+
 
 
 %% This sets the formatting for chapter entries in the table of contents.
@@ -877,7 +992,7 @@ headheight=0.5\baselineskip]{geometry}
   % Add a bookmark manually for the table of contents.
   \pdfbookmark[0]{Table of Contents}{\thepage} %
   % Use front page styling.
-  \frntpg %
+%  \frntpg %
   % Larger upper margin for first page of table
   \if@umich@thesis %
   \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
@@ -902,7 +1017,10 @@ headheight=0.5\baselineskip]{geometry}
   % Move to new page.
   \newpage %
   % Add this page to the table of contents.
-  \phantomsection\addcontentsline{toc}{chapter}{List of Figures} %
+  \phantomsection\addcontentsline{toc}{chapter}{List of Figures} %%%%%%%%%%%%%%%%%%%%%%%%%
+  %\addcontentsline{toc}{chapter}{List of Figures} %%%%%%%%%%%%%%%%%%%%%%%%%
+  % Anchor for pdf
+%  \phantomsection %
   % Use front page styling.
   \frntpg %
   % Larger upper margin for first page of table (thesis only)
@@ -928,6 +1046,8 @@ headheight=0.5\baselineskip]{geometry}
 \renewcommand*{\listoftables}{%
   % Move to new page.
   \newpage %
+  % Anchor for pdf
+  \phantomsection %
   % Add this page to the table of contents.
   \phantomsection\addcontentsline{toc}{chapter}{List of Tables} %
   % Use front page styling.
@@ -1051,6 +1171,7 @@ headheight=0.5\baselineskip]{geometry}
 
 % This sets the formatting of the list of appendices page.
 \newcommand*{\listofappendices}{%
+\addtocontents{loa}{\setcounter{tocdepth}{4}} %%%%%%%%%%%%%%%%%%%%%%%%%% % Make the appendix deep
   % Move to new page.
   \newpage %
   % Add this page to the table of contents.
@@ -1071,7 +1192,12 @@ headheight=0.5\baselineskip]{geometry}
   \begin{singlespace} %
     \@starttoc{loa}\if@restonecol\twocolumn\fi %
   \end{singlespace} %
-}
+
+
+ % \let\oldaddcontentsline\addcontentsline% Copy \addcontentsline
+ % Force \addcontentsline to ALWAYS add to List of Appendices
+ %\renewcommand{\addcontentsline}[1]{\oldaddcontentsline{toc}}%
+}%
 
 % Renew the command that starts the appendices.
 \renewcommand{\appendix}{ %
@@ -1081,46 +1207,97 @@ headheight=0.5\baselineskip]{geometry}
   \renewcommand*{\thechapter}{\Alph{chapter}} %
   % Start over the chapter counter.
   \setcounter{chapter}{0} %
-  % Add a pdf anchor.
+
+  % KEEP THESE ALL UNCOMMENTED OR ALL COMMENTED
+  % % Add a pdf anchor.
   \phantomsection %
   % Add the page to the table of contents.
   \addcontentsline{toc}{chapter}{Appendices}
-  % Stop adding sections to the table of contents.
-  \addtocontents{toc}{\setcounter{tocdepth}{1}} %
-  % Header for appendices.
+  %Stop adding sections to the table of contents.
+  \addtocontents{toc}{\setcounter{tocdepth}{1}} %%%%%%%%%%%%%%%%%%%%%%%%%% % THIS IS WHAT BROKE THE APPENDIX LIST
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+   % Header for appendices.
   \renewcommand{\@chapapp}{APPENDIX} %
   % Renew the chapter and section labels.
   \let\@chapter\@chapter@appendix %
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% STUFF I ADDED
+  \setcounter{section}{0} %
+  \newcommand*{\secapp}{\@secapp}
+  \newcommand*\@secapp{\sectionname}
+  \renewcommand{\@secapp}{APPENDIX} %
+  \let\@section\@section@appendix %
+
+
+%  \renewcommand*{\thesection}{\Alph{section}} 
+%  \renewcommand*{\thesection}{\thesection} %%
+
+
+
+
+% DIRTY HACK TO FORCE APPENDIX LINES ONTO LIST OF APPENDICES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\let\oldaddcontentsline\addcontentsline% Copy \addcontentsline
+% Force \addcontentsline to ALWAYS add to List of Appendices
+%\renewcommand{\addcontentsline}[1]{\oldaddcontentsline{loa}}%
 }
 
 % Make a special chapter command for appendices.
 \def\@chapter@appendix[#1]#2{ %
   % Increase the chapter letter.
-  \refstepcounter{chapter} %
+\refstepcounter{chapter} %
   % Print a line to the .log file.
-  \typeout{\@chapapp\space\thechapter.} %
+\typeout{\@chapapp\space\thechapter.} %
   % Hopefully this works.
-  \phantomsection %
+\phantomsection %
   % Add a bookmark manually.
-  \pdfbookmark[0]{#1}{#2} %
+\pdfbookmark[0]{#1}{#2} %
   % Add to the list of appendices rather than toc.
-  \addcontentsline{loa}{chapter}{\protect\numberline{\thechapter}#1} %
+\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1} %
+\addcontentsline{loa}{chapter}{\protect\numberline{\thechapter}#1} %
   % Save the chapter number.
-  \chaptermark{#1} %
+\chaptermark{#1} %
   % Add extra space to the lists of figures and tables and maps.
-  \addtocontents{lof}{\protect\addvspace{8pt}} %
-  \addtocontents{lot}{\protect\addvspace{8pt}} %
-  \addtocontents{lom}{\protect\addvspace{8pt}} %
-  \addtocontents{lop}{\protect\addvspace{8pt}} %
-  \addtocontents{loi}{\protect\addvspace{8pt}} %
+\addtocontents{lof}{\protect\addvspace{8pt}} %
+\addtocontents{lot}{\protect\addvspace{8pt}} %
+\addtocontents{lom}{\protect\addvspace{8pt}} %
+\addtocontents{lop}{\protect\addvspace{8pt}} %
+\addtocontents{loi}{\protect\addvspace{8pt}} %
   % Produce the appropriate headings for the first page.
-  \if@twocolumn %
-  \@topnewpage[\@makechapterhead{#2}] %
-  \else %
-  \@makechapterhead{#2} %
-  \@afterheading %
-  \fi }
+\if@twocolumn %
+\@topnewpage[\@makechapterhead{#2}] %
+\else %
+\@makechapterhead{#2} %
+\@afterheading %
+\fi }
+% % 
+% %
+% % I MADE THIS AND IT DOESN'T WORK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Make a special section command for appendices.
+\def\@section@appendix[#1]#2{ %
+  % Increase the chapter letter.
+\refstepcounter{section} %
+  % Print a line to the .log file.
+\typeout{\@secapp\space\thesection.} %
+  % Hopefully this works.
+\phantomsection %
+  % Add a bookmark manually.
+\pdfbookmark[0]{#1}{#2} %
+  % Add to the list of appendices rather than toc.
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1} %
+\addcontentsline{loa}{section}{\protect\numberline{\thesection}#1} %
+  % Save the chapter number.
+\sectionmark{#1} %
+  % Add extra space to the lists of figures and tables and maps.
+\addtocontents{lof}{\protect\addvspace{8pt}} %
+\addtocontents{lot}{\protect\addvspace{8pt}} %
+\addtocontents{lom}{\protect\addvspace{8pt}} %
+\addtocontents{lop}{\protect\addvspace{8pt}} %
+\addtocontents{loi}{\protect\addvspace{8pt}} %
 
+
+\fi }
 
 %% ---- LIST OF ABBREVIATIONS ------------------------------------------
 % Variable holding the contents of the abbreviations.
@@ -1141,7 +1318,7 @@ headheight=0.5\baselineskip]{geometry}
   % Move to new page.
   \newpage %
   % Add this page to the table of contents.
-  \phantomsection\addcontentsline{toc}{chapter}{List of Acronyms and Abbreviations} %
+  \phantomsection\addcontentsline{toc}{chapter}{List of Abbreviations} %Acronyms and Abbreviations} %
   % Use front page styling.
   \frntpg %
   % Larger upper margin for first page of table (thesis only)
@@ -1149,7 +1326,7 @@ headheight=0.5\baselineskip]{geometry}
   \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
   \fi %
   % Add the title
-  \centerline{\large\bf LIST OF ABBREVIATIONS \& ACRONYMS} %
+  \centerline{\large\bf LIST OF ABBREVIATIONS} % \& ACRONYMS} %
   % Add some space after the title.
   \vspace{1ex} %
   % Start the automatic abbreviations feature.
@@ -1264,14 +1441,14 @@ headheight=0.5\baselineskip]{geometry}
 \newcommand{\hideabstractpagenumber}{ %
   \@abstract@pagenofalse}
 % Command to show abstract page number
-\newcommand{\showbstractpagenumber}{ %
+\newcommand{\showabstractpagenumber}{ %
   \@abstract@pagenotrue}
 
 % Format the abstract page.
 \newcommand{\abstractpage}{ %
   % Set the page formatting.
   \frntpg %
-  % Whether or not to hide the page number
+  % Whether or not to hide the page number %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMMENTED TO SHOW ABSTRACT PAGE NUMBER
   \if@abstract@pageno %
   \else %
   \thispagestyle{empty} %
@@ -1288,23 +1465,23 @@ headheight=0.5\baselineskip]{geometry}
     ABSTRACT \\[5ex] %
     % Add the title of the dissertation.
     \normalsize %
-    \inserttitle \\[2ex] %
+%    \inserttitle \\[2ex] %
     % Add the word 'by'
-    by \\[2ex]
+%    by \\[2ex]
     % Add the author.
-    \insertauthor
+%    \insertauthor
   \end{center} %
   % Vertical rubber space
-  \vspace*{1cm} %
+%  \vspace*{1cm} %
   % Insert the chair info
-  \ifthenelse{\equal{\@cochair}{}}{
-    % No co-chairs; insert the chair.
-    {\bf Chair: \insertchair} %
-  }{ %
-    % Use co-chairs.
-    {\bf Co-Chairs: \insertcochairs}} %
+  % \ifthenelse{\equal{\@cochair}{}}{
+  %   % No co-chairs; insert the chair.
+  %   {\bf Chair: \insertchair} %
+  % }{ %
+  %   % Use co-chairs.
+  %   {\bf Co-Chairs: \insertcochair}} %
   % Vertical rubber space
-  \vspace*{1cm} %
+  % \vspace*{1cm} %
   % Insert the text in a centered minipage.
   \begin{center} %
     \begin{adjustwidth}{0.05\textwidth}{0.05\textwidth}
@@ -1317,6 +1494,92 @@ headheight=0.5\baselineskip]{geometry}
   % Vertical rubber space
   \vspace*{\stretch{1}} %
 }
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+% \newcommand{\@abstract}{}
+
+% % Command to set it.
+% \renewcommand{\abstract}[1]{
+%   % Show the abstract page.
+%   \showabstract %
+%   % Set the abstract text.
+%   \renewcommand{\@abstract}{#1}}
+
+% % Command to insert it.
+% \newcommand{\insertabstract}{\@abstract}
+
+% % Whether or not abstract page has a page number
+% \newif\if@abstract@pageno
+% % Default value
+% \if@umich@thesis
+% \@abstract@pagenotrue
+% \fi
+
+% % Command to hide abstract page number
+% \newcommand{\hideabstractpagenumber}{ %
+%   \@abstract@pagenofalse}
+% % Command to show abstract page number
+% \newcommand{\showabstractpagenumber}{ %
+%   \@abstract@pagenotrue}
+
+% % Format the abstract page.
+% \newcommand{\abstractpage}{ %
+%   % Set the page formatting.
+%   \frntpg %
+%   % Whether or not to hide the page number %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMMENTED TO SHOW ABSTRACT PAGE NUMBER
+%   \if@abstract@pageno %
+%   \else %
+%   \thispagestyle{empty} %
+%   \fi %
+%   % Add this page to the table of contents.
+%   \phantomsection\addcontentsline{toc}{chapter}{Abstract} %
+%   % Extra vertical space
+%   \begin{minipage}{0.8\textwidth} \vspace{1in} \end{minipage} \\ %
+%   % Center the title area.
+%   \begin{center} %
+%     % Formatting
+%     \large \bfseries
+%     % Add the heading.
+%     ABSTRACT \\[5ex] %
+%     % Add the title of the dissertation.
+%     \normalsize %
+% %    \inserttitle \\[2ex] %
+%     % Add the word 'by'
+% %    by \\[2ex]
+%     % Add the author.
+% %    \insertauthor
+%   \end{center} %
+%   % Vertical rubber space
+% %  \vspace*{1cm} %
+%   % Insert the chair info
+%   % \ifthenelse{\equal{\@cochair}{}}{
+%   %   % No co-chairs; insert the chair.
+%   %   {\bf Chair: \insertchair} %
+%   % }{ %
+%   %   % Use co-chairs.
+%   %   {\bf Co-Chairs: \insertcochair}} %
+%   % Vertical rubber space
+%   % \vspace*{1cm} %
+%   % Insert the text in a centered minipage.
+%   \begin{center} %
+%     \begin{adjustwidth}{0.05\textwidth}{0.05\textwidth}
+%       % Double-spaced lines required by Rackham
+%       \doublespacing %
+%       % Insert the text.
+%       \insertabstract %
+%     \end{adjustwidth}
+%   \end{center} %
+%   % Vertical rubber space
+%   \vspace*{\stretch{1}} %
+% }
+
+
+
+
+
 
 
 %% ---- BIBLIOGRAPHY ---------------------------------------------------
@@ -1340,10 +1603,13 @@ headheight=0.5\baselineskip]{geometry}
   \clearpage %
   % Create a pdf anchor.
   \phantomsection %
+  % RESET TOC DEPTH
+  \addtocontents{toc}{\setcounter{tocdepth}{2}}
   % Add to table of contents.
   \addcontentsline{toc}{chapter}{Bibliography} %
   % Load the bibliography.
   \@tex@bibliography{#1} %
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 }
 
 
@@ -1466,8 +1732,15 @@ headheight=0.5\baselineskip]{geometry}
   % Insert the table of contents.
   \tableofcontents %
   % Insert the list of figures.
+  \newpage %
+  \phantomsection % Anchor PDF % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I MANUALLY ADDED THIS TO MAKE IT WORK
+ % \addcontentsline{toc}{chapter}{List of Figures} % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I MANUALLY ADDED THIS TO MAKE IT WORK
   \if@umich@listoffigures\listoffigures\fi %
   % Insert the list of tables.
+  \newpage %
+  \phantomsection % Anchor PDF % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I MANUALLY ADDED THIS TO MAKE IT WORK
+  % Insert the list of tables.
+%  \addcontentsline{toc}{chapter}{List of Tables} % % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% I MANUALLY ADDED THIS TO MAKE IT WORK
   \if@umich@listoftables\listoftables\fi %
   % Insert the list of maps.
   \if@umich@listofmaps\listofmaps\fi %
@@ -1476,12 +1749,15 @@ headheight=0.5\baselineskip]{geometry}
   % Insert the list of programs.
   \if@umich@listofprograms\listofprograms\fi %
   % Insert the list of appendices.
+  \newpage %
   \if@umich@listofappendices\listofappendices\fi %
   % Insert the list of abbreviations.
   \if@umich@listofabbrevs\listofabbreviations\fi %
   % Insert the list of acronyms.
+  \newpage %
   \if@umich@listofacronyms\listofacronyms\fi %
   % Insert the list of symbols.
+  \newpage %
   \if@umich@listofsymbols\listofsymbols\fi %
   % Insert the abstract.
   \if@umich@abstract\abstractpage\fi %
@@ -1494,8 +1770,10 @@ headheight=0.5\baselineskip]{geometry}
   % Use Arabic numerals.
   \renewcommand{\thepage}{\arabic{page}} %
   % Add the word 'Chapter' to the table of contents.
-  \addtocontents{toc}{\vspace{1.3ex}\noindent %
-    {\bf Chapter}\vspace{1.3ex}} %
+ % \addtocontents{toc}{\vspace{1.3ex}\noindent % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% UNCOMMENT FOR CHAPTER WOD
+%    {\bf Chapter}\vspace{1.3ex}} %
+ \addtocontents{toc}{\vspace{1.3ex}\noindent % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% UNCOMMENT FOR CHAPTER WOD
+   {}\vspace{1.3ex}} %
   %Use the correct formatting.
   \if@umich@thesis %
   % Use 2.0 spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BRANDON

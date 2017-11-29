@@ -1,46 +1,146 @@
-\acresetall
-Numerical simulations are highly useful for approaching a wide range
-of problems within the field of acoustics. From submarine and whale
-sounds propagating across vast oceans to ultrasound striking
-microscopic bubbles in the blood stream behind layers of optically
-opaque tissue, there are a variety of contemporary acoustic problems
-with challenges that make them incredibly difficult or infeasible to
-investigate experimentally. Furthermore, many systems of acoustic
-interest such as the ocean and human body are immensely complex,
-rapidly changing, and poorly understood such that at any given time
-our best knowledge of the system is still fraught with
-uncertainty. Computation is used to overcome the difficulties of
-experimentation, explore a range of possibilities in uncertain
-systems, and to obtain detailed information about physical quantities
-that are not readily measurable. In this work, we present advancements
-in two very different areas of acoustics, made possible through the
-use of computation.
+\acresetall%
+\setlength\parindent{20pt}%
+Numerical simulations are useful for approaching a wide range of
+problems within the field of acoustics. From the propagation of sound
+across vast, dynamic oceans to the ultrasonically driven collapse of
+microbubbles in the blood stream, there are a variety of contemporary
+acoustic problems with challenges that make them difficult or
+infeasible to investigate experimentally. Computation is useful in
+overcoming some of the difficulties of experimentation to gain
+insights that might otherwise remain elusive. In this dissertation, we
+present novel work in two very different and distinct areas of
+acoustics: the modeling and study of diagnostic ultrasound bioeffects
+and the estimation of acoustic transmission loss uncertainty in
+uncertain ocean environments. While the problems we approach in each
+of these areas are similar in that the are concerned with nonlinear
+acoustics in complex, uncertain media, they are otherwise quite
+separate. As such, this document is split into two separate, but
+unequal parts and the summary of relevant background information, work
+performed, and conclusions in each area will be presented separately.
 
-In this work, we investigate two problems related to
-biological effects of medical \ac{US}. The use of \ac{US} for
-diagnostic and therapeutic purposes has grown very quickly over the
-last few decades, as technological advancements have allowed us to use
-\ac{US} for everything from drug delivery and destruction of unwanted
-tissue to imaging of the internals of the human body. However, certain
-\ac{US} procedures have been shown to cause unwanted biological
-effects that are still poorly understood because they occur on such
-small length and time scales that they cannot be directly observed as
-they occur in the body. We develop numerical models to investigate
-experimentally observed hemorrhage associated with \ac{CEUS} and
-\ac{DUS} of the lung. In doing so, we compare calculated cavitation
-bubble dynamics pertinent to \ac{CEUS} to previously obtained
-experimental results to show that accepted thresholds for \ac{IC} are
-unlikely to be useful for predicting \ac{CEUS} bioeffects. For the
-case of \ac{DUS} of the lung, we propose a new physical damage
-mechanism based on ultrasonically-induced baroclinic torque at tissue
-air interfaces within the lungs. We perform analysis and simulations
-to demonstrate that, given certain simplifying assumptions, predictable
-deformation of the interface occurs via the proposed mechanism. We
-conclude that it is a feasible injury mechanism, which will be
-investigated in detail over the remainder of this thesis.
+The first part of this dissertation, which represents the bulk of the
+work herein, investigates the physics associated with two biological
+effects of medical \ac{US}: hemorrhage resulting from \ac{CEUS} and
+lung hemorrhage resulting non-contrast \ac{DUS}. First, we consider
+\ac{CEUS}-induced hemorrhage in mammals, which is well documented and
+thought to be a result of inertial cavitation, though the specific
+physical damage mechanisms and thresholds are not well understood. To
+advance our knowledge in this area we aimed to use computational
+modeling and simulation, combined with experimental results to relate
+standard cavitation metrics to known bioeffects thresholds. In this
+work we developed a computational model of spherical bubble collapse
+in a compressible, viscoelastic soft tissue. In a novel contribution
+to this area we drove the bubbles using experimentally measured
+ultrasound waveforms ($1.5$ - $7.5$ MHz), with known peak rarefaction
+pressure amplitude thresholds for glomerular capillary hemorrhage in
+rats. Using our computational model we studied the dependence of
+common cavitation metrics on physical parameters including viscosity,
+elasticity, equilibrium bubble radius, and gas contents. Cavitation
+metrics such as the maximum bubble radius relative to equilibrium were
+compared with known bioeffects thresholds and accepted thresholds for
+the onset of inertial cavitation in water (e.g., $R_{max}/R_0=2$,
+$T_{max}=5000$ K). We find that the experimentally determined
+bioeffects thresholds were greater than the previously determined
+inertial cavitation thresholds and when applied to our results were
+poor predictors of biological effects. Additionally, we found that the
+frequency dependence of the calculated dimensionless maximum bubble
+radius correlated strongly with that of the bioeffects thresholds.
 
-\hl{FINISH ME}
+For the second problem we aimed to use full numerical simulations to
+understand some of the detailed physics associated with interactions
+between alveolar tissue-air interfaces and ultrasound waves. To
+accomplish this we modeled the problem as an acoustic wave in water
+impinging upon a sinusoidally-perturbed water-air interface. We
+performed a detailed study of the dynamics of the interface driven by
+a trapezoidal acoustic wave with variable amplitude and wavelength,
+determined from common \ac{DUS} parameters (Peak amplitudes from $5$
+v-- $12.5$ MPa). We observed that the interface perturbation grew
+vboth during its interaction with the wave and continued to grow long
+after the wave had passed. We showed that this late time growth is a
+result of baroclinic vorticity generated along the interface by
+misalignment between the ultrasound pressure gradient and the sharp
+interface density gradient. This is a second order effect that cannot
+be explained by linear acoustics. Using dimensional analysis, we show
+that the interface length and perturbation amplitude grow according to
+power laws in time and scale with the circulation
+density. Furthermore, because the vorticity generation depends
+strongly on the dynamic interface morphology during its interaction
+with the wave, we concluded that the long term growth depends heavily
+on the duration and form of the acoustic wave. This may have important
+implications for ultrasound-induced alveolar wall strain.
 
+Having developed an understanding of the physics underlying the
+acoustically driven liquid-gas interface, we then aimed to use our
+model to estimate alveolar stresses and strains resulting from
+interactions with a single ultrasound pulse. We expanded our study to
+consider liquid-gas interfaces driven by $1.5$ MHz ultrasound pulses
+with peak amplitudes $1$, $2.5$, and $5$ MPa. For these cases we
+calculated passive viscous stresses and linear strains for the
+interface and compare with previously observed alveolar failure
+criteria from the literature. We found that the estimated viscous
+stress maximums are on the order of tens of Pascals and are much
+smaller than those expected to cause alveolar failure. However, at the
+end of simulation, $t=288~\mu$s, interfacial strains of up to 38\% were
+observed for the $5$ MPa wave. As this work considers only a single pulse,
+and the vorticity mechanisms driving the deformation are expected to accumulate
+from pulse to pulse, we conclude that these strains are worthy of
+further investigation.
+
+In the second part of this dissertation we develop \textit{area
+  statistics}, a computationally efficient method for estimating the
+\ac{PDF} of acoustic \ac{TL} in uncertain ocean
+environments. Knowledge of transmission loss uncertainty is useful in
+a variety of practical naval applications, but standard methods for
+determining \ac{TL} uncertainty are computationally expensive and
+poorly suited for real-time applications. This work describes how
+\ac{TL} statistics in a range-depth area surrounding a point of
+interest can be used to obtain an approximate \ac{PDF} of \ac{TL}. The
+technique is based on the idea that \ac{TL} variations at a location
+of interest that occur because of random environmental fluctuations
+are represented by spatial variations in \ac{TL} in single baseline
+\ac{TL} field calculation. To perform this technique we used a single
+\ac{TL}-field calculation based on the most probable values for each
+of the uncertain environmental parameters, which describe the sound
+speed profile, bathymetry, and geoacoustic bottom layer sound speed,
+depth, and attenuation. The $L_1$ error norm is used to compare
+\textit{area statistics}-generated \acp{PDF} to those generated from
+2000-sample Monte Carlo calculations. The technique is tested for
+source frequencies of 100, 200, and 300 Hz and source depths of 91,
+137, 183m (300, 450, 600 ft), in ten uncertain ocean environments with
+a wide range of geometric and acoustic parameters and uncertainties. Over 11,000 test
+locations were considered at depths from 20 m to 4.5 km and
+ranges from less than 1 km to greater than 70 km. The area
+statistics-generated \acp{PDF} had an $L_1$ error $<$ 0.5 in 91\% of
+tested locations and were thus considered engineering level
+accurate. On average the \ac{PDF}s were generated in milliseconds of
+real time on a typical desktop computer and required less than one
+millionth the computational effort required to generate the Monte
+Carlo \ac{PDF}s.  \setlength\parindent{0pt}%
+
+
+% % The use of \ac{US} for diagnostic and therapeutic purposes has grown
+% % very quickly over the last few decades, as technological advancements
+% % have allowed us to use \ac{US} for everything from drug delivery and
+% % destruction of unwanted tissue to imaging of the internals of the
+% % human body. However, certain \ac{US} procedures have been shown to
+% % cause unwanted biological effects that are still poorly understood
+% % because they occur on such small length and time scales that they
+% % cannot be directly observed as they occur in the body. We develop
+% % numerical models to investigate experimentally observed hemorrhage
+% % associated with \ac{CEUS} and \ac{DUS} of the lung. In doing so, we
+% % compare calculated cavitation bubble dynamics pertinent to \ac{CEUS}
+% % to previously obtained experimental results to show that accepted
+% % thresholds for \ac{IC} are unlikely to be useful for predicting
+% % \ac{CEUS} bioeffects. For the case of \ac{DUS} of the lung, we propose
+% % a new physical damage mechanism based on ultrasonically-induced
+% % baroclinic torque at tissue air interfaces within the lungs. We
+% % perform analysis and simulations to demonstrate that, given certain
+% % simplifying assumptions, predictable deformation of the interface
+% % occurs via the proposed mechanism. We conclude that it is a feasible
+% % injury mechanism, which will be investigated in detail over the
+% % remainder of this thesis.
+
+%\hl{FINISH ME}
 % In the second part of this work we develop area statistics, a
 % computationally efficient method for estimating the \ac{PDF} of
 % acoustic \ac{TL} in uncertain ocean environments. This is useful in a
@@ -54,7 +154,14 @@ investigated in detail over the remainder of this thesis.
 % reflection, and can be produced with $\orderof{10^{−6}}$ the computational
 % effort required for the Monte-Carlo calculations.
 
+% And many
+% systems of modern acoustic interest such as the ocean and human body
+% are immensely complex, rapidly changing, and poorly understood such
+% that at any given time our best knowledge of the system is still
+% fraught with uncertainty.
+
+
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: "../prelim"
+%%% TeX-master: "../main"
 %%% End:
